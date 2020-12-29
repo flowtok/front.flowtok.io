@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {RootStateT} from "./redux/store";
+import {initialize} from "./redux/app-reducer/app-reducer";
+import {Route, Switch } from 'react-router-dom';
 
-function App() {
+export const App = () => {
+   const dispatch = useDispatch()
+   const isLoader = useSelector((state: RootStateT) => state.app.isLoader)
+   const isInit = useSelector((state: RootStateT) => state.app.isInit)
+
+   useEffect(() => {
+      if (!isInit) dispatch(initialize())
+   }, [dispatch, isInit])
+
+   if (!isInit || isLoader) return <div>Loading...</div>
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+       {isLoader && <div>Loading...</div>}
+       <Switch>
+          <Route path={"/"} component={() => <div>Hello world!</div>}/>
+       </Switch>
     </div>
   );
 }
-
-export default App;
