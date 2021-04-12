@@ -1,0 +1,63 @@
+.top-block,
+.bottom-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-block {
+  background: #fff;
+  padding: 25px 54px 57px 54px;
+
+  & .title {
+    font-size: 34px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 8px;
+  
+    color: #000000;
+  }
+  
+  & .description {
+    font-family: SFProDisplay;
+    line-height: 18px;
+    text-align: center;
+    margin-bottom: 30px;
+  
+    color: #8E8E93;
+  }
+}
+
+.bottom-block {
+  background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 81.14%);
+  padding: 40px 54px;
+
+  & .stat {
+    margin-bottom: 35px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & .value,
+    & .label {
+      text-align: center;
+    }
+
+    & .value {
+      font-size: 32px;
+      line-height: 37px;
+      letter-spacing: -0.771765px;      
+      color: #1D1D1D;
+    }
+
+    & .label {
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: -0.361765px;
+      
+      color: #8E8E93;
+    }
+  }
+}

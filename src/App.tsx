@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
+import HomePage from './pages/home';
 import { RootStateT } from './redux/store';
 import { initialize } from './redux/app-reducer/app-reducer';
-import { Route, Switch } from 'react-router-dom';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -19,7 +21,9 @@ export const App = () => {
     <div>
       {isLoader && <div>Loading...</div>}
       <Switch>
-        <Route path={'/'} component={() => <div>Hello world!</div>} />
+        <Route path={'/'}>
+          <HomePage />
+        </Route>
       </Switch>
     </div>
   );
