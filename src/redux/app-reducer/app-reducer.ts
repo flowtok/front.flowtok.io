@@ -1,6 +1,6 @@
-import {commonThunkHandler} from "../../utils/redux-utils";
-import {BaseThunkT} from "../store";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { commonThunkHandler } from "../../utils/redux-utils";
+import { BaseThunkT } from "../store";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
    isInit: false,
@@ -11,11 +11,11 @@ const app = createSlice({
    name: 'app',
    initialState: initialState,
    reducers: {
-      setIsInit: (state: AppStateT, {payload}: PayloadAction<boolean>): AppStateT => ({
+      setIsInit: (state: AppStateT, { payload }: PayloadAction<boolean>): AppStateT => ({
          ...state,
          isInit: payload,
       }),
-      setIsLoader: (state: AppStateT, {payload}: PayloadAction<boolean>): AppStateT => ({
+      setIsLoader: (state: AppStateT, { payload }: PayloadAction<boolean>): AppStateT => ({
          ...state,
          isLoader: payload,
       }),
