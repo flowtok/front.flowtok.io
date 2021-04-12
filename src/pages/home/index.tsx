@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { GradientButton } from 'components/atoms/GradientButton';
 import { HomeInteractive } from 'components/molecules/HomeInteractive';
+import { Header } from 'components/organisms/Header';
 
 import styles from './styles.module.scss';
 
@@ -10,6 +11,7 @@ export default () => {
 
   return (
     <>
+      <Header />
       <div className={styles['top-block']}>
         <h1 className={styles.title}>{t('home.title')}</h1>
         <p className={styles.description}>{t('home.description')}</p>
