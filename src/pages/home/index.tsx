@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { GradientButton } from 'components/atoms/GradientButton';
+import { HomeInteractive } from 'components/molecules/HomeInteractive';
 
 import styles from './styles.module.scss';
 
@@ -14,6 +15,7 @@ export default () => {
         <p className={styles.description}>{t('home.description')}</p>
         <GradientButton>{t('home.signin-button-text')}</GradientButton>
       </div>
+      <HomeInteractive />
       <div className={styles['bottom-block']}>
         <div className={styles['stat']}>
           <h3 className={styles['value']}>563 195</h3>
