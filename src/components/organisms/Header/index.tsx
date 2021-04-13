@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import { useHistory } from 'react-router';
 import classNames from 'classnames';
 
@@ -20,48 +20,34 @@ export interface HeaderProps {
   additionalChild?: ReactNode;
 }
 
-export const Header = ({
-  title,
-  withAvatar,
-  withBackArrow,
-  rounded,
-  additionalChild,
-}: HeaderProps) => {
-  const history = useHistory();
+export const Header = forwardRef<HTMLDivElement, HeaderProps>(
+  ({ title, withAvatar, withBackArrow, rounded, additionalChild }, ref) => {
+    const history = useHistory();
 
-  const wrapperRef = useRef<HTMLDivElement>(null);
+    const goBack = () => history.goBack();
 
-  const goBack = () => history.goBack();
-
-  useEffect(() => {
-    const headerHeight = wrapperRef.current?.getBoundingClientRect().height;
-
-    document.getElementsByTagName(
-      'body'
-    )[0].style.paddingTop = `${headerHeight}px`;
-  }, [wrapperRef]);
-
-  return (
-    <div
-      ref={wrapperRef}
-      className={classNames(styles.wrapper, {
-        [styles['wrapper_rounded']]: rounded,
-      })}
-    >
-      <div className={styles['default-content-wrapper']}>
-        <div className={styles['left-element']}>
-          {!withBackArrow ? (
-            <img src={logo} />
-          ) : (
-            <img src={chevronLeft} onClick={goBack} />
-          )}
+    return (
+      <div
+        ref={ref}
+        className={classNames(styles.wrapper, {
+          [styles['wrapper_rounded']]: rounded,
+        })}
+      >
+        <div className={styles['default-content-wrapper']}>
+          <div className={styles['left-element']}>
+            {!withBackArrow ? (
+              <img src={logo} />
+            ) : (
+              <img src={chevronLeft} onClick={goBack} />
+            )}
+          </div>
+          {title && <p className={styles.title}>{title}</p>}
+          <div className={styles['right-element']}>
+            {withAvatar && <Avatar image={avatarMock} size={32} />}
+          </div>
         </div>
-        {title && <p className={styles.title}>{title}</p>}
-        <div className={styles['right-element']}>
-          {withAvatar && <Avatar image={avatarMock} size={32} />}
-        </div>
+        {additionalChild}
       </div>
-      {additionalChild}
-    </div>
-  );
-};
+    );
+  }
+);
