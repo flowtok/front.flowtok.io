@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { Paper } from 'components/atoms/Paper';
-import { GradientButton } from 'components/atoms/GradientButton';
+import { Button } from 'components/atoms/Button';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
 
@@ -21,9 +21,9 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         {t('pages.profile.wallet.secondary')}
       </p>
       <p className={commonStyles['value-primary']}>{balance}</p>
-      <GradientButton className={styles['pay-off-button']}>
+      <Button className={styles['pay-off-button']}>
         {t('pages.profile.wallet.pay-off-button-text')}
-      </GradientButton>
+      </Button>
     </Paper>
   );
 };

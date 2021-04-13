@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { Paper } from 'components/atoms/Paper';
-import { GradientButton } from 'components/atoms/GradientButton';
+import { Button } from 'components/atoms/Button';
 import { Divider } from 'components/atoms/Divider';
 import commonStyles from '../styles.module.scss';
 import CopyIcon from 'assets/common/icons/copy.svg';
@@ -29,9 +29,9 @@ export const ReferalCard = ({
         <div className={styles['field']}>
           <p>{refUrl}</p>
         </div>
-        <GradientButton className={styles['copy-button']}>
+        <Button className={styles['copy-button']}>
           <img src={CopyIcon} />
-        </GradientButton>
+        </Button>
       </div>
       <Divider />
       <div className={styles['stats-block']}>

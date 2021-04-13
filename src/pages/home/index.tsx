@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { GradientButton } from 'components/atoms/GradientButton';
+import { Button } from 'components/atoms/Button';
 import { HomeInteractive } from 'components/molecules/HomeInteractive';
 import { PageTemplate } from 'components/templates/Page';
 
@@ -15,7 +15,7 @@ export default () => {
         <div className={styles['top-block']}>
           <h1 className={styles.title}>{t('pages.home.title')}</h1>
           <p className={styles.description}>{t('pages.home.description')}</p>
-          <GradientButton>{t('pages.home.signin-button-text')}</GradientButton>
+          <Button>{t('pages.home.signin-button-text')}</Button>
         </div>
         <HomeInteractive />
         <div className={styles['bottom-block']}>
