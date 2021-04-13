@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Paper } from 'components/atoms/Paper';
 import { Button } from 'components/atoms/Button';
+import ClockIcon from 'assets/common/icons/clock.svg';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
 
@@ -14,6 +15,9 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
 
   return (
     <Paper className={styles.wallet}>
+      <button className={styles.history}>
+        <img src={ClockIcon} />
+      </button>
       <h3 className={commonStyles['title-primary']}>
         {t('pages.profile.wallet.primary')}
       </h3>
