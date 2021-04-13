@@ -8,7 +8,7 @@ import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import i18n from './i18n';
-import './styles/normalize.scss';
+import './styles/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
