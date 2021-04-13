@@ -1,4 +1,9 @@
 {
+  "header": {
+    "profile": {
+      "title": "Профиль"
+    }
+  },
   "pages": {
     "home": {
       "title": "Зарабатывай с FlowTok",
@@ -8,6 +13,32 @@
         "users": "Пользователей в FlowTok",
         "summary": "Всего выплачено",
         "median": "Средний доход в день"
+      }
+    },
+    "profile": {
+      "wallet": {
+        "primary": "Кошелек",
+        "secondary": "Ваш баланс",
+        "pay-off-button-text": "Выплатить"
+      },
+      "in-process": {
+        "secondary": "Ждет зачисления"
+      },
+      "total-earnings": {
+        "secondary": "Получено за все время"
+      },
+      "stats": {
+        "primary": "Показатили",
+        "views-median": "Среднее кол-во просмотров",
+        "pay-off-per-video": "Выплата за один ролик",
+        "rating": "Рэйтинг для рекламодателей"
+      },
+      "ref": {
+        "primary": "Реферальная программа",
+        "stats": {
+          "referals": "Кол-во рефералов",
+          "total-earnings": "Заработано всего"
+        }
       }
     }
   }

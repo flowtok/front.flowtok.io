@@ -1,0 +1,9 @@
+.wallet {
+  grid-area: 1 / 1 / auto / 3;
+
+  & .pay-off-button {
+    width: 100%;
+    border-radius: 11px;
+    padding: 14px;
+  }
+}

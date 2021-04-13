@@ -1,0 +1,14 @@
+.stats {
+  grid-area: 3 / 1 / auto / 3;
+  
+  & .data {
+    display: flex;
+    justify-content: space-between;
+
+    & .block {
+      position: relative;
+      padding: 0 6px;
+      text-align: left;
+    }
+  }
+}
