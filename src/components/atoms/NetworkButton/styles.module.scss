@@ -1,0 +1,25 @@
+.network-button {
+  border: 1.5px solid #E5E5EA;
+  border-radius: 30px;
+  background: #FFFFFF;
+  width: 100%;
+  height: 48px;
+  max-width: 390px;
+  font-size: 15px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: -0.361765px;
+  color: #1D1D1D;
+  position: relative;
+}
+.icon-container {
+  position: absolute;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  top: 0;
+  height: 100%;
+}
+.icon {
+  display: block;
+}

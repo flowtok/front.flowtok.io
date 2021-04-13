@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from './pages/home';
+import LoginPage from './pages/login';
 import { RootStateT } from './redux/store';
 import { initialize } from './redux/app-reducer/app-reducer';
 
@@ -21,6 +22,9 @@ export const App = () => {
     <div>
       {isLoader && <div>Loading...</div>}
       <Switch>
+        <Route path={'/login'}>
+          <LoginPage />
+        </Route>
         <Route path={'/'}>
           <HomePage />
         </Route>
