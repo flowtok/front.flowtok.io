@@ -1,0 +1,9 @@
+.wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+
+  & img {
+    width: inherit;
+    height: auto;
+  }
+}
