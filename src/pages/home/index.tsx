@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { GradientButton } from 'components/atoms/GradientButton';
 import { HomeInteractive } from 'components/molecules/HomeInteractive';
-import { Header } from 'components/organisms/Header';
+import { PageTemplate } from 'components/templates/Page';
 
 import styles from './styles.module.scss';
 
@@ -10,8 +10,7 @@ export default () => {
   const { t } = useTranslation();
 
   return (
-    <>
-      <Header />
+    <PageTemplate>
       <div className={styles['top-block']}>
         <h1 className={styles.title}>{t('home.title')}</h1>
         <p className={styles.description}>{t('home.description')}</p>
@@ -32,6 +31,6 @@ export default () => {
           <p className={styles['label']}>{t('home.stats.median')}</p>
         </div>
       </div>
-    </>
+    </PageTemplate>
   );
 };
