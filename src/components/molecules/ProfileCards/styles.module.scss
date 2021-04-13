@@ -1,0 +1,48 @@
+.title-primary,
+.value-primary,
+.value-secondary {
+  font-weight: 700;
+}
+
+.value-secondary,
+.rating {
+  font-size: 19px;
+  line-height: 22px;
+  letter-spacing: -0.458235px;
+}
+
+.title-primary {
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: -0.41px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.title-secondary {
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: -0.361765px;
+  color: #8E8E93;
+  margin-bottom: 10px;
+}
+
+.value-primary {
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: -0.675294px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.value-secondary {
+  color: #000000;
+}
+
+.rating-positive {
+  color: #24C054;
+}
+
+.rating-negative {
+  color: #FF3B30;
+}

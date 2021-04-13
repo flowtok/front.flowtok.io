@@ -1,0 +1,134 @@
+.outter-wrapper {
+  background-color: #F2F2F2;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0 10px 10px 10px;
+  
+  & .inner-wrapper {
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: auto;
+    grid-gap: 10px;
+
+    & .wallet {
+      grid-area: 1 / 1 / auto / 3;
+
+      & .pay-off-button {
+        width: 100%;
+        border-radius: 11px;
+        padding: 14px;
+      }
+    }
+
+    & .stats {
+      grid-area: 3 / 1 / auto / 3;
+      
+      & .data {
+        display: flex;
+        justify-content: space-between;
+
+        & .block {
+          position: relative;
+          padding: 0 6px;
+          text-align: left;
+        }
+      }
+    }
+
+    & .ref {
+      grid-area: 4 / 1 / auto / 3;
+
+      & .copy-block {
+        display: grid;
+        grid-template-columns: 1fr 52px;
+        grid-gap: 10px;
+        padding-bottom: 15px;
+
+        & .field,
+        & .copy-button {
+          height: 36px;
+        }
+  
+        & .field {
+          background: #F0F0F0;
+          border-radius: 30px;
+          padding: 10px 15px;
+          color: #1D1D1D;
+          font-size: 15px;
+          line-height: 18px;
+          letter-spacing: -0.361765px;
+          overflow: hidden;
+
+          > p {
+            overflow: hidden;
+          }
+        }
+  
+        & .copy-button {
+          padding: 10px 15px;
+        }
+      }
+
+      & .stats-block {
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+
+        > * {
+          text-align: left;
+        }
+      }
+    }
+
+    & .title-primary,
+    & .value-primary,
+    & .value-secondary {
+      font-weight: 700;
+    }
+
+    & .value-secondary,
+    & .rating {
+      font-size: 19px;
+      line-height: 22px;
+      letter-spacing: -0.458235px;
+    }
+  
+    & .title-primary {
+      font-size: 17px;
+      line-height: 20px;
+      letter-spacing: -0.41px;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+  
+    & .title-secondary {
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: -0.361765px;
+      color: #8E8E93;
+      margin-bottom: 10px;
+    }
+
+    & .value-primary {
+      font-size: 28px;
+      line-height: 33px;
+      letter-spacing: -0.675294px;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+
+    & .value-secondary {
+      color: #000000;
+    }
+
+    & .rating-positive {
+      color: #24C054;
+    }
+
+    & .rating-negative {
+      color: #FF3B30;
+    }
+  }
+}
