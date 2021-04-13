@@ -13,23 +13,23 @@ export default () => {
     <PageTemplate>
       <div>
         <div className={styles['top-block']}>
-          <h1 className={styles.title}>{t('home.title')}</h1>
-          <p className={styles.description}>{t('home.description')}</p>
-          <GradientButton>{t('home.signin-button-text')}</GradientButton>
+          <h1 className={styles.title}>{t('pages.home.title')}</h1>
+          <p className={styles.description}>{t('pages.home.description')}</p>
+          <GradientButton>{t('pages.home.signin-button-text')}</GradientButton>
         </div>
         <HomeInteractive />
         <div className={styles['bottom-block']}>
           <div className={styles['stat']}>
             <h3 className={styles['value']}>563 195</h3>
-            <p className={styles['label']}>{t('home.stats.users')}</p>
+            <p className={styles['label']}>{t('pages.home.stats.users')}</p>
           </div>
           <div className={styles['stat']}>
             <h3 className={styles['value']}>28 159 789 ₽</h3>
-            <p className={styles['label']}>{t('home.stats.summary')}</p>
+            <p className={styles['label']}>{t('pages.home.stats.summary')}</p>
           </div>
           <div className={styles['stat']}>
             <h3 className={styles['value']}>1 578 ₽</h3>
-            <p className={styles['label']}>{t('home.stats.median')}</p>
+            <p className={styles['label']}>{t('pages.home.stats.median')}</p>
           </div>
         </div>
       </div>
