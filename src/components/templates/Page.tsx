@@ -9,12 +9,21 @@ import {
 
 import { Header, HeaderProps } from 'components/organisms/Header';
 
+export interface ExtendedStyleProps {
+  paddingTop?: number;
+}
+
 export interface PageTemplate {
   headerProps?: HeaderProps;
+  extendedStyleProps?: ExtendedStyleProps;
   children: ReactElement;
 }
 
-export const PageTemplate = ({ children, headerProps = {} }: PageTemplate) => {
+export const PageTemplate = ({
+  children,
+  headerProps = {},
+  extendedStyleProps: { paddingTop = 0 } = {},
+}: PageTemplate) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const [isHeaderMounted, setIsHeaderMounted] = useState<boolean>(false);
 
@@ -33,7 +42,7 @@ export const PageTemplate = ({ children, headerProps = {} }: PageTemplate) => {
       ...children.props,
       style: {
         ...children.props.style,
-        paddingTop: `${headerHeight}px`,
+        paddingTop: `${headerHeight + paddingTop}px`,
       },
     };
   }, [isHeaderMounted, headerRef, headerProps]);
