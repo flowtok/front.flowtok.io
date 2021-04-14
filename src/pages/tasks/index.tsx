@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Swiper as SwiperClass } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,22 +14,20 @@ export default () => {
 
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
-  const transform = `translateX(${-100 / 2 + selectedTab * (100 / 2)}%)`;
-
   const [swiper, setSwiper] = useState<SwiperClass>();
 
   const onTabSelect = (index: number) => {
-    if (index === 0) {
+    if (index === 1) {
       swiper?.slideNext();
     }
-    if (index === 1) {
+    if (index === 0) {
       swiper?.slidePrev();
     }
     setSelectedTab(index);
   };
 
   const onSlideChange = (swiper: SwiperClass) => {
-    setSelectedTab(swiper.activeIndex === 0 ? 1 : 0);
+    setSelectedTab(swiper.activeIndex);
   };
 
   return (
@@ -55,33 +53,13 @@ export default () => {
       }}
     >
       <div className={styles['outter-wrapper']}>
-        {/* <div className={styles['inner-wrapper']} style={{ transform }}> */}
         <Swiper
-          initialSlide={1}
           slidesPerView={1}
           direction="horizontal"
           spaceBetween={20}
           onSwiper={setSwiper}
           onSlideChange={onSlideChange}
         >
-          <SwiperSlide>
-            <div className={styles['task-outter-wrapper']}>
-              <TaskCard
-                state="completed"
-                title="FlowTok"
-                description="Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис."
-                payment="10.00₽"
-                date="Сегодня"
-              />
-              <TaskCard
-                state="completed"
-                title="FlowTok"
-                description="Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис."
-                payment="10.00₽"
-                date="Сегодня"
-              />
-            </div>
-          </SwiperSlide>
           <SwiperSlide>
             <div className={styles['task-outter-wrapper']}>
               <TaskCard
@@ -121,9 +99,26 @@ export default () => {
               />
             </div>
           </SwiperSlide>
+          <SwiperSlide>
+            <div className={styles['task-outter-wrapper']}>
+              <TaskCard
+                state="completed"
+                title="FlowTok"
+                description="Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис."
+                payment="10.00₽"
+                date="Сегодня"
+              />
+              <TaskCard
+                state="completed"
+                title="FlowTok"
+                description="Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис."
+                payment="10.00₽"
+                date="Сегодня"
+              />
+            </div>
+          </SwiperSlide>
         </Swiper>
       </div>
-      {/* </div> */}
     </PageTemplate>
   );
 };
