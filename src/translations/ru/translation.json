@@ -68,5 +68,13 @@
     "tasks": {
       "disable-message": "Выполните текущее задание, чтобы перейти к следющему "
     }
+  },
+  "login": {
+    "enter": "Вход",
+    "sign-in-google": "Войти через Google",
+    "sign-in-vk": "Войти через VK",
+    "sign-in-fb": "Войти через Facebook",
+    "no-account": "Нет аккаунта в FLowTok? Зарегистрируйтесь!",
+    "sign-up": "Зарегистрироваться"
   }
 }
