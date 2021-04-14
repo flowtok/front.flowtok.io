@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from './pages/home';
 import ProfilePage from './pages/profile';
+import LoginPage from './pages/login';
 import { RootStateT } from './redux/store';
 import { initialize } from './redux/app-reducer/app-reducer';
 
@@ -24,6 +25,9 @@ export const App = () => {
       <Switch>
         <Route path="/" exact>
           <HomePage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
         </Route>
         <Route path="/profile">
           <ProfilePage />
