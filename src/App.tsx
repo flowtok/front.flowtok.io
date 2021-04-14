@@ -19,7 +19,7 @@ export const App = () => {
   if (!isInit || isLoader) return <div>Loading...</div>;
 
   return (
-    <div>
+    <>
       {isLoader && <div>Loading...</div>}
       <Switch>
         <Route path={'/login'}>
@@ -29,6 +29,6 @@ export const App = () => {
           <HomePage />
         </Route>
       </Switch>
-    </div>
+    </>
   );
 };

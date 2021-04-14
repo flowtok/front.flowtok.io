@@ -35,11 +35,9 @@ export default () => {
             {t('login.sign-in-google')}
           </NetworkButton>
           <div className={styles['label']}>{t('login.no-account')}</div>
-          <div className={styles['sign-up-btn']}>
-            <Link to={'/reg'}>
-              <BlackButton>{t('login.sign-up')}</BlackButton>
-            </Link>
-          </div>
+          <Link to={'/reg'} className={styles['sign-up-link']}>
+            <BlackButton>{t('login.sign-up')}</BlackButton>
+          </Link>
         </div>
       </div>
     </div>
