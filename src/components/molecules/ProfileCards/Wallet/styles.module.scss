@@ -1,0 +1,19 @@
+.wallet {
+  grid-area: 1 / 1 / auto / 3;
+  position: relative;
+
+  & .pay-off-button {
+    width: 100%;
+    border-radius: 11px;
+    padding: 14px;
+  }
+
+  & .history {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: none;
+    outline: none;
+    border: none;
+  }
+}

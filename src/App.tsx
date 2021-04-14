@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from './pages/home';
-import LoginPage from './pages/login';
+import ProfilePage from './pages/profile';
 import { RootStateT } from './redux/store';
 import { initialize } from './redux/app-reducer/app-reducer';
 
@@ -19,16 +19,16 @@ export const App = () => {
   if (!isInit || isLoader) return <div>Loading...</div>;
 
   return (
-    <>
+    <div>
       {isLoader && <div>Loading...</div>}
       <Switch>
-        <Route path={'/login'}>
-          <LoginPage />
-        </Route>
-        <Route path={'/'}>
+        <Route path="/" exact>
           <HomePage />
         </Route>
+        <Route path="/profile">
+          <ProfilePage />
+        </Route>
       </Switch>
-    </>
+    </div>
   );
 };
