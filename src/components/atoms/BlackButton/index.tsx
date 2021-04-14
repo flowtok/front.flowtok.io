@@ -19,7 +19,7 @@ export const BlackButton = forwardRef<
     <button
       ref={ref}
       {...rest}
-      className={classNames(styles['gradient-button'], className)}
+      className={classNames(styles['black-button'], className)}
     >
       {children}
     </button>

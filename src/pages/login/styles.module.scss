@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+}
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+}
+.sign-in {
+  z-index: 2;
+  width: 100%;
+  background: #fff;
+  padding: 30px 30px 46px;
+}
+.title {
+  font-size: 21px;
+  line-height: 25px;
+  color: #000000;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  button {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

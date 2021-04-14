@@ -1,9 +1,11 @@
-.gradient-button {
-  height: 52px;
-  background: linear-gradient(225deg, #2246F3 0%, #7832F0 100%);
-  border-radius: 42px;
+.black-button {
+  background: #000000;
+  border-radius: 24px;
   color: #fff;
-  padding: 0 36px;
   font-size: 15px;
-  line-height: 18px;
+  line-height: 48px;
+  text-align: center;
+  height: 48px;
+  width: 100%;
+  max-width: 390px;
 }
