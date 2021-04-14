@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from './pages/home';
 import ProfilePage from './pages/profile';
+import TasksPage from './pages/tasks';
 import LoginPage from './pages/login';
 import { RootStateT } from './redux/store';
 import { initialize } from './redux/app-reducer/app-reducer';
@@ -31,6 +32,9 @@ export const App = () => {
         </Route>
         <Route path="/profile">
           <ProfilePage />
+        </Route>
+        <Route path="/tasks">
+          <TasksPage />
         </Route>
       </Switch>
     </div>

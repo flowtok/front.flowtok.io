@@ -1,13 +1,43 @@
 .button {
+  position: relative;
   border-radius: 42px;
   color: #fff;
-  padding: 17px 36px;
-  font-size: 15px;
-  line-height: 18px;
   outline: none;
   border: none;
 }
 
+.button_size-s {
+  padding: 11px 36px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.button_size-m {
+  padding: 17px 36px;
+  font-size: 15px;
+  line-height: 18px;
+}
+
 .button_gradient {
   background: linear-gradient(225deg, #2246F3 0%, #7832F0 100%);
+}
+
+.button_border-gradient {
+  z-index: 0;
+  color: #000;
+  background: linear-gradient(225deg, #2246F3 0%, #7832F0 100%);
+
+  --gradient-border-radius: 0px;
+
+  &:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: #fff;
+    border-radius: var(--gradient-border-radius);
+  }
 }
