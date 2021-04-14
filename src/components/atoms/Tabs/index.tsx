@@ -23,7 +23,7 @@ export const Tabs = ({ list, selected, onSelect }: TabsProps) => {
         {list.map((item, index) => (
           <button
             key={index}
-            className={classNames(styles['tab'], {
+            className={classNames(styles['tab'], `tab-${index}`, {
               [styles['tab_selected']]: index === selected,
             })}
             onClick={() => onSelect(index)}
