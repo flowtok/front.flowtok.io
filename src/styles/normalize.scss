@@ -66,6 +66,10 @@ button {
   font-size: inherit
 }
 
+button:disabled {
+  pointer-events: none;
+}
+
 button::-moz-focus-inner {
   padding: 0;
   border: 0;

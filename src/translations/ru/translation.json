@@ -2,6 +2,30 @@
   "header": {
     "profile": {
       "title": "Профиль"
+    },
+    "tasks": {
+      "title": "Задания",
+      "tabs": {
+        "active": "Активные",
+        "completed": "Выполненно"
+      }
+    }
+  },
+  "task-cards": {
+    "cancel": "Отменить",
+    "possible-payment": {
+      "label": "За задание"
+    },
+    "getted-payment": {
+      "label": "Получено за задание"
+    },
+    "links": {
+      "site": "Сайт",
+      "channel": "Канал"
+    },
+    "actions": {
+      "check": "Проверить",
+      "perform": "Выполнить"
     }
   },
   "pages": {
@@ -28,7 +52,7 @@
         "secondary": "Получено за все время"
       },
       "stats": {
-        "primary": "Показатили",
+        "primary": "Показатели",
         "views-median": "Среднее кол-во просмотров",
         "pay-off-per-video": "Выплата за один ролик",
         "rating": "Рэйтинг для рекламодателей"
@@ -40,6 +64,9 @@
           "total-earnings": "Заработано всего"
         }
       }
+    },
+    "tasks": {
+      "disable-message": "Выполните текущее задание, чтобы перейти к следющему "
     }
   }
 }
