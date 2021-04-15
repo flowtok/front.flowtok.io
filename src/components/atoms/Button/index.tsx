@@ -42,9 +42,7 @@ export const Button = forwardRef<
     const finalClassName = classNames(
       styles['button'],
       styles[`button_size-${size}`],
-      {
-        [styles[`button_${preset}`]]: preset !== 'custom',
-      },
+      styles[`button_${preset}`],
       className
     );
 
