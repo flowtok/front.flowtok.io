@@ -7,6 +7,7 @@ import ProfilePage from './pages/profile';
 import SignUpPage from './pages/signup';
 import TasksPage from './pages/tasks';
 import LoginPage from './pages/login';
+import SettingsPage from './pages/settings';
 import { RootStateT } from './redux/store';
 import { initialize } from './redux/app-reducer/app-reducer';
 
@@ -39,6 +40,9 @@ export const App = () => {
         </Route>
         <Route path="/tasks">
           <TasksPage />
+        </Route>
+        <Route path="/settings">
+          <SettingsPage />
         </Route>
       </Switch>
     </div>

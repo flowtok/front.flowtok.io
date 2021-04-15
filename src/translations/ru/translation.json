@@ -9,6 +9,9 @@
         "active": "Активные",
         "completed": "Выполненно"
       }
+    },
+    "settings": {
+      "title": "Настройки"
     }
   },
   "task-cards": {
@@ -67,6 +70,18 @@
     },
     "tasks": {
       "disable-message": "Выполните текущее задание, чтобы перейти к следющему "
+    },
+    "settings": {
+      "cards": {
+        "account": {
+          "title": "Аккаунт",
+          "change-account-button-text": "Изменить аккаунт",
+          "about-you": "О вас",
+          "helper-text": "Укажите актуальные данные и мы лучше подберем задания для Вас!",
+          "exit": "Выйти из профиля",
+          "exit-button-text": "Выйти"
+        }
+      }
     }
   },
   "login": {
