@@ -3,17 +3,26 @@ import classNames from 'classnames';
 
 import styles from './styles.module.scss';
 
-export type InputProps = Omit<
-  DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-  'ref'
->;
+export type InputStateUnionType = 'correct' | 'wrong' | 'default';
 
-export const Input = ({ className, ...rest }: InputProps) => {
-  return (
-    <div className={styles['input-wrapper']}>
-      <input className={classNames(styles['input'], className)} {...rest} />
-      <div className={styles['input-style']} />
-      <div className={styles['input-active-style']} />
-    </div>
+export interface InputProps
+  extends Omit<
+    DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+    'ref'
+  > {
+  state?: InputStateUnionType;
+}
+
+export const Input = ({
+  className,
+  state = 'default',
+  ...rest
+}: InputProps) => {
+  const finalClassName = classNames(
+    styles['input'],
+    styles[`input-${state}`],
+    className
   );
+
+  return <input className={finalClassName} {...rest} />;
 };
