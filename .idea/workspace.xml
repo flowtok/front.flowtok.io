@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/atoms/Switch/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/atoms/Switch/styles.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/signup/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/signup/styles.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-app-template.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-app-template.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/Switch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Switch/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/Switch/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Switch/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/signup/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/signup/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/signup" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -84,6 +81,8 @@
       <workItem from="1609249049331" duration="154000" />
       <workItem from="1618206910462" duration="473000" />
       <workItem from="1618383306775" duration="3599000" />
+      <workItem from="1618470290347" duration="1409000" />
+      <workItem from="1618473714510" duration="125000" />
     </task>
     <servers />
   </component>

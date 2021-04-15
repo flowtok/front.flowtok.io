@@ -23,7 +23,7 @@
   transition: 0.2s;
   background: #C9C9C9;
 }
-.switch-checkbox:checked + .switch-track .switch-circle {
+.switch-checkbox:checked +.switch-track .switch-circle {
   left: 100%;
   transform: translateX(-100%);
   background: #2B44F2;
