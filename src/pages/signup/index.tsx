@@ -36,6 +36,7 @@ export default () => {
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
           <Input error={'Ссылка некорректна'} />
+          <div className={styles['row']}></div>
         </div>
         <Switch
           label={isBonus ? '+ 1.00 ₽' : ''}
