@@ -3,6 +3,9 @@
     "profile": {
       "title": "Профиль"
     },
+    "signup": {
+      "title": "Регистрация"
+    },
     "tasks": {
       "title": "Задания",
       "tabs": {

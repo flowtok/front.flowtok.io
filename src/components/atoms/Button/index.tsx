@@ -15,7 +15,7 @@ export interface ButtonProps
     >,
     'ref'
   > {
-  // @defaul = 'gradient'.
+  // @default = 'gradient'.
   preset?: ButtonPresetUnionType;
   // @default = 'm'
   size?: ButtonSizeUnionType;
