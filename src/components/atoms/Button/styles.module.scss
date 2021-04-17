@@ -12,6 +12,18 @@
   line-height: 16px;
 }
 
+.button_size-ssm {
+  padding: 12px 15px;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.button_size-sm {
+  padding: 15px 36px;
+  font-size: 15px;
+  line-height: 18px;
+}
+
 .button_size-m {
   padding: 17px 36px;
   font-size: 15px;
@@ -40,4 +52,15 @@
     background: #fff;
     border-radius: var(--gradient-border-radius);
   }
+}
+
+.button_black {
+  background: #000000;
+  color: #fff;
+}
+
+.button_white {
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid #E5E5EA;
 }

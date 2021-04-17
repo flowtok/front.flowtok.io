@@ -1,27 +1,17 @@
-import { forwardRef, PropsWithChildren } from 'react';
+import { DetailedHTMLProps, forwardRef, InputHTMLAttributes } from 'react';
 
 import styles from './styles.module.scss';
 import classNames from 'classnames';
+import { FieldError, UseFormRegister } from 'react-hook-form';
 
-export type ButtonPresetUnionType = 'gradient' | 'border-gradient' | 'custom';
-
-export type ButtonSizeUnionType = 's' | 'm';
-
-export interface InputProps
-  extends Omit<
-    React.DetailedHTMLProps<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      HTMLInputElement
-    >,
-    'ref'
-  > {
-  error?: string;
+export type InputProps = {
+  error?: FieldError;
   visited?: boolean;
-}
+} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export const Input = forwardRef<
   HTMLInputElement,
-  PropsWithChildren<InputProps>
+  InputProps & ReturnType<UseFormRegister<any>>
 >(({ error, visited, ...rest }, ref) => {
   const finalClassName = classNames(styles['input'], {
     [styles[`input-error`]]: !!error,
@@ -30,8 +20,8 @@ export const Input = forwardRef<
 
   return (
     <div>
-      <input ref={ref} className={finalClassName} {...rest} />
-      {error && <p className={styles['error']}>{error}</p>}
+      <input className={finalClassName} {...rest} ref={ref} />
+      {error && <p className={styles['error']}>{error.message}</p>}
     </div>
   );
 });

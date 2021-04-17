@@ -2,10 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { PageTemplate } from 'components/templates/Page';
 import { Switch } from 'components/atoms/Switch';
 import { useState } from 'react';
-import { Input } from '../../components/atoms/Input';
 import styles from './styles.module.scss';
 import { NetworkButton } from '../../components/atoms/NetworkButton';
 import { Divider } from '../../components/atoms/Divider';
+import { TikTokProfile } from '../../components/molecules/SignUp/TikTokProfile';
+import { Form } from '../../components/molecules/SignUp/Form';
 
 export default () => {
   const { t } = useTranslation();
@@ -35,9 +36,19 @@ export default () => {
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
-          <Input error={'Ссылка некорректна'} />
-          <div className={styles['row']}></div>
+          <TikTokProfile
+          // profileData={{
+          //   fullName: 'karinakross',
+          //   shortName: '@karinakross',
+          //   avatar,
+          // }}
+          />
         </div>
+        <Divider direction={'horizontal'} />
+        <div className={styles['container']}>
+          <Form />
+        </div>
+        <Divider direction={'horizontal'} />
         <Switch
           label={isBonus ? '+ 1.00 ₽' : ''}
           onChange={onSwitch}

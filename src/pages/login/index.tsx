@@ -3,10 +3,10 @@ import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { NetworkButton } from '../../components/atoms/NetworkButton';
 import { Link } from 'react-router-dom';
-import { BlackButton } from '../../components/atoms/BlackButton';
 import videoMp4 from '../../assets/login/videos/login_video.mp4';
 import videoOgv from '../../assets/login/videos/login_video.ogv';
 import videoWebm from '../../assets/login/videos/login_video.webm';
+import { Button } from '../../components/atoms/Button';
 
 export default () => {
   const { t } = useTranslation();
@@ -27,16 +27,27 @@ export default () => {
         <source src={videoWebm} type='video/webm; codecs="vp8, vorbis"' />
       </video>
       <div className={styles['sign-in']}>
-        <div className={styles['title']}>{t('login.enter')}</div>
+        <div className={styles['title']}>{t('pages.login.enter')}</div>
         <div className={styles['column']}>
-          <NetworkButton network={'vk'}>{t('login.sign-in-vk')}</NetworkButton>
-          <NetworkButton network={'fb'}>{t('login.sign-in-fb')}</NetworkButton>
-          <NetworkButton network={'gm'}>
-            {t('login.sign-in-google')}
+          <NetworkButton network={'vk'}>
+            {t('pages.login.sign-in-vk')}
           </NetworkButton>
-          <div className={styles['label']}>{t('login.no-account')}</div>
-          <Link to={'/reg'} className={styles['sign-up-link']}>
-            <BlackButton>{t('login.sign-up')}</BlackButton>
+          <NetworkButton network={'fb'}>
+            {t('pages.login.sign-in-fb')}
+          </NetworkButton>
+          <NetworkButton network={'gm'}>
+            {t('pages.login.sign-in-google')}
+          </NetworkButton>
+          <div className={styles['label']}>{t('pages.login.no-account')}</div>
+          <Link to={'/signup'} className={styles['sign-up-link']}>
+            <Button
+              preset={'black'}
+              className={styles['sign-up-btn']}
+              radius={48}
+              size={'sm'}
+            >
+              {t('pages.login.sign-up')}
+            </Button>
           </Link>
         </div>
       </div>

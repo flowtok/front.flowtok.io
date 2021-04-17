@@ -3,9 +3,14 @@ import classNames from 'classnames';
 
 import styles from './styles.module.scss';
 
-export type ButtonPresetUnionType = 'gradient' | 'border-gradient' | 'custom';
+export type ButtonPresetUnionType =
+  | 'gradient'
+  | 'border-gradient'
+  | 'custom'
+  | 'black'
+  | 'white';
 
-export type ButtonSizeUnionType = 's' | 'm';
+export type ButtonSizeUnionType = 's' | 'ssm' | 'sm' | 'm';
 
 export interface ButtonProps
   extends Omit<
