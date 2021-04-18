@@ -11,8 +11,22 @@
 .row {
   display: flex;
 
-  > div:first-child {
+  > *:first-child {
     margin-right: 9px;
   }
+  > button {
+    flex: 1 1 50%;
+  }
+}
 
+.btn-icon {
+  position: absolute;
+  &:first-child {
+    top: calc(50% - 10.5px);
+    left: 10%;
+  }
+  &:last-child {
+    top: 10.5px;
+    left: 9%;
+  }
 }
