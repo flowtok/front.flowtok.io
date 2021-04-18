@@ -1,0 +1,4 @@
+@mixin adaptive-value($property, $min, $max, $min-container, $max-container) {
+  $add-value: $max - $min;
+  #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-container + px}) / #{$max-container - $min-container}));
+}
