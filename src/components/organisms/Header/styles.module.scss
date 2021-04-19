@@ -56,4 +56,10 @@
       max-width: calc(100% - 64px);
     }
   }
+  .separator {
+    height: 1px;
+    width: 100vw;
+    margin-left: -20px;
+    background: #E5E5EA;
+  }
 }

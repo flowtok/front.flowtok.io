@@ -1,5 +1,9 @@
 .wrapper {
-  padding: 0 20px;
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 .container {
   margin: 12px 0;
@@ -8,5 +12,9 @@
     &:last-child {
       margin-bottom: 0;
     }
+  }
+  &:last-child {
+    display: flex;
+    justify-content: center;
   }
 }

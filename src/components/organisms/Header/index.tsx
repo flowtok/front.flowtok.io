@@ -16,12 +16,24 @@ export interface HeaderProps {
   withBackArrow?: boolean;
   // @default false
   rounded?: boolean;
+  // @default false
+  withSeparator?: boolean;
   // Placed below the default content
   additionalChild?: ReactNode;
 }
 
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
-  ({ title, withAvatar, withBackArrow, rounded, additionalChild }, ref) => {
+  (
+    {
+      title,
+      withAvatar,
+      withBackArrow,
+      withSeparator,
+      rounded,
+      additionalChild,
+    },
+    ref
+  ) => {
     const history = useHistory();
 
     const goBack = () => history.goBack();
@@ -47,6 +59,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
           </div>
         </div>
         {additionalChild}
+        {withSeparator && <div className={styles['separator']} />}
       </div>
     );
   }
