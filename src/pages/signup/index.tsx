@@ -7,6 +7,7 @@ import { NetworkButton } from '../../components/atoms/NetworkButton';
 import { Divider } from '../../components/atoms/Divider';
 import { TikTokProfile } from '../../components/molecules/SignUp/TikTokProfile';
 import { Form } from '../../components/molecules/SignUp/Form';
+import avatar from '../../assets/common/images/avatar_mock.png';
 
 export default () => {
   const { t } = useTranslation();
@@ -37,11 +38,11 @@ export default () => {
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
           <TikTokProfile
-          // profileData={{
-          //   fullName: 'karinakross',
-          //   shortName: '@karinakross',
-          //   avatar,
-          // }}
+            profileData={{
+              fullName: 'karinakross',
+              shortName: '@karinakross',
+              avatar,
+            }}
           />
         </div>
         <Divider direction={'horizontal'} />
