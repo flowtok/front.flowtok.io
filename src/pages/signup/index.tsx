@@ -1,7 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { PageTemplate } from 'components/templates/Page';
-import { Switch } from 'components/atoms/Switch';
-import { useState } from 'react';
 import styles from './styles.module.scss';
 import { NetworkButton } from '../../components/atoms/NetworkButton';
 import { Divider } from '../../components/atoms/Divider';
@@ -53,9 +51,8 @@ export default () => {
           </div>
           <Divider direction={'horizontal'} />
         </div>
-
         <div className={styles['container']}>
-          <Button>{t('pages.signup.buttons.flowtok')}</Button>
+          <Button preset={'black'}>{t('pages.signup.buttons.flowtok')}</Button>
         </div>
       </div>
     </PageTemplate>
