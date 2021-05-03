@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/common/icons/close.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/PopUp/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/PopUp/styles.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/MethodsBtnGroup/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/styles.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Button/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Button/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Button/styles.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/settings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/settings/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/translations/ru/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/translations/ru/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,8 +85,16 @@
       <workItem from="1618470290347" duration="1409000" />
       <workItem from="1618473714510" duration="125000" />
       <workItem from="1620056239295" duration="3826000" />
-      <workItem from="1620062624015" duration="5473000" />
+      <workItem from="1620062624015" duration="5791000" />
     </task>
+    <task id="LOCAL-00001" summary="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies">
+      <created>1620068442268</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620068442268</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +111,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
