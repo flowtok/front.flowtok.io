@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import {
   AccountCard,
   NotificationsCard,
+  WithdrawalCard,
 } from 'components/molecules/SettingsCards';
 import { PageTemplate } from 'components/templates/Page';
 import styles from './styles.module.scss';
@@ -29,6 +30,7 @@ export default () => {
           username="karinakross"
         />
         <NotificationsCard />
+        <WithdrawalCard />
       </div>
     </PageTemplate>
   );

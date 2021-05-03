@@ -85,9 +85,23 @@
           "title": "Уведомления",
           "enable-notifications": "Включить уведомления в Telegram",
           "helper-text": "Получайте актуальные задания самый первый!"
+        },
+        "withdrawal": {
+          "title": "Вывод средств",
+          "saved-list": "Сохраненные",
+          "helper-text": "Здесь будут отображаться Ваши способы вывода средств",
+          "add-new-method": "Добавить"
         }
       }
     }
+  },
+  "payment-methods": {
+    "yandex": "Yandex.Деньги",
+    "qiwi": "Qiwi кошелек",
+    "webmoney-r": "Webmoney R",
+    "webmoney-z": "Webmoney Z",
+    "card": "Банковская карта",
+    "phone-number": "Номер телефона"
   },
   "login": {
     "enter": "Вход",

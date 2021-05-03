@@ -3,7 +3,11 @@ import classNames from 'classnames';
 
 import styles from './styles.module.scss';
 
-export type ButtonPresetUnionType = 'gradient' | 'border-gradient' | 'custom';
+export type ButtonPresetUnionType =
+  | 'gradient'
+  | 'border-gradient'
+  | 'custom'
+  | 'payment-method';
 
 export type ButtonSizeUnionType = 's' | 'm';
 
