@@ -69,7 +69,12 @@
         "primary": "Кошелек",
         "secondary": "Ваш баланс",
         "pay-off-button-text": "Выплатить",
-        "popup-title": "История"
+        "popup-title": "История",
+        "popup-withdrawal": "Вывод средств",
+        "balance-info": "Ваш баланс:",
+        "balance-sum": "Сумма",
+        "all-sum": "Вся сумма",
+        "main-sum": "Своя сумма"
       },
       "in-process": {
         "secondary": "Ждет зачисления"
@@ -142,7 +147,8 @@
     "phone-number": "Номер телефона"
   },
   "button-values": {
-    "add": "Добавить"
+    "add": "Добавить",
+    "success": "Выплатить"
   },
   "popup-notification": {
     "title": "Подтвердите свой аккаунт в TikTok",
