@@ -7,8 +7,11 @@
       "title": "Задания",
       "tabs": {
         "active": "Активные",
-        "completed": "Выполненно"
+        "completed": "Завершенные"
       }
+    },
+    "signup": {
+      "title": "Регистрация"
     },
     "settings": {
       "title": "Настройки"
