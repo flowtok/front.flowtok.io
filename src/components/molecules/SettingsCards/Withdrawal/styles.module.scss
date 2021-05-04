@@ -29,7 +29,9 @@
   flex-direction: column;
   align-items: flex-end;
 
-  & > input {
+
+  & > .popup-input {
+    width: 100%;
     margin-bottom: 10px;
   }
 }

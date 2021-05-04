@@ -98,7 +98,9 @@ export const WithdrawalCard = () => {
           className={styles['popup-wrapper']}
           onSubmit={handleSubmit(onSubmit)}
         >
-          <Input {...register('value')} />
+          <div className={styles['popup-input']}>
+            <Input {...register('value')} />
+          </div>
           <Button preset={'success'}>{t('button-values.add')}</Button>
         </form>
       </PopUp>
