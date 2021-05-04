@@ -1,4 +1,4 @@
-import {
+import React, {
   cloneElement,
   ReactElement,
   useLayoutEffect,
@@ -8,6 +8,7 @@ import {
 } from 'react';
 
 import { Header, HeaderProps } from 'components/organisms/Header';
+import { Navbar } from 'components/organisms/Navbar';
 
 export interface ExtendedStyleProps {
   paddingTop?: number;
@@ -51,6 +52,7 @@ export const PageTemplate = ({
     <>
       <Header {...headerProps} ref={headerRef} />
       {cloneElement(children, childrenProps)}
+      <Navbar />
     </>
   );
 };
