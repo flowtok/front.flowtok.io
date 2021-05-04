@@ -1,5 +1,6 @@
 import React, {
   cloneElement,
+  FC,
   ReactElement,
   useLayoutEffect,
   useMemo,
@@ -15,17 +16,19 @@ export interface ExtendedStyleProps {
   paddingBottom?: number;
 }
 
-export interface PageTemplate {
+export interface PageTemplatePropsT {
   headerProps?: HeaderProps;
   extendedStyleProps?: ExtendedStyleProps;
   children: ReactElement;
+  isNavbar?: boolean;
 }
 
-export const PageTemplate = ({
+export const PageTemplate: FC<PageTemplatePropsT> = ({
   children,
   headerProps = {},
+  isNavbar,
   extendedStyleProps: { paddingTop = 0, paddingBottom = 0 } = {},
-}: PageTemplate) => {
+}) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const navbarRef = useRef<HTMLDivElement>(null);
   const [isHeaderMounted, setIsHeaderMounted] = useState<boolean>(false);
@@ -68,7 +71,7 @@ export const PageTemplate = ({
     <>
       <Header {...headerProps} ref={headerRef} />
       {cloneElement(children, childrenProps)}
-      <Navbar ref={navbarRef} />
+      {isNavbar && <Navbar ref={navbarRef} />}
     </>
   );
 };

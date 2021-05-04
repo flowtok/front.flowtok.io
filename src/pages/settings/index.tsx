@@ -22,6 +22,7 @@ export default () => {
         paddingTop: 10,
         paddingBottom: 10,
       }}
+      isNavbar={true}
     >
       <div className={styles['outter-wrapper']}>
         <AccountCard

@@ -10,7 +10,7 @@ export default () => {
   const { t } = useTranslation();
 
   return (
-    <PageTemplate>
+    <PageTemplate isNavbar={false}>
       <div>
         <div className={styles['top-block']}>
           <h1 className={styles.title}>{t('pages.home.title')}</h1>
