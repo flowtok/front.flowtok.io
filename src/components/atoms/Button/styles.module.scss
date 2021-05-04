@@ -32,8 +32,31 @@
   line-height: 18px;
 }
 
+.button_custom {
+  background: none;
+  padding: 0;
+}
+
 .button_gradient {
   background: linear-gradient(225deg, #2246F3 0%, #7832F0 100%);
+}
+
+.button_payment-method{
+  background: rgba(240, 240, 240, 0.0001);
+  border: 1px solid #E5E5EA;
+  border-radius: 18px;
+  padding: 9px 14px;
+  color: #1D1D1D;
+  letter-spacing: -0.361765px;
+  font-size: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.button_success {
+  padding: 12px 40px;
+  background: #000000;
+  border-radius: 21px;
 }
 
 .button_border-gradient {

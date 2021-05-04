@@ -8,7 +8,9 @@ export type ButtonPresetUnionType =
   | 'border-gradient'
   | 'custom'
   | 'black'
-  | 'white';
+  | 'white'
+  | 'payment-method'
+  | 'success';
 
 export type ButtonSizeUnionType = 's' | 'ssm' | 'sm' | 'm';
 
@@ -47,9 +49,7 @@ export const Button = forwardRef<
     const finalClassName = classNames(
       styles['button'],
       styles[`button_size-${size}`],
-      {
-        [styles[`button_${preset}`]]: preset !== 'custom',
-      },
+      styles[`button_${preset}`],
       className
     );
 
