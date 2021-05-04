@@ -3,15 +3,15 @@
     "profile": {
       "title": "Профиль"
     },
-    "signup": {
-      "title": "Регистрация"
-    },
     "tasks": {
       "title": "Задания",
       "tabs": {
         "active": "Активные",
         "completed": "Выполненно"
       }
+    },
+    "settings": {
+      "title": "Настройки"
     }
   },
   "task-cards": {
@@ -32,28 +32,6 @@
     }
   },
   "pages": {
-    "signup": {
-      "buttons": {
-        "tiktok": "Перейти в TikTok",
-        "confirm": "Подтвердить",
-        "flowtok": "Перейти в мой FlowTok",
-        "change": "Изменить аккаунт",
-        "sex": {
-          "woman": "Женский",
-          "man": "Мужской"
-        }
-      },
-      "notifications": {
-        "title": "Включить уведомления в Telegram",
-        "desc": "+1.00 ₽ на счет и актуальные задания!"
-      },
-      "placeholders": {
-        "name": "Имя",
-        "age": "Возраст",
-        "country": "Страна",
-        "link": "Вставьте ссылку"
-      }
-    },
     "home": {
       "title": "Зарабатывай с FlowTok",
       "description": "Создавай потрясающий контент и получай за него деньги",
@@ -93,16 +71,54 @@
     "tasks": {
       "disable-message": "Выполните текущее задание, чтобы перейти к следющему "
     },
-    "login": {
-      "enter": "Вход",
-      "sign-in-google": "Войти через Google",
-      "sign-in-vk": "Войти через VK",
-      "sign-in-fb": "Войти через Facebook",
-      "no-account": "Нет аккаунта в FLowTok? Зарегистрируйтесь!",
-      "sign-up": "Зарегистрироваться"
+    "settings": {
+      "cards": {
+        "account": {
+          "title": "Аккаунт",
+          "change-account-button-text": "Изменить аккаунт",
+          "change-account-button-text-short": "Изменить",
+          "about-you": "О вас",
+          "helper-text": "Укажите актуальные данные и мы лучше подберем задания для Вас!",
+          "exit": "Выйти из профиля",
+          "exit-button-text": "Выйти"
+        },
+        "notifications": {
+          "title": "Уведомления",
+          "enable-notifications": "Включить уведомления в Telegram",
+          "helper-text": "Получайте актуальные задания самый первый!"
+        },
+        "withdrawal": {
+          "title": "Вывод средств",
+          "saved-list": "Сохраненные",
+          "helper-text": "Здесь будут отображаться Ваши способы вывода средств",
+          "add-new-method": "Добавить",
+          "support-title": "Поддержка",
+          "support-helper-text": "По любым вопросам Вы можется свзяаться с нами по почте или через наш Telegram",
+          "support-methods": {
+            "post": "Почта",
+            "telegram": "Telegram"
+          }
+        }
+      }
     }
   },
-  "validation": {
-    "required": "Это поле обязательно для заполнения"
+  "payment-methods": {
+    "yandex": "Yandex.Деньги",
+    "qiwi": "Qiwi кошелек",
+    "webmoney-r": "Webmoney R",
+    "webmoney-z": "Webmoney Z",
+    "card": "Банковская карта",
+    "phone-number": "Номер телефона"
+  },
+  "button-values": {
+    "add": "Добавить"
+  },
+  "login": {
+    "enter": "Вход",
+    "sign-in-google": "Войти через Google",
+    "sign-in-vk": "Войти через VK",
+    "sign-in-fb": "Войти через Facebook",
+    "no-account": "Нет аккаунта в FLowTok? Зарегистрируйтесь!",
+    "sign-up": "Зарегистрироваться"
   }
 }

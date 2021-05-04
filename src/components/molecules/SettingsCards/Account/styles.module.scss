@@ -1,0 +1,86 @@
+.account-card {
+  & .header {
+    padding: 0 5px 20px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .user-main-info {
+      > * {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      & .user-main-info-names {
+        margin-left: 10px; 
+        
+        & .user-name {
+          font-size: 17px;
+          font-weight: 500;
+          line-height: 20px;
+          text-align: center;
+          letter-spacing: -0.41px;
+          color: #000000;
+        }
+
+        & .user-tag {
+          font-size: 13px;
+          line-height: 15px;
+          text-align: center;
+          letter-spacing: -0.313529px;
+          color: #8E8E93;
+        }
+      }
+    }
+
+    & .change-account {
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      letter-spacing: -0.385882px;
+      color: #2B44F2;
+      background: none;
+      padding: 0;
+    }
+  }
+
+  & .user-secondary-info {
+    padding-top: 15px;
+
+    & .text-block {
+      padding: 0 5px;
+      margin-bottom: 18px;
+    }
+
+    & .info-block {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-gap: 10px;
+      margin-bottom: 20px;
+
+      & .name {
+        grid-area: 1 / 1 / auto / 3;
+      }
+    }
+  }
+
+  & .exit-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5px 5px 5px;
+
+    > h5 {
+      margin: 0;
+    }
+
+    & .exit-button {
+      font-size: 16px;
+      line-height: 19px;
+      text-align: right;
+      letter-spacing: -0.385882px;
+      color: #FF3B30;
+    }
+  }
+}

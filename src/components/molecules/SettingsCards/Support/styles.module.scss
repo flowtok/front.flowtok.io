@@ -1,0 +1,17 @@
+.support-methods{
+  margin-top: 19px;
+  & .support-method{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & p{
+      font-size: 17px;
+    }
+    &:not(:last-child){
+      margin-bottom: 15px;
+    }
+    &:not(:first-child){
+      margin-top: 15px;
+    }
+  }
+}

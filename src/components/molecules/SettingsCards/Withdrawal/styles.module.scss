@@ -1,0 +1,35 @@
+.saved-block {
+  margin-bottom: 18px;
+
+  & > p {
+    margin-bottom: 15px;
+    font-size: 17px;
+  }
+}
+
+.add-method-block {
+  margin-top: 20px;
+
+  & > p {
+    font-size: 17px;
+  }
+}
+
+.btn-group {
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+
+.primary-title-custom {
+  margin-bottom: 15px;
+}
+
+.popup-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  & > input {
+    margin-bottom: 10px;
+  }
+}

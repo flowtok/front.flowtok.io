@@ -1,0 +1,14 @@
+.outter-wrapper {
+  background-color: #F2F2F2;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0 10px 10px 10px;
+
+  > * {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
