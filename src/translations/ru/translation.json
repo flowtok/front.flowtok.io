@@ -90,7 +90,13 @@
           "title": "Вывод средств",
           "saved-list": "Сохраненные",
           "helper-text": "Здесь будут отображаться Ваши способы вывода средств",
-          "add-new-method": "Добавить"
+          "add-new-method": "Добавить",
+          "support-title": "Поддержка",
+          "support-helper-text": "По любым вопросам Вы можется свзяаться с нами по почте или через наш Telegram",
+          "support-methods": {
+            "post": "Почта",
+            "telegram": "Telegram"
+          }
         }
       }
     }

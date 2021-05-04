@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies" />
+    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies">
+      <change afterPath="$PROJECT_DIR$/src/assets/common/icons/check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/atoms/Checkbox/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/atoms/Checkbox/styles.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/atoms/Link/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/atoms/Link/styles.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support/styles.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/SavedMethod/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/SavedMethod/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/settings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/settings/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/translations/ru/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/translations/ru/translation.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="SCSS File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -43,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/molecules/PopUp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -59,13 +75,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\statk\WebstormProjects\front.flowtok.io\src\components\molecules\SettingsCards\Support" />
+      <recent name="C:\Users\statk\WebstormProjects\front.flowtok.io\src\components\atoms\Link" />
+      <recent name="C:\Users\statk\WebstormProjects\front.flowtok.io\src\components\molecules\SettingsCards\Withdrawal\SavedMethod" />
+      <recent name="C:\Users\statk\WebstormProjects\front.flowtok.io\src\components\atoms\Checkbox" />
       <recent name="C:\Users\statk\WebstormProjects\front.flowtok.io\src\components\molecules\PopUp" />
-      <recent name="X:\projects\flowtok\frontend\front.flowtok.io\src\pages\signup" />
-      <recent name="X:\projects\flowtok\frontend\front.flowtok.io\src\assets\login" />
-      <recent name="D:\PROGRAMMING\JavaScript\react-app-template" />
-      <recent name="D:\PROGRAMMING\JavaScript\react-app-template\src\api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\statk\WebstormProjects\front.flowtok.io\src\components\atoms\Checkbox" />
       <recent name="C:\Users\statk\WebstormProjects\front.flowtok.io\src\components\molecules" />
       <recent name="D:\PROGRAMMING\JavaScript\react-app-template\src\styles" />
     </key>
@@ -85,7 +102,8 @@
       <workItem from="1618470290347" duration="1409000" />
       <workItem from="1618473714510" duration="125000" />
       <workItem from="1620056239295" duration="3826000" />
-      <workItem from="1620062624015" duration="5791000" />
+      <workItem from="1620062624015" duration="12873000" />
+      <workItem from="1620098384671" duration="4158000" />
     </task>
     <task id="LOCAL-00001" summary="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies">
       <created>1620068442268</created>
@@ -94,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620068442268</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies">
+      <created>1620068569643</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620068569643</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

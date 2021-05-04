@@ -1,0 +1,18 @@
+.checkbox {
+  @extend %checkbox;
+
+  &_active {
+    @extend %checkbox;
+    background: linear-gradient(225deg, #2545F3 0%, #6E35F1 100%);
+  }
+}
+
+%checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #E5E5EA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

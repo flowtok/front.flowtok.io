@@ -1,0 +1,26 @@
+.saved_method {
+  @extend %saved_method;
+
+  &-active {
+    @extend %saved_method;
+    border: 2px solid #2A44F2!important;
+  }
+}
+
+%saved_method {
+  display: flex;
+  padding: 17px 15px;
+  border: 1px solid #E5E5EA;
+  border-radius: 14px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  & > div:first-child {
+    display: flex;
+    align-content: center;
+
+    & > div {
+      margin-right: 17px;
+    }
+  }
+}
