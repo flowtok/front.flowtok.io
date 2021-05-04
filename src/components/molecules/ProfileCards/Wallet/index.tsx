@@ -14,6 +14,7 @@ import { MethodsBtnGroup } from '../../SettingsCards/Withdrawal/MethodsBtnGroup'
 import { AddWithdrawalPopUp } from '../../AddWithdrawalPopUp';
 import { Input } from '../../../atoms/Input';
 import { useForm } from 'react-hook-form';
+import { NotificationPopUp } from '../../NotificationPopUp';
 
 export interface WalletCardProps {
   balance: string;
@@ -115,15 +116,12 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         title={t('pages.profile.wallet.popup-title')}
       >
         <div>
-          {history.map((h, key) => {
-            if (key + 1 === history.length) return <HistoryItem item={h} />;
-            return (
-              <>
-                <HistoryItem item={h} />
-                <Divider />
-              </>
-            );
-          })}
+          {history.map((h, key) => (
+            <>
+              <HistoryItem item={h} key={'history-item-' + key} />
+              {history.length !== 1 && <Divider />}
+            </>
+          ))}
         </div>
       </PopUp>
       <PopUp

@@ -25,7 +25,7 @@ export const BloggerInfo = forwardRef<
         <Avatar image={AvatarMock} size={42} />
         <div className={styles['user-main-info-names']}>
           <p className={styles['user-name']}>
-            {blogger.username.slice(0, 9).concat('..')}
+            {blogger.username.slice(0, 20).concat('..')}
           </p>
           <p className={styles['user-tag']}>{blogger.tagname}</p>
         </div>
