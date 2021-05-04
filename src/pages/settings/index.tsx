@@ -20,6 +20,7 @@ export default () => {
       }}
       extendedStyleProps={{
         paddingTop: 10,
+        paddingBottom: 10,
       }}
     >
       <div className={styles['outter-wrapper']}>
