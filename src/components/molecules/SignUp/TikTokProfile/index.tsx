@@ -5,6 +5,7 @@ import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from '../../../atoms/Avatar';
 import { useForm } from 'react-hook-form';
+import { useMediaQuery } from 'react-responsive';
 
 type TikTokProfilePropsT = {
   profileData?: {
@@ -20,6 +21,7 @@ type FormDataT = {
 
 export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
   const { t } = useTranslation();
+  const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 370px)' });
   const {
     register,
     handleSubmit,
@@ -35,11 +37,15 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
         <div className={styles['row']}>
           <Avatar image={profileData.avatar} size={48} />
           <div className={styles['column']}>
-            <div className={styles['title']}>{profileData.fullName}</div>
+            <span className={styles['title']}>{profileData.fullName}</span>
             <div className={styles['subtitle']}>{profileData.shortName}</div>
           </div>
         </div>
-        <div className={styles['link']}>{t('pages.signup.buttons.change')}</div>
+        <div className={styles['link']}>
+          {isExtraSmallScreen
+            ? t('pages.signup.buttons.change-short')
+            : t('pages.signup.buttons.change')}
+        </div>
       </div>
     );
   } else

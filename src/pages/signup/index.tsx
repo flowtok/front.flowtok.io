@@ -35,7 +35,7 @@ export default () => {
           <div className={styles['container']}>
             <TikTokProfile
               profileData={{
-                fullName: 'karinakross',
+                fullName: 'karinakrosssafsdgdsfgdfqwqwewq',
                 shortName: '@karinakross',
                 avatar,
               }}

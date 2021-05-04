@@ -11,11 +11,13 @@
     flex: 1 1 33.3%;
   }
 }
+
 .form {
   > div:first-child {
     margin-bottom: 10px;
   }
 }
+
 .row {
   display: flex;
   justify-content: space-between;
@@ -37,10 +39,30 @@
 .column {
   display: flex;
   flex-direction: column;
+
+  * {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  margin-right: 10px;
   margin-left: 15px;
 
-  @media (max-width: 330px) {
-    margin-left: 7px;
+
+  @media (min-width: 370px) {
+    margin-left: 15px;
+  }
+  @media (min-width: 450px) {
+    * {
+      max-width: 180px;
+    }
+  }
+  @media (min-width: 550px) {
+    * {
+      max-width: 260px;
+    }
   }
 
   .title {
