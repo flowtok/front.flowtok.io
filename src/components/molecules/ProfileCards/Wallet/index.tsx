@@ -63,6 +63,8 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
           })}
         </div>
       </PopUp>
+      {/*uncomment component for see notification popup */}
+      {/*<NotificationPopUp isOpen={true} />*/}
     </>
   );
 };

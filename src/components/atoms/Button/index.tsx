@@ -10,7 +10,8 @@ export type ButtonPresetUnionType =
   | 'black'
   | 'white'
   | 'payment-method'
-  | 'success';
+  | 'success'
+  | 'light';
 
 export type ButtonSizeUnionType = 's' | 'ssm' | 'sm' | 'm';
 

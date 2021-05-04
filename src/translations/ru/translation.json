@@ -144,6 +144,13 @@
   "button-values": {
     "add": "Добавить"
   },
+  "popup-notification": {
+    "title": "Подтвердите свой аккаунт в TikTok",
+    "first-step": "Вставьте указанные ниже смайлики в описание своего профиля TikTok",
+    "second-step": "Дождитесь исчезновения этого окошка.",
+    "edit": "Изменить",
+    "help-question": "Нужна помощь?"
+  },
   "login": {
     "enter": "Вход",
     "sign-in-google": "Войти через Google",
