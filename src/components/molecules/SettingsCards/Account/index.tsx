@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-
+import { useMediaQuery } from 'react-responsive';
 import { Divider } from 'components/atoms/Divider';
 import { Avatar } from 'components/atoms/Avatar';
 import { Paper } from 'components/atoms/Paper';
@@ -25,6 +25,7 @@ export const AccountCard = ({
   country,
 }: AccountCardProps) => {
   const { t } = useTranslation();
+  const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 350px)' });
 
   return (
     <Paper className={styles['account-card']}>
@@ -40,7 +41,9 @@ export const AccountCard = ({
           </div>
         </div>
         <Button preset="custom" size="s" className={styles['change-account']}>
-          {t('pages.settings.cards.account.change-account-button-text')}
+          {isExtraSmallScreen
+            ? t('pages.settings.cards.account.change-account-button-text-short')
+            : t('pages.settings.cards.account.change-account-button-text')}
         </Button>
       </div>
       <Divider />
