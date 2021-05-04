@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="finished working on layout of support section, finished working on setting page">
+    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Button/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Button/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Button/styles.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Checkbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Checkbox/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Link/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/CustomLink/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/atoms/Link/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/CustomLink/styles.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/SavedMethod/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/SavedMethod/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/styles.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/translations/ru/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/translations/ru/translation.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,13 +51,13 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="C:\Users\statk\WebstormProjects\front.flowtok.io\node_modules\eslint" />
+    <property name="node.js.selected.package.eslint" value="X:\projects\flowtok\frontend\front.flowtok.io\node_modules\eslint" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="X:\projects\flowtok\frontend\front.flowtok.io\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
-    <property name="ts.external.directory.path" value="C:\Users\statk\WebstormProjects\front.flowtok.io\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="X:\projects\flowtok\frontend\front.flowtok.io\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
