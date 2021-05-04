@@ -30,12 +30,8 @@
     }
 
     &-item._active {
-      svg {
-
-      }
-
       .label {
-        background: #000;
+        color: #000;
       }
     }
   }
