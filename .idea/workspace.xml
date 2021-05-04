@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="">
+    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="finished working on layout of support section, finished working on setting page">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -56,7 +56,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="X:\projects\flowtok\frontend\front.flowtok.io\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="ts.external.directory.path" value="X:\projects\flowtok\frontend\front.flowtok.io\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -92,6 +92,7 @@
       <workItem from="1620062624015" duration="12873000" />
       <workItem from="1620098384671" duration="4361000" />
       <workItem from="1620112638492" duration="2750000" />
+      <workItem from="1620120294589" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies">
       <created>1620068442268</created>
