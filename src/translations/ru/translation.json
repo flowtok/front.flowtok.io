@@ -68,7 +68,8 @@
       "wallet": {
         "primary": "Кошелек",
         "secondary": "Ваш баланс",
-        "pay-off-button-text": "Выплатить"
+        "pay-off-button-text": "Выплатить",
+        "popup-title": "История"
       },
       "in-process": {
         "secondary": "Ждет зачисления"
