@@ -76,6 +76,7 @@
         "account": {
           "title": "Аккаунт",
           "change-account-button-text": "Изменить аккаунт",
+          "change-account-button-text-short": "Изменить",
           "about-you": "О вас",
           "helper-text": "Укажите актуальные данные и мы лучше подберем задания для Вас!",
           "exit": "Выйти из профиля",
