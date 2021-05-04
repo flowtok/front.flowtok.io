@@ -59,7 +59,7 @@
       grid-gap: 10px;
       margin-bottom: 20px;
 
-      & .name {
+      & > div:first-child {
         grid-area: 1 / 1 / auto / 3;
       }
     }

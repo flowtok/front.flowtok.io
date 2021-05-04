@@ -32,6 +32,28 @@
     }
   },
   "pages": {
+    "signup": {
+      "buttons": {
+        "tiktok": "Перейти в TikTok",
+        "confirm": "Подтвердить",
+        "flowtok": "Перейти в мой FlowTok",
+        "change": "Изменить аккаунт",
+        "sex": {
+          "woman": "Женский",
+          "man": "Мужской"
+        }
+      },
+      "notifications": {
+        "title": "Включить уведомления в Telegram",
+        "desc": "+1.00 ₽ на счет и актуальные задания!"
+      },
+      "placeholders": {
+        "name": "Имя",
+        "age": "Возраст",
+        "country": "Страна",
+        "link": "Вставьте ссылку"
+      }
+    },
     "home": {
       "title": "Зарабатывай с FlowTok",
       "description": "Создавай потрясающий контент и получай за него деньги",

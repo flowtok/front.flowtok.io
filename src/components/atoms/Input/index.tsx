@@ -1,28 +1,27 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
-import classNames from 'classnames';
+import { DetailedHTMLProps, forwardRef, InputHTMLAttributes } from 'react';
 
 import styles from './styles.module.scss';
+import classNames from 'classnames';
+import { FieldError, UseFormRegister } from 'react-hook-form';
 
-export type InputStateUnionType = 'correct' | 'wrong' | 'default';
+export type InputProps = {
+  error?: FieldError;
+  visited?: boolean;
+} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export interface InputProps
-  extends Omit<
-    DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-    'ref'
-  > {
-  state?: InputStateUnionType;
-}
+export const Input = forwardRef<
+  HTMLInputElement,
+  InputProps & ReturnType<UseFormRegister<any>>
+>(({ error, visited, ...rest }, ref) => {
+  const finalClassName = classNames(styles['input'], {
+    [styles[`input-error`]]: !!error,
+    [styles[`input-visited`]]: visited,
+  });
 
-export const Input = ({
-  className,
-  state = 'default',
-  ...rest
-}: InputProps) => {
-  const finalClassName = classNames(
-    styles['input'],
-    styles[`input-${state}`],
-    className
+  return (
+    <div>
+      <input className={finalClassName} {...rest} ref={ref} />
+      {error && <p className={styles['error']}>{error.message}</p>}
+    </div>
   );
-
-  return <input className={finalClassName} {...rest} />;
-};
+});

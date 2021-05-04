@@ -9,12 +9,26 @@ import { PopUp } from '../../PopUp';
 import { Input } from '../../../atoms/Input';
 import { SavedMethod } from './SavedMethod';
 import { Button } from '../../../atoms/Button';
+import { useForm } from 'react-hook-form';
+
+type FormDataT = {
+  value: string;
+};
 
 export const WithdrawalCard = () => {
   const { t } = useTranslation();
 
   const [currentMethod, setMethod] = useState<string>('');
   const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormDataT>();
+
+  const onSubmit = (data: FormDataT) => console.log(data);
 
   /*will be deleted*/
   const savedMethods = [
@@ -80,10 +94,13 @@ export const WithdrawalCard = () => {
         close={() => setOpenPopUp(false)}
         title={getTitleMethodByType(currentMethod)}
       >
-        <div className={styles['popup-wrapper']}>
-          <Input state="correct" />
+        <form
+          className={styles['popup-wrapper']}
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <Input {...register('value')} />
           <Button preset={'success'}>{t('button-values.add')}</Button>
-        </div>
+        </form>
       </PopUp>
     </>
   );

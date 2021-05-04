@@ -8,6 +8,7 @@ import { Button } from 'components/atoms/Button';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
 import AvatarMock from 'assets/common/images/avatar_mock.png';
+import { useForm } from 'react-hook-form';
 
 export interface AccountCardProps {
   username: string;
@@ -17,6 +18,11 @@ export interface AccountCardProps {
   country: string;
 }
 
+type FormDataT = {
+  name: string;
+  age: number;
+  country: string;
+};
 export const AccountCard = ({
   username,
   tagname,
@@ -26,6 +32,15 @@ export const AccountCard = ({
 }: AccountCardProps) => {
   const { t } = useTranslation();
   const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 350px)' });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormDataT>();
+
+  const onSubmit = (data: FormDataT) => console.log(data);
 
   return (
     <Paper className={styles['account-card']}>
@@ -56,11 +71,14 @@ export const AccountCard = ({
             {t('pages.settings.cards.account.helper-text')}
           </p>
         </div>
-        <div className={styles['info-block']}>
-          <Input state="correct" value={name} className={styles['name']} />
-          <Input state="correct" value={age} />
-          <Input state="correct" value={country} />
-        </div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className={styles['info-block']}
+        >
+          <Input visited={true} value={name} {...register('name')} />
+          <Input visited={true} value={age} {...register('age')} />
+          <Input visited={true} value={country} {...register('country')} />
+        </form>
       </div>
       <Divider />
       <div className={styles['exit-block']}>
