@@ -9,13 +9,13 @@ import { BloggerInfo } from '../BloggerInfo';
 import { Button } from '../../atoms/Button';
 import LoadIcon from 'assets/common/icons/load.svg';
 
-interface NotificationPopUpProps {
+interface VerificationPopupProps {
   isOpen: boolean;
 }
 
-export const NotificationPopUp = forwardRef<
+export const VerificationPopup = forwardRef<
   HTMLDivElement,
-  PropsWithChildren<NotificationPopUpProps>
+  PropsWithChildren<VerificationPopupProps>
 >(({ isOpen }) => {
   const { t } = useTranslation();
 

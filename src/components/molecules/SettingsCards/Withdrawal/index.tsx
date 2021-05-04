@@ -29,8 +29,12 @@ export const WithdrawalCard = () => {
 
   const renderSavedMethods = () => {
     if (!savedMethods.length) return baseDescription;
-    return savedMethods.map((method) => (
-      <SavedMethod value={method.value.toString()} title={method.type} />
+    return savedMethods.map((method, key) => (
+      <SavedMethod
+        value={method.value.toString()}
+        title={method.type}
+        key={'saved-method-' + key}
+      />
     ));
   };
 
