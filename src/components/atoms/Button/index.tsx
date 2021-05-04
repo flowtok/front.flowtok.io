@@ -7,7 +7,8 @@ export type ButtonPresetUnionType =
   | 'gradient'
   | 'border-gradient'
   | 'custom'
-  | 'payment-method';
+  | 'payment-method'
+  | 'success';
 
 export type ButtonSizeUnionType = 's' | 'm';
 

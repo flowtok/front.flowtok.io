@@ -13,12 +13,9 @@ export const SavedMethod = ({ title, value }: MethodsBtnGroupProps) => {
     ? styles[`saved_method-active`]
     : styles[`saved_method`];
   return (
-    <div className={style}>
+    <div className={style} onClick={() => setChecked(!isChecked)}>
       <div>
-        <Checkbox
-          isChecked={isChecked}
-          onClickAction={() => setChecked(!isChecked)}
-        />
+        <Checkbox isChecked={isChecked} />
         <p>{title}</p>
       </div>
       <div>{'...'.concat(value.slice(-4))}</div>

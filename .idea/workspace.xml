@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies">
-      <change afterPath="$PROJECT_DIR$/src/assets/common/icons/check.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/atoms/Checkbox/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/atoms/Checkbox/styles.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/atoms/Link/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/atoms/Link/styles.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support/styles.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/SavedMethod/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/SavedMethod/styles.module.scss" afterDir="false" />
+    <list default="true" id="f2f592f2-34bc-443e-82d6-5e807dc41dec" name="Default Changelist" comment="finished working on layout of support section, finished working on setting page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/Button/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Button/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/Checkbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/Checkbox/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/Link/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/CustomLink/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/atoms/Link/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/atoms/CustomLink/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Support/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/SavedMethod/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/SavedMethod/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/Withdrawal/styles.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/SettingsCards/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/SettingsCards/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/settings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/settings/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/translations/ru/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/translations/ru/translation.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +99,8 @@
       <workItem from="1618473714510" duration="125000" />
       <workItem from="1620056239295" duration="3826000" />
       <workItem from="1620062624015" duration="12873000" />
-      <workItem from="1620098384671" duration="4158000" />
+      <workItem from="1620098384671" duration="4361000" />
+      <workItem from="1620112638492" duration="2750000" />
     </task>
     <task id="LOCAL-00001" summary="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies">
       <created>1620068442268</created>
@@ -119,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620068569643</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="finished working on layout of support section, finished working on setting page">
+      <created>1620102682218</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620102682219</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +143,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished working on layout of withdrawal section and popup, added reactjs-popup to dependencies" />
+    <MESSAGE value="finished working on layout of support section, finished working on setting page" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished working on layout of support section, finished working on setting page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -3,7 +3,7 @@ import { Paper } from '../../../atoms/Paper';
 import commonStyles from '../styles.module.scss';
 import { Divider } from '../../../atoms/Divider';
 import styles from './styles.module.scss';
-import { Link } from '../../../atoms/Link';
+import { CustomLink } from '../../../atoms/CustomLink';
 
 export const SupportCard = () => {
   const { t } = useTranslation();
@@ -20,14 +20,22 @@ export const SupportCard = () => {
         <div className={styles['support-methods']}>
           <div className={styles['support-method']}>
             <p>{t('pages.settings.cards.withdrawal.support-methods.post')}</p>
-            <Link url="@flowtokcom" value="@flowtokcom" />
+            <CustomLink
+              iSTargetBlank={true}
+              url="flowtokcom@gmail.com"
+              value="flowtokcom@gmail.com"
+            />
           </div>
           <Divider />
           <div className={styles['support-method']}>
             <p>
               {t('pages.settings.cards.withdrawal.support-methods.telegram')}
             </p>
-            <Link url="flowtokcom@gmail.com" value="flowtokcom@gmail.com" />
+            <CustomLink
+              iSTargetBlank={true}
+              url="@flowtokcom"
+              value="@flowtokcom"
+            />
           </div>
         </div>
       </div>

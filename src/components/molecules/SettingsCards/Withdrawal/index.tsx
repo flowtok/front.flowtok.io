@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { PopUp } from '../../PopUp';
 import { Input } from '../../../atoms/Input';
 import { SavedMethod } from './SavedMethod';
+import { Button } from '../../../atoms/Button';
 
 export const WithdrawalCard = () => {
   const { t } = useTranslation();
@@ -79,7 +80,10 @@ export const WithdrawalCard = () => {
         close={() => setOpenPopUp(false)}
         title={getTitleMethodByType(currentMethod)}
       >
-        <Input state="correct" />
+        <div className={styles['popup-wrapper']}>
+          <Input state="correct" />
+          <Button preset={'success'}>{t('button-values.add')}</Button>
+        </div>
       </PopUp>
     </>
   );

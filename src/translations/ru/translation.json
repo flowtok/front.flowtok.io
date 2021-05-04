@@ -109,6 +109,9 @@
     "card": "Банковская карта",
     "phone-number": "Номер телефона"
   },
+  "button-values": {
+    "add": "Добавить"
+  },
   "login": {
     "enter": "Вход",
     "sign-in-google": "Войти через Google",
