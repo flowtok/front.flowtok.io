@@ -3,6 +3,7 @@
 .button {
   position: relative;
   border-radius: 42px;
+  @include adaptive-value-tablet(border-radius, 42);
   color: #fff;
   outline: none;
   border: none;
@@ -10,26 +11,50 @@
 
 .button_size-s {
   padding: 11px 36px;
+  @include adaptive-value-tablet(padding-top, 11);
+  @include adaptive-value-tablet(padding-bottom, 11);
+  @include adaptive-value-tablet(padding-left, 36);
+  @include adaptive-value-tablet(padding-right, 36);
   font-size: 14px;
+  @include adaptive-value-tablet(font-size, 14);
   line-height: 16px;
+  @include adaptive-value-tablet(line-height, 16);
 }
 
 .button_size-ssm {
   padding: 12px 15px;
+  @include adaptive-value-tablet(padding-top, 12);
+  @include adaptive-value-tablet(padding-bottom, 12);
+  @include adaptive-value-tablet(padding-left, 15);
+  @include adaptive-value-tablet(padding-right, 15);
   font-size: 15px;
+  @include adaptive-value-tablet(font-size, 15);
   line-height: 18px;
+  @include adaptive-value-tablet(line-height, 18);
 }
 
 .button_size-sm {
   padding: 15px 36px;
+  @include adaptive-value-tablet(padding-top, 15);
+  @include adaptive-value-tablet(padding-bottom, 15);
+  @include adaptive-value-tablet(padding-left, 36);
+  @include adaptive-value-tablet(padding-right, 36);
   font-size: 15px;
+  @include adaptive-value-tablet(font-size, 15);
   line-height: 18px;
+  @include adaptive-value-tablet(line-height, 18);
 }
 
 .button_size-m {
   padding: 17px 36px;
+  @include adaptive-value-tablet(padding-top, 17);
+  @include adaptive-value-tablet(padding-bottom, 17);
+  @include adaptive-value-tablet(padding-left, 36);
+  @include adaptive-value-tablet(padding-right, 36);
   font-size: 15px;
+  @include adaptive-value-tablet(font-size, 15);
   line-height: 18px;
+  @include adaptive-value-tablet(line-height, 18);
 }
 
 .button_custom {
@@ -44,19 +69,34 @@
 .button_payment-method{
   background: rgba(240, 240, 240, 0.0001);
   border: 1px solid #E5E5EA;
+  //@include adaptive-value-tablet(border-width, 1);
   border-radius: 18px;
+  @include adaptive-value-tablet(border-radius, 18);
   padding: 9px 14px;
+  @include adaptive-value-tablet(padding-top, 9);
+  @include adaptive-value-tablet(padding-bottom, 9);
+  @include adaptive-value-tablet(padding-left, 14);
+  @include adaptive-value-tablet(padding-right, 14);
   color: #1D1D1D;
   letter-spacing: -0.361765px;
+  @include adaptive-value-tablet(letter-spacing, -0.361765);
   font-size: 15px;
+  @include adaptive-value-tablet(font-size, 15);
   margin-right: 10px;
+  @include adaptive-value-tablet(margin-right, 10);
   margin-bottom: 10px;
+  @include adaptive-value-tablet(margin-bottom, 10);
 }
 
 .button_success {
   padding: 12px 40px;
+  @include adaptive-value-tablet(padding-top, 12);
+  @include adaptive-value-tablet(padding-bottom, 12);
+  @include adaptive-value-tablet(padding-left, 40);
+  @include adaptive-value-tablet(padding-right, 40);
   background: #000000;
   border-radius: 21px;
+  @include adaptive-value-tablet(border-radius, 21);
 }
 
 .button_border-gradient {
@@ -88,4 +128,5 @@
   background: #FFFFFF;
   color: #000000;
   border: 1px solid #E5E5EA;
+  @include adaptive-value-tablet(border-width, 1);
 }

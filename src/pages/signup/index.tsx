@@ -6,7 +6,7 @@ import { Divider } from '../../components/atoms/Divider';
 import { TikTokProfile } from '../../components/molecules/SignUp/TikTokProfile';
 import { SignUpForm } from '../../components/molecules/SignUp/Form';
 import avatar from '../../assets/common/images/avatar_mock.png';
-import { Notifications } from '../../components/molecules/SignUp/Notifications';
+import { TurnNotifications } from '../../components/molecules/SignUp/TurnNotifications';
 import { Button } from '../../components/atoms/Button';
 
 export default () => {
@@ -47,7 +47,7 @@ export default () => {
           </div>
           <Divider direction={'horizontal'} />
           <div className={styles['container']}>
-            <Notifications />
+            <TurnNotifications />
           </div>
           <Divider direction={'horizontal'} />
         </div>

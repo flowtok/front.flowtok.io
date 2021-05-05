@@ -1,14 +1,19 @@
+@import "src/styles/mixins";
+
 .divider {
   border-radius: 32px;
+  @include adaptive-value-tablet(border-radius, 32);
 }
 
 .divider_vertical {
   width: 1px;
+  @include adaptive-value-tablet(width, 1);
   background: linear-gradient(180deg, #FFFFFF 0%, #E5E5E5 49.52%, #FFFFFF 100%);
 }
 
 .divider_horizontal {
   height: 1px;
+  @include adaptive-value-tablet(height, 1);
   width: 100%;
   background: linear-gradient(270deg, #FFFFFF 0%, #E5E5E5 49.52%, #FFFFFF 100%);
 }

@@ -1,0 +1,34 @@
+@import "src/styles/mixins";
+
+.row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.column {
+  width: 100%;
+  .title {
+    margin-bottom: 5px;
+    @include adaptive-value-tablet(margin-bottom, 5);
+    font-size: 15px;
+    @include adaptive-value-tablet(font-size, 15);
+    line-height: 18px;
+    @include adaptive-value-tablet(line-height, 18);
+    letter-spacing: -0.361765px;
+    @include adaptive-value-tablet(letter-spacing, -0.361765);
+    color: #1D1D1D;
+  }
+
+  .desc {
+    font-size: 13px;
+    @include adaptive-value-tablet(font-size, 13);
+    line-height: 15px;
+    @include adaptive-value-tablet(line-height, 15);
+    letter-spacing: -0.313529px;
+    @include adaptive-value-tablet(letter-spacing, -0.313529);
+    color: #1D1D1D;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
+}

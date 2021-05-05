@@ -1,12 +1,23 @@
+@import "src/styles/mixins";
+
 .input {
   background: rgba(240, 240, 240, 0.0001);
   border-radius: 30px;
+  @include adaptive-value-tablet(border-radius, 30);
   width: 100%;
   border: 1px solid #E5E5EA;
+  @include adaptive-value-tablet(border-width, 1);
   font-size: 15px;
+  @include adaptive-value-tablet(font-size, 15);
   line-height: 18px;
+  @include adaptive-value-tablet(line-height, 18);
   padding: 12px 16px;
+  @include adaptive-value-tablet(padding-top, 12);
+  @include adaptive-value-tablet(padding-bottom, 12);
+  @include adaptive-value-tablet(padding-left, 16);
+  @include adaptive-value-tablet(padding-right, 16);
   letter-spacing: -0.361765px;
+  @include adaptive-value-tablet(letter-spacing, -0.361765);
   color: #1D1D1D;
   &-error {
     border: 1px solid #FF3B30;
@@ -17,10 +28,14 @@
 }
 .error {
   font-size: 13px;
+  @include adaptive-value-tablet(font-size, 13);
   line-height: 15px;
+  @include adaptive-value-tablet(line-height, 15);
   letter-spacing: -0.313529px;
+  @include adaptive-value-tablet(letter-spacing, -0.313529);
   color: #FF3B30;
   text-align: center;
   width: 100%;
   margin-top: 8px;
+  @include adaptive-value-tablet(margin-top, 8);
 }

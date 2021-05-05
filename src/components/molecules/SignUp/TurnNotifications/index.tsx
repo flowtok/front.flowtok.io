@@ -3,9 +3,9 @@ import styles from './styles.module.scss';
 import { Switch } from '../../../atoms/Switch';
 import { useTranslation } from 'react-i18next';
 
-type NotificationsPropsT = any;
+type TurnNotificationsPropsT = any;
 
-export const Notifications: FC<NotificationsPropsT> = ({}) => {
+export const TurnNotifications: FC<TurnNotificationsPropsT> = ({}) => {
   const { t } = useTranslation();
   const [isBonus, setIsBonus] = useState(true);
 
@@ -22,13 +22,8 @@ export const Notifications: FC<NotificationsPropsT> = ({}) => {
           {t('pages.signup.notifications.desc')}
         </div>
       </div>
-      {/*<div className={styles['column']}>*/}
-      <Switch
-        // label={isBonus ? '+ 1.00 ₽' : ''}
-        onChange={onSwitch}
-        defaultChecked={isBonus}
-      />
-      {/*</div>*/}
+
+      <Switch onChange={onSwitch} defaultChecked={isBonus} />
     </div>
   );
 };

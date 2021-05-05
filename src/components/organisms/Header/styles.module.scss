@@ -1,6 +1,10 @@
+@import "src/styles/mixins";
+
 .wrapper_rounded {
   border-bottom-left-radius: 11px;
+  @include adaptive-value-tablet(border-bottom-left-radius, 11);
   border-bottom-right-radius: 11px;
+  @include adaptive-value-tablet(border-bottom-right-radius, 11);
 }
 
 .wrapper {
@@ -8,13 +12,16 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 72px;
+  @include adaptive-value-tablet(height, 72);
   background-color: #fff;
   padding: 20px;
+  @include adaptive-value-tablet(padding, 20);
   z-index: 10;
 
   & > * {
-    padding-bottom: 20px;
+    //padding-bottom: 20px;
+    //@include adaptive-value-tablet(padding-bottom, 20);
 
     &:last-child {
       padding-bottom: 0;
@@ -27,17 +34,24 @@
     display: flex;
     align-items: center;
     height: 32px;
+    @include adaptive-value-tablet(height, 32);
 
     & .left-element,
     & .right-element {
       position: absolute;
       max-width: 32px;
+      @include adaptive-value-tablet(max-width, 32);
       max-height: 32px;
+      @include adaptive-value-tablet(max-height, 32);
     }
 
     & .left-element {
       // padding offset
       left: 0px;
+      img {
+        height: 24px;
+        @include adaptive-value-tablet(height, 24);
+      }
     }
 
     & .right-element {
@@ -47,8 +61,10 @@
 
     & .title {
       font-size: 17px;
+      @include adaptive-value-tablet(font-size, 17);
       font-weight: 500;
       line-height: 20px;
+      @include adaptive-value-tablet(line-height, 20);
       text-align: center;
       color: #000000;
       margin: auto;
@@ -57,9 +73,13 @@
     }
   }
   .separator {
+    position: fixed;
+    top: 72px;
+    @include adaptive-value-tablet(top, 72);
+    left: 0;
+    right: 0;
     height: 1px;
     width: 100vw;
-    margin-left: -20px;
     background: #E5E5EA;
   }
 }

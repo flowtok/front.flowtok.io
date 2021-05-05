@@ -1,10 +1,14 @@
+@import 'src/styles/mixins';
+
 .btn-row {
   display: flex;
   height: 42px;
+  @include adaptive-value-tablet(height, 42);
 
   > *:first-child {
     flex: 1 1 66.6%;
     margin-right: 10px;
+    @include adaptive-value-tablet(margin-right, 10);
   }
 
   > *:last-child {
@@ -15,6 +19,7 @@
 .form {
   > div:first-child {
     margin-bottom: 10px;
+    @include adaptive-value-tablet(margin-bottom, 10);
   }
 }
 
@@ -29,10 +34,14 @@
 
   .link {
     font-size: 16px;
+    @include adaptive-value-tablet(font-size, 16);
     line-height: 19px;
+    @include adaptive-value-tablet(line-height, 19);
     letter-spacing: -0.385882px;
+    @include adaptive-value-tablet(letter-spacing, -0.385882);
     color: #2B44F2;
     max-width: 124px;
+    @include adaptive-value-tablet(max-width, 124);
   }
 }
 
@@ -48,7 +57,9 @@
   }
 
   margin-right: 10px;
+  @include adaptive-value-tablet(margin-right, 10);
   margin-left: 15px;
+  @include adaptive-value-tablet(margin-left, 15);
 
 
   @media (min-width: 370px) {
@@ -62,22 +73,33 @@
   @media (min-width: 550px) {
     * {
       max-width: 260px;
+
     }
+  }
+  * {
+    @include adaptive-value-tablet(max-width, 260);
   }
 
   .title {
     font-size: 19px;
+    @include adaptive-value-tablet(font-size, 19);
     line-height: 22px;
+    @include adaptive-value-tablet(line-height, 22);
     letter-spacing: -0.458235px;
+    @include adaptive-value-tablet(letter-spacing, -0.458235);
     color: #000000;
     margin-bottom: 2px;
+    @include adaptive-value-tablet(margin-bottom, 2);
     font-weight: 600;
   }
 
   .subtitle {
     font-size: 13px;
+    @include adaptive-value-tablet(font-size, 13);
     line-height: 15px;
+    @include adaptive-value-tablet(line-height, 15);
     letter-spacing: -0.313529px;
+    @include adaptive-value-tablet(letter-spacing, -0.313529);
     color: #8E8E93;
   }
 }
