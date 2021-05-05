@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import { NetworkButton } from '../../components/atoms/NetworkButton';
 import { Divider } from '../../components/atoms/Divider';
 import { TikTokProfile } from '../../components/molecules/SignUp/TikTokProfile';
-import { Form } from '../../components/molecules/SignUp/Form';
+import { SignUpForm } from '../../components/molecules/SignUp/Form';
 import avatar from '../../assets/common/images/avatar_mock.png';
 import { Notifications } from '../../components/molecules/SignUp/Notifications';
 import { Button } from '../../components/atoms/Button';
@@ -43,7 +43,7 @@ export default () => {
           </div>
           <Divider direction={'horizontal'} />
           <div className={styles['container']}>
-            <Form />
+            <SignUpForm />
           </div>
           <Divider direction={'horizontal'} />
           <div className={styles['container']}>

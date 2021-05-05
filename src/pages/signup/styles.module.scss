@@ -1,20 +1,27 @@
+@import "src/styles/mixins";
+
 .wrapper {
   padding: 0 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  @include adaptive-value-tablet(padding, 20);
 }
 .container {
   margin: 12px 0;
+  @include adaptive-value-tablet(margin-top, 12);
+  @include adaptive-value-tablet(margin-bottom, 12);
   > * {
     margin-bottom: 10px;
+    @include adaptive-value-tablet(margin-bottom, 10);
     &:last-child {
       margin-bottom: 0;
     }
   }
   &:last-child {
     margin: 20px 0 0;
+    @include adaptive-value-tablet(margin-top, 20);
     display: flex;
     justify-content: center;
   }

@@ -13,7 +13,7 @@ type FormDataT = {
   sex: 'man' | 'woman';
 };
 
-export const Form: FC<FormPropsT> = ({}) => {
+export const SignUpForm: FC<FormPropsT> = ({}) => {
   const { t } = useTranslation();
   const {
     register,

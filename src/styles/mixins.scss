@@ -2,3 +2,13 @@
   $add-value: $max - $min;
   #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-container + px}) / #{$max-container - $min-container}));
 }
+
+$min-tablet-container: 600;
+$max-tablet-container: 1024;
+@mixin adaptive-value-tablet($property, $min) {
+  $max: $max-tablet-container / ($min-tablet-container / $min);
+  $add-value: $max - $min;
+  @media (min-width: #{$min-tablet-container + px}) {
+    #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-tablet-container + px}) / #{$max-tablet-container - $min-tablet-container}));
+  }
+}
