@@ -114,7 +114,7 @@ export const TaskCard = ({
                 size="s"
                 radius={11}
                 onClick={() => {
-                  if (!inProgress) {
+                  if (inProgress) {
                     setTypePopUp(TasksPopUpTypes.thatIsDone);
                     setOpenPopUp(true);
                   } else rest.actionButton.action;
