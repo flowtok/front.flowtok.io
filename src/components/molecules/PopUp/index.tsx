@@ -8,7 +8,7 @@ import commonStyles from '../SettingsCards/styles.module.scss';
 interface PopUpProps {
   isOpen: boolean;
   close?: () => void;
-  title: string;
+  title?: string;
   isClose?: boolean;
 }
 
@@ -33,7 +33,7 @@ export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
       >
         <Paper className={styles['wrap-content']}>
           {closeBtn}
-          <h3 className={commonStyles['primary-title']}>{title}</h3>
+          {title && <h3 className={commonStyles['primary-title']}>{title}</h3>}
           {children}
         </Paper>
       </Popup>
