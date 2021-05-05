@@ -19,7 +19,7 @@ export const ErrorPopUpContent = ({ tryAction }: ErrorPopUpProps) => {
       <p className={commonStyles['secondary-title-small']}>
         {t('payment-method-notifications.error-description')}
       </p>
-      <Button preset="success" onClick={() => tryAction}>
+      <Button preset="success" onClick={tryAction}>
         {t('button-values.try')}
       </Button>
     </div>
