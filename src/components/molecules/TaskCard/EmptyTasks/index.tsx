@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import defaultImage from 'assets/common/icons/default.svg';
 import styles from './styles.module.scss';
 
-export const DefaultPage = () => {
+export const EmptyTasks = () => {
   const { t } = useTranslation();
 
   return (

@@ -8,13 +8,13 @@ import { TaskCard } from 'components/molecules/TaskCard';
 import { PageTemplate } from 'components/templates/Page';
 import styles from './styles.module.scss';
 import 'swiper/swiper.scss';
-import { DefaultPage } from '../../components/molecules/TaskCard/DefaultPage';
+import { EmptyTasks } from '../../components/molecules/TaskCard/EmptyTasks';
 
 interface TaskT {
   disabled?: boolean;
   inProgress?: boolean;
   date?: string;
-  state: string;
+  state: 'active' | 'completed';
   title: string;
   description: string;
   payment: string;
@@ -91,7 +91,7 @@ export default () => {
         }}
         isNavbar={true}
       >
-        <DefaultPage />
+        <EmptyTasks />
       </PageTemplate>
     );
   }
@@ -130,37 +130,43 @@ export default () => {
         >
           <SwiperSlide>
             <div className={styles['task-outter-wrapper']}>
-              {tasks.map((task, key) => {
-                if (task.state === 'active') {
-                  return (
-                    <>
-                      <TaskCard
-                        key={'task-' + key}
-                        inProgress={task.inProgress}
-                        disabled={task.disabled}
-                        state={task.state}
-                        title={task.title}
-                        description={task.description}
-                        payment={task.payment}
-                        linkButton={{
-                          text: t('task-cards.links.channel'),
-                          url: '',
-                        }}
-                        actionButton={{
-                          action: () => {
-                            return;
-                          },
-                        }}
-                      />
-                      {key === 0 && (
-                        <p className={styles['disable-message']}>
-                          {t('pages.tasks.disable-message')}
-                        </p>
-                      )}
-                    </>
-                  );
-                }
-              })}
+              {tasks
+                .sort((a) => {
+                  if (!a.inProgress) return 1;
+                  if (a.inProgress) return -1;
+                  return 0;
+                })
+                .map((task, key) => {
+                  if (task.state === 'active') {
+                    return (
+                      <>
+                        <TaskCard
+                          key={'task-' + key}
+                          inProgress={task.inProgress}
+                          disabled={task.disabled}
+                          state={task.state}
+                          title={task.title}
+                          description={task.description}
+                          payment={task.payment}
+                          linkButton={{
+                            text: t('task-cards.links.channel'),
+                            url: '',
+                          }}
+                          actionButton={{
+                            action: () => {
+                              return;
+                            },
+                          }}
+                        />
+                        {task.inProgress && (
+                          <p className={styles['disable-message']}>
+                            {t('pages.tasks.disable-message')}
+                          </p>
+                        )}
+                      </>
+                    );
+                  }
+                })}
             </div>
           </SwiperSlide>
           <SwiperSlide>
