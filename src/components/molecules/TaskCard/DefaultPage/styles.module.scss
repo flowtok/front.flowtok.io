@@ -1,0 +1,29 @@
+.default-page {
+  height: 100vh;
+  background: #E5E5EA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    margin-bottom: 21px;
+  }
+
+  > h2 {
+    font-size: 19px;
+    line-height: 22px;
+    letter-spacing: -0.458235px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  > p {
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: -0.361765px;
+    color: #8E8E93;
+    padding: 0 40px;
+  }
+}

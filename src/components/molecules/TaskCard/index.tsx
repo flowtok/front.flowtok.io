@@ -30,7 +30,7 @@ export interface ActiveTaskCardProps {
 
 export interface CompletedTaskCardProps {
   state: 'completed';
-  date: string;
+  date?: string;
 }
 
 export type TaskCardProps = DefaultTaskCardProps &

@@ -1,11 +1,10 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { ProfileIcon } from './Icons/ProfileIcon';
 import { TasksIcon } from './Icons/TasksIcon';
 import { SettingsIcon } from './Icons/SettingsIcon';
 import { useTranslation } from 'react-i18next';
-import cn from 'classnames';
 
 export const Navbar = forwardRef<HTMLDivElement>(({}, ref) => {
   const { t } = useTranslation();
