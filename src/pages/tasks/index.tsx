@@ -8,6 +8,17 @@ import { TaskCard } from 'components/molecules/TaskCard';
 import { PageTemplate } from 'components/templates/Page';
 import styles from './styles.module.scss';
 import 'swiper/swiper.scss';
+import { EmptyTasks } from '../../components/molecules/TaskCard/EmptyTasks';
+
+interface TaskT {
+  disabled?: boolean;
+  inProgress?: boolean;
+  date?: string;
+  state: 'active' | 'completed';
+  title: string;
+  description: string;
+  payment: string;
+}
 
 export default () => {
   const { t } = useTranslation();
@@ -30,13 +41,68 @@ export default () => {
     setSelectedTab(swiper.activeIndex);
   };
 
+  const tasks: TaskT[] = [
+    {
+      disabled: false,
+      inProgress: true,
+      state: 'active',
+      title: 'FlowTok',
+      description:
+        'Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис.',
+      payment: '10.00₽',
+    },
+    {
+      disabled: true,
+      inProgress: false,
+      state: 'active',
+      title: 'FlowTok',
+      description:
+        'Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис.',
+      payment: '10.00₽',
+    },
+    {
+      state: 'completed',
+      title: 'FlowTok',
+      description:
+        'Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис.',
+      payment: '10.00₽',
+      date: 'Сегодня',
+    },
+    {
+      state: 'completed',
+      title: 'FlowTok',
+      description:
+        'Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис.',
+      payment: '10.00₽',
+      date: 'Сегодня',
+    },
+  ];
+
+  if (!tasks.length) {
+    return (
+      <PageTemplate
+        headerProps={{
+          title: t('header.tasks.title'),
+          rounded: true,
+        }}
+        extendedStyleProps={{
+          paddingTop: 10,
+          paddingBottom: 10,
+        }}
+        isNavbar={true}
+      >
+        <EmptyTasks />
+      </PageTemplate>
+    );
+  }
+
   return (
     <PageTemplate
       headerProps={{
         title: t('header.tasks.title'),
         rounded: true,
         additionalChild: (
-          <div>
+          <div className={styles['tabs-container']}>
             <Tabs
               list={[
                 t('header.tasks.tabs.active'),
@@ -64,59 +130,61 @@ export default () => {
         >
           <SwiperSlide>
             <div className={styles['task-outter-wrapper']}>
-              <TaskCard
-                inProgress
-                state="active"
-                title="FlowTok"
-                description="Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис."
-                payment="10.00₽"
-                linkButton={{
-                  text: t('task-cards.links.channel'),
-                  url: '',
-                }}
-                actionButton={{
-                  action: () => {
-                    return;
-                  },
-                }}
-              />
-              <p className={styles['disable-message']}>
-                {t('pages.tasks.disable-message')}
-              </p>
-              <TaskCard
-                state="active"
-                disabled
-                title="FlowTok"
-                description="Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис."
-                payment="10.00₽"
-                linkButton={{
-                  text: t('task-cards.links.channel'),
-                  url: '',
-                }}
-                actionButton={{
-                  action: () => {
-                    return;
-                  },
-                }}
-              />
+              {tasks
+                .sort((a) => {
+                  if (!a.inProgress) return 1;
+                  if (a.inProgress) return -1;
+                  return 0;
+                })
+                .map((task, key) => {
+                  if (task.state === 'active') {
+                    return (
+                      <>
+                        <TaskCard
+                          key={'task-' + key}
+                          inProgress={task.inProgress}
+                          disabled={task.disabled}
+                          state={task.state}
+                          title={task.title}
+                          description={task.description}
+                          payment={task.payment}
+                          linkButton={{
+                            text: t('task-cards.links.channel'),
+                            url: '',
+                          }}
+                          actionButton={{
+                            action: () => {
+                              return;
+                            },
+                          }}
+                        />
+                        {task.inProgress && (
+                          <p className={styles['disable-message']}>
+                            {t('pages.tasks.disable-message')}
+                          </p>
+                        )}
+                      </>
+                    );
+                  }
+                })}
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className={styles['task-outter-wrapper']}>
-              <TaskCard
-                state="completed"
-                title="FlowTok"
-                description="Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис."
-                payment="10.00₽"
-                date="Сегодня"
-              />
-              <TaskCard
-                state="completed"
-                title="FlowTok"
-                description="Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис."
-                payment="10.00₽"
-                date="Сегодня"
-              />
+              {tasks.map((task, key) => {
+                if (task.state === 'completed') {
+                  return (
+                    <TaskCard
+                      key={'task-done-' + key}
+                      state={task.state}
+                      title={task.title}
+                      description={task.description}
+                      payment={task.payment}
+                      date={task.date}
+                    />
+                  );
+                }
+              })}
             </div>
           </SwiperSlide>
         </Swiper>
