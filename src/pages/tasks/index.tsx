@@ -102,7 +102,7 @@ export default () => {
         title: t('header.tasks.title'),
         rounded: true,
         additionalChild: (
-          <div>
+          <div className={styles['tabs-container']}>
             <Tabs
               list={[
                 t('header.tasks.tabs.active'),
