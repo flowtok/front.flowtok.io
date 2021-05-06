@@ -52,6 +52,14 @@ export const WithdrawalCard = () => {
     </p>
   );
 
+  const masks = new Map();
+  masks.set('card', '9999 9999 9999 9999');
+  masks.set('qiwi', '+9 (999) 999 9999');
+  masks.set('phone-number', '+9 (999) 999 9999');
+  masks.set('yandex', '99999999999999');
+  masks.set('webmoney-r', 'R999999999999');
+  masks.set('webmoney-z', 'Z999999999999');
+
   const renderSavedMethods = () => {
     if (!savedMethods.length) return baseDescription;
     return savedMethods.map((method) => (
@@ -99,9 +107,15 @@ export const WithdrawalCard = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={styles['popup-input']}>
-            <Input {...register('value')} />
+            <Input
+              mask={masks.get(currentMethod)}
+              {...register('value', { required: true })}
+            />
+            {errors.value && t('validation-messages.required')}
           </div>
-          <Button preset={'success'}>{t('button-values.add')}</Button>
+          <Button type="submit" preset={'success'}>
+            {t('button-values.add')}
+          </Button>
         </form>
       </PopUp>
     </>

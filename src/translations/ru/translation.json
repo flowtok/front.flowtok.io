@@ -147,6 +147,9 @@
   "button-values": {
     "add": "Добавить"
   },
+  "validation-messages": {
+    "required": "Поле обязательно для заполнения"
+  },
   "login": {
     "enter": "Вход",
     "sign-in-google": "Войти через Google",
