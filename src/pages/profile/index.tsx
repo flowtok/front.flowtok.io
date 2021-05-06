@@ -1,17 +1,34 @@
 import { useTranslation } from 'react-i18next';
 
 import {
-  WalletCard,
   InProcessCard,
-  TotalEarningsCard,
-  StatsCard,
   ReferalCard,
+  StatsCard,
+  TotalEarningsCard,
+  WalletCard,
 } from 'components/molecules/ProfileCards';
 import { PageTemplate } from 'components/templates/Page';
 import styles from './styles.module.scss';
+import React, { useMemo } from 'react';
+import { adaptiveValue } from '../../utils/mixins';
+import { useWindowResize } from '../../hooks/useWindowResize';
 
 export default () => {
   const { t } = useTranslation();
+  const [width, setWidth] = React.useState(window.innerWidth);
+
+  const onWindowResize = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useWindowResize(onWindowResize);
+
+  const extendedStyleProps = useMemo(() => {
+    return {
+      paddingTop: adaptiveValue(10, 1024, 600, width),
+      paddingBottom: adaptiveValue(10, 1024, 600, width),
+    };
+  }, [width]);
 
   return (
     <PageTemplate
@@ -20,10 +37,7 @@ export default () => {
         withAvatar: true,
         rounded: true,
       }}
-      extendedStyleProps={{
-        paddingTop: 10,
-        paddingBottom: 10,
-      }}
+      extendedStyleProps={extendedStyleProps}
       isNavbar={true}
     >
       <div className={styles['outter-wrapper']}>

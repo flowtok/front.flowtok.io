@@ -11,6 +11,7 @@ import React, {
 
 import { Header, HeaderProps } from 'components/organisms/Header';
 import { Navbar } from 'components/organisms/Navbar';
+import { useWindowResize } from '../../hooks/useWindowResize';
 
 export interface ExtendedStyleProps {
   paddingTop?: number;
@@ -48,10 +49,7 @@ export const PageTemplate: FC<PageTemplatePropsT> = ({
     setWidth(window.innerWidth);
   };
 
-  useEffect(() => {
-    window.addEventListener('resize', onWindowResize);
-    return () => window.removeEventListener('resize', onWindowResize);
-  }, []);
+  useWindowResize(onWindowResize);
 
   const childrenProps = useMemo(() => {
     let res = children.props;
