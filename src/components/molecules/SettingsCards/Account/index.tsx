@@ -9,6 +9,7 @@ import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
 import AvatarMock from 'assets/common/images/avatar_mock.png';
 import { useForm } from 'react-hook-form';
+import { BloggerInfo } from '../../BloggerInfo';
 
 export interface AccountCardProps {
   username: string;
@@ -42,25 +43,16 @@ export const AccountCard = ({
 
   const onSubmit = (data: FormDataT) => console.log(data);
 
+  const editBtnValue = isExtraSmallScreen
+    ? t('pages.settings.cards.account.change-account-button-text-short')
+    : t('pages.settings.cards.account.change-account-button-text');
+
   return (
     <Paper className={styles['account-card']}>
       <h3 className={commonStyles['primary-title']}>
         {t('pages.settings.cards.account.title')}
       </h3>
-      <div className={styles['header']}>
-        <div className={styles['user-main-info']}>
-          <Avatar image={AvatarMock} size={42} />
-          <div className={styles['user-main-info-names']}>
-            <p className={styles['user-name']}>{username}</p>
-            <p className={styles['user-tag']}>{tagname}</p>
-          </div>
-        </div>
-        <Button preset="custom" size="s" className={styles['change-account']}>
-          {isExtraSmallScreen
-            ? t('pages.settings.cards.account.change-account-button-text-short')
-            : t('pages.settings.cards.account.change-account-button-text')}
-        </Button>
-      </div>
+      <BloggerInfo blogger={{ username, tagname }} editText={editBtnValue} />
       <Divider />
       <div className={styles['user-secondary-info']}>
         <div className={styles['text-block']}>

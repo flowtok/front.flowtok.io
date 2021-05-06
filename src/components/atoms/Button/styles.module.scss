@@ -66,7 +66,7 @@
   background: linear-gradient(225deg, #2246F3 0%, #7832F0 100%);
 }
 
-.button_payment-method{
+.button_payment-method {
   background: rgba(240, 240, 240, 0.0001);
   border: 1px solid #E5E5EA;
   //@include adaptive-value-tablet(border-width, 1);
@@ -97,6 +97,15 @@
   background: #000000;
   border-radius: 21px;
   @include adaptive-value-tablet(border-radius, 21);
+}
+
+.button_light {
+  padding: 0;
+  background: none;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1D1D1D;
+  opacity: .4;
 }
 
 .button_border-gradient {

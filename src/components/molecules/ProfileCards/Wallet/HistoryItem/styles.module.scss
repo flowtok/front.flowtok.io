@@ -1,0 +1,16 @@
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+
+  .value {
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: -0.41px;
+  }
+
+  .description-date {
+    margin: 0;
+  }
+}

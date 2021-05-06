@@ -1,0 +1,10 @@
+.task-list {
+  padding-left: 15px;
+
+  > li {
+    list-style: decimal;
+    font-size: 15px;
+    line-height: 22px;
+    color: #252525;
+  }
+}

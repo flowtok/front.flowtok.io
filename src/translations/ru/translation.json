@@ -32,6 +32,11 @@
     "actions": {
       "check": "Проверить",
       "perform": "Выполнить"
+    },
+    "popup-titles": {
+      "how-to-do": "Как выполнить задание?",
+      "that-is-done": "Вы выполнили все пункты",
+      "that-is-not-done": "Вы выполнили не все пункты"
     }
   },
   "pages": {
@@ -72,7 +77,13 @@
       "wallet": {
         "primary": "Кошелек",
         "secondary": "Ваш баланс",
-        "pay-off-button-text": "Выплатить"
+        "pay-off-button-text": "Выплатить",
+        "popup-title": "История",
+        "popup-withdrawal": "Вывод средств",
+        "balance-info": "Ваш баланс:",
+        "balance-sum": "Сумма",
+        "all-sum": "Вся сумма",
+        "main-sum": "Своя сумма"
       },
       "in-process": {
         "secondary": "Ждет зачисления"
@@ -145,7 +156,22 @@
     "phone-number": "Номер телефона"
   },
   "button-values": {
-    "add": "Добавить"
+    "add": "Добавить",
+    "success": "Выплатить",
+    "try": "Повторить"
+  },
+  "popup-notification": {
+    "title": "Подтвердите свой аккаунт в TikTok",
+    "first-step": "Вставьте указанные ниже смайлики в описание своего профиля TikTok",
+    "second-step": "Дождитесь исчезновения этого окошка.",
+    "edit": "Изменить",
+    "help-question": "Нужна помощь?"
+  },
+  "payment-method-notifications": {
+    "done": "Способ оплаты успешно добавлен!",
+    "done-description": "Вы сможете выбрать его для вывода средсств из списка «Сохраненные»",
+    "error": "Способ оплаты не добавлен!",
+    "error-description" : "Проверьте введенные данные и повторитие попытку"
   },
   "login": {
     "enter": "Вход",

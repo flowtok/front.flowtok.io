@@ -6,6 +6,8 @@ import { Button } from 'components/atoms/Button';
 import { Divider } from 'components/atoms/Divider';
 import InfoIcon from 'assets/common/icons/info.svg';
 import styles from './styles.module.scss';
+import { TasksPopUp, TasksPopUpTypes } from './TasksPopUp';
+import { useState } from 'react';
 
 export interface DefaultTaskCardProps {
   // @default false
@@ -44,67 +46,99 @@ export const TaskCard = ({
   inProgress,
   ...rest
 }: TaskCardProps) => {
-  const { t } = useTranslation();
+  const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
+  const [typePopUp, setTypePopUp] = useState<string>('');
 
+  /*will be delete*/
+  const tasksList = [
+    { value: 'Жмете кнопку "Открыть сайт"', isDone: false },
+    { value: 'Выполняете задание', isDone: true },
+    {
+      value:
+        'В течение одного часа возвращаетесь на сайт и жмете кнопку "Проверить"',
+      isDone: false,
+    },
+    { value: 'Получаете деньги!', isDone: true },
+  ];
+
+  const { t } = useTranslation();
   return (
-    <Paper
-      className={classNames(styles['task-card'], {
-        [styles['task-card_disabled']]: disabled,
-      })}
-    >
-      <div className={styles['header-block']}>
-        <div className={styles['title-block']}>
-          <h3 className={styles['title']}>{title}</h3>
-          <button>
-            <img src={InfoIcon} />
-          </button>
-          {rest.state === 'completed' && (
-            <span className={styles['date']}>{rest.date}</span>
-          )}
+    <>
+      <Paper
+        className={classNames(styles['task-card'], {
+          [styles['task-card_disabled']]: disabled,
+        })}
+      >
+        <div className={styles['header-block']}>
+          <div className={styles['title-block']}>
+            <h3 className={styles['title']}>{title}</h3>
+            <button
+              onClick={() => {
+                setTypePopUp(TasksPopUpTypes.howToDo);
+                setOpenPopUp(true);
+              }}
+            >
+              <img src={InfoIcon} />
+            </button>
+            {rest.state === 'completed' && (
+              <span className={styles['date']}>{rest.date}</span>
+            )}
+          </div>
         </div>
-      </div>
-      <p className={styles['description']}>{description}</p>
-      <Divider />
-      <div className={styles['payment-block']}>
-        <p className={styles['title']}>
-          {rest.state === 'active'
-            ? t('task-cards.possible-payment.label')
-            : t('task-cards.getted-payment.label')}
-        </p>
-        <p className={styles['value']}>{payment}</p>
-      </div>
-      {rest.state === 'active' && (
-        <>
-          <Divider />
-          <div className={styles['task-card-actions']}>
-            <a href={rest.linkButton.url} target="_blank">
+        <p className={styles['description']}>{description}</p>
+        <Divider />
+        <div className={styles['payment-block']}>
+          <p className={styles['title']}>
+            {rest.state === 'active'
+              ? t('task-cards.possible-payment.label')
+              : t('task-cards.getted-payment.label')}
+          </p>
+          <p className={styles['value']}>{payment}</p>
+        </div>
+        {rest.state === 'active' && (
+          <>
+            <Divider />
+            <div className={styles['task-card-actions']}>
+              <a href={rest.linkButton.url} target="_blank">
+                <Button
+                  disabled={disabled}
+                  size="s"
+                  radius={11}
+                  preset="border-gradient"
+                >
+                  {rest.linkButton.text}
+                </Button>
+              </a>
               <Button
                 disabled={disabled}
                 size="s"
                 radius={11}
-                preset="border-gradient"
+                onClick={() => {
+                  if (inProgress) {
+                    setTypePopUp(TasksPopUpTypes.thatIsDone);
+                    setOpenPopUp(true);
+                  } else rest.actionButton.action;
+                }}
               >
-                {rest.linkButton.text}
+                {inProgress
+                  ? t('task-cards.actions.perform')
+                  : t('task-cards.actions.check')}
               </Button>
-            </a>
-            <Button
-              disabled={disabled}
-              size="s"
-              radius={11}
-              onClick={rest.actionButton.action}
-            >
-              {inProgress
-                ? t('task-cards.actions.perform')
-                : t('task-cards.actions.check')}
-            </Button>
-          </div>
-          {!disabled && inProgress && (
-            <button className={styles['cancel']}>
-              {t('task-cards.cancel')}
-            </button>
-          )}
-        </>
-      )}
-    </Paper>
+            </div>
+            {!disabled && inProgress && (
+              <button className={styles['cancel']}>
+                {t('task-cards.cancel')}
+              </button>
+            )}
+          </>
+        )}
+      </Paper>
+      <TasksPopUp
+        isOpen={isOpenPopUp}
+        close={() => setOpenPopUp(false)}
+        type={typePopUp}
+        tasks={tasksList}
+      />
+    </>
   );
 };

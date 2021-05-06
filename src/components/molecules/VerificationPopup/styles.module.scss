@@ -1,0 +1,43 @@
+.steps-wrapper {
+  margin-bottom: 44px;
+
+  & > li {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 11px;
+    }
+
+    & > div {
+      margin-right: 10px;
+    }
+  }
+}
+
+.description-list {
+  margin: 0;
+}
+
+
+.footer-popup {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 23px;
+
+  & > .load-block {
+    width: 41px;
+    height: 41px;
+    background: #2B44F2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+  }
+}
+
+.help-btn {
+  margin: 0 auto;
+  display: block;
+}
