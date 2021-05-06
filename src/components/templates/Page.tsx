@@ -2,6 +2,7 @@ import React, {
   cloneElement,
   FC,
   ReactElement,
+  useEffect,
   useLayoutEffect,
   useMemo,
   useRef,
@@ -33,6 +34,7 @@ export const PageTemplate: FC<PageTemplatePropsT> = ({
   const navbarRef = useRef<HTMLDivElement>(null);
   const [isHeaderMounted, setIsHeaderMounted] = useState<boolean>(false);
   const [isNavbarMounted, setIsNavbarMounted] = useState<boolean>(false);
+  const [width, setWidth] = React.useState(window.innerWidth);
 
   useLayoutEffect(() => {
     setIsHeaderMounted(!!headerRef.current);
@@ -41,6 +43,15 @@ export const PageTemplate: FC<PageTemplatePropsT> = ({
   useLayoutEffect(() => {
     setIsNavbarMounted(!!navbarRef.current);
   }, [navbarRef]);
+
+  const onWindowResize = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', onWindowResize);
+    return () => window.removeEventListener('resize', onWindowResize);
+  }, []);
 
   const childrenProps = useMemo(() => {
     let res = children.props;
@@ -65,7 +76,14 @@ export const PageTemplate: FC<PageTemplatePropsT> = ({
       };
     }
     return res;
-  }, [isHeaderMounted, headerRef, headerProps, isNavbarMounted, navbarRef]);
+  }, [
+    isHeaderMounted,
+    headerRef,
+    headerProps,
+    isNavbarMounted,
+    navbarRef,
+    width,
+  ]);
 
   return (
     <>
