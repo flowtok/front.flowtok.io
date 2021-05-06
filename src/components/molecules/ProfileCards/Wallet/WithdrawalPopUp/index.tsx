@@ -1,4 +1,4 @@
-import { forwardRef, PropsWithChildren, useState } from 'react';
+import React, { forwardRef, PropsWithChildren, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Divider } from '../../../../atoms/Divider';
 import { PopUp } from '../../../PopUp';
@@ -81,6 +81,20 @@ export const WithdrawalPopUp = forwardRef<
     );
   };
 
+  let errorMessage = t('validation-messages.required');
+  let errMessageBlock = null;
+
+  if (errors.value?.type === 'min')
+    errorMessage = t('validation-messages.min-output');
+
+  if (errors.value) {
+    errMessageBlock = (
+      <span className={commonStyles['error-message']}>
+        {errors.value && errorMessage}
+      </span>
+    );
+  }
+
   return (
     <PopUp
       isOpen={isOpen}
@@ -110,11 +124,16 @@ export const WithdrawalPopUp = forwardRef<
             {t('pages.profile.wallet.all-sum')}
           </Button>
           <Input
-            {...register('value')}
+            {...register('value', { required: true, min: 100, max: 999999999 })}
             placeholder={t('pages.profile.wallet.main-sum')}
           />
+          {errMessageBlock}
         </div>
-        <Button preset={'success'} className={styles['success-btn']}>
+        <Button
+          type="submit"
+          preset={'success'}
+          className={styles['success-btn']}
+        >
           {t('button-values.success')}
         </Button>
       </form>
