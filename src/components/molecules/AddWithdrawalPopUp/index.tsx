@@ -47,8 +47,18 @@ export const AddWithdrawalPopUp = forwardRef<
   masks.set('webmoney-z', 'Z999999999999');
 
   const patterns = new Map();
-  /* define regexp patterns here */
-  // patterns.set('card', /d/);
+  patterns.set('card', /(\d{4}([ ]|)\d{4}([ ]|)\d{4}([ ]|)\d{4})/);
+  patterns.set(
+    'qiwi',
+    /(([+]|)\d{1}([ ]|)([(]|)\d{3}([)]|)([ ]|)\d{3}([ ]|)\d{4})/
+  );
+  patterns.set(
+    'phone-number',
+    /(([+]|)\d{1}([ ]|)([(]|)\d{3}([)]|)([ ]|)\d{3}([ ]|)\d{4})/
+  );
+  patterns.set('yandex', /(\d{14})/);
+  patterns.set('webmoney-r', /(([R]|)\d{12})/);
+  patterns.set('webmoney-z', /(([Z]|)\d{12})/);
 
   return (
     <PopUp isOpen={isOpen} close={close} title={getTitleMethodByType(method)}>

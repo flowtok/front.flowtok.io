@@ -24,39 +24,29 @@ export const SignUpForm: FC<FormPropsT> = ({}) => {
 
   const onSubmit = (data: FormDataT) => console.log(data);
 
-  let inputAgeErrMessage = t('validation-messages.required');
-  let errMessageBlockAge = null;
-  let errMessageBlockName = null;
-
-  if (errors.age?.type === 'min' || errors.age?.type === 'max')
-    inputAgeErrMessage = t('validation-messages.min-output');
-
-  if (errors.age) {
-    errMessageBlockAge = (
-      <span className={commonStyles['error-message']}>
-        {errors.age && inputAgeErrMessage}
-      </span>
-    );
-  }
-
-  if (errors.name) {
-    errMessageBlockName = (
-      <span className={commonStyles['error-message']}>
-        {errors.name && t('validation-messages.required')}
-      </span>
-    );
-  }
-
   return (
     <form className={styles['form']} onSubmit={handleSubmit(onSubmit)}>
       <Input
-        {...register('name', { required: true })}
+        error={errors.name}
+        {...register('name', {
+          required: t('validation-messages.required').toString(),
+        })}
         placeholder={t('pages.signup.placeholders.name')}
       />
-      {errMessageBlockName}
       <div className={styles['row']}>
         <Input
-          {...register('age', { required: true, min: 100, max: 999999999 })}
+          error={errors.age}
+          {...register('age', {
+            required: true,
+            min: {
+              value: 1,
+              message: t('validation-messages.incorrect').toString(),
+            },
+            max: {
+              value: 150,
+              message: t('validation-messages.incorrect').toString(),
+            },
+          })}
           type="number"
           placeholder={t('pages.signup.placeholders.age')}
         />
@@ -65,7 +55,6 @@ export const SignUpForm: FC<FormPropsT> = ({}) => {
           placeholder={t('pages.signup.placeholders.country')}
         />
       </div>
-      {errMessageBlockAge}
       <div className={styles['row']}>
         <Button preset={'border-gradient'} size={'sm'}>
           <svg

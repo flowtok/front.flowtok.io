@@ -81,20 +81,6 @@ export const WithdrawalPopUp = forwardRef<
     );
   };
 
-  let errorMessage = t('validation-messages.required');
-  let errMessageBlock = null;
-
-  if (errors.value?.type === 'min')
-    errorMessage = t('validation-messages.min-output');
-
-  if (errors.value) {
-    errMessageBlock = (
-      <span className={commonStyles['error-message']}>
-        {errors.value && errorMessage}
-      </span>
-    );
-  }
-
   return (
     <PopUp
       isOpen={isOpen}
@@ -124,10 +110,17 @@ export const WithdrawalPopUp = forwardRef<
             {t('pages.profile.wallet.all-sum')}
           </Button>
           <Input
-            {...register('value', { required: true, min: 100, max: 999999999 })}
+            error={errors.value}
+            {...register('value', {
+              required: t('validation-messages.required').toString(),
+              min: {
+                value: 100,
+                message: t('validation-messages.min-output').toString(),
+              },
+              max: 999999999,
+            })}
             placeholder={t('pages.profile.wallet.main-sum')}
           />
-          {errMessageBlock}
         </div>
         <Button
           type="submit"
