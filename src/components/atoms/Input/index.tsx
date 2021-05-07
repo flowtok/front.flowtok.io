@@ -7,19 +7,17 @@ import { FieldError, UseFormRegister } from 'react-hook-form';
 export type InputProps = {
   error?: FieldError;
   visited?: boolean;
-  placeholder?: string;
   mask?: string | Array<string | RegExp>;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export const Input = forwardRef<
   HTMLInputElement,
   InputProps & ReturnType<UseFormRegister<any>>
->(({ error, visited, placeholder, mask = '', ...rest }, ref) => {
+>(({ error, visited, mask = '', ...rest }, ref) => {
   const finalClassName = classNames(styles['input'], {
     [styles[`input-error`]]: !!error,
-    [styles[`input-visited`]]: visited,
+    [styles[`input-visited`]]: visited && !error,
   });
-
   return (
     <div>
       <InputMask mask={mask} {...rest}>

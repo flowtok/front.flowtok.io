@@ -5,7 +5,6 @@ import { Input } from '../../atoms/Input';
 import { Button } from '../../atoms/Button';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import commonStyles from '../ProfileCards/styles.module.scss';
 
 type FormDataT = {
   value: string;
@@ -24,9 +23,8 @@ export const AddWithdrawalPopUp = forwardRef<
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<FormDataT>();
+    formState: { errors, touchedFields },
+  } = useForm<FormDataT>({ reValidateMode: 'onChange' });
 
   const onSubmit = (data: FormDataT) => console.log(data);
   const { t } = useTranslation();
@@ -48,15 +46,9 @@ export const AddWithdrawalPopUp = forwardRef<
   masks.set('webmoney-r', 'R999999999999');
   masks.set('webmoney-z', 'Z999999999999');
 
-  let errMessageBlock = null;
-
-  if (errors.value) {
-    errMessageBlock = (
-      <span className={commonStyles['error-message']}>
-        {errors.value && t('validation-messages.required')}
-      </span>
-    );
-  }
+  const patterns = new Map();
+  /* define regexp patterns here */
+  // patterns.set('card', /d/);
 
   return (
     <PopUp isOpen={isOpen} close={close} title={getTitleMethodByType(method)}>
@@ -66,10 +58,17 @@ export const AddWithdrawalPopUp = forwardRef<
       >
         <div className={styles['popup-input']}>
           <Input
-            {...register('value', { required: true })}
+            visited={touchedFields.value}
+            error={errors.value}
+            {...register('value', {
+              required: t('validation-messages.required').toString(),
+              pattern: {
+                value: patterns.get(method),
+                message: t('validation-messages.incorrect').toString(),
+              },
+            })}
             mask={masks.get(method)}
           />
-          {errMessageBlock}
         </div>
         <Button type="submit" preset={'success'}>
           {t('button-values.add')}
