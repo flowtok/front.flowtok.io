@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { useMediaQuery } from 'react-responsive';
 import { Divider } from 'components/atoms/Divider';
 import { Paper } from 'components/atoms/Paper';
 import { Input } from 'components/atoms/Input';
@@ -7,7 +6,8 @@ import { Button } from 'components/atoms/Button';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
 import { useForm } from 'react-hook-form';
-import { BloggerInfo } from '../../BloggerInfo';
+import { TikTokProfile } from '../../SignUp/TikTokProfile';
+import AvatarMock from '../../../../assets/common/images/avatar_mock.png';
 
 export interface AccountCardProps {
   username: string;
@@ -30,7 +30,6 @@ export const AccountCard = ({
   country,
 }: AccountCardProps) => {
   const { t } = useTranslation();
-  const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 350px)' });
 
   const {
     register,
@@ -40,16 +39,20 @@ export const AccountCard = ({
 
   const onSubmit = (data: FormDataT) => console.log(data);
 
-  const editBtnValue = isExtraSmallScreen
-    ? t('pages.settings.cards.account.change-account-button-text-short')
-    : t('pages.settings.cards.account.change-account-button-text');
-
   return (
     <Paper className={styles['account-card']}>
       <h3 className={commonStyles['primary-title']}>
         {t('pages.settings.cards.account.title')}
       </h3>
-      <BloggerInfo blogger={{ username, tagname }} editText={editBtnValue} />
+      <div className={styles['user-main-info']}>
+        <TikTokProfile
+          profileData={{
+            fullName: username,
+            shortName: tagname,
+            avatar: AvatarMock,
+          }}
+        />
+      </div>
       <Divider />
       <div className={styles['user-secondary-info']}>
         <div className={styles['text-block']}>

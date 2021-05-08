@@ -10,6 +10,7 @@ import LoginPage from './pages/login';
 import SettingsPage from './pages/settings';
 import { RootStateT } from './redux/store';
 import { initialize } from './redux/app-reducer/app-reducer';
+import { VerificationPopup } from './components/molecules/VerificationPopup';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export const App = () => {
 
   return (
     <div style={{ position: 'relative' }}>
+      <VerificationPopup isOpen={true} />
       {isLoader && <div>Loading...</div>}
       <Switch>
         <Route path="/" exact>

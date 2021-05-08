@@ -30,7 +30,7 @@ export default () => {
           country="Россия"
           name="Карина"
           tagname="@karinakross"
-          username="karinakross"
+          username="karinakrosseeeeeeeeeeeeeeeee"
         />
         <NotificationsCard />
         <WithdrawalCard />

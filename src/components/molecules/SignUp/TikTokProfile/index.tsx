@@ -21,11 +21,10 @@ type FormDataT = {
 
 export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
   const { t } = useTranslation();
-  const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 370px)' });
+  const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 390px)' });
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FormDataT>();
 

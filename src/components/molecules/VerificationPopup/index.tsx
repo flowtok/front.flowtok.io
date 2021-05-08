@@ -5,9 +5,10 @@ import styles from './styles.module.scss';
 import { ListItem } from '../../atoms/ListItem';
 import commonStyles from '../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
-import { BloggerInfo } from '../BloggerInfo';
 import { Button } from '../../atoms/Button';
 import LoadIcon from 'assets/common/icons/load.svg';
+import { TikTokProfile } from '../SignUp/TikTokProfile';
+import AvatarMock from '../../../assets/common/images/avatar_mock.png';
 
 interface VerificationPopupProps {
   isOpen: boolean;
@@ -24,10 +25,11 @@ export const VerificationPopup = forwardRef<
     styles['description-list']
   );
 
-  /*will be delete*/
+  /*will be deleted*/
   const blogger = {
-    username: 'karinakross',
-    tagname: '@karinakross',
+    fullName: 'karinakross',
+    shortName: '@karinakross',
+    avatar: AvatarMock,
   };
 
   return (
@@ -49,15 +51,12 @@ export const VerificationPopup = forwardRef<
         </li>
       </ul>
       <div className={styles['blogger-wrapper']}>
-        <BloggerInfo
-          blogger={{ ...blogger }}
-          editText={t('popup-notification.edit')}
-        />
+        <TikTokProfile profileData={{ ...blogger }} />
       </div>
       <div className={styles['footer-popup']}>
         <Button preset={'success'}>🤣 💛 🐵 🔥</Button>
         <div className={styles['load-block']}>
-          <img src={LoadIcon} />
+          <img src={LoadIcon} alt="" />
         </div>
       </div>
       <Button preset={'light'} className={styles['help-btn']}>
