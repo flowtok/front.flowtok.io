@@ -1,13 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 import { Divider } from 'components/atoms/Divider';
-import { Avatar } from 'components/atoms/Avatar';
 import { Paper } from 'components/atoms/Paper';
 import { Input } from 'components/atoms/Input';
 import { Button } from 'components/atoms/Button';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
-import AvatarMock from 'assets/common/images/avatar_mock.png';
 import { useForm } from 'react-hook-form';
 import { BloggerInfo } from '../../BloggerInfo';
 
@@ -37,7 +35,6 @@ export const AccountCard = ({
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FormDataT>();
 

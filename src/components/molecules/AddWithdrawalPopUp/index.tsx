@@ -24,7 +24,9 @@ export const AddWithdrawalPopUp = forwardRef<
     register,
     handleSubmit,
     formState: { errors, touchedFields },
-  } = useForm<FormDataT>({ reValidateMode: 'onChange' });
+  } = useForm<FormDataT>({
+    reValidateMode: 'onChange',
+  });
 
   const onSubmit = (data: FormDataT) => console.log(data);
   const { t } = useTranslation();

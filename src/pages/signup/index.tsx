@@ -4,10 +4,9 @@ import styles from './styles.module.scss';
 import { NetworkButton } from '../../components/atoms/NetworkButton';
 import { Divider } from '../../components/atoms/Divider';
 import { TikTokProfile } from '../../components/molecules/SignUp/TikTokProfile';
-import { SignUpForm } from '../../components/molecules/SignUp/Form';
+import { SignUpForm } from '../../components/molecules/SignUp/SignUpForm';
 import avatar from '../../assets/common/images/avatar_mock.png';
 import { TurnNotifications } from '../../components/molecules/SignUp/TurnNotifications';
-import { Button } from '../../components/atoms/Button';
 
 export default () => {
   const { t } = useTranslation();
@@ -50,9 +49,6 @@ export default () => {
             <TurnNotifications />
           </div>
           <Divider direction={'horizontal'} />
-        </div>
-        <div className={styles['container']}>
-          <Button preset={'black'}>{t('pages.signup.buttons.flowtok')}</Button>
         </div>
       </div>
     </PageTemplate>

@@ -4,7 +4,6 @@ import { Input } from '../../../atoms/Input';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { Button } from '../../../atoms/Button';
-import commonStyles from '../../ProfileCards/styles.module.scss';
 
 type FormPropsT = any;
 type FormDataT = {
@@ -26,18 +25,20 @@ export const SignUpForm: FC<FormPropsT> = ({}) => {
 
   return (
     <form className={styles['form']} onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        error={errors.name}
-        {...register('name', {
-          required: t('validation-messages.required').toString(),
-        })}
-        placeholder={t('pages.signup.placeholders.name')}
-      />
+      <div className={styles['row']}>
+        <Input
+          error={errors.name}
+          {...register('name', {
+            required: t('validation-messages.required').toString(),
+          })}
+          placeholder={t('pages.signup.placeholders.name')}
+        />
+      </div>
       <div className={styles['row']}>
         <Input
           error={errors.age}
           {...register('age', {
-            required: true,
+            required: t('validation-messages.required').toString(),
             min: {
               value: 1,
               message: t('validation-messages.incorrect').toString(),
@@ -56,7 +57,7 @@ export const SignUpForm: FC<FormPropsT> = ({}) => {
         />
       </div>
       <div className={styles['row']}>
-        <Button preset={'border-gradient'} size={'sm'}>
+        <Button preset={'border-gradient'} size={'sm'} type={'button'}>
           <svg
             width="13"
             height="21"
@@ -76,7 +77,7 @@ export const SignUpForm: FC<FormPropsT> = ({}) => {
           <img src="" alt="" />
           {t('pages.signup.buttons.sex.woman')}
         </Button>
-        <Button preset={'white'} size={'sm'}>
+        <Button preset={'white'} size={'sm'} type={'button'}>
           <svg
             className={styles['btn-icon']}
             width="25"
@@ -95,6 +96,12 @@ export const SignUpForm: FC<FormPropsT> = ({}) => {
           </svg>
           {t('pages.signup.buttons.sex.man')}
         </Button>
+      </div>
+      <div className={styles['btn-container']}>
+        <Button preset={'black'} type={'submit'}>
+          {t('pages.signup.buttons.flowtok')}
+        </Button>
+        <div className={styles['label']}>{t('pages.signup.agreement')}</div>
       </div>
     </form>
   );
