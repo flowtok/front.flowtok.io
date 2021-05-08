@@ -136,6 +136,7 @@ function divideData(occurrenceData, data) {
     successList.push(occurrenceData.occurrence);
     return parts;
   }
+  return listIdx;
 }
 
 function getFileWithMixin(occurrences, data) {
