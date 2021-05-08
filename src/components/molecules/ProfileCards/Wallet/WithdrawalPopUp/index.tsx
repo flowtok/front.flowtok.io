@@ -29,8 +29,7 @@ export const WithdrawalPopUp = forwardRef<
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    formState: { errors, touchedFields },
   } = useForm<FormDataT>();
 
   const onSubmit = (data: FormDataT) => console.log(data);
@@ -110,6 +109,7 @@ export const WithdrawalPopUp = forwardRef<
             {t('pages.profile.wallet.all-sum')}
           </Button>
           <Input
+            visited={touchedFields.value}
             error={errors.value}
             {...register('value', {
               required: t('validation-messages.required').toString(),
@@ -117,7 +117,6 @@ export const WithdrawalPopUp = forwardRef<
                 value: 100,
                 message: t('validation-messages.min-output').toString(),
               },
-              max: 999999999,
             })}
             placeholder={t('pages.profile.wallet.main-sum')}
           />
