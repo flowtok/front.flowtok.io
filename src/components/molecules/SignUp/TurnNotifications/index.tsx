@@ -3,9 +3,13 @@ import styles from './styles.module.scss';
 import { Switch } from '../../../atoms/Switch';
 import { useTranslation } from 'react-i18next';
 
-type TurnNotificationsPropsT = any;
+type TurnNotificationsPropsT = {
+  bonusLabel?: string;
+};
 
-export const TurnNotifications: FC<TurnNotificationsPropsT> = ({}) => {
+export const TurnNotifications: FC<TurnNotificationsPropsT> = ({
+  bonusLabel,
+}) => {
   const { t } = useTranslation();
   const [isBonus, setIsBonus] = useState(true);
 
@@ -23,7 +27,11 @@ export const TurnNotifications: FC<TurnNotificationsPropsT> = ({}) => {
         </div>
       </div>
 
-      <Switch onChange={onSwitch} defaultChecked={isBonus} />
+      <Switch
+        onChange={onSwitch}
+        defaultChecked={isBonus}
+        label={isBonus ? bonusLabel : ''}
+      />
     </div>
   );
 };
