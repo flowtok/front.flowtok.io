@@ -1,6 +1,6 @@
 const fs = require('fs');
 const mkdirp = require('mkdirp');
-const re = /(font-size: [0-9]+px;)|(width: [0-9]+px;)|(line-height: [0-9]+px;)|(max-width: [0-9]+px;)|(max-height: [0-9]+px;)|(letter-spacing: [0-9]+px;)|(border-radius: [0-9]+px;)|(padding-bottom: [0-9]+px;)|(padding-top: [0-9]+px;)|(padding-right: [0-9]+px;)|(padding-left: [0-9]+px;)|(margin-bottom: [0-9]+px;)|(margin-top: [0-9]+px;)|(margin-right: [0-9]+px;)|(margin-left: [0-9]+px;)/g;
+const re = /(font-size?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|(line-height?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((max)(-width|-height)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|(letter-spacing?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((border)(-radius)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((padding|margin)(-top|-left|-right|-bottom)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)/g;
 
 function getFiles(dir, files_) {
   files_ = files_ || [];
@@ -17,21 +17,32 @@ function getFiles(dir, files_) {
 }
 
 function checkType(occurrence) {
+  const mTop = occurrence.indexOf('margin-top');
+  const mLeft = occurrence.indexOf('margin-left');
+  const mBot = occurrence.indexOf('margin-bottom');
+  const mRig = occurrence.indexOf('margin-right');
+  const pTop = occurrence.indexOf('padding-top');
+  const pLeft = occurrence.indexOf('padding-left');
+  const pBot = occurrence.indexOf('padding-bottom');
+  const pRig = occurrence.indexOf('padding-right');
+  const bR = occurrence.indexOf('border-radius');
   if (occurrence.indexOf('font-size') > -1) return 'font-size';
-  if (occurrence.indexOf('width') > -1) return 'width';
   if (occurrence.indexOf('max-width') > -1) return 'max-width';
   if (occurrence.indexOf('max-height') > -1) return 'max-height';
   if (occurrence.indexOf('line-height') > -1) return 'line-height';
   if (occurrence.indexOf('letter-spacing') > -1) return 'letter-spacing';
-  if (occurrence.indexOf('border-radius') > -1) return 'border-radius';
-  if (occurrence.indexOf('padding-top') > -1) return 'padding-top';
-  if (occurrence.indexOf('padding-bottom') > -1) return 'padding-bottom';
-  if (occurrence.indexOf('padding-right') > -1) return 'padding-right';
-  if (occurrence.indexOf('padding-left') > -1) return 'padding-left';
-  if (occurrence.indexOf('margin-top') > -1) return 'margin-top';
-  if (occurrence.indexOf('margin-bottom') > -1) return 'margin-bottom';
-  if (occurrence.indexOf('margin-right') > -1) return 'margin-right';
-  if (occurrence.indexOf('margin-left') > -1) return 'margin-left';
+  if (occurrence.indexOf('border') > -1 && bR === -1) return 'border-size';
+  if (bR > -1) return 'border-radius';
+  if (pTop > -1) return 'padding-top';
+  if (pBot > -1) return 'padding-bottom';
+  if (pRig > -1) return 'padding-right';
+  if (pLeft > -1) return 'padding-left';
+  if (mTop > -1) return 'margin-top';
+  if (mBot > -1) return 'margin-bottom';
+  if (mRig > -1) return 'margin-right';
+  if (mLeft > -1) return 'margin-left';
+  if (occurrence.indexOf('margin') > -1 && mTop === -1 && mLeft === -1 && mRig === -1 && mBot === -1) return 'margin';
+  if (occurrence.indexOf('padding') > -1 && pTop === -1 && pLeft === -1 && pRig === -1 && pBot === -1) return 'padding';
 }
 
 function occurrencesSerializer(re, string) {
@@ -41,12 +52,14 @@ function occurrencesSerializer(re, string) {
     const checkForPercent = (i.indexOf('%') === -1);
     const checkForVh = (i.indexOf('vh') === -1);
     const checkForVw = (i.indexOf('vw') === -1);
-    if (checkForCalc && checkForPercent && checkForVh && checkForVw) {
-      if (+/\d+/.exec(i) !== 0) {
+    const checkForVar = (i.indexOf('var') === -1);
+    const checkForNone = (i.indexOf('none') === -1);
+    if (checkForCalc && checkForPercent && checkForVh && checkForVw && checkForVar && checkForNone) {
+      if (i.match(/-?\d+(\.\d+)?/g) !== null) {
         return {
           occurrence: i,
           type: checkType(i),
-          value: +/\d+/.exec(i),
+          value: i.match(/-?\d+(\.\d+)?/g),
         };
       }
     }
@@ -54,19 +67,44 @@ function occurrencesSerializer(re, string) {
 }
 
 function divideData(occurrenceData, data) {
-  return [
-    data.slice(0, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length),
-    data.slice(-((data.length - data.slice(0, data.indexOf(occurrenceData.occurrence)).length) - occurrenceData.occurrence.length)),
-  ];
+  if (occurrenceData){
+    return [
+      data.slice(0, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length),
+      data.slice(-((data.length - data.slice(0, data.indexOf(occurrenceData.occurrence)).length) - occurrenceData.occurrence.length)),
+    ];
+  }
 }
 
 function getFileWithMixin(occurrences, data) {
   if (occurrences.length) {
     let preparedData = data;
-    occurrences.forEach(occurrence => {
+    occurrences.filter(i=>i).forEach(occurrence => {
       const parts = divideData(occurrence, preparedData);
-      if (data.indexOf(`@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value});`) === -1) {
-        preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
+      if (occurrence.type === 'padding' || occurrence.type === 'margin') {
+        if (occurrence.value.length === 1) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[0]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[0]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
+        } else if (occurrence.value.length === 2) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[1]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
+        } else if (occurrence.value.length === 3) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[2]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]}); ${parts[1]}`;
+        } else if (occurrence.value.length === 4) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[3]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
+           \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[2]}); ${parts[1]}`;
+        }
+      } else {
+        if (data.indexOf(`@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value});`) === -1) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
+        }
       }
     });
     if (preparedData.indexOf('@import "src/styles/mixins"') === -1) {
@@ -77,6 +115,7 @@ function getFileWithMixin(occurrences, data) {
 }
 
 const files = getFiles('src');
+
 files.forEach(file => {
   new Promise(resolve => {
     fs.readFile(file, 'utf-8', (err, data) => resolve({ file, data }));
@@ -86,8 +125,8 @@ files.forEach(file => {
       const preparedFile = getFileWithMixin(occurrenceData, data.data);
       const dir = data.file.split('/').slice(0, -1).join('/');
       mkdirp.sync('adaptive/' + dir);
-      fs.open('adaptive/' + dir + '/style.scss', 'w', () => console.log(`'adaptive/'${dir}'style.scss' created`));
-      fs.appendFile('adaptive/' + dir + '/style.scss', preparedFile, () => console.log('success'));
+      fs.open('adaptive/' + dir + '/style.scss', 'w', () => {});
+      fs.appendFile('adaptive/' + dir + '/style.scss', preparedFile, () => {});
     }
   });
 });
