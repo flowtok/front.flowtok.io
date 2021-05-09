@@ -2,7 +2,6 @@
 
 .network-button {
   border: 1.5px solid #E5E5EA;
-  //@include adaptive-value-tablet(border-width, 1.5);
   border-radius: 30px;
   @include adaptive-value-tablet(border-radius, 30);
   background: #FFFFFF;
@@ -22,6 +21,7 @@
   position: relative;
 
 }
+
 .icon-container {
   position: absolute;
   left: 15px;
@@ -31,6 +31,22 @@
   top: 0;
   height: 100%;
 }
+
 .icon {
   display: block;
+}
+
+@media (min-width: 1024px) {
+  .network-button {
+    border: 1.5px solid #E5E5EA;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 15px;
+    line-height: 18px;
+    padding: 15px;
+    letter-spacing: -0.361765px;
+  }
+  .icon-container {
+    left: 15px;
+  }
 }

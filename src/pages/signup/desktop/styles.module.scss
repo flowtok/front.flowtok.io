@@ -1,0 +1,17 @@
+@import "src/styles/mixins";
+
+.wrapper {
+  padding: 0 20px 141px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  margin: 12px 0;
+  > * {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
