@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -25,28 +25,29 @@ export const App = () => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <VerificationPopup isOpen={true} />
       {isLoader && <div>Loading...</div>}
-      <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/signup">
-          <SignUpPage />
-        </Route>
-        <Route path="/profile">
-          <ProfilePage />
-        </Route>
-        <Route path="/tasks">
-          <TasksPage />
-        </Route>
-        <Route path="/settings">
-          <SettingsPage />
-        </Route>
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <SignUpPage />
+          </Route>
+          <Route path="/profile">
+            <ProfilePage />
+          </Route>
+          <Route path="/tasks">
+            <TasksPage />
+          </Route>
+          <Route path="/settings">
+            <SettingsPage />
+          </Route>
+        </Switch>
+      </Suspense>
     </div>
   );
 };
