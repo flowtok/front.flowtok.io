@@ -36,6 +36,20 @@
     .history-window {
       height: 160px;
       overflow-y: scroll;
+
+      > div > p:last-child {
+        margin-left: -5px;
+        margin-right: 5px;
+      }
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: #8E8E93;
+      }
     }
   }
 
