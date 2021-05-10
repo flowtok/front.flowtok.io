@@ -1,0 +1,121 @@
+@import "src/styles/mixins";
+
+
+.row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  @include adaptive-value-tablet(margin-bottom, 10);
+
+  > * {
+    flex: 1 1 50%;
+  }
+
+  > *:first-child {
+    margin-right: 9px;
+    @include adaptive-value-tablet(margin-right, 9);
+  }
+
+}
+
+.btn-icon {
+  position: absolute;
+
+  &:first-child {
+    width: 13px;
+    @include adaptive-value-tablet(width, 13);
+    height: 21px;
+    @include adaptive-value-tablet(height, 21);
+    top: 14px;
+    @include adaptive-value-tablet(top, 14);
+    left: 10%;
+  }
+
+  &:last-child {
+    width: 25px;
+    @include adaptive-value-tablet(width, 25);
+    height: 25px;
+    @include adaptive-value-tablet(height, 25);
+    top: 10.5px;
+    @include adaptive-value-tablet(top, 10.5);
+    left: 9%;
+  }
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 20px;
+  @include adaptive-value-tablet(bottom, 20);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0;
+  right: 0;
+  z-index: 3;
+
+  button {
+    max-width: 228px;
+    @include adaptive-value-tablet(max-width, 228);
+  }
+
+  .label {
+    margin-top: 12px;
+    @include adaptive-value-tablet(margin-top, 12);
+    font-weight: 300;
+    font-size: 11px;
+    @include adaptive-value-tablet(font-size, 11);
+    line-height: 13px;
+    @include adaptive-value-tablet(line-height, 13);
+    text-align: center;
+    letter-spacing: -0.265294px;
+    color: #1D1D1D;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    max-width: 302px;
+    @include adaptive-value-tablet(max-width, 302);
+  }
+}
+
+@media (min-width: 1024px) {
+  .row {
+    margin-bottom: 10px;
+
+    > *:first-child {
+      margin-right: 9px;
+    }
+
+  }
+
+  .btn-icon {
+
+    &:first-child {
+      width: 13px;
+      height: 21px;
+      top: 14px;
+      left: 10%;
+    }
+
+    &:last-child {
+      width: 25px;
+      height: 25px;
+      top: 10.5px;
+      left: 9%;
+    }
+  }
+
+  .btn-container {
+    bottom: 0;
+
+    button {
+      max-width: 228px;
+    }
+
+    .label {
+      margin-top: 12px;
+      font-size: 11px;
+      line-height: 13px;
+      letter-spacing: -0.265294px;
+      max-width: 302px;
+    }
+  }
+}

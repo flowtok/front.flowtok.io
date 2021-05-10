@@ -17,3 +17,15 @@
   width: 100%;
   background: linear-gradient(270deg, #FFFFFF 0%, #E5E5E5 49.52%, #FFFFFF 100%);
 }
+
+@media (min-width: 1024px) {
+  .divider {
+    border-radius: 32px;
+  }
+  .divider_horizontal {
+    height: 1px;
+  }
+  .divider_vertical {
+    width: 1px;
+  }
+}
