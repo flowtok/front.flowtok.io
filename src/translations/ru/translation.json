@@ -163,7 +163,8 @@
   "button-values": {
     "add": "Добавить",
     "success": "Выплатить",
-    "try": "Повторить"
+    "try": "Повторить",
+    "copy": "Копировать"
   },
   "popup-notification": {
     "title": "Подтвердите свой аккаунт в TikTok",

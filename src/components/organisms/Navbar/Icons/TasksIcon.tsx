@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 
 type TasksIconPropsT = {
   isActive?: boolean;
+  color?: string;
 };
-export const TasksIcon: FC<TasksIconPropsT> = ({ isActive }) => {
+export const TasksIcon: FC<TasksIconPropsT> = ({ isActive, color }) => {
   if (isActive) {
     return (
       <svg
@@ -78,7 +79,7 @@ export const TasksIcon: FC<TasksIconPropsT> = ({ isActive }) => {
             width="20.24"
             height="14.168"
             rx="2.024"
-            stroke="#979797"
+            stroke={color ?? '#979797'}
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -86,7 +87,7 @@ export const TasksIcon: FC<TasksIconPropsT> = ({ isActive }) => {
           <path
             id="Path"
             d="M15.1683 18.204V2.91156C15.1683 1.85583 14.2621 1 13.1443 1H9.09627C7.97844 1 7.07227 1.85583 7.07227 2.91156V18.204"
-            stroke="#979797"
+            stroke={color ?? '#979797'}
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"

@@ -1,6 +1,6 @@
 .stats {
   grid-area: 3 / 1 / auto / 3;
-  
+
   & .data {
     display: flex;
     justify-content: space-between;
@@ -9,6 +9,18 @@
       position: relative;
       padding: 0 6px;
       text-align: left;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats .data {
+    height: 115px;
+
+    & .block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 }

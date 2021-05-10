@@ -25,7 +25,7 @@ export const App = () => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <VerificationPopup isOpen={true} />
+      {/*<VerificationPopup isOpen={true} />*/}
       {isLoader && <div>Loading...</div>}
       <Switch>
         <Route path="/" exact>

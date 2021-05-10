@@ -2,6 +2,7 @@ import { forwardRef, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 
 import styles from './styles.module.scss';
+import { useMediaQuery } from 'react-responsive';
 
 export type ButtonPresetUnionType =
   | 'gradient'

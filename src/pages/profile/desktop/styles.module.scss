@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 55px;
+
+  > div > div {
+    margin: 10px;
+  }
+
+  .top-papers {
+    display: flex;
+
+    > div:first-child, > div:last-child {
+      flex-grow: 2;
+    }
+
+    .middle-group {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+
+      > div:first-child {
+        margin-bottom: 20px;
+      }
+
+      > div {
+        flex-grow: 1;
+      }
+    }
+
+    .history-window {
+      height: 160px;
+      overflow-y: scroll;
+    }
+  }
+
+  .bottom-papers {
+    display: flex;
+
+    > div {
+      width: 50%;
+    }
+  }
+}

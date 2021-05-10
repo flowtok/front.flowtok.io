@@ -2,9 +2,10 @@ import React, { FC } from 'react';
 
 type ProfileIconPropsT = {
   isActive?: boolean;
+  color?: string;
 };
 
-export const ProfileIcon: FC<ProfileIconPropsT> = ({ isActive }) => {
+export const ProfileIcon: FC<ProfileIconPropsT> = ({ isActive, color }) => {
   if (isActive) {
     return (
       <svg
@@ -67,7 +68,7 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({ isActive }) => {
       >
         <path
           d="M17 19V17C17 14.7909 15.2091 13 13 13H5C2.79086 13 1 14.7909 1 17V19"
-          stroke="#979797"
+          stroke={color ?? '#979797'}
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -76,7 +77,7 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({ isActive }) => {
           cx="9"
           cy="5"
           r="4"
-          stroke="#979797"
+          stroke={color ?? '#979797'}
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"

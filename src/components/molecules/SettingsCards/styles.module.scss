@@ -33,3 +33,9 @@
   color: #8E8E93;
   margin-bottom: 7px;
 }
+
+@media (min-width: 1024px) {
+  .primary-title {
+    font-size: 21px;
+  }
+}

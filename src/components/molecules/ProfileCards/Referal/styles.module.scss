@@ -43,3 +43,45 @@
     }
   }
 }
+
+@media (min-width: 1024px) {
+  .ref {
+    display: flex;
+
+    > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 60%;
+    }
+
+    .copy-block {
+      grid-template-columns: 1fr;
+      padding-right: 30px;
+      padding-bottom: 0;
+
+      & .field {
+        height: 24px;
+        padding: 3px 15px;
+        margin-bottom: 10px;
+      }
+
+      .copy-button {
+        width: 127px;
+      }
+    }
+
+    & .stats-block {
+      display: flex;
+      flex-direction: column;
+      padding-left: 30px;
+      padding-top: 0;
+      height: 100%;
+
+      > div p:last-child {
+        font-size: 23px;
+        font-weight: bold;
+      }
+    }
+  }
+}

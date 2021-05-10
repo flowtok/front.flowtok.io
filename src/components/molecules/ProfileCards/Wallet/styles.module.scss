@@ -17,3 +17,11 @@
     border: none;
   }
 }
+
+@media (min-width: 1024px) {
+  .wallet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

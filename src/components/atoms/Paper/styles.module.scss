@@ -3,3 +3,9 @@
   background-color: #fff;
   padding: 20px;
 }
+
+@media (min-width: 1024px) {
+  .paper-wrapper {
+    padding: 40px 30px;
+  }
+}

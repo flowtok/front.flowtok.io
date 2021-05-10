@@ -46,3 +46,12 @@
 .rating-negative {
   color: #FF3B30;
 }
+
+@media (min-width: 1024px) {
+  .title-primary {
+    font-size: 21px;
+  }
+  .value-secondary {
+    font-size: 25px;
+  }
+}

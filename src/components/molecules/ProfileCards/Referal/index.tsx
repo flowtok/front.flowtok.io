@@ -6,6 +6,7 @@ import { Divider } from 'components/atoms/Divider';
 import commonStyles from '../styles.module.scss';
 import CopyIcon from 'assets/common/icons/copy.svg';
 import styles from './styles.module.scss';
+import { useMediaQuery } from 'react-responsive';
 
 export interface ReferalCardProps {
   refUrl: string;
@@ -19,36 +20,44 @@ export const ReferalCard = ({
   totalEarningsFromRefs,
 }: ReferalCardProps) => {
   const { t } = useTranslation();
-
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   return (
     <Paper className={styles.ref}>
-      <h3 className={commonStyles['title-primary']}>
-        {t('pages.profile.ref.primary')}
-      </h3>
-      <div className={styles['copy-block']}>
-        <div className={styles['field']}>
-          <p>{refUrl}</p>
+      <div>
+        <h3 className={commonStyles['title-primary']}>
+          {t('pages.profile.ref.primary')}
+        </h3>
+        <div className={styles['copy-block']}>
+          <div className={styles['field']}>
+            <p>{refUrl}</p>
+          </div>
+          <Button
+            radius={isDesktop ? 11 : 42}
+            style={isDesktop ? { fontSize: 11, lineHeight: 'unset' } : {}}
+            className={styles['copy-button']}
+          >
+            {isDesktop ? t('button-values.copy') : <img src={CopyIcon} />}
+          </Button>
         </div>
-        <Button className={styles['copy-button']}>
-          <img src={CopyIcon} />
-        </Button>
       </div>
-      <Divider />
-      <div className={styles['stats-block']}>
-        <div>
-          <p className={commonStyles['title-secondary']}>
-            {t('pages.profile.ref.stats.referals')}
-          </p>
-          <p className={commonStyles['value.secondary']}>{refsCount}</p>
-        </div>
-        <Divider direction="vertical" />
-        <div>
-          <p className={commonStyles['title-secondary']}>
-            {t('pages.profile.ref.stats.total-earnings')}
-          </p>
-          <p className={commonStyles['value.secondary']}>
-            {totalEarningsFromRefs}
-          </p>
+      {isDesktop ? <Divider direction="vertical" /> : <Divider />}
+      <div>
+        <div className={styles['stats-block']}>
+          <div>
+            <p className={commonStyles['title-secondary']}>
+              {t('pages.profile.ref.stats.referals')}
+            </p>
+            <p className={commonStyles['value.secondary']}>{refsCount}</p>
+          </div>
+          {isDesktop ? <Divider /> : <Divider direction="vertical" />}
+          <div>
+            <p className={commonStyles['title-secondary']}>
+              {t('pages.profile.ref.stats.total-earnings')}
+            </p>
+            <p className={commonStyles['value.secondary']}>
+              {totalEarningsFromRefs}
+            </p>
+          </div>
         </div>
       </div>
     </Paper>
