@@ -1,5 +1,4 @@
 import React from 'react';
-import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
 import styles from './styles.module.scss';
 import {
   InProcessCard,
@@ -16,6 +15,7 @@ import { Divider } from '../../../components/atoms/Divider';
 import { Paper } from '../../../components/atoms/Paper';
 import { useTranslation } from 'react-i18next';
 import commonStyles from '../../../components/molecules/SettingsCards/styles.module.scss';
+import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
 
 const history: HistoryItem[] = [
   { value: '9 112.90', date: '30.08.2021', type: BalanceType.inc },
