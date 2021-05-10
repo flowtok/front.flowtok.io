@@ -32,3 +32,19 @@
     opacity: 0.5;
   }
 }
+@media (min-width: 1024px) {
+  .column {
+    .title {
+      margin-bottom: 5px;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: -0.361765px;
+    }
+
+    .desc {
+      font-size: 13px;
+      line-height: 15px;
+      letter-spacing: -0.313529px;
+    }
+  }
+}

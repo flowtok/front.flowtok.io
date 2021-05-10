@@ -26,7 +26,7 @@ export const NavbarDesktop = forwardRef<HTMLDivElement>(({}, ref) => {
           <ProfileIcon color={'#000'} isActive={pathname === '/profile'} />
         </Link>
         <Notification value={3}>
-          <Link to="/task" className={styles['row-item']}>
+          <Link to="/tasks" className={styles['row-item']}>
             <TasksIcon color={'#000'} isActive={pathname === '/tasks'} />
           </Link>
         </Notification>

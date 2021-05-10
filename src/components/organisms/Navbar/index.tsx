@@ -8,6 +8,7 @@ export const Navbar = forwardRef<HTMLDivElement>(({}, ref) => {
 
   if (isDesktop) {
     return <NavbarDesktop ref={ref} />;
+  } else {
+    return <NavbarMobile ref={ref} />;
   }
-  return <NavbarMobile ref={ref} />;
 });
