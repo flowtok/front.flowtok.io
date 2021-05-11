@@ -1,6 +1,6 @@
 const fs = require('fs');
 const mkdirp = require('mkdirp');
-const re = /(font-size?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|(line-height?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((max)(-width|-height)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|(letter-spacing?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((border)(-radius)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((padding|margin)(-top|-left|-right|-bottom)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)/g;
+const re = /(font-size?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|(line-height?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((width|height)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|(letter-spacing?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((border)(-radius)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((padding|margin)(-top|-left|-right|-bottom)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)/g;
 
 function getFiles(dir, files_) {
   files_ = files_ || [];
@@ -16,7 +16,7 @@ function getFiles(dir, files_) {
   return files_;
 }
 
-function checkType(occurrence) {
+function checkType(occurrence, string, position) {
   const mTop = occurrence.indexOf('margin-top');
   const mLeft = occurrence.indexOf('margin-left');
   const mBot = occurrence.indexOf('margin-bottom');
@@ -27,8 +27,6 @@ function checkType(occurrence) {
   const pRig = occurrence.indexOf('padding-right');
   const bR = occurrence.indexOf('border-radius');
   if (occurrence.indexOf('font-size') > -1) return 'font-size';
-  if (occurrence.indexOf('max-width') > -1) return 'max-width';
-  if (occurrence.indexOf('max-height') > -1) return 'max-height';
   if (occurrence.indexOf('line-height') > -1) return 'line-height';
   if (occurrence.indexOf('letter-spacing') > -1) return 'letter-spacing';
   if (occurrence.indexOf('border') > -1 && bR === -1) return 'border-size';
@@ -43,6 +41,16 @@ function checkType(occurrence) {
   if (mLeft > -1) return 'margin-left';
   if (occurrence.indexOf('margin') > -1 && mTop === -1 && mLeft === -1 && mRig === -1 && mBot === -1) return 'margin';
   if (occurrence.indexOf('padding') > -1 && pTop === -1 && pLeft === -1 && pRig === -1 && pBot === -1) return 'padding';
+  if (occurrence.indexOf('width') > -1) {
+    if (string.substring(position - 4, position) === 'max-') {
+      return 'max-width';
+    } else return 'width';
+  }
+  if (occurrence.indexOf('height') > -1) {
+    if (string.substring(position - 4, position) === 'max-') {
+      return 'max-height';
+    } else return 'height';
+  }
 }
 
 function occurrencesSerializer(re, string) {
@@ -58,7 +66,7 @@ function occurrencesSerializer(re, string) {
       if (i.match(/-?\d+(\.\d+)?/g) !== null) {
         return {
           occurrence: i,
-          type: checkType(i),
+          type: checkType(i, string, string.indexOf(i)),
           value: i.match(/-?\d+(\.\d+)?/g),
         };
       }
@@ -67,7 +75,7 @@ function occurrencesSerializer(re, string) {
 }
 
 function divideData(occurrenceData, data) {
-  if (occurrenceData){
+  if (occurrenceData) {
     return [
       data.slice(0, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length),
       data.slice(-((data.length - data.slice(0, data.indexOf(occurrenceData.occurrence)).length) - occurrenceData.occurrence.length)),
@@ -78,10 +86,10 @@ function divideData(occurrenceData, data) {
 function getFileWithMixin(occurrences, data) {
   if (occurrences.length) {
     let preparedData = data;
-    occurrences.filter(i=>i).forEach(occurrence => {
+    occurrences.filter(i => i).forEach(occurrence => {
       const parts = divideData(occurrence, preparedData);
       if (occurrence.type === 'padding' || occurrence.type === 'margin') {
-        if (occurrence.value.length === 1) {
+        if (occurrence.value.length === 1 && !occurrence.value.find(i => i === '0')) {
           preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[0]});
@@ -114,7 +122,7 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src');
+const files = getFiles('src/components/molecules/VerificationPopup/');
 
 files.forEach(file => {
   new Promise(resolve => {
@@ -125,8 +133,10 @@ files.forEach(file => {
       const preparedFile = getFileWithMixin(occurrenceData, data.data);
       const dir = data.file.split('/').slice(0, -1).join('/');
       mkdirp.sync('adaptive/' + dir);
-      fs.open('adaptive/' + dir + '/style.scss', 'w', () => {});
-      fs.appendFile('adaptive/' + dir + '/style.scss', preparedFile, () => {});
+      fs.open('adaptive/' + dir + '/style.scss', 'w', () => {
+      });
+      fs.appendFile('adaptive/' + dir + '/style.scss', preparedFile, () => {
+      });
     }
   });
 });
