@@ -2,23 +2,27 @@
   width: 81px;
   padding: 61px 12px;
   @extend %verticalCenter;
-  justify-content: space-evenly;
+
+  .logo {
+    width: 21px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+  }
 
   .account {
     @extend %verticalCenter;
-
-    .logo {
-      width: 21px;
-      margin-bottom: 10px;
-    }
 
     .avatar {
       width: 100%;
     }
 
-    height: 116px;
     margin-bottom: 35px;
-    justify-content: space-between;
   }
 
   .nav {
@@ -26,11 +30,8 @@
     padding: 35px 0;
 
     > a:first-child, span {
-      margin-bottom: 10px;
+      margin-bottom: 55px;
     }
-
-    height: 250px;
-    justify-content: space-between;
   }
 
   .networks {
@@ -38,11 +39,8 @@
     padding-top: 35px;
 
     > button:not(:last-child) {
-      margin-bottom: 10px;
+      margin-bottom: 30px;
     }
-
-    height: 155px;
-    justify-content: space-between;
   }
 }
 

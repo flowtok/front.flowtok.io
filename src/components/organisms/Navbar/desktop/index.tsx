@@ -16,29 +16,31 @@ export const NavbarDesktop = forwardRef<HTMLDivElement>(({}, ref) => {
 
   return (
     <div className={styles['wrapper']} ref={ref}>
-      <div className={styles['account']}>
-        <img src={logo} className={styles['logo']} />
-        <Avatar image={avatar} size={41} />
-      </div>
-      <Divider />
-      <div className={styles['nav']}>
-        <Link to="/profile" className={styles['row-item']}>
-          <ProfileIcon color={'#000'} isActive={pathname === '/profile'} />
-        </Link>
-        <Notification value={3}>
-          <Link to="/tasks" className={styles['row-item']}>
-            <TasksIcon color={'#000'} isActive={pathname === '/tasks'} />
+      <img src={logo} className={styles['logo']} />
+      <div className={styles['sidebar-container']}>
+        <div className={styles['account']}>
+          <Avatar image={avatar} size={41} />
+        </div>
+        <Divider />
+        <div className={styles['nav']}>
+          <Link to="/profile" className={styles['row-item']}>
+            <ProfileIcon color={'#000'} isActive={pathname === '/profile'} />
           </Link>
-        </Notification>
-        <Link to="/settings" className={styles['row-item']}>
-          <SettingsIcon color={'#000'} isActive={pathname === '/settings'} />
-        </Link>
-      </div>
-      <Divider />
-      <div className={styles['networks']}>
-        <NetworkButton preset="light" network={'vk-light'} />
-        <NetworkButton preset="light" network={'t-light'} />
-        <NetworkButton preset="light" network={'i-light'} />
+          <Notification value={3}>
+            <Link to="/tasks" className={styles['row-item']}>
+              <TasksIcon color={'#000'} isActive={pathname === '/tasks'} />
+            </Link>
+          </Notification>
+          <Link to="/settings" className={styles['row-item']}>
+            <SettingsIcon color={'#000'} isActive={pathname === '/settings'} />
+          </Link>
+        </div>
+        <Divider />
+        <div className={styles['networks']}>
+          <NetworkButton preset="light" network={'vk-light'} />
+          <NetworkButton preset="light" network={'t-light'} />
+          <NetworkButton preset="light" network={'i-light'} />
+        </div>
       </div>
     </div>
   );
