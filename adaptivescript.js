@@ -1,6 +1,6 @@
 const fs = require('fs');
 const mkdirp = require('mkdirp');
-const re = /(font-size?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|(line-height?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((width|height)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|(letter-spacing?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((border)(-radius)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)|((padding|margin)(-top|-left|-right|-bottom)?:(\s*(\d*(.\d*)?(px|))){1,4}\s*(!important)?;)/g;
+const re = /(font-size:(.\d*)+px;)|(line-height:(.\d*)+px;)|((width|height):(.\d*)+px;)|(letter-spacing:(.\d*)+px;)|((border)(-radius):(.\d*)+px;)|((padding|margin)(-top|-left|-right|-bottom)?:(.\d*)+px;)/g;
 
 function getFiles(dir, files_) {
   files_ = files_ || [];
@@ -55,23 +55,23 @@ function checkType(occurrence, string, position) {
 
 function occurrencesSerializer(re, string) {
   const occurrences = string.match(re);
-  console.log(occurrences)
-  return occurrences.map(i => {
-    const checkForCalc = (i.indexOf('calc') === -1);
-    const checkForPercent = (i.indexOf('%') === -1);
-    const checkForVh = (i.indexOf('vh') === -1);
-    const checkForVw = (i.indexOf('vw') === -1);
-    const checkForVar = (i.indexOf('var') === -1);
-    const checkForNone = (i.indexOf('none') === -1);
-    if (checkForCalc && checkForPercent && checkForVh && checkForVw && checkForVar && checkForNone) {
-      if (i.match(/-?\d+(\.\d+)?/g) !== null) {
-        return {
-          occurrence: i,
-          type: checkType(i, string, string.indexOf(i)),
-          value: i.match(/-?\d+(\.\d+)?/g),
-          position: i.index,
-        };
-      }
+  const positions = [];
+  occurrences.forEach(o => {
+    if (positions.find(p => p === string.indexOf(o))) {
+      positions.push(string.indexOf(o, string.indexOf(o)));
+    } else {
+      positions.push(string.indexOf(o));
+    }
+  });
+  console.log(positions);
+  return occurrences.map((i, key) => {
+    if (i.match(/-?\d+(\.\d+)?/g) !== null) {
+      return {
+        occurrence: i,
+        type: checkType(i, string, string.indexOf(i)),
+        value: i.match(/-?\d+(\.\d+)?/g),
+        position: positions[key],
+      };
     }
   });
 }
@@ -90,32 +90,30 @@ function getFileWithMixin(occurrences, data) {
     let preparedData = data;
     occurrences.filter(i => i).forEach(occurrence => {
       const parts = divideData(occurrence, preparedData);
-      if (occurrence.type){
-        if (occurrence.type === 'padding' || occurrence.type === 'margin') {
-          if (occurrence.value.length === 1 && !occurrence.value.find(i => i === '0')) {
-            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+      if (occurrence.type === 'padding' || occurrence.type === 'margin') {
+        if (occurrence.value.length === 1 && !occurrence.value.find(i => i === '0')) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
-          } else if (occurrence.value.length === 2) {
-            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+        } else if (occurrence.value.length === 2) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
-          } else if (occurrence.value.length === 3) {
-            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+        } else if (occurrence.value.length === 3) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[2]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]}); ${parts[1]}`;
-          } else if (occurrence.value.length === 4) {
-            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+        } else if (occurrence.value.length === 4) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[3]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[2]}); ${parts[1]}`;
-          }
-        } else {
-          if (preparedData.indexOf(`@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value});`) === -1) {
-            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
-          }
+        }
+      } else {
+        if (preparedData.indexOf(`@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value});`) === -1) {
+          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
         }
       }
     });
