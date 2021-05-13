@@ -5,6 +5,9 @@ import gmIcon from '../../../assets/login/google.svg';
 import vkLight from '../../../assets/common/icons/vk.svg';
 import telegramLight from '../../../assets/common/icons/telegram.svg';
 import instagramLight from '../../../assets/common/icons/instagram.svg';
+import vkLarge from '../../../assets/common/icons/vk-large.svg';
+import telegramLarge from '../../../assets/common/icons/telegram-large.svg';
+import instagramLarge from '../../../assets/common/icons/instagram-large.svg';
 
 import styles from './styles.module.scss';
 
@@ -18,7 +21,16 @@ export type NetworkButtonProps = Omit<
   'ref'
 > & { network: NetworkT; preset?: ButtonNetworkPresetUnionType };
 
-export type NetworkT = 'vk' | 'fb' | 'gm' | 'vk-light' | 't-light' | 'i-light';
+export type NetworkT =
+  | 'vk'
+  | 'fb'
+  | 'gm'
+  | 'vk-light'
+  | 't-light'
+  | 'i-light'
+  | 'vk-large'
+  | 't-large'
+  | 'i-large';
 
 export const NetworkButton = forwardRef<
   HTMLButtonElement,
@@ -38,6 +50,12 @@ export const NetworkButton = forwardRef<
         return telegramLight;
       case 'i-light':
         return instagramLight;
+      case 'vk-large':
+        return vkLarge;
+      case 't-large':
+        return telegramLarge;
+      case 'i-large':
+        return instagramLarge;
       default:
         return '';
     }

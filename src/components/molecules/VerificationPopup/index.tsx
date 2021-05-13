@@ -38,30 +38,34 @@ export const VerificationPopup = forwardRef<
       isClose={false}
       title={t('popup-notification.title')}
     >
-      <ul className={styles['steps-wrapper']}>
-        <li>
-          <ListItem value="1" />
-          <p className={finalClassName}>{t('popup-notification.first-step')}</p>
-        </li>
-        <li>
-          <ListItem value="2" />
-          <p className={finalClassName}>
-            {t('popup-notification.second-step')}
-          </p>
-        </li>
-      </ul>
-      <div className={styles['blogger-wrapper']}>
-        <TikTokProfile profileData={{ ...blogger }} />
-      </div>
-      <div className={styles['footer-popup']}>
-        <Button preset={'success'}>🤣 💛 🐵 🔥</Button>
-        <div className={styles['load-block']}>
-          <img src={LoadIcon} alt="" />
+      <div className={styles['verification-container']}>
+        <ul className={styles['steps-wrapper']}>
+          <li>
+            <ListItem value="1" />
+            <p className={finalClassName}>
+              {t('popup-notification.first-step')}
+            </p>
+          </li>
+          <li>
+            <ListItem value="2" />
+            <p className={finalClassName}>
+              {t('popup-notification.second-step')}
+            </p>
+          </li>
+        </ul>
+        <div className={styles['blogger-wrapper']}>
+          <TikTokProfile profileData={{ ...blogger }} />
         </div>
+        <div className={styles['footer-popup']}>
+          <Button preset={'success'}>🤣 💛 🐵 🔥</Button>
+          <div className={styles['load-block']}>
+            <img src={LoadIcon} alt="" />
+          </div>
+        </div>
+        <Button preset={'light'} className={styles['help-btn']}>
+          {t('popup-notification.help-question')}
+        </Button>
       </div>
-      <Button preset={'light'} className={styles['help-btn']}>
-        {t('popup-notification.help-question')}
-      </Button>
     </PopUp>
   );
 });

@@ -9,3 +9,10 @@
     padding: 40px 30px;
   }
 }
+
+@media (min-width: 1920px) {
+  .paper-wrapper {
+    padding: 65px 60px;
+    border-radius: 30px;
+  }
+}

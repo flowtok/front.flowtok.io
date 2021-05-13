@@ -24,3 +24,9 @@
     }
   }
 }
+
+@media (min-width: 1920px) {
+  .block:not(:first-child) {
+    margin-left: 12px;
+  }
+}

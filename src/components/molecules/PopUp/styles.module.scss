@@ -2,8 +2,31 @@
   width: 100%;
   padding: 40px 20px 30px 20px;
 }
-.close{
+
+.close {
   position: absolute;
   top: 25px;
   right: 25px;
+}
+
+@media (min-width: 1024px) {
+  .wrap-content {
+    width: 700px;
+    margin: 0 auto;
+
+    > h3 {
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .wrap-content {
+    width: 1065px;
+    margin: 0 auto;
+
+    > h3 {
+      text-align: center;
+    }
+  }
 }

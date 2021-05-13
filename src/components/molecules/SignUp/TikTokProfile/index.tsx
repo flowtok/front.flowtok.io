@@ -3,9 +3,9 @@ import { Input } from '../../../atoms/Input';
 import styles from './styles.module.scss';
 import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
-import { Avatar } from '../../../atoms/Avatar';
 import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
+import { ProfileInfo } from '../../ProfileInfo';
 
 type TikTokProfilePropsT = {
   profileData?: {
@@ -33,13 +33,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
   if (profileData) {
     return (
       <div className={styles['row']}>
-        <div className={styles['row']}>
-          <Avatar image={profileData.avatar} size={48} />
-          <div className={styles['column']}>
-            <span className={styles['title']}>{profileData.fullName}</span>
-            <div className={styles['subtitle']}>{profileData.shortName}</div>
-          </div>
-        </div>
+        <ProfileInfo profileData={profileData} />
         <div className={styles['link']}>
           {isExtraSmallScreen
             ? t('pages.signup.buttons.change-short')

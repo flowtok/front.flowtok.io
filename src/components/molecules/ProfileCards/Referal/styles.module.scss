@@ -85,3 +85,33 @@
     }
   }
 }
+
+@media (min-width: 1920px) {
+  .ref {
+    display: flex;
+
+    .copy-block {
+      & .field {
+        height: 42px;
+        display: flex;
+        align-items: center;
+
+        > p:last-child {
+          font-size: 17px;
+        }
+      }
+
+      .copy-button {
+        width: 190px;
+        padding: 16px 0;
+        height: unset;
+      }
+    }
+
+    & .stats-block {
+      > div p:last-child {
+        font-size: 34px;
+      }
+    }
+  }
+}

@@ -61,3 +61,43 @@
     }
   }
 }
+
+@media (min-width: 1920px) {
+  .wrapper {
+    > div > div {
+      margin: 12px;
+    }
+
+    .top-papers {
+      height: 425px;
+
+      > div:last-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .middle-group {
+        > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      }
+
+      .history-window {
+        height: 203px;
+      }
+    }
+
+    .bottom-papers {
+      height: 350px;
+
+      > div:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
+}
