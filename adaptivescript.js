@@ -101,7 +101,6 @@ function getFileWithMixin(occurrences, data) {
     let preparedData = data;
     occurrences.filter(i => i).forEach(occurrence => {
       const parts = divideData(occurrence, preparedData)[0];
-      console.log(parts);
       if (occurrence.type === 'padding' || occurrence.type === 'margin') {
         if (occurrence.value.length === 1 && !occurrence.value.find(i => i === '0')) {
           preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
