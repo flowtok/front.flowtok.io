@@ -9,6 +9,7 @@ export default () => {
 
   if (isDesktop) {
     return <ProfileDesktop />;
+  } else {
+    return <ProfileMobile />;
   }
-  return <ProfileMobile />;
 };
