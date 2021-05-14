@@ -63,7 +63,6 @@ function occurrencesSerializer(re, string) {
       positions.push(string.indexOf(o));
     }
   });
-  console.log(positions);
   return occurrences.map((i, key) => {
     if (i.match(/-?\d+(\.\d+)?/g) !== null) {
       return {
@@ -76,12 +75,24 @@ function occurrencesSerializer(re, string) {
   });
 }
 
+const successList = [];
+
 function divideData(occurrenceData, data) {
   if (occurrenceData) {
-    return [
-      data.slice(0, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length),
-      data.slice(-((data.length - data.slice(0, data.indexOf(occurrenceData.occurrence)).length) - occurrenceData.occurrence.length)),
-    ];
+    const parts = [];
+    if (successList.find(s => s === occurrenceData.occurrence)) {
+      parts.push([
+        data.slice(0, data.indexOf(occurrenceData.occurrence, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length) + occurrenceData.occurrence.length),
+        data.slice(-((data.length - data.indexOf(occurrenceData.occurrence, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length) - occurrenceData.occurrence.length))),
+      ]);
+    } else {
+      parts.push([
+        data.slice(0, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length),
+        data.slice(-((data.length - data.slice(0, data.indexOf(occurrenceData.occurrence)).length) - occurrenceData.occurrence.length)),
+      ]);
+    }
+    successList.push(occurrenceData.occurrence);
+    return parts;
   }
 }
 
@@ -89,7 +100,8 @@ function getFileWithMixin(occurrences, data) {
   if (occurrences.length) {
     let preparedData = data;
     occurrences.filter(i => i).forEach(occurrence => {
-      const parts = divideData(occurrence, preparedData);
+      const parts = divideData(occurrence, preparedData)[0];
+      console.log(parts);
       if (occurrence.type === 'padding' || occurrence.type === 'margin') {
         if (occurrence.value.length === 1 && !occurrence.value.find(i => i === '0')) {
           preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
