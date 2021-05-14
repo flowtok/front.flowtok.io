@@ -1,0 +1,52 @@
+.wrapper {
+  width: 470px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .logo {
+    margin-bottom: 61px;
+  }
+
+  .account {
+    margin-bottom: 45px;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+    align-items: baseline;
+
+    > a:first-child, > span {
+      margin-bottom: 50px;
+    }
+
+    .link-title {
+      margin-left: 30px;
+      font: {
+        size: 28px;
+        weight: bold;
+      };
+      line-height: 33px;
+      letter-spacing: -0.675294px;
+    }
+  }
+
+  .networks {
+    width: fit-content;
+    margin: 55px auto auto;
+
+    > button:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+
+  .copyright {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: #A6A6A6;
+  }
+}

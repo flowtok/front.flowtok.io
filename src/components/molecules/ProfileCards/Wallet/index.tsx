@@ -30,6 +30,8 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
     { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
   ];
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  let radius;
   let historyButton = null;
   if (!isDesktop) {
     historyButton = (
@@ -40,6 +42,12 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         <img src={ClockIcon} />
       </button>
     );
+  }
+  if (isDesktop) {
+    radius = 11;
+  }
+  if (isDesktopLarge) {
+    radius = 20;
   }
   return (
     <>
@@ -54,7 +62,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         <p className={commonStyles['value-primary']}>{balance}</p>
         <Button
           className={styles['pay-off-button']}
-          style={{ borderRadius: isDesktop ? 11 : '' }}
+          radius={radius}
           onClick={() => setOpenWithdrawalPopUp(true)}
         >
           {t('pages.profile.wallet.pay-off-button-text')}

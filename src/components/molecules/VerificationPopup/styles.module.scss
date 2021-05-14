@@ -13,6 +13,7 @@
     }
   }
 }
+
 .blogger-wrapper {
   margin-bottom: 30px;
 }
@@ -43,4 +44,18 @@
 .help-btn {
   margin: 0 auto;
   display: block;
+}
+
+@media (min-width: 1024px) {
+  .verification-container {
+    width: 340px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1920px) {
+  .verification-container {
+    width: 415px;
+    margin: 0 auto;
+  }
 }

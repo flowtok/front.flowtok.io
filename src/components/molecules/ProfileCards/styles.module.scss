@@ -55,3 +55,24 @@
     font-size: 25px;
   }
 }
+
+@media (min-width: 1920px) {
+  .title-primary {
+    font-size: 32px;
+    line-height: 37px;
+    letter-spacing: -0.771765px;
+  }
+  .value-secondary {
+    font-size: 32px;
+  }
+  .title-secondary {
+    font-size: 17px;
+    line-height: 20px;
+    margin-bottom: 22px;
+  }
+  .value-primary {
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -1.15765px;
+  }
+}
