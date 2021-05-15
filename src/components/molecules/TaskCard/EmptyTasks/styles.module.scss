@@ -11,20 +11,48 @@
     width: 100%;
   }
 
-  > h2 {
-    font-size: 19px;
-    line-height: 22px;
-    letter-spacing: -0.458235px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+  > div {
+    > h2 {
+      font-size: 19px;
+      line-height: 22px;
+      letter-spacing: -0.458235px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-  > p {
-    font-size: 15px;
-    line-height: 18px;
-    text-align: center;
-    letter-spacing: -0.361765px;
-    color: #8E8E93;
-    padding: 0 40px;
+    > p {
+      font-size: 15px;
+      line-height: 18px;
+      text-align: center;
+      letter-spacing: -0.361765px;
+      color: #8E8E93;
+      padding: 0 40px;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .default-page {
+    flex-direction: column-reverse;
+    max-width: 900px;
+    margin: 0 auto;
+
+    > div {
+      > h2 {
+        font-size: 46px;
+        line-height: 54px;
+        text-align: center;
+        letter-spacing: -1.10941px;
+        margin-bottom: 15px;
+      }
+
+      > p {
+        font-size: 26px;
+        line-height: 31px;
+        text-align: center;
+        letter-spacing: -0.627059px;
+        margin-bottom: 100px;
+      }
+    }
   }
 }
