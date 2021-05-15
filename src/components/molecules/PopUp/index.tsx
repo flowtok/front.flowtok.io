@@ -1,20 +1,38 @@
 import Popup from 'reactjs-popup';
-import { forwardRef, PropsWithChildren } from 'react';
+import { CSSProperties, forwardRef, PropsWithChildren } from 'react';
 import { Paper } from '../../atoms/Paper';
 import CloseIcon from 'assets/common/icons/close.svg';
 import styles from './styles.module.scss';
 import commonStyles from '../SettingsCards/styles.module.scss';
+import classNames from 'classnames';
+
+type textPosition = 'left' | 'right' | 'center';
+
+type size = 's' | 'm';
 
 interface PopUpProps {
   isOpen: boolean;
   close?: () => void;
   title?: string;
   isClose?: boolean;
+  titlePosition?: textPosition;
+  size?: size;
 }
 
 export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
-  ({ children, isOpen, close, title, isClose = true }) => {
-    const contentStyle = { width: '100%', marginLeft: 20, marginRight: 20 };
+  ({
+    children,
+    isOpen,
+    close,
+    title,
+    isClose = true,
+    titlePosition = 'left',
+    size,
+  }) => {
+    const contentStyle = {
+      width: 'fit-content%',
+      margin: 'auto',
+    };
     const overlayStyle = { background: 'rgba(0, 0, 0, 0.4)' };
     let closeBtn = null;
     if (isClose) {
@@ -24,6 +42,14 @@ export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
         </span>
       );
     }
+
+    const position: CSSProperties = { textAlign: titlePosition };
+
+    const finalClassName = classNames(
+      styles['wrap-content'],
+      styles[`wrap-content_${size}`]
+    );
+
     return (
       <Popup
         open={isOpen}
@@ -31,9 +57,13 @@ export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
         onClose={close}
         {...{ overlayStyle, contentStyle }}
       >
-        <Paper className={styles['wrap-content']}>
+        <Paper className={finalClassName}>
           {closeBtn}
-          {title && <h3 className={commonStyles['primary-title']}>{title}</h3>}
+          {title && (
+            <h3 style={position} className={commonStyles['primary-title']}>
+              {title}
+            </h3>
+          )}
           {children}
         </Paper>
       </Popup>
