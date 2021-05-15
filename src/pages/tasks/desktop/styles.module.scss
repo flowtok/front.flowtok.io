@@ -1,0 +1,32 @@
+.tabs-container {
+  width: 380px;
+}
+
+.page-wrapper {
+  margin-top: 83px;
+
+  .disable-message {
+    font-size: 19px;
+    line-height: 22px;
+    letter-spacing: -0.458235px;
+    color: #868686;
+    padding-left: 40px;
+    margin-bottom: 20px;
+  }
+
+  .task-outter-wrapper {
+    width: 880px;
+    height: 750px;
+    margin-top: 25px;
+    overflow-x: scroll;
+
+    > div:not(:last-child) {
+      margin-bottom: 25px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
+

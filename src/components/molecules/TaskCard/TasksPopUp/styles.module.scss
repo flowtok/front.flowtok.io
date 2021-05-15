@@ -8,3 +8,14 @@
     color: #252525;
   }
 }
+
+@media (min-width: 1920px) {
+  .task-list {
+
+    > li {
+      font-size: 17px;
+      line-height: 26px;
+      color: #252525;
+    }
+  }
+}

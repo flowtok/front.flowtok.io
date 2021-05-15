@@ -5,9 +5,11 @@ import { Paper } from 'components/atoms/Paper';
 import { Button } from 'components/atoms/Button';
 import { Divider } from 'components/atoms/Divider';
 import InfoIcon from 'assets/common/icons/info.svg';
+import InfoLargeIcon from 'assets/common/icons/info_large.svg';
 import styles from './styles.module.scss';
 import { TasksPopUp, TasksPopUpTypes } from './TasksPopUp';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 export interface DefaultTaskCardProps {
   // @default false
@@ -62,6 +64,25 @@ export const TaskCard = ({
   ];
 
   const { t } = useTranslation();
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+
+  const taskStatusBtn = (
+    <button
+      className={styles['task-status-btn']}
+      onClick={() => {
+        setTypePopUp(TasksPopUpTypes.howToDo);
+        setOpenPopUp(true);
+      }}
+    >
+      <img src={isDesktopLarge ? InfoLargeIcon : InfoIcon} />
+    </button>
+  );
+
+  const classWrapper = classNames(
+    styles['task-wrapper'],
+    styles[`button_size-${rest.state}`]
+  );
+
   return (
     <>
       <Paper
@@ -69,69 +90,77 @@ export const TaskCard = ({
           [styles['task-card_disabled']]: disabled,
         })}
       >
-        <div className={styles['header-block']}>
-          <div className={styles['title-block']}>
-            <h3 className={styles['title']}>{title}</h3>
-            <button
-              onClick={() => {
-                setTypePopUp(TasksPopUpTypes.howToDo);
-                setOpenPopUp(true);
-              }}
-            >
-              <img src={InfoIcon} />
-            </button>
-            {rest.state === 'completed' && (
-              <span className={styles['date']}>{rest.date}</span>
+        <div className={classWrapper}>
+          <div className={styles['info-parts']}>
+            <div className={styles['header-block']}>
+              <div className={styles['title-block']}>
+                <h3 className={styles['title']}>{title}</h3>
+                {!isDesktopLarge && taskStatusBtn}
+                {rest.state === 'completed' && (
+                  <span className={styles['date']}>{rest.date}</span>
+                )}
+              </div>
+            </div>
+            {isDesktopLarge && (
+              <p className={styles['description-title']}>
+                {t('task-cards.popup-titles.description')}
+              </p>
+            )}
+            <p className={styles['description']}>{description}</p>
+          </div>
+          <Divider direction={isDesktopLarge ? 'vertical' : 'horizontal'} />
+          <div className={styles['actions-block']}>
+            <div className={styles['payment-block']}>
+              <p className={styles['title']}>
+                {rest.state === 'active'
+                  ? t('task-cards.possible-payment.label')
+                  : t('task-cards.getted-payment.label')}
+              </p>
+              <p className={styles['value']}>{payment}</p>
+            </div>
+            {rest.state === 'active' && (
+              <>
+                <Divider />
+                <div className={styles['task-card-actions']}>
+                  <div className={styles['top-btn-group']}>
+                    <a href={rest.linkButton.url} target="_blank">
+                      <Button
+                        disabled={disabled}
+                        size={isDesktopLarge ? 'sm' : 's'}
+                        style={{ width: 135 }}
+                        radius={isDesktopLarge ? 14 : 11}
+                        preset={isDesktopLarge ? 'black' : 'border-gradient'}
+                      >
+                        {rest.linkButton.text}
+                      </Button>
+                    </a>
+                    {isDesktopLarge && taskStatusBtn}
+                  </div>
+                  <Button
+                    disabled={disabled}
+                    size={isDesktopLarge ? 'sm' : 's'}
+                    radius={11}
+                    onClick={() => {
+                      if (inProgress) {
+                        setTypePopUp(TasksPopUpTypes.thatIsDone);
+                        setOpenPopUp(true);
+                      } else rest.actionButton.action;
+                    }}
+                  >
+                    {inProgress
+                      ? t('task-cards.actions.perform')
+                      : t('task-cards.actions.check')}
+                  </Button>
+                </div>
+                {!disabled && inProgress && (
+                  <button className={styles['cancel']}>
+                    {t('task-cards.cancel')}
+                  </button>
+                )}
+              </>
             )}
           </div>
         </div>
-        <p className={styles['description']}>{description}</p>
-        <Divider />
-        <div className={styles['payment-block']}>
-          <p className={styles['title']}>
-            {rest.state === 'active'
-              ? t('task-cards.possible-payment.label')
-              : t('task-cards.getted-payment.label')}
-          </p>
-          <p className={styles['value']}>{payment}</p>
-        </div>
-        {rest.state === 'active' && (
-          <>
-            <Divider />
-            <div className={styles['task-card-actions']}>
-              <a href={rest.linkButton.url} target="_blank">
-                <Button
-                  disabled={disabled}
-                  size="s"
-                  radius={11}
-                  preset="border-gradient"
-                >
-                  {rest.linkButton.text}
-                </Button>
-              </a>
-              <Button
-                disabled={disabled}
-                size="s"
-                radius={11}
-                onClick={() => {
-                  if (inProgress) {
-                    setTypePopUp(TasksPopUpTypes.thatIsDone);
-                    setOpenPopUp(true);
-                  } else rest.actionButton.action;
-                }}
-              >
-                {inProgress
-                  ? t('task-cards.actions.perform')
-                  : t('task-cards.actions.check')}
-              </Button>
-            </div>
-            {!disabled && inProgress && (
-              <button className={styles['cancel']}>
-                {t('task-cards.cancel')}
-              </button>
-            )}
-          </>
-        )}
       </Paper>
       <TasksPopUp
         isOpen={isOpenPopUp}
