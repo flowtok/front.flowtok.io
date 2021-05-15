@@ -80,7 +80,7 @@ export const TaskCard = ({
 
   const classWrapper = classNames(
     styles['task-wrapper'],
-    styles[`button_size-${rest.state}`]
+    styles[`task-wrapper-${rest.state}`]
   );
 
   return (
