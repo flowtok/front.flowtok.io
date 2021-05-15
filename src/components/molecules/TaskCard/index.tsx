@@ -80,7 +80,7 @@ export const TaskCard = ({
 
   const classWrapper = classNames(
     styles['task-wrapper'],
-    styles[`task-wrapper-${rest.state}`]
+    styles[`task_wrapper-${rest.state}`]
   );
 
   return (
@@ -108,7 +108,13 @@ export const TaskCard = ({
             )}
             <p className={styles['description']}>{description}</p>
           </div>
-          <Divider direction={isDesktopLarge ? 'vertical' : 'horizontal'} />
+          <Divider
+            direction={
+              isDesktopLarge && rest.state === 'active'
+                ? 'vertical'
+                : 'horizontal'
+            }
+          />
           <div className={styles['actions-block']}>
             <div className={styles['payment-block']}>
               <p className={styles['title']}>
