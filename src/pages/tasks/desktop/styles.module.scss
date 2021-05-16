@@ -16,7 +16,7 @@
 
   .task-outter-wrapper {
     width: 880px;
-    height: 750px;
+    height: calc(100vh - 150px);
     margin-top: 25px;
     overflow-x: scroll;
 
