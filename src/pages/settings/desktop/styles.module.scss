@@ -1,0 +1,18 @@
+.outter-wrapper {
+  max-width: 1060px;
+  margin: 80px 30px 30px;
+  display: flex;
+  flex-wrap: nowrap;
+
+  > div {
+    &:first-child {
+      margin-right: 25px;
+    }
+
+    width: 50%;
+
+    > div:first-child {
+      margin-bottom: 25px;
+    }
+  }
+}
