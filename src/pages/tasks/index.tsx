@@ -54,6 +54,7 @@ export default () => {
   ];
   if (isDesktop) {
     return <TasksDesktop tasks={tasks} />;
+  } else {
+    return <TasksMobile tasks={tasks} />;
   }
-  return <TasksMobile tasks={tasks} />;
 };
