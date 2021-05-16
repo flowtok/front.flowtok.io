@@ -8,8 +8,9 @@ import InfoIcon from 'assets/common/icons/info.svg';
 import InfoLargeIcon from 'assets/common/icons/info_large.svg';
 import styles from './styles.module.scss';
 import { TasksPopUp, TasksPopUpTypes } from './TasksPopUp';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { usePopperTooltip } from 'react-popper-tooltip';
 
 export interface DefaultTaskCardProps {
   // @default false
@@ -51,6 +52,14 @@ export const TaskCard = ({
   const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
   const [typePopUp, setTypePopUp] = useState<string>('');
 
+  const {
+    getArrowProps,
+    getTooltipProps,
+    setTooltipRef,
+    setTriggerRef,
+    visible,
+  } = usePopperTooltip({ placement: 'bottom-start' });
+
   /*will be delete*/
   const tasksList = [
     { value: 'Жмете кнопку "Открыть сайт"', isDone: false },
@@ -67,15 +76,38 @@ export const TaskCard = ({
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
 
   const taskStatusBtn = (
-    <button
-      className={styles['task-status-btn']}
-      onClick={() => {
-        setTypePopUp(TasksPopUpTypes.howToDo);
-        setOpenPopUp(true);
-      }}
-    >
-      <img src={isDesktopLarge ? InfoLargeIcon : InfoIcon} />
-    </button>
+    <>
+      <button
+        ref={setTriggerRef}
+        className={styles['task-status-btn']}
+        onClick={() => {
+          if (!isDesktopLarge) {
+            setTypePopUp(TasksPopUpTypes.howToDo);
+            setOpenPopUp(true);
+          }
+        }}
+      >
+        <img src={isDesktopLarge ? InfoLargeIcon : InfoIcon} />
+      </button>
+      {isDesktopLarge && visible && (
+        <div
+          ref={setTooltipRef}
+          {...getTooltipProps({ className: styles['tooltip-container'] })}
+        >
+          <Paper style={{ padding: 20, borderRadius: 10 }}>
+            <h3 className={styles['popper-title']}>
+              {t('task-cards.popup-titles.how-to-do')}
+            </h3>
+            <ul className={styles['task-list']}>
+              {tasksList.map((task, key) => {
+                return <li key={'task' + key}>{task.value}</li>;
+              })}
+            </ul>
+          </Paper>
+          <div {...getArrowProps({ className: styles['tooltip-arrow'] })} />
+        </div>
+      )}
+    </>
   );
 
   const classWrapper = classNames(

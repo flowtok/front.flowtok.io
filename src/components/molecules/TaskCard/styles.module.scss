@@ -229,5 +229,36 @@
       }
     }
   }
+
+  .tooltip-container {
+    display: block;
+    z-index: 1;
+    position: relative;
+    margin-top: 5px;
+    max-width: 240px;
+
+    .popper-title {
+      font-size: 14px;
+      line-height: 17px;
+      color: #252525;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .task-list {
+      > li {
+        font-size: 11px;
+        line-height: 17px;
+        color: #252525;
+      }
+    }
+  }
+
+  .tooltip-arrow {
+    border: 12px solid transparent;
+    border-bottom: 25px solid #fff;
+    width: 20px;
+    top: -30px;
+  }
 }
 
