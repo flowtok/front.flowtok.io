@@ -90,7 +90,7 @@ export const TaskCard = ({
           }
         }}
       >
-        <img src={isDesktopLarge ? InfoLargeIcon : InfoIcon} />
+        <img src={isDesktopLarge ? InfoLargeIcon : InfoIcon} alt="" />
       </button>
       {isDesktopLarge && visible && (
         <div
