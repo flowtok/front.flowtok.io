@@ -234,7 +234,6 @@
     display: block;
     z-index: 1;
     position: relative;
-    margin-top: 5px;
     max-width: 240px;
 
     .popper-title {
@@ -255,6 +254,7 @@
   }
 
   .tooltip-arrow {
+    pointer-events: none;
     border: 12px solid transparent;
     border-bottom: 25px solid #fff;
     width: 20px;

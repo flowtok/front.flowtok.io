@@ -58,7 +58,10 @@ export const TaskCard = ({
     setTooltipRef,
     setTriggerRef,
     visible,
-  } = usePopperTooltip({ placement: 'bottom-start' });
+  } = usePopperTooltip({
+    placement: 'bottom-start',
+    offset: [0, 10],
+  });
 
   /*will be delete*/
   const tasksList = [

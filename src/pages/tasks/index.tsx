@@ -36,6 +36,15 @@ export default () => {
       payment: '10.00₽',
     },
     {
+      disabled: true,
+      inProgress: false,
+      state: 'active',
+      title: 'FlowTok',
+      description:
+        'Подпишитесь на официальный канал FlowTok для того, чтобы следить за последними новостями. Так же будем рассказывать как работает наш сервис.',
+      payment: '10.00₽',
+    },
+    {
       state: 'completed',
       title: 'FlowTok',
       description:
