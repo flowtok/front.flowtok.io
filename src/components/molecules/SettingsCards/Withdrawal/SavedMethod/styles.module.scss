@@ -3,7 +3,7 @@
 
   &-active {
     @extend %saved_method;
-    border: 2px solid #2A44F2!important;
+    border: 2px solid #2A44F2 !important;
   }
 }
 
@@ -21,6 +21,29 @@
 
     & > div {
       margin-right: 17px;
+    }
+  }
+}
+
+
+@media (min-width: 1920px) {
+  .method-container {
+    display: flex;
+    align-items: center;
+
+    .saved_method {
+      width: 100%;
+
+      &-active {
+        width: 100%;
+      }
+    }
+
+    .delete-method {
+      background: transparent;
+      margin-left: 20px;
+      height: fit-content;
+      width: fit-content;
     }
   }
 }
