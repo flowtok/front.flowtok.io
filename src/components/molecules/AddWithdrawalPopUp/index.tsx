@@ -63,7 +63,12 @@ export const AddWithdrawalPopUp = forwardRef<
   patterns.set('webmoney-z', /(([Z]|)\d{12})/);
 
   return (
-    <PopUp isOpen={isOpen} close={close} title={getTitleMethodByType(method)}>
+    <PopUp
+      isOpen={isOpen}
+      close={close}
+      title={getTitleMethodByType(method)}
+      size="s"
+    >
       <form
         className={styles['popup-wrapper']}
         onSubmit={handleSubmit(onSubmit)}
