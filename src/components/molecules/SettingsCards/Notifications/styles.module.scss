@@ -7,3 +7,20 @@
     margin-top: -10px;
   }
 }
+
+@media (min-width: 1920px) {
+  .notifications-container {
+    h3 {
+      font-size: 26px;
+      line-height: 30px;
+      letter-spacing: -0.627059px;
+      margin-bottom: 35px;
+    }
+
+    .action-block {
+      p:first-child {
+        font-size: 17px;
+      }
+    }
+  }
+}

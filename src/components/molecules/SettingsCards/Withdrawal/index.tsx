@@ -29,39 +29,47 @@ export const WithdrawalCard = () => {
 
   const renderSavedMethods = () => {
     if (!savedMethods.length) return baseDescription;
-    return savedMethods.map((method, key) => (
-      <SavedMethod
-        value={method.value.toString()}
-        title={method.type}
-        key={'saved-method-' + key}
-      />
-    ));
+    return (
+      <div className={styles['saved-methods_container']}>
+        {savedMethods.map((method, key) => (
+          <SavedMethod
+            value={method.value.toString()}
+            title={method.type}
+            key={'saved-method-' + key}
+          />
+        ))}
+      </div>
+    );
   };
 
   return (
     <>
       <Paper>
-        <h3 className={commonStyles['primary-title']}>
-          {t('pages.settings.cards.withdrawal.title')}
-        </h3>
-        <div className={styles['saved-block']}>
-          <p className={commonStyles['secondary-title-small']}>
-            {t('pages.settings.cards.withdrawal.saved-list')}
-          </p>
-          <div className={styles['saved-methods']}>{renderSavedMethods()}</div>
-        </div>
-        <Divider />
-        <div className={styles['add-method-block']}>
-          <p className={commonStyles['secondary-title-small']}>
-            {t('pages.settings.cards.withdrawal.add-new-method')}
-          </p>
-          <div className={styles['btn-group']}>
-            <MethodsBtnGroup
-              onClickAction={(type: string) => {
-                setMethod(type);
-                setOpenPopUp(true);
-              }}
-            />
+        <div className={styles['withdrawal-container']}>
+          <h3 className={commonStyles['primary-title']}>
+            {t('pages.settings.cards.withdrawal.title')}
+          </h3>
+          <div className={styles['saved-block']}>
+            <p className={commonStyles['secondary-title-small']}>
+              {t('pages.settings.cards.withdrawal.saved-list')}
+            </p>
+            <div className={styles['saved-methods']}>
+              {renderSavedMethods()}
+            </div>
+          </div>
+          <Divider />
+          <div className={styles['add-method-block']}>
+            <p className={commonStyles['secondary-title-small']}>
+              {t('pages.settings.cards.withdrawal.add-new-method')}
+            </p>
+            <div className={styles['btn-group']}>
+              <MethodsBtnGroup
+                onClickAction={(type: string) => {
+                  setMethod(type);
+                  setOpenPopUp(true);
+                }}
+              />
+            </div>
           </div>
         </div>
       </Paper>
