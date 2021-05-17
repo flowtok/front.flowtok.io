@@ -61,7 +61,7 @@ export const AddWithdrawalPopUp = forwardRef<
   patterns.set('yandex', /(\d{14})/);
   patterns.set('webmoney-r', /(([R]|)\d{12})/);
   patterns.set('webmoney-z', /(([Z]|)\d{12})/);
-
+  console.log(errors);
   return (
     <PopUp
       isOpen={isOpen}
@@ -87,7 +87,7 @@ export const AddWithdrawalPopUp = forwardRef<
             mask={masks.get(method)}
           />
         </div>
-        <Button type="submit" preset={'success'}>
+        <Button type="submit" preset={errors.value ? 'success_gray' : 'black'}>
           {t('button-values.add')}
         </Button>
       </form>

@@ -10,6 +10,7 @@ import { AddWithdrawalPopUp } from '../../../AddWithdrawalPopUp';
 import { useForm } from 'react-hook-form';
 import { SavedMethod } from '../../../SettingsCards/Withdrawal/SavedMethod';
 import { MethodsBtnGroup } from '../../../SettingsCards/Withdrawal/MethodsBtnGroup';
+import { useMediaQuery } from 'react-responsive';
 
 type FormDataT = {
   value: string;
@@ -40,6 +41,7 @@ export const WithdrawalPopUp = forwardRef<
   ] = useState<boolean>(false);
 
   const [currentMethod, setMethod] = useState<string>('');
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
 
   /*will be deleted*/
   const savedMethods: any[] = [
@@ -51,7 +53,7 @@ export const WithdrawalPopUp = forwardRef<
   const renderPaymentMethod = () => {
     if (savedMethods.length) {
       return (
-        <>
+        <div className={styles['methods-list']}>
           <p className={commonStyles['secondary-title-small']}>
             {t('pages.settings.cards.withdrawal.saved-list')}
           </p>
@@ -62,11 +64,11 @@ export const WithdrawalPopUp = forwardRef<
               title={method.type}
             />
           ))}
-        </>
+        </div>
       );
     }
     return (
-      <>
+      <div className={styles['methods-btn_group']}>
         <p className={commonStyles['secondary-title-small']}>
           {t('pages.settings.cards.withdrawal.add-new-method')}
         </p>
@@ -76,7 +78,7 @@ export const WithdrawalPopUp = forwardRef<
             setOpenAddWithdrawalPopUp(true);
           }}
         />
-      </>
+      </div>
     );
   };
 
@@ -85,6 +87,7 @@ export const WithdrawalPopUp = forwardRef<
       isOpen={isOpen}
       close={() => close()}
       title={t('pages.profile.wallet.popup-withdrawal')}
+      size={isDesktopLarge ? 's' : ''}
     >
       <form
         className={styles['form-withdrawal']}

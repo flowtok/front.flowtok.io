@@ -10,6 +10,7 @@ import { BalanceType, HistoryItem } from './HistoryItem';
 import { HistoryPopUp } from './HistoryPopUp';
 import { WithdrawalPopUp } from './WithdrawalPopUp';
 import { useMediaQuery } from 'react-responsive';
+import { VerificationPopup } from '../../VerificationPopup';
 
 export interface WalletCardProps {
   balance: string;
