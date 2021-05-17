@@ -36,6 +36,7 @@ export const WithdrawalCard = () => {
             value={method.value.toString()}
             title={method.type}
             key={'saved-method-' + key}
+            canDelete={true}
           />
         ))}
       </div>
