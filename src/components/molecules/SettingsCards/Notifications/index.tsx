@@ -10,22 +10,20 @@ export const NotificationsCard = () => {
 
   return (
     <Paper>
-      <div className={styles['notifications-container']}>
-        <h3 className={commonStyles['primary-title']}>
-          {t('pages.settings.cards.notifications.title')}
-        </h3>
-        <div className={styles['action-block']}>
-          <div>
-            <p className={commonStyles['secondary-title-small']}>
-              {t('pages.settings.cards.notifications.enable-notifications')}
-            </p>
-            <p className={commonStyles['description']}>
-              {t('pages.settings.cards.notifications.helper-text')}
-            </p>
-          </div>
-          <div className={styles['switch']}>
-            <Switch />
-          </div>
+      <h3 className={commonStyles['primary-title']}>
+        {t('pages.settings.cards.notifications.title')}
+      </h3>
+      <div className={styles['action-block']}>
+        <div>
+          <p className={commonStyles['secondary-title-small']}>
+            {t('pages.settings.cards.notifications.enable-notifications')}
+          </p>
+          <p className={commonStyles['description']}>
+            {t('pages.settings.cards.notifications.helper-text')}
+          </p>
+        </div>
+        <div className={styles['switch']}>
+          <Switch />
         </div>
       </div>
     </Paper>
