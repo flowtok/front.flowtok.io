@@ -1,17 +1,32 @@
-.support-methods{
+.support-methods {
   margin-top: 19px;
-  & .support-method{
+
+  & .support-method {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    & p{
+
+    & p {
       font-size: 17px;
     }
-    &:not(:last-child){
+
+    &:not(:last-child) {
       margin-bottom: 15px;
     }
-    &:not(:first-child){
+
+    &:not(:first-child) {
       margin-top: 15px;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .support-container {
+    h3 {
+      font-size: 26px;
+      line-height: 30px;
+      letter-spacing: -0.627059px;
+      margin-bottom: 10px;
     }
   }
 }
