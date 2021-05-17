@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     --index: -1;
     --count: 1;
 
@@ -50,4 +50,20 @@
 .tab_selected {
   color: #FFFFFF;
   transition: .3s ease-in-out;
+}
+
+@media (min-width: 1920px) {
+  .tabs-wrapper {
+    background: #fff;
+
+    & .tabs-inner-wrapper {
+      height: 48px;
+    }
+  }
+  .tab {
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: -0.41px;
+    height: 100%;
+  }
 }

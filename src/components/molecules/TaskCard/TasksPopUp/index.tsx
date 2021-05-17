@@ -30,7 +30,7 @@ export const TasksPopUp = forwardRef<
   }
 
   return (
-    <PopUp isOpen={isOpen} close={close} title={title}>
+    <PopUp isOpen={isOpen} close={close} title={title} size="s">
       <ul className={styles['task-list']}>
         {tasks.map((task, key) => {
           if (type === TasksPopUpTypes.thatIsDone && task.isDone) {
