@@ -42,3 +42,16 @@
   width: 100%;
   margin-top: 15px;
 }
+
+@media (min-width: 1920px) {
+  .methods-btn_group {
+    > p {
+      margin-bottom: 23px;
+    }
+  }
+  .methods-list {
+    > p {
+      margin-bottom: 23px;
+    }
+  }
+}

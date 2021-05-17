@@ -9,6 +9,7 @@ import { Button } from '../../atoms/Button';
 import LoadIcon from 'assets/common/icons/load.svg';
 import { TikTokProfile } from '../SignUp/TikTokProfile';
 import AvatarMock from '../../../assets/common/images/avatar_mock.png';
+import { useMediaQuery } from 'react-responsive';
 
 interface VerificationPopupProps {
   isOpen: boolean;
@@ -19,7 +20,7 @@ export const VerificationPopup = forwardRef<
   PropsWithChildren<VerificationPopupProps>
 >(({ isOpen }) => {
   const { t } = useTranslation();
-
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
   const finalClassName = classNames(
     commonStyles['description'],
     styles['description-list']
@@ -37,6 +38,8 @@ export const VerificationPopup = forwardRef<
       isOpen={isOpen}
       isClose={false}
       title={t('popup-notification.title')}
+      size={isDesktopLarge ? 'm' : ''}
+      titlePosition={isDesktopLarge ? 'center' : 'left'}
     >
       <div className={styles['verification-container']}>
         <ul className={styles['steps-wrapper']}>
