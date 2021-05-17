@@ -9,6 +9,7 @@ export default () => {
 
   if (isDesktopLarge) {
     return <SettingsDesktop />;
+  } else {
+    return <SettingsMobile />;
   }
-  return <SettingsMobile />;
 };
