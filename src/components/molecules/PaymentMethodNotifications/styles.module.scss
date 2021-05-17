@@ -13,7 +13,33 @@
     margin-bottom: 10px;
   }
 
-  > button{
-      margin-top: 12px;
+  > button {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .notification-method-popup {
+    padding: 0;
+
+    > h3 {
+      font-size: 26px;
+      line-height: 30px;
+      letter-spacing: -0.627059px;
+      margin-bottom: 15px;
+    }
+
+    > p {
+      font-size: 17px;
+      line-height: 20px;
+      letter-spacing: -0.41px;
+      color: #8F8F8F;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    > button {
+      padding: 12px 40px;
+    }
   }
 }
