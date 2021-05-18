@@ -44,7 +44,11 @@ export const ReferalCard = ({
             style={desktopStyle}
             className={styles['copy-button']}
           >
-            {isDesktop ? t('button-values.copy') : <img src={CopyIcon} />}
+            {isDesktop ? (
+              t('button-values.copy')
+            ) : (
+              <img src={CopyIcon} alt="" />
+            )}
           </Button>
         </div>
       </div>
@@ -55,14 +59,14 @@ export const ReferalCard = ({
             <p className={commonStyles['title-secondary']}>
               {t('pages.profile.ref.stats.referals')}
             </p>
-            <p className={commonStyles['value.secondary']}>{refsCount}</p>
+            <p className={commonStyles['value-secondary']}>{refsCount}</p>
           </div>
           {isDesktop ? <Divider /> : <Divider direction="vertical" />}
           <div>
             <p className={commonStyles['title-secondary']}>
               {t('pages.profile.ref.stats.total-earnings')}
             </p>
-            <p className={commonStyles['value.secondary']}>
+            <p className={commonStyles['value-secondary']}>
               {totalEarningsFromRefs}
             </p>
           </div>
