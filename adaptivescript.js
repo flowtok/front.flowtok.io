@@ -135,7 +135,7 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src/pages/settings/');
+const files = getFiles('src/pages/profile/');
 
 files.forEach(file => {
   new Promise(resolve => {
