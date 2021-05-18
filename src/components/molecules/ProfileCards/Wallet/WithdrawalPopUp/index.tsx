@@ -93,40 +93,44 @@ export const WithdrawalPopUp = forwardRef<
         className={styles['form-withdrawal']}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className={styles['payment-method']}>{renderPaymentMethod()}</div>
-        <Divider />
-        <div className={styles['balance-info']}>
-          <p className={commonStyles['secondary-title-small']}>
-            {t('pages.profile.wallet.balance-info')}
-          </p>
-          <p>15 236.00 ₽</p>
-        </div>
-        <div className={styles['sum']}>
-          <p className={commonStyles['secondary-title-small']}>
-            {t('pages.profile.wallet.balance-sum')}
-          </p>
-        </div>
+        <div className={styles['fields-group']}>
+          <div className={styles['payment-method']}>
+            {renderPaymentMethod()}
+          </div>
+          <Divider />
+          <div className={styles['balance-info']}>
+            <p className={commonStyles['secondary-title-small']}>
+              {t('pages.profile.wallet.balance-info')}
+            </p>
+            <p>15 236.00 ₽</p>
+          </div>
+          <div className={styles['sum']}>
+            <p className={commonStyles['secondary-title-small']}>
+              {t('pages.profile.wallet.balance-sum')}
+            </p>
+          </div>
 
-        <div className={styles['popup-inputs']}>
-          <Button preset={'white'} className={styles['all-sum']}>
-            {t('pages.profile.wallet.all-sum')}
-          </Button>
-          <Input
-            visited={touchedFields.value}
-            error={errors.value}
-            {...register('value', {
-              required: t('validation-messages.required').toString(),
-              min: {
-                value: 100,
-                message: t('validation-messages.min-output').toString(),
-              },
-            })}
-            placeholder={t('pages.profile.wallet.main-sum')}
-          />
+          <div className={styles['popup-inputs']}>
+            <Button preset={'white'} className={styles['all-sum']}>
+              {t('pages.profile.wallet.all-sum')}
+            </Button>
+            <Input
+              visited={touchedFields.value}
+              error={errors.value}
+              {...register('value', {
+                required: t('validation-messages.required').toString(),
+                min: {
+                  value: 100,
+                  message: t('validation-messages.min-output').toString(),
+                },
+              })}
+              placeholder={t('pages.profile.wallet.main-sum')}
+            />
+          </div>
         </div>
         <Button
           type="submit"
-          preset={'success'}
+          preset={errors.value ? 'success_gray' : 'black'}
           className={styles['success-btn']}
         >
           {t('button-values.success')}
