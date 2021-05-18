@@ -54,4 +54,27 @@
       margin-bottom: 23px;
     }
   }
+  .form-withdrawal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .fields-group {
+      width: 100%;
+
+      .sum {
+        margin-bottom: 20px;
+      }
+
+      .balance-info {
+        margin-top: 22px;
+      }
+    }
+
+    button:last-child {
+      padding: 16px 74px;
+      width: fit-content;
+      margin-top: 20px;
+    }
+  }
 }
