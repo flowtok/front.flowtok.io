@@ -75,7 +75,7 @@ function occurrencesSerializer(re, string) {
   });
 }
 
-const successList = [];
+let successList = [];
 
 function divideData(occurrenceData, data) {
   if (occurrenceData) {
@@ -146,6 +146,7 @@ files.forEach(file => {
       const occurrenceData = occurrencesSerializer(re, data.data);
       const preparedFile = getFileWithMixin(occurrenceData, data.data);
       const dir = data.file.split('/').slice(0, -1).join('/');
+      successList = [];
       mkdirp.sync('adaptive/' + dir);
       fs.open('adaptive/' + dir + '/style.scss', 'w', () => {
       });
