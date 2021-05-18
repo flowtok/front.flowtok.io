@@ -123,9 +123,7 @@ function getFileWithMixin(occurrences, data) {
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[2]}); ${parts[1]}`;
         }
       } else {
-        if (preparedData.indexOf(`@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value});`) === -1) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
-        }
+        preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
       }
     });
     if (preparedData.indexOf('@import "src/styles/mixins"') === -1) {
@@ -135,7 +133,7 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src/');
+const files = getFiles('src/pages/profile/mobile/');
 
 files.forEach(file => {
   new Promise(resolve => {
@@ -146,10 +144,9 @@ files.forEach(file => {
       const preparedFile = getFileWithMixin(occurrenceData, data.data);
       const dir = data.file.split('/').slice(0, -1).join('/');
       successList = [];
-      mkdirp.sync('adaptive/' + dir);
-      fs.open('adaptive/' + dir + '/style.scss', 'w', () => {
+      fs.unlink(dir + '/styles.module.scss', () => {
       });
-      fs.appendFile('adaptive/' + dir + '/style.scss', preparedFile, () => {
+      fs.appendFile(dir + '/styles.module.scss', preparedFile, () => {
       });
     }
   });
