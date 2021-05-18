@@ -29,15 +29,14 @@
 
 .title-secondary {
   font-size: 15px;
-  word-break: break-word;
   @include adaptive-value-tablet(font-size, 15);
+  word-break: break-word;
   line-height: 18px;
   @include adaptive-value-tablet(line-height, 18);
   letter-spacing: -0.361765px;
   @include adaptive-value-tablet(letter-spacing, -0.361765);
   color: #8E8E93;
   margin-bottom: 10px;
-  @include adaptive-value-tablet(margin-bottom, 10);
 }
 
 .value-primary {

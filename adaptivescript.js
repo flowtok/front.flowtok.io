@@ -154,17 +154,17 @@ function getFileWithMixin(occurrences, data) {
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
-        } else if (occurrence.value.length === 2) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+          } else if (occurrence.value.length === 2) {
+            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
-        } else if (occurrence.value.length === 3) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+          } else if (occurrence.value.length === 3) {
+            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[2]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]}); ${parts[1]}`;
-        } else if (occurrence.value.length === 4) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+          } else if (occurrence.value.length === 4) {
+            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[3]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[2]}); ${parts[1]}`;
