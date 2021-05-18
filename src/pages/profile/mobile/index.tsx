@@ -27,6 +27,7 @@ export default () => {
     return {
       paddingTop: adaptiveValue(10, 1024, 600, width),
       paddingBottom: adaptiveValue(10, 1024, 600, width),
+      background: 'red',
     };
   }, [width]);
 

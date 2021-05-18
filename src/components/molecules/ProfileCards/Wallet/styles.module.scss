@@ -1,3 +1,4 @@
+@import "src/styles/mixins";
 .wallet {
   grid-area: 1 / 1 / auto / 3;
   position: relative;
@@ -5,7 +6,15 @@
   & .pay-off-button {
     width: 100%;
     border-radius: 11px;
+    @include adaptive-value-tablet(border-radius, 11);
     padding: 14px;
+    @include adaptive-value-tablet(padding-top, 14);
+
+    @include adaptive-value-tablet(padding-left, 14);
+
+    @include adaptive-value-tablet(padding-right, 14);
+
+    @include adaptive-value-tablet(padding-bottom, 14);
   }
 
   & .history {
