@@ -10,7 +10,8 @@ function getFiles(dir, files_) {
     if (fs.statSync(name).isDirectory()) {
       getFiles(name, files_);
     } else {
-      if (name.indexOf('.scss') > -1 && name.indexOf('/styles/') === -1) files_.push(name);
+      if (name.indexOf('.scss') > -1 && name.indexOf('/styles/') === -1)
+        files_.push(name);
     }
   }
   return files_;
@@ -39,8 +40,22 @@ function checkType(occurrence, string, position) {
   if (mBot > -1) return 'margin-bottom';
   if (mRig > -1) return 'margin-right';
   if (mLeft > -1) return 'margin-left';
-  if (occurrence.indexOf('margin') > -1 && mTop === -1 && mLeft === -1 && mRig === -1 && mBot === -1) return 'margin';
-  if (occurrence.indexOf('padding') > -1 && pTop === -1 && pLeft === -1 && pRig === -1 && pBot === -1) return 'padding';
+  if (
+    occurrence.indexOf('margin') > -1 &&
+    mTop === -1 &&
+    mLeft === -1 &&
+    mRig === -1 &&
+    mBot === -1
+  )
+    return 'margin';
+  if (
+    occurrence.indexOf('padding') > -1 &&
+    pTop === -1 &&
+    pLeft === -1 &&
+    pRig === -1 &&
+    pBot === -1
+  )
+    return 'padding';
   if (occurrence.indexOf('width') > -1) {
     if (string.substring(position - 4, position) === 'max-') {
       return 'max-width';
@@ -56,8 +71,8 @@ function checkType(occurrence, string, position) {
 function occurrencesSerializer(re, string) {
   const occurrences = string.match(re);
   const positions = [];
-  occurrences.forEach(o => {
-    if (positions.find(p => p === string.indexOf(o))) {
+  occurrences.forEach((o) => {
+    if (positions.find((p) => p === string.indexOf(o))) {
       positions.push(string.indexOf(o, string.indexOf(o)));
     } else {
       positions.push(string.indexOf(o));
@@ -80,15 +95,42 @@ let successList = [];
 function divideData(occurrenceData, data) {
   if (occurrenceData) {
     const parts = [];
-    if (successList.find(s => s === occurrenceData.occurrence)) {
+    if (successList.find((s) => s === occurrenceData.occurrence)) {
       parts.push([
-        data.slice(0, data.indexOf(occurrenceData.occurrence, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length) + occurrenceData.occurrence.length),
-        data.slice(-((data.length - data.indexOf(occurrenceData.occurrence, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length) - occurrenceData.occurrence.length))),
+        data.slice(
+          0,
+          data.indexOf(
+            occurrenceData.occurrence,
+            data.indexOf(occurrenceData.occurrence) +
+              occurrenceData.occurrence.length
+          ) + occurrenceData.occurrence.length
+        ),
+        data.slice(
+          -(
+            data.length -
+            data.indexOf(
+              occurrenceData.occurrence,
+              data.indexOf(occurrenceData.occurrence) +
+                occurrenceData.occurrence.length
+            ) -
+            occurrenceData.occurrence.length
+          )
+        ),
       ]);
     } else {
       parts.push([
-        data.slice(0, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length),
-        data.slice(-((data.length - data.slice(0, data.indexOf(occurrenceData.occurrence)).length) - occurrenceData.occurrence.length)),
+        data.slice(
+          0,
+          data.indexOf(occurrenceData.occurrence) +
+            occurrenceData.occurrence.length
+        ),
+        data.slice(
+          -(
+            data.length -
+            data.slice(0, data.indexOf(occurrenceData.occurrence)).length -
+            occurrenceData.occurrence.length
+          )
+        ),
       ]);
     }
     successList.push(occurrenceData.occurrence);
@@ -100,35 +142,44 @@ function divideData(occurrenceData, data) {
 function getFileWithMixin(occurrences, data) {
   if (occurrences.length) {
     let preparedData = data;
-    occurrences.filter(i => i).forEach(occurrence => {
-      const parts = divideData(occurrence, preparedData)[0];
-      if (occurrence.type === 'padding' || occurrence.type === 'margin') {
-        if (occurrence.value.length === 1 && !occurrence.value.find(i => i === '0')) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+    occurrences
+      .filter((i) => i)
+      .forEach((occurrence) => {
+        const parts = divideData(occurrence, preparedData)[0];
+        if (occurrence.type === 'padding' || occurrence.type === 'margin') {
+          if (
+            occurrence.value.length === 1 &&
+            !occurrence.value.find((i) => i === '0')
+          ) {
+            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
-        } else if (occurrence.value.length === 2) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+          } else if (occurrence.value.length === 2) {
+            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
-        } else if (occurrence.value.length === 3) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+          } else if (occurrence.value.length === 3) {
+            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[2]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]}); ${parts[1]}`;
-        } else if (occurrence.value.length === 4) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
+          } else if (occurrence.value.length === 4) {
+            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[3]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
            \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[2]}); ${parts[1]}`;
+          }
+        } else {
+          if (
+            preparedData.indexOf(
+              `@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value});`
+            ) === -1
+          ) {
+            preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
+          }
         }
-      } else {
-        if (preparedData.indexOf(`@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value});`) === -1) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
-        }
-      }
-    });
+      });
     if (preparedData.indexOf('@import "src/styles/mixins"') === -1) {
       preparedData = '@import "src/styles/mixins";\n'.concat(preparedData);
     }
@@ -138,20 +189,18 @@ function getFileWithMixin(occurrences, data) {
 
 const files = getFiles('src/pages/settings/');
 
-files.forEach(file => {
-  new Promise(resolve => {
+files.forEach((file) => {
+  new Promise((resolve) => {
     fs.readFile(file, 'utf-8', (err, data) => resolve({ file, data }));
-  }).then(data => {
+  }).then((data) => {
     if (data.data.match(re) !== null) {
       const occurrenceData = occurrencesSerializer(re, data.data);
       const preparedFile = getFileWithMixin(occurrenceData, data.data);
       const dir = data.file.split('/').slice(0, -1).join('/');
       successList = [];
       mkdirp.sync('adaptive/' + dir);
-      fs.open('adaptive/' + dir + '/style.scss', 'w', () => {
-      });
-      fs.appendFile('adaptive/' + dir + '/style.scss', preparedFile, () => {
-      });
+      fs.open('adaptive/' + dir + '/style.scss', 'w', () => {});
+      fs.appendFile('adaptive/' + dir + '/style.scss', preparedFile, () => {});
     }
   });
 });

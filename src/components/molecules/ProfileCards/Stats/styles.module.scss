@@ -1,3 +1,4 @@
+@import "src/styles/mixins";
 .stats {
   grid-area: 3 / 1 / auto / 3;
 
@@ -8,6 +9,13 @@
     & .block {
       position: relative;
       padding: 0 6px;
+      @include adaptive-value-tablet(padding-top, 0);
+
+      @include adaptive-value-tablet(padding-left, 6);
+
+      @include adaptive-value-tablet(padding-right, 6);
+
+      @include adaptive-value-tablet(padding-bottom, 0);
       text-align: left;
     }
   }
@@ -16,6 +24,7 @@
 @media (min-width: 1024px) {
   .stats .data {
     height: 115px;
+    @include adaptive-value-tablet(height, 115);
 
     & .block {
       display: flex;
@@ -28,5 +37,6 @@
 @media (min-width: 1920px) {
   .block:not(:first-child) {
     margin-left: 12px;
+    @include adaptive-value-tablet(margin-left, 12);
   }
 }
