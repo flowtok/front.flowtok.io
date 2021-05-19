@@ -4,8 +4,10 @@
   .payment-method {
     margin-bottom: 5px;
 
-    & > p {
-      margin-bottom: 10px;
+    .methods-btn_group {
+      & > p {
+        margin-bottom: 15px;
+      }
     }
   }
 
