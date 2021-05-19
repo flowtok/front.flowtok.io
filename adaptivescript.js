@@ -1,6 +1,5 @@
 const fs = require('fs');
-const mkdirp = require('mkdirp');
-const re = /(font-size:(.\d*)+px;)|(line-height:(.\d*)+px;)|((width|height):(.\d*)+px;)|(letter-spacing:(.\d*)+px;)|((border)(-radius):(.\d*)+px;)|((padding|margin)(-top|-left|-right|-bottom)?:(.\d*)+px;)/g;
+const re = /(font-size:(.\d*)+px;)|(line-height:(.\d*)+px;)|(grid-gap:(.\d*)+px;)|((width|height):(.\d*)+px;)|(letter-spacing:(.\d*)+px;)|((border)(-radius):(.\d*)+px;)|((padding|margin)(-top|-left|-right|-bottom)?:(.\d*)+px;)/g;
 
 function getFiles(dir, files_) {
   files_ = files_ || [];
@@ -30,6 +29,7 @@ function checkType(occurrence, string, position) {
   if (occurrence.indexOf('line-height') > -1) return 'line-height';
   if (occurrence.indexOf('letter-spacing') > -1) return 'letter-spacing';
   if (occurrence.indexOf('border') > -1 && bR === -1) return 'border-size';
+  if (occurrence.indexOf('grid-gap') > -1 && bR === -1) return 'grid-gap';
   if (bR > -1) return 'border-radius';
   if (pTop > -1) return 'padding-top';
   if (pBot > -1) return 'padding-bottom';
@@ -103,27 +103,27 @@ function getFileWithMixin(occurrences, data) {
       const parts = divideData(occurrence, preparedData)[0];
       if (occurrence.type === 'padding' || occurrence.type === 'margin') {
         if (occurrence.value.length === 1 && !occurrence.value.find(i => i === '0')) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[0]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[0]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
+          preparedData = `${parts[0]}\n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-top, ${occurrence.value[0]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-left, ${occurrence.value[0]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-right, ${occurrence.value[0]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
         } else if (occurrence.value.length === 2) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[1]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
+          preparedData = `${parts[0]}\n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-top, ${occurrence.value[0]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-left, ${occurrence.value[1]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-right, ${occurrence.value[1]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-bottom, ${occurrence.value[0]}); ${parts[1]}`;
         } else if (occurrence.value.length === 3) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[2]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]}); ${parts[1]}`;
+          preparedData = `${parts[0]}\n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-top, ${occurrence.value[0]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-left, ${occurrence.value[2]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-right, ${occurrence.value[1]}); ${parts[1]}`;
         } else if (occurrence.value.length === 4) {
-          preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}-top, ${occurrence.value[0]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-left, ${occurrence.value[3]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-right, ${occurrence.value[1]});
-           \n \t@include adaptive-value-tablet(${occurrence.type}-bottom, ${occurrence.value[2]}); ${parts[1]}`;
+          preparedData = `${parts[0]}\n \t@include adaptive-value-${process.argv[2]}t(${occurrence.type}-top, ${occurrence.value[0]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-left, ${occurrence.value[3]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-right, ${occurrence.value[1]});
+           \n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}-bottom, ${occurrence.value[2]}); ${parts[1]}`;
         }
       } else {
-        preparedData = `${parts[0]}\n \t@include adaptive-value-tablet(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
+        preparedData = `${parts[0]}\n \t@include adaptive-value-${process.argv[2]}(${occurrence.type}, ${occurrence.value}); ${parts[1]}`;
       }
     });
     if (preparedData.indexOf('@import "src/styles/mixins"') === -1) {
@@ -133,7 +133,7 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src/pages/profile/mobile/');
+const files = getFiles('src/components/molecules/ProfileCards/Referal/');
 
 files.forEach(file => {
   new Promise(resolve => {
@@ -143,6 +143,7 @@ files.forEach(file => {
       const occurrenceData = occurrencesSerializer(re, data.data);
       const preparedFile = getFileWithMixin(occurrenceData, data.data);
       const dir = data.file.split('/').slice(0, -1).join('/');
+      console.log();
       successList = [];
       fs.unlink(dir + '/styles.module.scss', () => {
       });
