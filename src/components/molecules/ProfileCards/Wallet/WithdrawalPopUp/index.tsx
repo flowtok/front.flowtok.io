@@ -46,7 +46,11 @@ export const WithdrawalPopUp = forwardRef<
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
 
   /*will be deleted*/
-  const savedMethods: any[] = [];
+  const savedMethods: any[] = [
+    { type: 'yandex', value: 213443245 },
+    { type: 'card', value: 213443245 },
+    { type: 'phone-number', value: 213443245 },
+  ];
 
   const renderPaymentMethod = () => {
     if (savedMethods.length) {
