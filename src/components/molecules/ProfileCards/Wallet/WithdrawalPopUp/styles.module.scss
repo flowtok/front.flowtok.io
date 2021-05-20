@@ -56,7 +56,7 @@
       margin-bottom: 23px;
     }
   }
-  .form-withdrawal {
+  .form-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -84,6 +84,53 @@
       padding: 16px 74px;
       width: fit-content;
       margin-top: 20px;
+    }
+  }
+
+  .form-container_sm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .payment-method {
+      margin-bottom: 0;
+
+      .methods-btn_group {
+        margin-bottom: 20px;
+
+        > p {
+          font-size: 17px;
+          line-height: 20px;
+          letter-spacing: -0.41px;
+        }
+      }
+
+      .methods-list {
+        margin-bottom: 10px;
+      }
+    }
+
+    .fields-group {
+      .balance-info {
+        > p:first-child {
+          font-size: 17px;
+        }
+
+        margin-bottom: 22px;
+      }
+
+      .sum {
+        > p {
+          font-size: 17px;
+        }
+      }
+    }
+
+    .popup-inputs {
+      > button:first-child {
+        font-size: 17px;
+        margin-bottom: 15px;
+      }
     }
   }
 }
