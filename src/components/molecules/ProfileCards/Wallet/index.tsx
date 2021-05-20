@@ -75,6 +75,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         historyList={history}
       />
       <WithdrawalPopUp
+        isUseProfile={true}
         isOpen={isOpenWithdrawalPopUp}
         close={() => setOpenWithdrawalPopUp(false)}
       />
