@@ -8,9 +8,14 @@ import deleteIcon from '../../../../../assets/common/icons/delete.svg';
 export interface MethodsBtnGroupProps {
   value: string;
   title: string;
+  canDelete?: boolean;
 }
 
-export const SavedMethod = ({ title, value }: MethodsBtnGroupProps) => {
+export const SavedMethod = ({
+  title,
+  value,
+  canDelete,
+}: MethodsBtnGroupProps) => {
   const [isChecked, setChecked] = useState<boolean>(false);
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
   const style = isChecked
@@ -37,7 +42,7 @@ export const SavedMethod = ({ title, value }: MethodsBtnGroupProps) => {
         </div>
         <div>{'...'.concat(value.slice(-4))}</div>
       </div>
-      {isDesktopLarge && (
+      {isDesktopLarge && canDelete && (
         <button className={styles['delete-method']}>
           <img src={deleteIcon} />
         </button>

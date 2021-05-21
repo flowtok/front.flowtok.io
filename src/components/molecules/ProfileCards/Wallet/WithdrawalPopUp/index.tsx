@@ -10,6 +10,8 @@ import { AddWithdrawalPopUp } from '../../../AddWithdrawalPopUp';
 import { useForm } from 'react-hook-form';
 import { SavedMethod } from '../../../SettingsCards/Withdrawal/SavedMethod';
 import { MethodsBtnGroup } from '../../../SettingsCards/Withdrawal/MethodsBtnGroup';
+import { useMediaQuery } from 'react-responsive';
+import classNames from 'classnames';
 
 type FormDataT = {
   value: string;
@@ -18,12 +20,13 @@ type FormDataT = {
 interface WithdrawalPopUpProps {
   isOpen: boolean;
   close: () => void;
+  isUseProfile?: boolean;
 }
 
 export const WithdrawalPopUp = forwardRef<
   HTMLDivElement,
   PropsWithChildren<WithdrawalPopUpProps>
->(({ isOpen, close }) => {
+>(({ isOpen, close, isUseProfile = false }) => {
   const { t } = useTranslation();
 
   const {
@@ -40,6 +43,7 @@ export const WithdrawalPopUp = forwardRef<
   ] = useState<boolean>(false);
 
   const [currentMethod, setMethod] = useState<string>('');
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
 
   /*will be deleted*/
   const savedMethods: any[] = [
@@ -51,7 +55,7 @@ export const WithdrawalPopUp = forwardRef<
   const renderPaymentMethod = () => {
     if (savedMethods.length) {
       return (
-        <>
+        <div className={styles['methods-list']}>
           <p className={commonStyles['secondary-title-small']}>
             {t('pages.settings.cards.withdrawal.saved-list')}
           </p>
@@ -62,11 +66,11 @@ export const WithdrawalPopUp = forwardRef<
               title={method.type}
             />
           ))}
-        </>
+        </div>
       );
     }
     return (
-      <>
+      <div className={styles['methods-btn_group']}>
         <p className={commonStyles['secondary-title-small']}>
           {t('pages.settings.cards.withdrawal.add-new-method')}
         </p>
@@ -76,58 +80,75 @@ export const WithdrawalPopUp = forwardRef<
             setOpenAddWithdrawalPopUp(true);
           }}
         />
-      </>
+      </div>
     );
   };
+
+  const getSize = () => {
+    if (isDesktopLarge) return isUseProfile ? 'sm' : 's';
+    return '';
+  };
+
+  const finalClassName = classNames(
+    styles['form-container'],
+    styles[`form-container_${getSize()}`]
+  );
 
   return (
     <PopUp
       isOpen={isOpen}
       close={() => close()}
       title={t('pages.profile.wallet.popup-withdrawal')}
+      size={getSize()}
     >
       <form
         className={styles['form-withdrawal']}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className={styles['payment-method']}>{renderPaymentMethod()}</div>
-        <Divider />
-        <div className={styles['balance-info']}>
-          <p className={commonStyles['secondary-title-small']}>
-            {t('pages.profile.wallet.balance-info')}
-          </p>
-          <p>15 236.00 ₽</p>
-        </div>
-        <div className={styles['sum']}>
-          <p className={commonStyles['secondary-title-small']}>
-            {t('pages.profile.wallet.balance-sum')}
-          </p>
-        </div>
+        <div className={finalClassName}>
+          <div className={styles['fields-group']}>
+            <div className={styles['payment-method']}>
+              {renderPaymentMethod()}
+            </div>
+            <Divider />
+            <div className={styles['balance-info']}>
+              <p className={commonStyles['secondary-title-small']}>
+                {t('pages.profile.wallet.balance-info')}
+              </p>
+              <p>15 236.00 ₽</p>
+            </div>
+            <div className={styles['sum']}>
+              <p className={commonStyles['secondary-title-small']}>
+                {t('pages.profile.wallet.balance-sum')}
+              </p>
+            </div>
 
-        <div className={styles['popup-inputs']}>
-          <Button preset={'white'} className={styles['all-sum']}>
-            {t('pages.profile.wallet.all-sum')}
+            <div className={styles['popup-inputs']}>
+              <Button preset={'white'} className={styles['all-sum']}>
+                {t('pages.profile.wallet.all-sum')}
+              </Button>
+              <Input
+                visited={touchedFields.value}
+                error={errors.value}
+                {...register('value', {
+                  required: t('validation-messages.required').toString(),
+                  min: {
+                    value: 100,
+                    message: t('validation-messages.min-output').toString(),
+                  },
+                })}
+                placeholder={t('pages.profile.wallet.main-sum')}
+              />
+            </div>
+          </div>
+          <Button
+            type="submit"
+            preset={errors.value ? 'success_gray' : 'black'}
+            className={styles['success-btn']}
+          >
+            {t('button-values.success')}
           </Button>
-          <Input
-            visited={touchedFields.value}
-            error={errors.value}
-            {...register('value', {
-              required: t('validation-messages.required').toString(),
-              min: {
-                value: 100,
-                message: t('validation-messages.min-output').toString(),
-              },
-            })}
-            placeholder={t('pages.profile.wallet.main-sum')}
-          />
         </div>
-        <Button
-          type="submit"
-          preset={'success'}
-          className={styles['success-btn']}
-        >
-          {t('button-values.success')}
-        </Button>
       </form>
       <AddWithdrawalPopUp
         isOpen={isOpenAddWithdrawalPopUp}

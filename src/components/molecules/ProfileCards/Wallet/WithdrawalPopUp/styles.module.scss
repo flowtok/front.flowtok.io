@@ -4,8 +4,10 @@
   .payment-method {
     margin-bottom: 5px;
 
-    & > p {
-      margin-bottom: 10px;
+    .methods-btn_group {
+      & > p {
+        margin-bottom: 15px;
+      }
     }
   }
 
@@ -41,4 +43,97 @@
 .success-btn {
   width: 100%;
   margin-top: 15px;
+}
+
+@media (min-width: 1920px) {
+  .success-btn {
+    font-size: 17px;
+  }
+  .methods-btn_group {
+    > p {
+      margin-bottom: 23px;
+    }
+  }
+  .methods-list {
+    > p {
+      margin-bottom: 23px;
+    }
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .fields-group {
+      width: 100%;
+
+      .sum {
+        margin-bottom: 20px;
+      }
+
+      .balance-info {
+        margin-top: 22px;
+      }
+    }
+
+    .methods-btn_group {
+      button:last-child {
+        padding: 9px 14px;
+        margin-top: 0;
+      }
+    }
+
+    button:last-child {
+      padding: 16px 74px;
+      width: fit-content;
+      margin-top: 20px;
+    }
+  }
+
+  .form-container_sm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .payment-method {
+      margin-bottom: 0;
+
+      .methods-btn_group {
+        margin-bottom: 20px;
+
+        > p {
+          font-size: 17px;
+          line-height: 20px;
+          letter-spacing: -0.41px;
+        }
+      }
+
+      .methods-list {
+        margin-bottom: 10px;
+      }
+    }
+
+    .fields-group {
+      .balance-info {
+        > p:first-child {
+          font-size: 17px;
+        }
+
+        margin-bottom: 22px;
+      }
+
+      .sum {
+        > p {
+          font-size: 17px;
+        }
+      }
+    }
+
+    .popup-inputs {
+      > button:first-child {
+        font-size: 17px;
+        margin-bottom: 15px;
+      }
+    }
+  }
 }

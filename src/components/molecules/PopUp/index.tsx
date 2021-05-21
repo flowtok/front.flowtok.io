@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 type textPosition = 'left' | 'right' | 'center';
 
-type size = 's' | 'm';
+type size = 's' | 'sm' | 'm' | '';
 
 interface PopUpProps {
   isOpen: boolean;
