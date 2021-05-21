@@ -10,6 +10,8 @@ import LoginPage from './pages/login';
 import SettingsPage from './pages/settings';
 import { RootStateT } from './redux/store';
 import { initialize } from './redux/app-reducer/app-reducer';
+import { PopUp } from './components/molecules/PopUp';
+import { DonePopUpContent } from './components/molecules/PaymentMethodNotifications';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,6 +27,9 @@ export const App = () => {
   return (
     <div style={{ position: 'relative' }}>
       {isLoader && <div>Loading...</div>}
+      {/*<PopUp isOpen={true} size={'s'}>*/}
+      {/*  <DonePopUpContent />*/}
+      {/*</PopUp>*/}
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route path="/" exact>
