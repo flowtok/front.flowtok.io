@@ -8,7 +8,7 @@ import InfoIcon from 'assets/common/icons/info.svg';
 import InfoLargeIcon from 'assets/common/icons/info_large.svg';
 import styles from './styles.module.scss';
 import { TasksPopUp, TasksPopUpTypes } from './TasksPopUp';
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { usePopperTooltip } from 'react-popper-tooltip';
 
@@ -76,6 +76,7 @@ export const TaskCard = ({
   ];
 
   const { t } = useTranslation();
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
 
   const taskStatusBtn = (
@@ -84,15 +85,15 @@ export const TaskCard = ({
         ref={setTriggerRef}
         className={styles['task-status-btn']}
         onClick={() => {
-          if (!isDesktopLarge) {
+          if (!isDesktop) {
             setTypePopUp(TasksPopUpTypes.howToDo);
             setOpenPopUp(true);
           }
         }}
       >
-        <img src={isDesktopLarge ? InfoLargeIcon : InfoIcon} alt="" />
+        <img src={isDesktop ? InfoLargeIcon : InfoIcon} alt="" />
       </button>
-      {isDesktopLarge && visible && (
+      {isDesktop && visible && (
         <div
           ref={setTooltipRef}
           {...getTooltipProps({ className: styles['tooltip-container'] })}
@@ -118,6 +119,22 @@ export const TaskCard = ({
     styles[`task_wrapper-${rest.state}`]
   );
 
+  let divider: null | ReactElement = (
+    <Divider
+      direction={
+        isDesktopLarge && rest.state === 'active' ? 'vertical' : 'horizontal'
+      }
+    />
+  );
+
+  if (isDesktop) divider = null;
+
+  const getSize = () => {
+    if (isDesktop) return 's-task';
+    if (isDesktopLarge) return 'sm';
+    return 's';
+  };
+
   return (
     <>
       <Paper
@@ -130,26 +147,20 @@ export const TaskCard = ({
             <div className={styles['header-block']}>
               <div className={styles['title-block']}>
                 <h3 className={styles['title']}>{title}</h3>
-                {!isDesktopLarge && taskStatusBtn}
+                {!isDesktop && taskStatusBtn}
                 {rest.state === 'completed' && (
                   <span className={styles['date']}>{rest.date}</span>
                 )}
               </div>
             </div>
-            {isDesktopLarge && (
+            {isDesktop && (
               <p className={styles['description-title']}>
                 {t('task-cards.popup-titles.description')}
               </p>
             )}
             <p className={styles['description']}>{description}</p>
           </div>
-          <Divider
-            direction={
-              isDesktopLarge && rest.state === 'active'
-                ? 'vertical'
-                : 'horizontal'
-            }
-          />
+          {divider}
           <div className={styles['actions-block']}>
             <div className={styles['payment-block']}>
               <p className={styles['title']}>
@@ -161,7 +172,7 @@ export const TaskCard = ({
             </div>
             {rest.state === 'active' && (
               <>
-                <Divider />
+                {!isDesktop && isDesktopLarge && <Divider />}
                 <div className={styles['task-card-actions']}>
                   <div className={styles['top-btn-group']}>
                     <a
@@ -173,16 +184,16 @@ export const TaskCard = ({
                         disabled={disabled}
                         size={isDesktopLarge ? 'sm' : 's'}
                         radius={isDesktopLarge ? 14 : 11}
-                        preset={isDesktopLarge ? 'black' : 'border-gradient'}
+                        preset={isDesktop ? 'black' : 'border-gradient'}
                       >
                         {rest.linkButton.text}
                       </Button>
                     </a>
-                    {isDesktopLarge && taskStatusBtn}
+                    {isDesktop && taskStatusBtn}
                   </div>
                   <Button
                     disabled={disabled}
-                    size={isDesktopLarge ? 'sm' : 's'}
+                    size={getSize()}
                     radius={11}
                     onClick={() => {
                       if (inProgress) {

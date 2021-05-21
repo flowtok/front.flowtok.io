@@ -15,7 +15,7 @@ export interface TaskT {
 }
 
 export default () => {
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const tasks: TaskT[] = [
     {
       disabled: false,
@@ -61,7 +61,7 @@ export default () => {
       date: 'Сегодня',
     },
   ];
-  if (isDesktopLarge) {
+  if (isDesktop) {
     return <TasksDesktop tasks={tasks} />;
   } else {
     return <TasksMobile tasks={tasks} />;
