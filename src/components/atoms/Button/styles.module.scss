@@ -190,6 +190,13 @@
   .button_white {
     border: 1px solid #E5E5EA;
   }
+  .button_size-s-task {
+    padding: 10px 30px;
+    font-size: 11px;
+    line-height: 11px;
+    letter-spacing: -0.41px;
+    border-radius: 11px;
+  }
 }
 
 
@@ -197,7 +204,7 @@
   .button_size-m {
     padding: 24px 0;
   }
-  .button_payment-method{
+  .button_payment-method {
     padding: 9px 14px;
   }
 }

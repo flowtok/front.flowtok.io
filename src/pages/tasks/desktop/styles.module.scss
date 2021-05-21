@@ -15,8 +15,6 @@
   }
 
   .task-outter-wrapper {
-    width: 880px;
-    height: calc(100vh - 150px);
     margin-top: 25px;
     overflow-x: scroll;
 
@@ -30,3 +28,16 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .task-outter-wrapper {
+    width: 584px;
+    height: calc(100vh - 130px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .task-outter-wrapper {
+    width: 880px;
+    height: calc(100vh - 150px);
+  }
+}

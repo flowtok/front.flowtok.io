@@ -13,7 +13,7 @@ export type ButtonPresetUnionType =
   | 'success'
   | 'light';
 
-export type ButtonSizeUnionType = 's' | 'ssm' | 'sm' | 'm';
+export type ButtonSizeUnionType = 's' | 'ssm' | 'sm' | 'm' | 's-task';
 
 export interface ButtonProps
   extends Omit<

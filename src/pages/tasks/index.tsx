@@ -15,7 +15,7 @@ export interface TaskT {
 }
 
 export default () => {
-  const isDesktop = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const tasks: TaskT[] = [
     {
       disabled: false,
