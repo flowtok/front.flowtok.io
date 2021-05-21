@@ -187,7 +187,7 @@ export const TaskCard = ({
                         disabled={disabled}
                         size={getSize()}
                         radius={isDesktopLarge ? 14 : 11}
-                        preset={isDesktop ? 'black' : 'border-gradient'}
+                        preset={isDesktopLarge ? 'black' : 'border-gradient'}
                       >
                         {rest.linkButton.text}
                       </Button>
