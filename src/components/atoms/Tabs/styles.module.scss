@@ -52,10 +52,24 @@
   transition: .3s ease-in-out;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1024px) {
   .tabs-wrapper {
     background: #fff;
 
+    & .tabs-inner-wrapper {
+      height: 31px;
+    }
+  }
+  .tab {
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: -0.361765px;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .tabs-wrapper {
     & .tabs-inner-wrapper {
       height: 48px;
     }
@@ -64,6 +78,5 @@
     font-size: 17px;
     line-height: 20px;
     letter-spacing: -0.41px;
-    height: 100%;
   }
 }

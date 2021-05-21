@@ -6,6 +6,7 @@ import { Button } from 'components/atoms/Button';
 import { Divider } from 'components/atoms/Divider';
 import InfoIcon from 'assets/common/icons/info.svg';
 import InfoLargeIcon from 'assets/common/icons/info_large.svg';
+import InfoMiddleIcon from 'assets/common/icons/info-middle.svg';
 import styles from './styles.module.scss';
 import { TasksPopUp, TasksPopUpTypes } from './TasksPopUp';
 import React, { ReactElement, useState } from 'react';
@@ -79,6 +80,12 @@ export const TaskCard = ({
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
 
+  const getInfoIcon = () => {
+    if (isDesktop && !isDesktopLarge) return InfoMiddleIcon;
+    if (isDesktopLarge) return InfoLargeIcon;
+    return InfoIcon;
+  };
+
   const taskStatusBtn = (
     <>
       <button
@@ -91,7 +98,7 @@ export const TaskCard = ({
           }
         }}
       >
-        <img src={isDesktop ? InfoLargeIcon : InfoIcon} alt="" />
+        <img src={getInfoIcon()} alt="" />
       </button>
       {isDesktop && visible && (
         <div
@@ -130,7 +137,7 @@ export const TaskCard = ({
   if (isDesktop) divider = null;
 
   const getSize = () => {
-    if (isDesktop) return 's-task';
+    if (isDesktop && !isDesktopLarge) return 's-task';
     if (isDesktopLarge) return 'sm';
     return 's';
   };
