@@ -8,6 +8,32 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .notifications-container {
+    h3 {
+      font-size: 17px;
+      line-height: 21px;
+      letter-spacing: -0.41px;
+      margin-bottom: 23px;
+    }
+
+    .action-block {
+      p:first-child {
+        font-size: 12px;
+        margin-bottom: 0;
+        line-height: 12px;
+        letter-spacing: -0.41px;
+      }
+
+      p:last-child {
+        font-size: 9px;
+        line-height: 11px;
+        letter-spacing: -0.337647px;
+      }
+    }
+  }
+}
+
 @media (min-width: 1920px) {
   .notifications-container {
     h3 {
@@ -20,6 +46,15 @@
     .action-block {
       p:first-child {
         font-size: 17px;
+        margin-bottom: 7px;
+        line-height: 20px;
+        letter-spacing: -0.41px;
+      }
+
+      p:last-child {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: -0.337647px;
       }
     }
   }

@@ -1,4 +1,4 @@
-import React, { FC, HTMLProps, useState } from 'react';
+import React, { FC, HTMLProps } from 'react';
 import styles from './styles.module.scss';
 import { createIdGenerator } from '../../../utils/unique-id';
 
