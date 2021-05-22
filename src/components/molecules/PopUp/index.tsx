@@ -30,7 +30,7 @@ export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
     size,
   }) => {
     const contentStyle = {
-      width: 'fit-content%',
+      width: 'fit-content',
       margin: 'auto',
     };
     const overlayStyle = { background: 'rgba(0, 0, 0, 0.4)' };
