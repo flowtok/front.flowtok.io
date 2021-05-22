@@ -8,6 +8,12 @@
   }
 }
 
+.task-wrapper {
+  .actions-block {
+    text-align: center;
+  }
+}
+
 .task-card {
   display: flex;
   flex-direction: column;
@@ -143,6 +149,7 @@
 
     .actions-block {
       padding-left: 20px;
+      text-align: unset;
 
       .cancel {
         background: #FF3B30;
