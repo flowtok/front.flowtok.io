@@ -17,6 +17,12 @@
     }
   }
 
+  .methods-list {
+    & > p {
+      margin-bottom: 15px;
+    }
+  }
+
   .balance-info {
     margin: 15px 0;
     display: flex;

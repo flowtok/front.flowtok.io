@@ -29,6 +29,7 @@
 
 .title-secondary {
   font-size: 15px;
+  word-break: break-word;
   @include adaptive-value-tablet(font-size, 15);
   line-height: 18px;
   @include adaptive-value-tablet(line-height, 18);
