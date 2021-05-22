@@ -1,18 +1,41 @@
 .outter-wrapper {
-  max-width: 1060px;
   margin: 80px 30px 30px;
   display: flex;
   flex-wrap: nowrap;
 
   > div {
-    &:first-child {
-      margin-right: 25px;
-    }
-
     width: 50%;
+  }
+}
 
-    > div:first-child {
-      margin-bottom: 25px;
+@media (min-width: 1024px) {
+  .outter-wrapper {
+    max-width: 694px;
+
+    > div {
+      &:first-child {
+        margin-right: 20px;
+      }
+
+      > div:first-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .outter-wrapper {
+    max-width: 1060px;
+
+    > div {
+      &:first-child {
+        margin-right: 25px;
+      }
+
+      > div:first-child {
+        margin-bottom: 25px;
+      }
     }
   }
 }

@@ -14,3 +14,19 @@
     margin: 0;
   }
 }
+
+@media (min-width: 1024px) {
+  .history-item .value {
+    font-size: 11px;
+    line-height: 11px;
+    letter-spacing: -0.41px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .history-item .value {
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: -0.41px;
+  }
+}

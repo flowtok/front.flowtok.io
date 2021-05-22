@@ -15,11 +15,7 @@ export const WithdrawalCard = () => {
   const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
 
   /*will be deleted*/
-  const savedMethods = [
-    { type: 'yandex', value: 213443245 },
-    { type: 'card', value: 213443245 },
-    { type: 'phone-number', value: 213443245 },
-  ];
+  const savedMethods: any[] = [];
 
   const baseDescription = (
     <p className={commonStyles['description']}>

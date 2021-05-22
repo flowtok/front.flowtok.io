@@ -44,20 +44,166 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .account-card {
+    h3 {
+      font-size: 17px;
+      line-height: 21px;
+      letter-spacing: -0.41px;
+      color: #1D1D1D;
+      margin-bottom: 23px;
+    }
+
+    .user-secondary-info {
+      .text-block {
+        margin-bottom: 12px;
+
+        h5 {
+          font-size: 12px;
+          line-height: 12px;
+          letter-spacing: -0.41px;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-size: 9px;
+          line-height: 11px;
+          letter-spacing: -0.337647px;
+          max-width: 160px;
+        }
+      }
+
+      .info-block {
+        input {
+          padding: 9px 15px;
+          font-size: 10px;
+          line-height: 10px;
+          letter-spacing: -0.361765px;
+        }
+
+        margin-bottom: 13px;
+      }
+    }
+
+    .exit-block {
+      padding: 13px 0 0;
+      h5 {
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.41px;
+      }
+
+      .exit-button {
+        font-size: 11px;
+        line-height: 13px;
+        letter-spacing: -0.385882px;
+        padding: 0;
+      }
+    }
+
+    .user-main-info {
+      margin-bottom: 16px;
+
+      > div {
+        > div:first-child {
+          > div:first-child {
+            width: 34px !important;
+            height: 34px !important;
+          }
+
+          > div:last-child {
+            margin-left: 10px;
+
+            > div:first-child {
+              span {
+                font-size: 15px !important;
+                line-height: 15px;
+                letter-spacing: -0.41px;
+                font-weight: bold;
+              }
+            }
+
+            > div:last-child {
+              font-size: 9px;
+              line-height: 9px;
+              letter-spacing: -0.313529px;
+            }
+          }
+        }
+
+        > div:last-child {
+          font-size: 11px;
+          line-height: 13px;
+          letter-spacing: -0.385882px;
+        }
+      }
+    }
+  }
+
+}
+
 @media (min-width: 1920px) {
   .account-card {
-
     h3 {
       font-size: 26px;
       line-height: 30px;
       letter-spacing: -0.627059px;
-      color: #1D1D1D;
       margin-bottom: 35px;
     }
 
+    .user-secondary-info {
+      .text-block {
+        margin-bottom: 18px;
+
+        h5 {
+          font-size: 17px;
+          line-height: 20px;
+          letter-spacing: -0.41px;
+          margin-bottom: 7px;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 17px;
+          letter-spacing: -0.337647px;
+          max-width: 296px;
+        }
+      }
+
+      .info-block {
+        input {
+          padding: 12px 20px;
+          font-size: 15px;
+          line-height: 18px;
+          letter-spacing: -0.361765px;
+        }
+
+        margin-bottom: 20px;
+      }
+    }
+
+    .exit-block {
+      padding: 20px 0 0;
+      h5 {
+        font-size: 17px;
+        line-height: 20px;
+        letter-spacing: -0.41px;
+      }
+
+      .exit-button {
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: -0.385882px;
+      }
+    }
+
     .user-main-info {
+      margin-bottom: 20px;
+
       > div {
         > div:first-child {
+          margin-left: 15px;
+
           > div:first-child {
             width: 52px !important;
             height: 52px !important;
@@ -76,8 +222,14 @@
               font-size: 13px;
               letter-spacing: -0.313529px;
               color: #8E8E93;
+              line-height: unset;
             }
           }
+        }
+        > div:last-child {
+          font-size: 16px;
+          line-height: 19px;
+          letter-spacing: -0.385882px;
         }
       }
     }
