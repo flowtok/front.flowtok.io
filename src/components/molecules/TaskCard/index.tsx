@@ -189,7 +189,7 @@ export const TaskCard = ({
                     >
                       <Button
                         disabled={disabled}
-                        size={isDesktopLarge ? 'sm' : 's'}
+                        size={getSize()}
                         radius={isDesktopLarge ? 14 : 11}
                         preset={isDesktop ? 'black' : 'border-gradient'}
                       >
