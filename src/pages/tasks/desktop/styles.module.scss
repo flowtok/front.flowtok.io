@@ -15,8 +15,6 @@
   }
 
   .task-outter-wrapper {
-    width: 880px;
-    height: calc(100vh - 150px);
     margin-top: 25px;
     overflow-x: scroll;
 
@@ -30,3 +28,46 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .tabs-container {
+    width: 250px;
+  }
+  .page-wrapper {
+    .task-outter-wrapper {
+      width: 584px;
+      height: calc(100vh - 130px);
+
+      > div:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    .disable-message {
+      font-size: 11px;
+      line-height: 11px;
+      letter-spacing: -0.361765px;
+      margin-bottom: 15px;
+      padding-left: 30px;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .tabs-container {
+    width: 380px;
+  }
+  .page-wrapper {
+    .task-outter-wrapper {
+      width: 880px;
+      height: calc(100vh - 150px);
+    }
+
+    .disable-message {
+      font-size: 19px;
+      line-height: 22px;
+      letter-spacing: -0.458235px;
+      margin-bottom: 20px;
+      padding-left: 40px;
+    }
+  }
+}

@@ -115,6 +115,136 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .task-wrapper {
+    display: flex;
+
+    .info-parts {
+      padding-right: 69px;
+
+      .description {
+        padding: 0;
+        font-size: 13px;
+        line-height: 17px;
+        letter-spacing: -0.361765px;
+        color: #000000;
+        font-weight: 500;
+      }
+
+      .description-title {
+        font-size: 11px;
+        line-height: 11px;
+        letter-spacing: -0.361765px;
+        color: #8E8E93;
+        margin-bottom: 12px;
+      }
+
+      .title-block {
+        .title {
+          padding: 0;
+          font-size: 21px;
+          line-height: 21px;
+          letter-spacing: -0.41px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .actions-block {
+      padding-left: 20px;
+
+      .cancel {
+        font-size: 11px;
+        line-height: 11px;
+        letter-spacing: -0.41px;
+        background: #FF3B30;
+        border-radius: 11px;
+        color: #FFFFFF;
+        padding: 10px 0;
+        width: 100%;
+      }
+
+      .payment-block {
+        flex-direction: column;
+        align-items: end;
+        padding-left: 15px;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 30px;
+
+        .title {
+          font-size: 11px;
+          line-height: 11px;
+          letter-spacing: -0.361765px;
+          margin-bottom: 10px;
+        }
+
+        .value {
+          font-size: 25px;
+          line-height: 25px;
+          letter-spacing: -0.675294px;
+          color: #00D439;
+          padding: 0;
+          background: none;
+        }
+      }
+
+      .task-card-actions {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 7px;
+
+        button {
+          font-size: 11px;
+        }
+
+        .top-btn-group {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 7px;
+
+          .task-status-btn {
+            width: 54px;
+            border-radius: 11px;
+          }
+        }
+      }
+    }
+  }
+
+  .task_wrapper-completed {
+    flex-direction: column;
+
+    .info-parts {
+      padding: 0;
+      margin-bottom: 20px;
+
+      .date {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.41px;
+        color: #8E8E93;
+      }
+    }
+
+    .actions-block {
+      padding-left: 0;
+
+      .payment-block {
+        padding-left: 0;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0;
+        .value {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 1920px) {
   .task-wrapper {
     display: flex;
@@ -123,30 +253,23 @@
       padding-right: 80px;
 
       .description {
-        padding: 0;
         font-size: 19px;
         line-height: 27px;
         letter-spacing: -0.458235px;
-        color: #000000;
-        font-weight: 500;
       }
 
       .description-title {
         font-size: 17px;
         line-height: 20px;
         letter-spacing: -0.41px;
-        color: #8E8E93;
         margin-bottom: 10px;
       }
 
       .title-block {
         .title {
-          padding: 0;
           font-size: 32px;
           line-height: 37px;
           letter-spacing: -0.771765px;
-          font-weight: bold;
-          margin-bottom: 20px;
         }
       }
     }
@@ -164,6 +287,7 @@
         color: #FFFFFF;
         padding: 15px 0;
         width: 100%;
+        line-height: 18px;
       }
 
       .payment-block {
@@ -175,7 +299,6 @@
           font-size: 17px;
           line-height: 20px;
           letter-spacing: -0.41px;
-          color: #8E8E93;
           margin-bottom: 10px;
         }
 
@@ -183,9 +306,6 @@
           font-size: 38px;
           line-height: 45px;
           letter-spacing: -0.916471px;
-          color: #00D439;
-          padding: 0;
-          background: none;
         }
       }
 
@@ -274,4 +394,3 @@
     top: -30px;
   }
 }
-
