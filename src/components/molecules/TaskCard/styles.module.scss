@@ -8,6 +8,12 @@
   }
 }
 
+.task-wrapper {
+  .actions-block {
+    text-align: center;
+  }
+}
+
 .task-card {
   display: flex;
   flex-direction: column;
@@ -75,9 +81,13 @@
     }
   }
 
-  & .task-card-actions {
+  .task-card-actions {
     display: flex;
     padding: 12px 0;
+    
+    button {
+      width: 100%;
+    }
 
     > * {
       width: 100%;
@@ -143,6 +153,7 @@
 
     .actions-block {
       padding-left: 20px;
+      text-align: unset;
 
       .cancel {
         background: #FF3B30;
@@ -182,8 +193,10 @@
         display: flex;
         flex-direction: column;
 
+
         button {
           font-size: 17px;
+          width: 100%;
         }
 
         .top-btn-group {

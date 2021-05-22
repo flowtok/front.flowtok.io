@@ -44,7 +44,7 @@ export const SavedMethod = ({
       </div>
       {isDesktopLarge && canDelete && (
         <button className={styles['delete-method']}>
-          <img src={deleteIcon} />
+          <img src={deleteIcon} alt={''} />
         </button>
       )}
     </div>

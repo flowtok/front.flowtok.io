@@ -92,7 +92,9 @@
     "start-https": "set HTTPS=true&&node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "adaptive": "node adaptivescript.js"
+    "adaptive-tablet": "node adaptivescript.js tablet",
+    "adaptive-small-desktop": "node adaptivescript.js small-desktop",
+    "adaptive-large-desktop": "node adaptivescript.js large-desktop"
   },
   "eslintConfig": {
     "extends": [
