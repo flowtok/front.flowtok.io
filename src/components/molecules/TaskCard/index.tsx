@@ -164,11 +164,14 @@ export const TaskCard = ({
                 <Divider />
                 <div className={styles['task-card-actions']}>
                   <div className={styles['top-btn-group']}>
-                    <a href={rest.linkButton.url} target="_blank">
+                    <a
+                      href={rest.linkButton.url}
+                      target="_blank"
+                      className={styles['btn-link']}
+                    >
                       <Button
                         disabled={disabled}
                         size={isDesktopLarge ? 'sm' : 's'}
-                        style={{ width: 135 }}
                         radius={isDesktopLarge ? 14 : 11}
                         preset={isDesktopLarge ? 'black' : 'border-gradient'}
                       >
@@ -189,8 +192,8 @@ export const TaskCard = ({
                     }}
                   >
                     {inProgress
-                      ? t('task-cards.actions.perform')
-                      : t('task-cards.actions.check')}
+                      ? t('task-cards.actions.check')
+                      : t('task-cards.actions.perform')}
                   </Button>
                 </div>
                 {!disabled && inProgress && (
