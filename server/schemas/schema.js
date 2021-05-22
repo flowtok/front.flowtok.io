@@ -1,18 +1,10 @@
 const { gql } = require('apollo-server');
+const User = require('./User');
+const Task = require('./Task');
 
 const typeDefs = gql`
-  type Query {
-    "Get users array"
-    users: [User]
-  }
-  type User {
-    id: ID!
-    name: String!
-    tagname: String!
-    age: Int!
-    country: String!
-    balance: Float!
-  }
+  ${User}
+  ${Task}
 `;
 
 module.exports = typeDefs;
