@@ -1,7 +1,8 @@
 .outter-wrapper {
-  margin: 80px 30px 30px;
+  margin: 35px 0 0;
   display: flex;
   flex-wrap: nowrap;
+
 
   > div {
     width: 50%;
@@ -11,6 +12,13 @@
 @media (min-width: 1024px) {
   .outter-wrapper {
     max-width: 694px;
+
+
+    @media (min-height: 665px) {
+      margin-top: 66px;
+      justify-content: flex-start;
+    }
+
 
     > div {
       &:first-child {
@@ -27,6 +35,7 @@
 @media (min-width: 1920px) {
   .outter-wrapper {
     max-width: 1060px;
+    margin-top: 80px;
 
     > div {
       &:first-child {
