@@ -6,9 +6,10 @@ import { Button } from 'components/atoms/Button';
 import { Divider } from 'components/atoms/Divider';
 import InfoIcon from 'assets/common/icons/info.svg';
 import InfoLargeIcon from 'assets/common/icons/info_large.svg';
+import InfoMiddleIcon from 'assets/common/icons/info-middle.svg';
 import styles from './styles.module.scss';
 import { TasksPopUp, TasksPopUpTypes } from './TasksPopUp';
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { usePopperTooltip } from 'react-popper-tooltip';
 
