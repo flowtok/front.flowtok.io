@@ -134,7 +134,7 @@ export const TaskCard = ({
     />
   );
 
-  if (isDesktop) divider = null;
+  if (isDesktop && !isDesktopLarge) divider = null;
 
   const getSize = () => {
     if (isDesktop && !isDesktopLarge) return 's-task';
@@ -177,6 +177,7 @@ export const TaskCard = ({
               </p>
               <p className={styles['value']}>{payment}</p>
             </div>
+            {isDesktopLarge && rest.state === 'active' && <Divider />}
             {rest.state === 'active' && (
               <>
                 {!isDesktop && isDesktopLarge && <Divider />}
@@ -197,7 +198,7 @@ export const TaskCard = ({
                   <Button
                     disabled={disabled}
                     size={getSize()}
-                    radius={11}
+                    radius={isDesktopLarge ? 14 : 11}
                     onClick={() => {
                       if (inProgress) {
                         setTypePopUp(TasksPopUpTypes.thatIsDone);
