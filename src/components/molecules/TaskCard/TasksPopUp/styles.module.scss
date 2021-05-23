@@ -1,10 +1,14 @@
+@import "src/styles/mixins";
 .task-list {
   padding-left: 15px;
+ 	@include adaptive-value-tablet(padding-left, 15); 
 
   > li {
     list-style: decimal;
     font-size: 15px;
+ 	@include adaptive-value-tablet(font-size, 15); 
     line-height: 22px;
+ 	@include adaptive-value-tablet(line-height, 22); 
     color: #252525;
   }
 }
@@ -14,7 +18,9 @@
 
     > li {
       font-size: 17px;
+ 	@include adaptive-value-tablet(font-size, 17); 
       line-height: 26px;
+ 	@include adaptive-value-tablet(line-height, 26); 
       color: #252525;
     }
   }
