@@ -1,25 +1,36 @@
+@import "src/styles/mixins";
+
 .tabs-container {
   width: 380px;
+  @include adaptive-value-small-desktop(width, 380);
 }
 
 .page-wrapper {
   margin-top: 83px;
+  @include adaptive-value-small-desktop(margin-top, 83);
 
   .disable-message {
     font-size: 19px;
+    @include adaptive-value-small-desktop(font-size, 19);
     line-height: 22px;
+    @include adaptive-value-small-desktop(line-height, 22);
     letter-spacing: -0.458235px;
+    @include adaptive-value-small-desktop(letter-spacing, -0.458235);
     color: #868686;
     padding-left: 40px;
+    @include adaptive-value-small-desktop(padding-left, 40);
     margin-bottom: 20px;
+    @include adaptive-value-small-desktop(margin-bottom, 20);
   }
 
   .task-outter-wrapper {
     margin-top: 25px;
+    @include adaptive-value-small-desktop(margin-top, 25);
     overflow-x: scroll;
 
     > div:not(:last-child) {
       margin-bottom: 25px;
+      @include adaptive-value-small-desktop(margin-bottom, 25);
     }
 
     &::-webkit-scrollbar {
@@ -31,23 +42,31 @@
 @media (min-width: 1024px) {
   .tabs-container {
     width: 250px;
+    @include adaptive-value-small-desktop(width, 250);
   }
   .page-wrapper {
     .task-outter-wrapper {
       width: 584px;
+      @include adaptive-value-small-desktop(width, 584);
       height: calc(100vh - 130px);
 
       > div:not(:last-child) {
         margin-bottom: 30px;
+        @include adaptive-value-small-desktop(margin-bottom, 30);
       }
     }
 
     .disable-message {
       font-size: 11px;
+      @include adaptive-value-small-desktop(font-size, 11);
       line-height: 11px;
+      @include adaptive-value-small-desktop(line-height, 11);
       letter-spacing: -0.361765px;
+      @include adaptive-value-small-desktop(letter-spacing, -0.361765);
       margin-bottom: 15px;
+      @include adaptive-value-small-desktop(margin-bottom, 15);
       padding-left: 30px;
+      @include adaptive-value-small-desktop(padding-left, 30);
     }
   }
 }
@@ -57,9 +76,11 @@
     width: 380px;
   }
   .page-wrapper {
+    margin-top: 100px;
+
     .task-outter-wrapper {
       width: 880px;
-      height: calc(100vh - 150px);
+      height: calc(100vh - 203px);
     }
 
     .disable-message {

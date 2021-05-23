@@ -9,53 +9,77 @@
 
   > img {
     margin-bottom: 21px;
- 	@include adaptive-value-tablet(margin-bottom, 21); 
+ 	@include adaptive-value-small-desktop(margin-bottom, 21); 
  	  @include adaptive-value-tablet(margin-bottom, 21);
+    @include adaptive-value-small-desktop(margin-bottom, 21);
+    @include adaptive-value-large-desktop(margin-bottom, 21);
     width: 100%;
   }
 
   > div {
     > h2 {
       font-size: 19px;
- 	@include adaptive-value-tablet(font-size, 19); 
+ 	@include adaptive-value-small-desktop(font-size, 19); 
  	    @include adaptive-value-tablet(font-size, 19);
+      @include adaptive-value-small-desktop(font-size, 19);
+      @include adaptive-value-large-desktop(font-size, 19);
       line-height: 22px;
- 	@include adaptive-value-tablet(line-height, 22); 
+ 	@include adaptive-value-small-desktop(line-height, 22); 
  	    @include adaptive-value-tablet(line-height, 22);
+      @include adaptive-value-small-desktop(line-height, 22);
+      @include adaptive-value-large-desktop(line-height, 22);
       letter-spacing: -0.458235px;
- 	@include adaptive-value-tablet(letter-spacing, -0.458235); 
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.458235); 
  	    @include adaptive-value-tablet(letter-spacing, -0.458235);
+      @include adaptive-value-small-desktop(letter-spacing, -0.458235);
+      @include adaptive-value-large-desktop(letter-spacing, -0.458235);
       font-weight: bold;
       margin-bottom: 10px;
- 	@include adaptive-value-tablet(margin-bottom, 10); 
+ 	@include adaptive-value-small-desktop(margin-bottom, 10); 
  	    @include adaptive-value-tablet(margin-bottom, 10);
+      @include adaptive-value-small-desktop(margin-bottom, 10);
+      @include adaptive-value-large-desktop(margin-bottom, 10);
       text-align: center;
     }
 
     > p {
       font-size: 15px;
- 	@include adaptive-value-tablet(font-size, 15); 
+ 	@include adaptive-value-small-desktop(font-size, 15); 
     	@include adaptive-value-tablet(font-size, 15);
+      @include adaptive-value-small-desktop(font-size, 15);
+      @include adaptive-value-large-desktop(font-size, 15);
       line-height: 18px;
- 	@include adaptive-value-tablet(line-height, 18); 
+ 	@include adaptive-value-small-desktop(line-height, 18); 
  	    @include adaptive-value-tablet(line-height, 18);
+      @include adaptive-value-small-desktop(line-height, 18);
+      @include adaptive-value-large-desktop(line-height, 18);
       text-align: center;
       letter-spacing: -0.361765px;
- 	@include adaptive-value-tablet(letter-spacing, -0.361765); 
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.361765); 
  	    @include adaptive-value-tablet(letter-spacing, -0.361765);
+      @include adaptive-value-small-desktop(letter-spacing, -0.361765);
+      @include adaptive-value-large-desktop(letter-spacing, -0.361765);
       color: #8E8E93;
       padding: 0 40px;
- 	@include adaptive-value-tablet(padding-top, 0);
+ 	@include adaptive-value-small-desktop(padding-top, 0);
            
- 	@include adaptive-value-tablet(padding-left, 40);
+ 	@include adaptive-value-small-desktop(padding-left, 40);
            
- 	@include adaptive-value-tablet(padding-right, 40);
+ 	@include adaptive-value-small-desktop(padding-right, 40);
            
- 	@include adaptive-value-tablet(padding-bottom, 0); 
+ 	@include adaptive-value-small-desktop(padding-bottom, 0); 
  	    @include adaptive-value-tablet(padding-top, 0);
  	    @include adaptive-value-tablet(padding-left, 40);
  	    @include adaptive-value-tablet(padding-right, 40);
  	    @include adaptive-value-tablet(padding-bottom, 0);
+      @include adaptive-value-small-desktop(padding-top, 0);
+      @include adaptive-value-small-desktop(padding-left, 40);
+      @include adaptive-value-small-desktop(padding-right, 40);
+      @include adaptive-value-small-desktop(padding-bottom, 0);
+      @include adaptive-value-large-desktop(padding-top, 0);
+      @include adaptive-value-large-desktop(padding-left, 40);
+      @include adaptive-value-large-desktop(padding-right, 40);
+      @include adaptive-value-large-desktop(padding-bottom, 0);
     }
   }
 }
@@ -64,32 +88,41 @@
   .default-page {
     flex-direction: column-reverse;
     max-width: 900px;
- 	@include adaptive-value-tablet(max-width, 900); 
+ 	@include adaptive-value-small-desktop(max-width, 900); 
+ 	  @include adaptive-value-small-desktop(max-width, 900);
     margin: 0 auto;
 
     > div {
       > h2 {
         font-size: 36px;
- 	@include adaptive-value-tablet(font-size, 36); 
+ 	@include adaptive-value-small-desktop(font-size, 36); 
+ 	      @include adaptive-value-small-desktop(font-size, 36);
         line-height: 54px;
- 	@include adaptive-value-tablet(line-height, 54); 
+ 	@include adaptive-value-small-desktop(line-height, 54); 
+ 	      @include adaptive-value-small-desktop(line-height, 54);
         text-align: center;
         letter-spacing: -1.10941px;
- 	@include adaptive-value-tablet(letter-spacing, -1.10941); 
+ 	@include adaptive-value-small-desktop(letter-spacing, -1.10941); 
+ 	      @include adaptive-value-small-desktop(letter-spacing, -1.10941);
         margin-bottom: 10px;
- 	@include adaptive-value-tablet(margin-bottom, 10); 
+ 	@include adaptive-value-small-desktop(margin-bottom, 10); 
+ 	      @include adaptive-value-small-desktop(margin-bottom, 10);
       }
 
       > p {
         font-size: 16px;
- 	@include adaptive-value-tablet(font-size, 16); 
+ 	@include adaptive-value-small-desktop(font-size, 16); 
+ 	      @include adaptive-value-small-desktop(font-size, 16);
         line-height: 31px;
- 	@include adaptive-value-tablet(line-height, 31); 
+ 	@include adaptive-value-small-desktop(line-height, 31); 
+ 	      @include adaptive-value-small-desktop(line-height, 31);
         text-align: center;
         letter-spacing: -0.627059px;
- 	@include adaptive-value-tablet(letter-spacing, -0.627059); 
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.627059); 
+ 	      @include adaptive-value-small-desktop(letter-spacing, -0.627059);
         margin-bottom: 50px;
- 	@include adaptive-value-tablet(margin-bottom, 50); 
+ 	@include adaptive-value-small-desktop(margin-bottom, 50); 
+ 	      @include adaptive-value-small-desktop(margin-bottom, 50);
       }
     }
   }
@@ -100,16 +133,20 @@
     > div {
       > h2 {
         font-size: 46px;
- 	@include adaptive-value-tablet(font-size, 46); 
+ 	@include adaptive-value-small-desktop(font-size, 46); 
+ 	      @include adaptive-value-large-desktop(font-size, 46);
         margin-bottom: 15px;
- 	@include adaptive-value-tablet(margin-bottom, 15); 
+ 	@include adaptive-value-small-desktop(margin-bottom, 15); 
+ 	      @include adaptive-value-large-desktop(margin-bottom, 15);
       }
 
       > p {
         font-size: 26px;
- 	@include adaptive-value-tablet(font-size, 26); 
+ 	@include adaptive-value-small-desktop(font-size, 26); 
+ 	      @include adaptive-value-large-desktop(font-size, 26);
         margin-bottom: 100px;
- 	@include adaptive-value-tablet(margin-bottom, 100); 
+ 	@include adaptive-value-small-desktop(margin-bottom, 100); 
+ 	      @include adaptive-value-large-desktop(margin-bottom, 100);
       }
     }
   }
