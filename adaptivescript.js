@@ -136,6 +136,7 @@ function divideData(occurrenceData, data) {
     successList.push(occurrenceData.occurrence);
     return parts;
   }
+  return listIdx;
 }
 
 function getFileWithMixin(occurrences, data) {
@@ -186,7 +187,7 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src/');
+const files = getFiles('src/pages/settings/');
 
 files.forEach((file) => {
   new Promise((resolve) => {

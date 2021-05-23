@@ -37,6 +37,7 @@
   @include adaptive-value-tablet(letter-spacing, -0.361765);
   color: #8E8E93;
   margin-bottom: 10px;
+  @include adaptive-value-tablet(margin-bottom, 10);
 }
 
 .value-primary {
