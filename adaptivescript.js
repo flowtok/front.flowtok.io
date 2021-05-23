@@ -9,8 +9,7 @@ function getFiles(dir, files_) {
     if (fs.statSync(name).isDirectory()) {
       getFiles(name, files_);
     } else {
-      if (name.indexOf('.scss') > -1 && name.indexOf('/styles/') === -1)
-        files_.push(name);
+      if (name.indexOf('.scss') > -1 && name.indexOf('/styles/') === -1) files_.push(name);
     }
   }
   return files_;
@@ -40,22 +39,8 @@ function checkType(occurrence, string, position) {
   if (mBot > -1) return 'margin-bottom';
   if (mRig > -1) return 'margin-right';
   if (mLeft > -1) return 'margin-left';
-  if (
-    occurrence.indexOf('margin') > -1 &&
-    mTop === -1 &&
-    mLeft === -1 &&
-    mRig === -1 &&
-    mBot === -1
-  )
-    return 'margin';
-  if (
-    occurrence.indexOf('padding') > -1 &&
-    pTop === -1 &&
-    pLeft === -1 &&
-    pRig === -1 &&
-    pBot === -1
-  )
-    return 'padding';
+  if (occurrence.indexOf('margin') > -1 && mTop === -1 && mLeft === -1 && mRig === -1 && mBot === -1) return 'margin';
+  if (occurrence.indexOf('padding') > -1 && pTop === -1 && pLeft === -1 && pRig === -1 && pBot === -1) return 'padding';
   if (occurrence.indexOf('width') > -1) {
     if (string.substring(position - 4, position) === 'max-') {
       return 'max-width';
@@ -71,8 +56,8 @@ function checkType(occurrence, string, position) {
 function occurrencesSerializer(re, string) {
   const occurrences = string.match(re);
   const positions = [];
-  occurrences.forEach((o) => {
-    if (positions.find((p) => p === string.indexOf(o))) {
+  occurrences.forEach(o => {
+    if (positions.find(p => p === string.indexOf(o))) {
       positions.push(string.indexOf(o, string.indexOf(o)));
     } else {
       positions.push(string.indexOf(o));
@@ -95,48 +80,20 @@ let successList = [];
 function divideData(occurrenceData, data) {
   if (occurrenceData) {
     const parts = [];
-    if (successList.find((s) => s === occurrenceData.occurrence)) {
+    if (successList.find(s => s === occurrenceData.occurrence)) {
       parts.push([
-        data.slice(
-          0,
-          data.indexOf(
-            occurrenceData.occurrence,
-            data.indexOf(occurrenceData.occurrence) +
-              occurrenceData.occurrence.length
-          ) + occurrenceData.occurrence.length
-        ),
-        data.slice(
-          -(
-            data.length -
-            data.indexOf(
-              occurrenceData.occurrence,
-              data.indexOf(occurrenceData.occurrence) +
-                occurrenceData.occurrence.length
-            ) -
-            occurrenceData.occurrence.length
-          )
-        ),
+        data.slice(0, data.indexOf(occurrenceData.occurrence, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length) + occurrenceData.occurrence.length),
+        data.slice(-((data.length - data.indexOf(occurrenceData.occurrence, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length) - occurrenceData.occurrence.length))),
       ]);
     } else {
       parts.push([
-        data.slice(
-          0,
-          data.indexOf(occurrenceData.occurrence) +
-            occurrenceData.occurrence.length
-        ),
-        data.slice(
-          -(
-            data.length -
-            data.slice(0, data.indexOf(occurrenceData.occurrence)).length -
-            occurrenceData.occurrence.length
-          )
-        ),
+        data.slice(0, data.indexOf(occurrenceData.occurrence) + occurrenceData.occurrence.length),
+        data.slice(-((data.length - data.slice(0, data.indexOf(occurrenceData.occurrence)).length) - occurrenceData.occurrence.length)),
       ]);
     }
     successList.push(occurrenceData.occurrence);
     return parts;
   }
-  return listIdx;
 }
 
 function getFileWithMixin(occurrences, data) {
@@ -176,12 +133,12 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src/components/molecules/ProfileCards/Referal/');
+const files = getFiles('src/components/molecules/TaskCard/');
 
-files.forEach((file) => {
-  new Promise((resolve) => {
+files.forEach(file => {
+  new Promise(resolve => {
     fs.readFile(file, 'utf-8', (err, data) => resolve({ file, data }));
-  }).then((data) => {
+  }).then(data => {
     if (data.data.match(re) !== null) {
       const occurrenceData = occurrencesSerializer(re, data.data);
       const preparedFile = getFileWithMixin(occurrenceData, data.data);

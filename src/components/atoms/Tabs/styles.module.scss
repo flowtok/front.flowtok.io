@@ -1,8 +1,14 @@
+@import "src/styles/mixins";
+
 .tabs-wrapper {
   background: #EFEFF4;
   border-radius: 30px;
+ 	@include adaptive-value-tablet(border-radius, 30); 
   padding: 3px;
-
+ 	@include adaptive-value-tablet(padding-top, 3);
+ 	@include adaptive-value-tablet(padding-left, 3);
+ 	@include adaptive-value-tablet(padding-right, 3);
+ 	@include adaptive-value-tablet(padding-bottom, 3);
   & .tabs-inner-wrapper {
     position: relative;
     display: flex;
@@ -21,6 +27,7 @@
       background: #000000;
       transition: .3s ease-in-out;
       border-radius: 30px;
+ 	    @include adaptive-value-tablet(border-radius, 30);
     }
   }
 }
@@ -29,14 +36,23 @@
   position: relative;
   background: none;
   border-radius: 30px;
+  @include adaptive-value-tablet(border-radius, 30);
   margin-right: 3px;
+ 	@include adaptive-value-tablet(margin-right, 3); 
   font-size: 15px;
+ 	@include adaptive-value-tablet(font-size, 15); 
   font-weight: 500;
   line-height: 18px;
+ 	@include adaptive-value-tablet(line-height, 18); 
   letter-spacing: -0.361765px;
+ 	@include adaptive-value-tablet(letter-spacing, -0.361765); 
   color: #000000;
   width: 100%;
   padding: 7px 0;
+  @include adaptive-value-tablet(padding-top, 7);
+  @include adaptive-value-tablet(padding-left, 0);
+  @include adaptive-value-tablet(padding-right, 0);
+  @include adaptive-value-tablet(padding-bottom, 7);
   overflow: hidden;
   z-index: 0;
   transition-delay: .15s;

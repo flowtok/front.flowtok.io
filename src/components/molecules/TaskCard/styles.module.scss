@@ -1,3 +1,4 @@
+@import "src/styles/mixins";
 .task-card_disabled {
   opacity: 0.6;
 
@@ -28,12 +29,20 @@
       & .title {
         font-weight: 500;
         font-size: 17px;
+ 	      @include adaptive-value-tablet(font-size, 17);
         line-height: 20px;
+ 	      @include adaptive-value-tablet(line-height, 20);
         letter-spacing: -0.41px;
+ 	      @include adaptive-value-tablet(letter-spacing, -0.41);
         color: #000000;
         padding: 5px 0;
+        @include adaptive-value-tablet(padding-top, 5);
+        @include adaptive-value-tablet(padding-left, 0);
+        @include adaptive-value-tablet(padding-right, 0);
+        @include adaptive-value-tablet(padding-bottom, 5);
         vertical-align: middle;
         margin-right: 10px;
+ 	      @include adaptive-value-tablet(margin-right, 10);
       }
 
       & > button {
@@ -45,18 +54,28 @@
     & .date {
       float: right;
       font-size: 13px;
+ 	    @include adaptive-value-tablet(font-size, 13);
       line-height: 15px;
+ 	    @include adaptive-value-tablet(line-height, 15);
       letter-spacing: -0.313529px;
+ 	    @include adaptive-value-tablet(letter-spacing, -0.313529);
       color: #8E8E93;
     }
   }
 
   & .description {
     font-size: 15px;
+ 	  @include adaptive-value-tablet(font-size, 15);
     line-height: 19px;
+ 	  @include adaptive-value-tablet(line-height, 19);
     letter-spacing: -0.361765px;
+ 	  @include adaptive-value-tablet(letter-spacing, -0.361765);
     color: #8E8E93;
     padding: 10px 20px 10px 0;
+    @include adaptive-value-tablet(padding-top, 10);
+    @include adaptive-value-tablet(padding-left, 0);
+    @include adaptive-value-tablet(padding-right, 20);
+    @include adaptive-value-tablet(padding-bottom, 10);
   }
 
   & .payment-block {
@@ -64,11 +83,17 @@
     justify-content: space-between;
     align-items: center;
     padding: 11px 0;
-
+    @include adaptive-value-tablet(padding-top, 11);
+    @include adaptive-value-tablet(padding-left, 0);
+    @include adaptive-value-tablet(padding-right, 0);
+    @include adaptive-value-tablet(padding-bottom, 11);
     & .label {
       font-size: 15px;
+ 	    @include adaptive-value-tablet(font-size, 15);
       line-height: 18px;
+ 	    @include adaptive-value-tablet(line-height, 18);
       letter-spacing: -0.361765px;
+ 	    @include adaptive-value-tablet(letter-spacing, -0.361765);
       color: #000000;
     }
 
@@ -76,15 +101,23 @@
       font-weight: 500;
       background: rgba(0, 186, 50, 0.183403);
       border-radius: 17px;
+ 	    @include adaptive-value-tablet(border-radius, 17);
       color: #00BA32;
       padding: 6px 15px;
+      @include adaptive-value-tablet(padding-top, 6);
+      @include adaptive-value-tablet(padding-left, 15);
+      @include adaptive-value-tablet(padding-right, 15);
+      @include adaptive-value-tablet(padding-bottom, 6);
     }
   }
 
   .task-card-actions {
     display: flex;
     padding: 12px 0;
-    
+    @include adaptive-value-tablet(padding-top, 12);
+    @include adaptive-value-tablet(padding-left, 0);
+    @include adaptive-value-tablet(padding-right, 0);
+    @include adaptive-value-tablet(padding-bottom, 12);
     button {
       width: 100%;
     }
@@ -93,6 +126,7 @@
       width: 100%;
 
       margin-right: 10px;
+ 	    @include adaptive-value-tablet(margin-right, 10);
 
       &:last-child {
         margin-right: 0;
@@ -106,9 +140,13 @@
 
   & .cancel {
     padding-top: 5px;
+ 	  @include adaptive-value-tablet(padding-top, 5);
     font-size: 15px;
+    @include adaptive-value-tablet(font-size, 15);
     line-height: 18px;
+ 	  @include adaptive-value-tablet(line-height, 18);
     letter-spacing: -0.361765px;
+    @include adaptive-value-tablet(letter-spacing, -0.361765);
     color: #FF3B30;
     background: none;
     margin: auto;
