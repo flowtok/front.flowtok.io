@@ -16,6 +16,14 @@
       @include adaptive-value-tablet(padding-right, 6);
 
       @include adaptive-value-tablet(padding-bottom, 0);
+
+      @include adaptive-value-small-desktop(padding-top, 0);
+
+      @include adaptive-value-small-desktop(padding-left, 6);
+
+      @include adaptive-value-small-desktop(padding-right, 6);
+
+      @include adaptive-value-small-desktop(padding-bottom, 0);
       text-align: left;
     }
   }
@@ -25,6 +33,7 @@
   .stats .data {
     height: 115px;
     @include adaptive-value-tablet(height, 115);
+    @include adaptive-value-small-desktop(height, 115);
 
     & .block {
       display: flex;
@@ -38,5 +47,6 @@
   .block:not(:first-child) {
     margin-left: 12px;
     @include adaptive-value-tablet(margin-left, 12);
+    @include adaptive-value-small-desktop(margin-left, 12);
   }
 }

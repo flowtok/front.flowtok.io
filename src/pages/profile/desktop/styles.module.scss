@@ -1,3 +1,5 @@
+@import "src/styles/mixins";
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -5,16 +7,31 @@
   height: 100%;
   @media (min-height: 665px) {
     padding-top: 90px;
+    @include adaptive-value-small-desktop(padding-top, 90);
     justify-content: flex-start;
   }
 
   > div:first-child > div {
     &:not(:last-child) {
       margin: 0 20px 20px 0;
+      @include adaptive-value-small-desktop(margin-top, 0);
+
+      @include adaptive-value-small-desktop(margin-left, 0);
+
+      @include adaptive-value-small-desktop(margin-right, 10);
+
+      @include adaptive-value-small-desktop(margin-bottom, 10);
     }
 
     &:last-child {
       margin: 0 0 20px 0;
+      @include adaptive-value-small-desktop(margin-top, 0);
+
+      @include adaptive-value-small-desktop(margin-left, 0);
+
+      @include adaptive-value-small-desktop(margin-right, 10);
+
+      @include adaptive-value-small-desktop(margin-bottom, 0);
     }
   }
 
@@ -23,6 +40,7 @@
 
     &:first-child {
       margin-right: 20px;
+      @include adaptive-value-small-desktop(margin-right, 20);
     }
   }
 
@@ -40,6 +58,7 @@
 
       > div:first-child {
         margin-bottom: 20px;
+        @include adaptive-value-small-desktop(margin-bottom, 20);
       }
 
       > div {
@@ -49,19 +68,24 @@
 
     .history-window {
       height: 160px;
+      @include adaptive-value-small-desktop(height, 160);
       overflow-y: scroll;
 
       > div > p:last-child {
         margin-left: -5px;
+        @include adaptive-value-small-desktop(margin-left, -5);
         margin-right: 5px;
+        @include adaptive-value-small-desktop(margin-right, 5);
       }
 
       &::-webkit-scrollbar {
         width: 5px;
+        @include adaptive-value-small-desktop(width, 5);
       }
 
       &::-webkit-scrollbar-thumb {
         border-radius: 3px;
+        @include adaptive-value-small-desktop(border-radius, 3);
         background: #8E8E93;
       }
     }
@@ -107,10 +131,15 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        width: 400px;
       }
 
       .middle-group {
         > div {
+          &:first-child {
+            margin-bottom: 20px;
+          }
+
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -118,6 +147,16 @@
 
         > div:first-child {
           margin-bottom: 24px;
+        }
+      }
+
+      .history-window {
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          border-radius: 3px;
         }
       }
 

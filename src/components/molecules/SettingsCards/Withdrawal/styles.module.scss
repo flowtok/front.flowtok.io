@@ -1,27 +1,36 @@
+@import "src/styles/mixins";
 .saved-block {
   margin-bottom: 18px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 18); 
 
   & > p {
     margin-bottom: 15px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 15); 
     font-size: 17px;
+ 	@include adaptive-value-small-desktop(font-size, 17); 
   }
 }
 
 .add-method-block {
   margin-top: 20px;
+ 	@include adaptive-value-small-desktop(margin-top, 20); 
 
   & > p {
     font-size: 17px;
+ 	@include adaptive-value-small-desktop(font-size, 17); 
   }
 }
 
 .btn-group {
   margin-top: 20px;
+ 	@include adaptive-value-small-desktop(margin-top, 20); 
   margin-bottom: -10px;
+ 	@include adaptive-value-small-desktop(margin-bottom, -10); 
 }
 
 .primary-title-custom {
   margin-bottom: 15px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 15); 
 }
 
 .popup-wrapper {
@@ -33,6 +42,7 @@
   & > .popup-input {
     width: 100%;
     margin-bottom: 10px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 10); 
     text-align: center;
   }
 }
@@ -99,9 +109,13 @@
   .withdrawal-container {
     h3 {
       font-size: 26px;
+ 	@include adaptive-value-small-desktop(font-size, 26); 
       line-height: 30px;
+ 	@include adaptive-value-small-desktop(line-height, 30); 
       letter-spacing: -0.627059px;
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.627059); 
       margin-bottom: 35px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 35); 
     }
   }
   .saved-block {
@@ -123,15 +137,19 @@
 
     .saved-methods_container {
       height: 100px;
+ 	@include adaptive-value-small-desktop(height, 100); 
       overflow-y: scroll;
       padding-right: 10px;
+ 	@include adaptive-value-small-desktop(padding-right, 10); 
 
       &::-webkit-scrollbar {
         width: 5px;
+ 	@include adaptive-value-small-desktop(width, 5); 
       }
 
       &::-webkit-scrollbar-thumb {
         border-radius: 3px;
+ 	@include adaptive-value-small-desktop(border-radius, 3); 
         background: #8E8E93;
       }
     }

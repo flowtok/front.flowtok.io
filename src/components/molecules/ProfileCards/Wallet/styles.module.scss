@@ -6,8 +6,17 @@
   & .pay-off-button {
     width: 100%;
     border-radius: 11px;
+ 	@include adaptive-value-small-desktop(border-radius, 11); 
+ 	  @include adaptive-value-small-desktop(border-radius, 11);
     @include adaptive-value-tablet(border-radius, 11);
     padding: 14px;
+ 	@include adaptive-value-small-desktop(padding-top, 14);
+           
+ 	@include adaptive-value-small-desktop(padding-left, 14);
+           
+ 	@include adaptive-value-small-desktop(padding-right, 14);
+           
+ 	@include adaptive-value-small-desktop(padding-bottom, 14); 
     @include adaptive-value-tablet(padding-top, 14);
 
     @include adaptive-value-tablet(padding-left, 14);
@@ -15,6 +24,14 @@
     @include adaptive-value-tablet(padding-right, 14);
 
     @include adaptive-value-tablet(padding-bottom, 14);
+
+    @include adaptive-value-small-desktop(padding-top, 14);
+
+    @include adaptive-value-small-desktop(padding-left, 14);
+
+    @include adaptive-value-small-desktop(padding-right, 14);
+
+    @include adaptive-value-small-desktop(padding-bottom, 14);
   }
 
   & .history {
