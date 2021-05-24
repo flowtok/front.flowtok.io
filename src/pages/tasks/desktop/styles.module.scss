@@ -3,7 +3,10 @@
 }
 
 .page-wrapper {
-  margin-top: 83px;
+  margin-top: 30px;
+  @media (min-height: 665px) {
+    margin-top: 65px;
+  }
 
   .disable-message {
     font-size: 19px;
@@ -35,7 +38,10 @@
   .page-wrapper {
     .task-outter-wrapper {
       width: 584px;
-      height: calc(100vh - 130px);
+      height: calc(100vh - 92px);
+      @media (min-height: 665px) {
+        height: calc(100vh - 130px);
+      }
 
       > div:not(:last-child) {
         margin-bottom: 30px;
