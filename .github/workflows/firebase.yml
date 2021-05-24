@@ -20,8 +20,7 @@ jobs:
     steps:
     - name: git clone
       uses: actions/checkout@v2
-      env:
-        CI: ""
+
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -29,6 +28,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     
     - name: npm install and build
+      env:
+        CI: ""
       run: |
         npm i
         npm run build
