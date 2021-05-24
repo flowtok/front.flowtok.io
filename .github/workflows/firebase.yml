@@ -20,6 +20,8 @@ jobs:
     steps:
     - name: git clone
       uses: actions/checkout@v2
+      env:
+        CI: false
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
