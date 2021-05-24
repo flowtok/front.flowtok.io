@@ -3,7 +3,10 @@
 }
 
 .page-wrapper {
-  margin-top: 80px;
+  margin-top: 35px;
+  @media (min-height: 665px) {
+    margin-top: 65px;
+  }
 
   .disable-message {
     font-size: 19px;
@@ -33,10 +36,12 @@
     width: 250px;
   }
   .page-wrapper {
-
     .task-outter-wrapper {
       width: 584px;
-      height: calc(100vh - 130px);
+      height: calc(100vh - 92px);
+      @media (min-height: 665px) {
+        height: calc(100vh - 130px);
+      }
 
       > div:not(:last-child) {
         margin-bottom: 30px;
@@ -58,7 +63,6 @@
     width: 380px;
   }
   .page-wrapper {
-    margin-top: 80px;
     .task-outter-wrapper {
       width: 880px;
       height: calc(100vh - 150px);
