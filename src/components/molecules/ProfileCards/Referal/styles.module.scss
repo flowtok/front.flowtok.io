@@ -140,7 +140,7 @@
 @media (min-width: 1920px) {
   .ref {
     display: flex;
-
+    justify-content: space-between;
     .copy-block {
       & .field {
         height: 42px;
