@@ -7,11 +7,13 @@
     display: flex;
     padding-bottom: 15px;
     @include adaptive-value-tablet(padding-bottom, 15);
+    @include adaptive-value-small-desktop(padding-bottom, 15);
 
     & .field,
     & .copy-button {
       height: 36px;
       @include adaptive-value-tablet(height, 36);
+      @include adaptive-value-small-desktop(height, 36);
     }
 
     & .field {
@@ -19,20 +21,29 @@
       background: #F0F0F0;
       width: 100%;
       border-radius: 30px;
+ 	    @include adaptive-value-small-desktop(border-radius, 30);
       padding: 10px 15px;
       @include adaptive-value-tablet(padding-top, 10);
       @include adaptive-value-tablet(padding-left, 15);
       @include adaptive-value-tablet(padding-right, 15);
       @include adaptive-value-tablet(padding-bottom, 10);
+      @include adaptive-value-small-desktop(padding-top, 10);
+      @include adaptive-value-small-desktop(padding-left, 15);
+      @include adaptive-value-small-desktop(padding-right, 15);
+      @include adaptive-value-small-desktop(padding-bottom, 10);
       color: #1D1D1D;
       font-size: 15px;
       @include adaptive-value-tablet(font-size, 15);
+      @include adaptive-value-small-desktop(font-size, 15);
       line-height: 18px;
       @include adaptive-value-tablet(line-height, 18);
+      @include adaptive-value-small-desktop(line-height, 18);
       letter-spacing: -0.361765px;
       @include adaptive-value-tablet(letter-spacing, -0.361765);
+      @include adaptive-value-small-desktop(letter-spacing, -0.361765);
       overflow: hidden;
       margin-right: 10px;
+    	@include adaptive-value-small-desktop(margin-right, 10);
       @include adaptive-value-tablet(margin-right, 10);
 
       > p {
@@ -42,22 +53,30 @@
 
     & .copy-button {
       padding: 10px 15px;
+      @include adaptive-value-small-desktop(padding-top, 10);
+      @include adaptive-value-small-desktop(padding-left, 15);
+      @include adaptive-value-small-desktop(padding-right, 15);
+      @include adaptive-value-small-desktop(padding-bottom, 10);
       width: 50px;
       @include adaptive-value-tablet(width, 50);
+      @include adaptive-value-small-desktop(width, 50);
       height: 36px;
       @include adaptive-value-tablet(height, 36);
+      @include adaptive-value-small-desktop(height, 36);
       border-radius: 11px;
       @include adaptive-value-tablet(border-radius, 11);
+      @include adaptive-value-small-desktop(border-radius, 11);
       display: flex;
       align-items: center;
       justify-content: center;
 
       img {
         width: 20px;
+        @include adaptive-value-small-desktop(width, 20);
         display: block;
-        @include adaptive-value-tablet(width, 20);
         height: 16px;
         @include adaptive-value-tablet(height, 20);
+        @include adaptive-value-small-desktop(height, 16);
       }
     }
   }
@@ -65,6 +84,7 @@
   & .stats-block {
     padding-top: 10px;
     @include adaptive-value-tablet(padding-top, 10);
+    @include adaptive-value-small-desktop(padding-top, 10);
     display: flex;
     justify-content: space-between;
 
@@ -96,11 +116,13 @@
       padding-right: 30px;
       flex-direction: column;
       @include adaptive-value-tablet(padding-right, 30);
+      @include adaptive-value-small-desktop(padding-right, 30);
       padding-bottom: 0;
 
       & .field {
         width: unset;
         height: 24px;
+ 	      @include adaptive-value-small-desktop(height, 24);
         @include adaptive-value-tablet(height, 24);
         padding: 3px 15px;
         @include adaptive-value-tablet(padding-top, 3);
@@ -110,13 +132,23 @@
         @include adaptive-value-tablet(padding-right, 15);
 
         @include adaptive-value-tablet(padding-bottom, 3);
+
+        @include adaptive-value-small-desktop(padding-top, 3);
+
+        @include adaptive-value-small-desktop(padding-left, 15);
+
+        @include adaptive-value-small-desktop(padding-right, 15);
+
+        @include adaptive-value-small-desktop(padding-bottom, 3);
         margin-bottom: 17px;
         @include adaptive-value-tablet(margin-bottom, 17);
+        @include adaptive-value-small-desktop(margin-bottom, 17);
       }
 
       .copy-button {
         width: 127px;
         @include adaptive-value-tablet(width, 127);
+        @include adaptive-value-small-desktop(width, 127);
       }
     }
 
@@ -125,12 +157,14 @@
       flex-direction: column;
       padding-left: 30px;
       @include adaptive-value-tablet(padding-left, 30);
+      @include adaptive-value-small-desktop(padding-left, 30);
       padding-top: 0;
       height: 100%;
 
       > div p:last-child {
         font-size: 23px;
         @include adaptive-value-tablet(font-size, 23);
+        @include adaptive-value-small-desktop(font-size, 23);
         font-weight: bold;
       }
     }
@@ -144,22 +178,17 @@
     .copy-block {
       & .field {
         height: 42px;
-        @include adaptive-value-tablet(height, 42);
         display: flex;
         align-items: center;
 
         > p:last-child {
           font-size: 17px;
-          @include adaptive-value-tablet(font-size, 17);
         }
       }
 
       .copy-button {
         width: 190px;
-        @include adaptive-value-tablet(width, 190);
         padding: 16px 0;
-        @include adaptive-value-tablet(padding-top, 16);
-        @include adaptive-value-tablet(padding-bottom, 16);
         height: unset;
       }
     }
@@ -167,7 +196,6 @@
     & .stats-block {
       > div p:last-child {
         font-size: 34px;
-        @include adaptive-value-tablet(font-size, 34);
       }
     }
   }

@@ -1,12 +1,28 @@
+@import "src/styles/mixins";
 .paper-wrapper {
   border-radius: 14px;
+ 	@include adaptive-value-small-desktop(border-radius, 14); 
   background-color: #fff;
   padding: 20px;
+ 	@include adaptive-value-small-desktop(padding-top, 20);
+           
+ 	@include adaptive-value-small-desktop(padding-left, 20);
+           
+ 	@include adaptive-value-small-desktop(padding-right, 20);
+           
+ 	@include adaptive-value-small-desktop(padding-bottom, 20); 
 }
 
 @media (min-width: 1024px) {
   .paper-wrapper {
     padding: 40px 30px;
+ 	@include adaptive-value-small-desktop(padding-top, 40);
+           
+ 	@include adaptive-value-small-desktop(padding-left, 30);
+           
+ 	@include adaptive-value-small-desktop(padding-right, 30);
+           
+ 	@include adaptive-value-small-desktop(padding-bottom, 40); 
   }
 }
 

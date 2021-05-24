@@ -1,14 +1,25 @@
+@import "src/styles/mixins";
 .account-card {
   .user-main-info {
     margin-bottom: 20px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 20); 
   }
 
   & .user-secondary-info {
     padding-top: 15px;
+ 	@include adaptive-value-small-desktop(padding-top, 15); 
 
     & .text-block {
       padding: 0 5px;
+ 	@include adaptive-value-small-desktop(padding-top, 0);
+           
+ 	@include adaptive-value-small-desktop(padding-left, 5);
+           
+ 	@include adaptive-value-small-desktop(padding-right, 5);
+           
+ 	@include adaptive-value-small-desktop(padding-bottom, 0); 
       margin-bottom: 18px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 18); 
     }
 
     & .info-block {
@@ -16,7 +27,9 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto;
       grid-gap: 10px;
+ 	@include adaptive-value-small-desktop(grid-gap, 10); 
       margin-bottom: 20px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 20); 
 
       & > div:first-child {
         grid-area: 1 / 1 / auto / 3;
@@ -29,6 +42,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 5px 5px 5px;
+ 	@include adaptive-value-small-desktop(padding-top, 20);
+           
+ 	@include adaptive-value-small-desktop(padding-left, 5);
+           
+ 	@include adaptive-value-small-desktop(padding-right, 5);
+           
+ 	@include adaptive-value-small-desktop(padding-bottom, 5); 
 
     > h5 {
       margin: 0;
@@ -36,9 +56,12 @@
 
     & .exit-button {
       font-size: 16px;
+ 	@include adaptive-value-small-desktop(font-size, 16); 
       line-height: 19px;
+ 	@include adaptive-value-small-desktop(line-height, 19); 
       text-align: right;
       letter-spacing: -0.385882px;
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.385882); 
       color: #FF3B30;
     }
   }
@@ -49,10 +72,14 @@
 
     h3 {
       font-size: 26px;
+ 	@include adaptive-value-small-desktop(font-size, 26); 
       line-height: 30px;
+ 	@include adaptive-value-small-desktop(line-height, 30); 
       letter-spacing: -0.627059px;
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.627059); 
       color: #1D1D1D;
       margin-bottom: 35px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 35); 
     }
 
     .user-main-info {
@@ -68,13 +95,17 @@
               span {
                 font-size: 23px !important;
                 letter-spacing: -0.554706px;
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.554706); 
                 margin-bottom: 4px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 4); 
               }
             }
 
             > div:last-child {
               font-size: 13px;
+ 	@include adaptive-value-small-desktop(font-size, 13); 
               letter-spacing: -0.313529px;
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.313529); 
               color: #8E8E93;
             }
           }

@@ -1,16 +1,37 @@
+@import "src/styles/mixins";
+
 .history-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
+  @include adaptive-value-small-desktop(padding-top, 10);
+  @include adaptive-value-small-desktop(padding-right, 0);
+  @include adaptive-value-small-desktop(padding-bottom, 10);
+  @include adaptive-value-small-desktop(padding-left, 0);
 
   .value {
     font-size: 17px;
+    @include adaptive-value-small-desktop(font-size, 17);
     line-height: 20px;
+    @include adaptive-value-small-desktop(line-height, 20);
     letter-spacing: -0.41px;
+    @include adaptive-value-small-desktop(letter-spacing, -0.41);
   }
 
   .description-date {
     margin: 0;
+  }
+}
+
+@media (min-width: 1920px) {
+  .history-item {
+    padding: 10px 0;
+
+    .value {
+      font-size: 17px;
+      line-height: 20px;
+      letter-spacing: -0.41px;
+    }
   }
 }

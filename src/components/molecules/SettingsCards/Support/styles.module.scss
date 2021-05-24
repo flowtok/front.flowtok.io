@@ -1,5 +1,7 @@
+@import "src/styles/mixins";
 .support-methods {
   margin-top: 19px;
+ 	@include adaptive-value-small-desktop(margin-top, 19); 
 
   & .support-method {
     display: flex;
@@ -8,14 +10,17 @@
 
     & p {
       font-size: 17px;
+ 	@include adaptive-value-small-desktop(font-size, 17); 
     }
 
     &:not(:last-child) {
       margin-bottom: 15px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 15); 
     }
 
     &:not(:first-child) {
       margin-top: 15px;
+ 	@include adaptive-value-small-desktop(margin-top, 15); 
     }
   }
 }
@@ -24,9 +29,13 @@
   .support-container {
     h3 {
       font-size: 26px;
+ 	@include adaptive-value-small-desktop(font-size, 26); 
       line-height: 30px;
+ 	@include adaptive-value-small-desktop(line-height, 30); 
       letter-spacing: -0.627059px;
+ 	@include adaptive-value-small-desktop(letter-spacing, -0.627059); 
       margin-bottom: 10px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 10); 
     }
   }
 }
