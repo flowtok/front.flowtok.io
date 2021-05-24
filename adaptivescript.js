@@ -133,7 +133,7 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src/components/molecules/TaskCard/');
+const files = getFiles('src/components/atoms/Paper/');
 
 files.forEach(file => {
   new Promise(resolve => {
