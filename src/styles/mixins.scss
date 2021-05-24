@@ -24,9 +24,9 @@ $max-small-desktop-container: 1440;
 $min-large-desktop-container: 1440;
 $design-large-desktop-container: 1920;
 @mixin adaptive-value-large-desktop($property, $design-value) {
-  $max: $design-large-desktop-container / ($min-large-desktop-container / $design-value);
-  $add-value: $max - $design-value;
+  $min: $min-large-desktop-container / ($design-large-desktop-container / $design-value);
+  $add-value: $design-value - $min;
   @media (min-width: #{$min-large-desktop-container + px}) {
-    #{$property}: calc(#{$design-value + px} + #{$add-value} * ((100vw - #{$min-large-desktop-container + px}) / #{$design-large-desktop-container - $min-large-desktop-container}));
+    #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-large-desktop-container + px}) / #{$design-large-desktop-container - $min-large-desktop-container}));
   }
 }
