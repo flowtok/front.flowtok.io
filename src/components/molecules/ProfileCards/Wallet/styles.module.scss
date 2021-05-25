@@ -46,8 +46,8 @@
   .wallet {
     .pay-off-button {
       padding: 24px 0;
-      @include adaptive-value-large-desktop(padding-left, 24);
-      @include adaptive-value-large-desktop(padding-right, 24);
+      @include adaptive-value-large-desktop(padding-top, 24);
+      @include adaptive-value-large-desktop(padding-bottom, 24);
       font-size: 26px;
       @include adaptive-value-large-desktop(font-size, 26);
       line-height: 30px;
