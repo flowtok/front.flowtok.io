@@ -17,8 +17,8 @@ $max-small-desktop-container: 1440;
 @mixin adaptive-value-small-desktop($property, $min) {
   $max: $max-small-desktop-container / ($min-small-desktop-container / $min);
   $add-value: $max - $min;
-  @media (min-width: #{$min-small-desktop-container + px}) {
-    #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-small-desktop-container + px}) / #{$max-small-desktop-container - $min-small-desktop-container}));
+  @media (min-width: #{$min-small-desktop-container + px}) and (max-width: #{$max-small-desktop-container - 1 + px}){
+    //#{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-small-desktop-container + px}) / #{$max-small-desktop-container - $min-small-desktop-container}));
   }
 }
 $min-large-desktop-container: 1440;

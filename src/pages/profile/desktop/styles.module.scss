@@ -6,7 +6,8 @@
   justify-content: center;
   height: 100%;
   @media (min-height: 665px) {
-    padding-top: 90px;
+    padding-top: 55px;
+    @include adaptive-value-small-desktop(padding-top, 55);
     justify-content: flex-start;
   }
 

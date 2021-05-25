@@ -144,6 +144,10 @@
         height: 24px;
  	      @include adaptive-value-small-desktop(height, 24);
         padding: 3px 15px;
+        @include adaptive-value-tablet(padding-top, 3);
+        @include adaptive-value-tablet(padding-left, 15);
+        @include adaptive-value-tablet(padding-right, 15);
+        @include adaptive-value-tablet(padding-bottom, 3);
         @include adaptive-value-small-desktop(padding-top, 3);
         @include adaptive-value-small-desktop(padding-left, 15);
         @include adaptive-value-small-desktop(padding-right, 15);
