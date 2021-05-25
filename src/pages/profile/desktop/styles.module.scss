@@ -7,31 +7,26 @@
   height: 100%;
   @media (min-height: 665px) {
     padding-top: 90px;
-    @include adaptive-value-small-desktop(padding-top, 90);
     justify-content: flex-start;
   }
 
   > div:first-child > div {
     &:not(:last-child) {
       margin: 0 20px 20px 0;
-      @include adaptive-value-small-desktop(margin-top, 0);
+      @include adaptive-value-small-desktop(margin-right, 20);
 
-      @include adaptive-value-small-desktop(margin-left, 0);
+      @include adaptive-value-small-desktop(margin-bottom, 20);
 
-      @include adaptive-value-small-desktop(margin-right, 10);
+      @include adaptive-value-large-desktop(margin-right, 350);
 
-      @include adaptive-value-small-desktop(margin-bottom, 10);
+      @include adaptive-value-large-desktop(margin-bottom, 350);
     }
 
     &:last-child {
       margin: 0 0 20px 0;
-      @include adaptive-value-small-desktop(margin-top, 0);
+      @include adaptive-value-small-desktop(margin-bottom, 20);
 
-      @include adaptive-value-small-desktop(margin-left, 0);
-
-      @include adaptive-value-small-desktop(margin-right, 10);
-
-      @include adaptive-value-small-desktop(margin-bottom, 0);
+      @include adaptive-value-large-desktop(margin-bottom, 20);
     }
   }
 
@@ -41,6 +36,8 @@
     &:first-child {
       margin-right: 20px;
       @include adaptive-value-small-desktop(margin-right, 20);
+
+      @include adaptive-value-large-desktop(margin-right, 20);
     }
   }
 
@@ -59,6 +56,7 @@
       > div:first-child {
         margin-bottom: 20px;
         @include adaptive-value-small-desktop(margin-bottom, 20);
+        @include adaptive-value-large-desktop(margin-bottom, 20);
       }
 
       > div {
@@ -69,23 +67,30 @@
     .history-window {
       height: 160px;
       @include adaptive-value-small-desktop(height, 160);
+      @include adaptive-value-large-desktop(height, 160);
       overflow-y: scroll;
 
       > div > p:last-child {
+        font-size: 11px;
+        @include adaptive-value-small-desktop(font-size, 11);
         margin-left: -5px;
         @include adaptive-value-small-desktop(margin-left, -5);
+        @include adaptive-value-large-desktop(margin-left, -5);
         margin-right: 5px;
         @include adaptive-value-small-desktop(margin-right, 5);
+        @include adaptive-value-large-desktop(margin-right, 5);
       }
 
       &::-webkit-scrollbar {
         width: 5px;
         @include adaptive-value-small-desktop(width, 5);
+        @include adaptive-value-large-desktop(width, 5);
       }
 
       &::-webkit-scrollbar-thumb {
         border-radius: 3px;
         @include adaptive-value-small-desktop(border-radius, 3);
+        @include adaptive-value-large-desktop(border-radius, 3);
         background: #8E8E93;
       }
     }
@@ -100,19 +105,30 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .wrapper {
     > div > div:not(:nth-child(2)) {
       padding: 62px 60px;
+      @include adaptive-value-large-desktop(padding-top, 62);
+
+      @include adaptive-value-large-desktop(padding-left, 60);
+
+      @include adaptive-value-large-desktop(padding-right, 60);
+
+      @include adaptive-value-large-desktop(padding-bottom, 62);
     }
 
     > div:first-child > div {
       &:not(:last-child) {
         margin: 0 24px 24px 0;
+        @include adaptive-value-large-desktop(margin-right, 24);
+
+        @include adaptive-value-large-desktop(margin-bottom, 24);
       }
 
       &:last-child {
         margin: 0 0 24px 0;
+        @include adaptive-value-large-desktop(margin-bottom, 24);
       }
     }
 
@@ -121,11 +137,13 @@
 
       &:first-child {
         margin-right: 24px;
+        @include adaptive-value-large-desktop(margin-right, 24);
       }
     }
 
     .top-papers {
       height: 425px;
+      @include adaptive-value-large-desktop(height, 425);
 
       > div:last-child {
         display: flex;
@@ -138,6 +156,7 @@
         > div {
           &:first-child {
             margin-bottom: 20px;
+            @include adaptive-value-large-desktop(margin-bottom, 20);
           }
 
           display: flex;
@@ -147,26 +166,36 @@
 
         > div:first-child {
           margin-bottom: 24px;
+          @include adaptive-value-large-desktop(margin-bottom, 24);
         }
       }
 
       .history-window {
         &::-webkit-scrollbar {
           width: 5px;
+          @include adaptive-value-large-desktop(width, 5);
         }
 
         &::-webkit-scrollbar-thumb {
           border-radius: 3px;
+          @include adaptive-value-large-desktop(border-radius, 3);
         }
       }
 
       .history-window {
         height: 203px;
+        @include adaptive-value-large-desktop(height, 203);
+
+        > div > p:last-child {
+          font-size: 14px;
+          @include adaptive-value-large-desktop(font-size, 14);
+        }
       }
     }
 
     .bottom-papers {
       height: 350px;
+      @include adaptive-value-large-desktop(height, 350);
 
       > div:first-child {
         display: flex;

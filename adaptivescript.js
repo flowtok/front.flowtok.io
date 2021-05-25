@@ -134,7 +134,7 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src/pages/settings/');
+const files = getFiles('src/components/organisms/Navbar/desktopLarge/');
 
 files.forEach(file => {
   new Promise(resolve => {

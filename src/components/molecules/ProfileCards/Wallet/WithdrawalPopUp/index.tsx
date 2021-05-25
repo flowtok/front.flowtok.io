@@ -43,7 +43,7 @@ export const WithdrawalPopUp = forwardRef<
   ] = useState<boolean>(false);
 
   const [currentMethod, setMethod] = useState<string>('');
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
 
   /*will be deleted*/
   const savedMethods: any[] = [

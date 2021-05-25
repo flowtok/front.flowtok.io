@@ -78,7 +78,7 @@ export const TaskCard = ({
 
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
 
   const getInfoIcon = () => {
     if (isDesktop && !isDesktopLarge) return InfoMiddleIcon;

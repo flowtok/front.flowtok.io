@@ -98,7 +98,7 @@
  	@include adaptive-value-small-desktop(margin-top, 15); 
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .success-btn {
     font-size: 17px;
  	@include adaptive-value-small-desktop(font-size, 17); 

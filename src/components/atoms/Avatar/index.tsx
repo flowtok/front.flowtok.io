@@ -12,6 +12,7 @@ export const Avatar = ({ image, size = 32 }: AvatarProps) => {
       style={{
         width: size,
         height: size,
+        minWidth: size,
       }}
       className={styles.wrapper}
     >
