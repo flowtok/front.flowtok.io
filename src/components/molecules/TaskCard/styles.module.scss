@@ -515,9 +515,10 @@
 
         button {
           font-size: 17px;
-          @include adaptive-value-large-desktop(font-size, 17);
           width: 100%;
           padding: 15px 45px;
+          border-radius: 14px !important;
+          @include adaptive-value-large-desktop(font-size, 17);
           @include adaptive-value-large-desktop(padding-top, 15);
           @include adaptive-value-large-desktop(padding-right, 45);
           @include adaptive-value-large-desktop(padding-bottom, 15);

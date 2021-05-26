@@ -74,7 +74,7 @@
         & .field,
         & .copy-button {
           height: 36px;
- 	@include adaptive-value-tablet(height, 36); 
+ 	@include adaptive-value-tablet(height, 36);
         }
 
         & .field {
@@ -171,7 +171,7 @@
       font-size: 28px;
       @include adaptive-value-tablet(font-size, 28);
       line-height: 33px;
- 	@include adaptive-value-tablet(line-height, 33); 
+ 	@include adaptive-value-tablet(line-height, 33);
       letter-spacing: -0.675294px;
  	@include adaptive-value-tablet(letter-spacing, -0.675294);
       color: #000000;
