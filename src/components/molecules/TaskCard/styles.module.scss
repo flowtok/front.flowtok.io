@@ -32,12 +32,15 @@
         font-size: 17px;
         @include adaptive-value-tablet(font-size, 17);
         @include adaptive-value-small-desktop(font-size, 17);
+        @include adaptive-value-large-desktop(font-size, 17);
         line-height: 20px;
         @include adaptive-value-tablet(line-height, 20);
         @include adaptive-value-small-desktop(line-height, 20);
+        @include adaptive-value-large-desktop(line-height, 20);
         letter-spacing: -0.41px;
         @include adaptive-value-tablet(letter-spacing, -0.41);
         @include adaptive-value-small-desktop(letter-spacing, -0.41);
+        @include adaptive-value-large-desktop(letter-spacing, -0.41);
         color: #000000;
         padding: 5px 0;
         @include adaptive-value-tablet(padding-top, 5);
@@ -48,10 +51,15 @@
         @include adaptive-value-small-desktop(padding-left, 0);
         @include adaptive-value-small-desktop(padding-right, 0);
         @include adaptive-value-small-desktop(padding-bottom, 5);
+        @include adaptive-value-large-desktop(padding-top, 5);
+        @include adaptive-value-large-desktop(padding-left, 0);
+        @include adaptive-value-large-desktop(padding-right, 0);
+        @include adaptive-value-large-desktop(padding-bottom, 5);
         vertical-align: middle;
         margin-right: 10px;
         @include adaptive-value-tablet(margin-right, 10);
         @include adaptive-value-small-desktop(margin-right, 10);
+        @include adaptive-value-large-desktop(margin-right, 10);
       }
 
       & > button {
@@ -65,12 +73,15 @@
       font-size: 13px;
       @include adaptive-value-tablet(font-size, 13);
       @include adaptive-value-small-desktop(font-size, 13);
+      @include adaptive-value-large-desktop(font-size, 13);
       line-height: 15px;
       @include adaptive-value-tablet(line-height, 15);
       @include adaptive-value-small-desktop(line-height, 15);
+      @include adaptive-value-large-desktop(line-height, 15);
       letter-spacing: -0.313529px;
       @include adaptive-value-tablet(letter-spacing, -0.313529);
       @include adaptive-value-small-desktop(letter-spacing, -0.313529);
+      @include adaptive-value-large-desktop(letter-spacing, -0.313529);
       color: #8E8E93;
     }
   }
@@ -79,12 +90,15 @@
     font-size: 15px;
     @include adaptive-value-tablet(font-size, 15);
     @include adaptive-value-small-desktop(font-size, 15);
+    @include adaptive-value-large-desktop(font-size, 15);
     line-height: 19px;
     @include adaptive-value-tablet(line-height, 19);
     @include adaptive-value-small-desktop(line-height, 19);
+    @include adaptive-value-large-desktop(line-height, 19);
     letter-spacing: -0.361765px;
     @include adaptive-value-tablet(letter-spacing, -0.361765);
     @include adaptive-value-small-desktop(letter-spacing, -0.361765);
+    @include adaptive-value-large-desktop(letter-spacing, -0.361765);
     color: #8E8E93;
     padding: 10px 20px 10px 0;
     @include adaptive-value-tablet(padding-top, 10);
@@ -95,6 +109,10 @@
     @include adaptive-value-small-desktop(padding-left, 0);
     @include adaptive-value-small-desktop(padding-right, 20);
     @include adaptive-value-small-desktop(padding-bottom, 10);
+    @include adaptive-value-large-desktop(padding-top, 10);
+    @include adaptive-value-large-desktop(padding-left, 0);
+    @include adaptive-value-large-desktop(padding-right, 20);
+    @include adaptive-value-large-desktop(padding-bottom, 10);
   }
 
   & .payment-block {
@@ -110,17 +128,24 @@
     @include adaptive-value-small-desktop(padding-left, 0);
     @include adaptive-value-small-desktop(padding-right, 0);
     @include adaptive-value-small-desktop(padding-bottom, 11);
+    @include adaptive-value-large-desktop(padding-top, 11);
+    @include adaptive-value-large-desktop(padding-left, 0);
+    @include adaptive-value-large-desktop(padding-right, 0);
+    @include adaptive-value-large-desktop(padding-bottom, 11);
 
     & .label {
       font-size: 15px;
       @include adaptive-value-tablet(font-size, 15);
       @include adaptive-value-small-desktop(font-size, 15);
+      @include adaptive-value-large-desktop(font-size, 15);
       line-height: 18px;
       @include adaptive-value-tablet(line-height, 18);
       @include adaptive-value-small-desktop(line-height, 18);
+      @include adaptive-value-large-desktop(line-height, 18);
       letter-spacing: -0.361765px;
       @include adaptive-value-tablet(letter-spacing, -0.361765);
       @include adaptive-value-small-desktop(letter-spacing, -0.361765);
+      @include adaptive-value-large-desktop(letter-spacing, -0.361765);
       color: #000000;
     }
 
@@ -130,6 +155,7 @@
       border-radius: 17px;
       @include adaptive-value-tablet(border-radius, 17);
       @include adaptive-value-small-desktop(border-radius, 17);
+      @include adaptive-value-large-desktop(border-radius, 17);
       color: #00BA32;
       padding: 6px 15px;
       @include adaptive-value-tablet(padding-top, 6);
@@ -140,6 +166,10 @@
       @include adaptive-value-small-desktop(padding-left, 15);
       @include adaptive-value-small-desktop(padding-right, 15);
       @include adaptive-value-small-desktop(padding-bottom, 6);
+      @include adaptive-value-large-desktop(padding-top, 6);
+      @include adaptive-value-large-desktop(padding-left, 15);
+      @include adaptive-value-large-desktop(padding-right, 15);
+      @include adaptive-value-large-desktop(padding-bottom, 6);
     }
   }
 
@@ -154,6 +184,10 @@
     @include adaptive-value-small-desktop(padding-left, 0);
     @include adaptive-value-small-desktop(padding-right, 0);
     @include adaptive-value-small-desktop(padding-bottom, 12);
+    @include adaptive-value-large-desktop(padding-top, 12);
+    @include adaptive-value-large-desktop(padding-left, 0);
+    @include adaptive-value-large-desktop(padding-right, 0);
+    @include adaptive-value-large-desktop(padding-bottom, 12);
 
     button {
       width: 100%;
@@ -165,6 +199,7 @@
       margin-right: 10px;
       @include adaptive-value-tablet(margin-right, 10);
       @include adaptive-value-small-desktop(margin-right, 10);
+      @include adaptive-value-large-desktop(margin-right, 10);
 
       &:last-child {
         margin-right: 0;
@@ -180,15 +215,19 @@
     padding-top: 5px;
     @include adaptive-value-tablet(padding-top, 5);
     @include adaptive-value-small-desktop(padding-top, 5);
+    @include adaptive-value-large-desktop(padding-top, 5);
     font-size: 15px;
     @include adaptive-value-tablet(font-size, 15);
     @include adaptive-value-small-desktop(font-size, 15);
+    @include adaptive-value-large-desktop(font-size, 15);
     line-height: 18px;
     @include adaptive-value-tablet(line-height, 18);
     @include adaptive-value-small-desktop(line-height, 18);
+    @include adaptive-value-large-desktop(line-height, 18);
     letter-spacing: -0.361765px;
     @include adaptive-value-tablet(letter-spacing, -0.361765);
     @include adaptive-value-small-desktop(letter-spacing, -0.361765);
+    @include adaptive-value-large-desktop(letter-spacing, -0.361765);
     color: #FF3B30;
     background: none;
     margin: auto;
@@ -310,6 +349,14 @@
         button {
           font-size: 11px;
           @include adaptive-value-small-desktop(font-size, 11);
+
+          &:first-child {
+            background: #000;
+            color: #fff;
+            &:before {
+              display: none;
+            }
+          }
         }
 
         .top-btn-group {
@@ -366,68 +413,95 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .task-wrapper {
     display: flex;
 
     .info-parts {
       padding-right: 80px;
+      @include adaptive-value-large-desktop(padding-right, 80);
 
       .description {
         font-size: 19px;
+        @include adaptive-value-large-desktop(font-size, 19);
         line-height: 27px;
+        @include adaptive-value-large-desktop(line-height, 27);
         letter-spacing: -0.458235px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.458235);
       }
 
       .description-title {
         font-size: 17px;
+        @include adaptive-value-large-desktop(font-siz, 17);
         line-height: 20px;
+        @include adaptive-value-large-desktop(line-heigh, 20);
         letter-spacing: -0.41px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.41);
         margin-bottom: 10px;
+        @include adaptive-value-large-desktop(margin-bottom, 10);
       }
 
       .title-block {
         .title {
           font-size: 32px;
+          @include adaptive-value-large-desktop(font-size, 32);
           line-height: 37px;
+          @include adaptive-value-large-desktop(line-height, 37);
           letter-spacing: -0.771765px;
+          @include adaptive-value-large-desktop(letter-spacing, -0.771765);
         }
       }
     }
 
     .actions-block {
       padding-left: 20px;
+      @include adaptive-value-large-desktop(padding-left, 20);
       text-align: unset;
 
       .cancel {
         background: #FF3B30;
         border-radius: 14px;
+        @include adaptive-value-large-desktop(border-radius, 14);
         font-size: 17px;
+        @include adaptive-value-large-desktop(font-size, 17);
         text-align: center;
         letter-spacing: -0.41px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.41);
         color: #FFFFFF;
         padding: 15px 0;
+        @include adaptive-value-large-desktop(padding-top, 15);
+        @include adaptive-value-large-desktop(padding-bottom, 15);
         width: 100%;
         line-height: 18px;
+        @include adaptive-value-large-desktop(line-height, 18);
       }
 
       .payment-block {
         flex-direction: column;
         align-items: end;
         padding-left: 30px;
+        @include adaptive-value-large-desktop(padding-left, 30);
         margin-bottom: 20px;
+        @include adaptive-value-large-desktop(margin-bottom, 20);
 
         .title {
           font-size: 17px;
+          @include adaptive-value-large-desktop(font-size, 17);
           line-height: 20px;
+          @include adaptive-value-large-desktop(line-height, 20);
           letter-spacing: -0.41px;
+          @include adaptive-value-large-desktop(letter-spacing, -0.41);
           margin-bottom: 10px;
+          @include adaptive-value-large-desktop(margin-bottom, 10);
         }
 
         .value {
           font-size: 38px;
+          @include adaptive-value-large-desktop(font-size, 38);
           line-height: 45px;
+          @include adaptive-value-large-desktop(line-height, 45);
           letter-spacing: -0.916471px;
+          @include adaptive-value-large-desktop(letter-spacing, -0.916471);
         }
       }
 
@@ -435,22 +509,34 @@
         display: flex;
         flex-direction: column;
         margin-top: 20px;
+        @include adaptive-value-large-desktop(margin-top, 20);
         margin-bottom: 10px;
+        @include adaptive-value-large-desktop(margin-bottom, 10);
+
         button {
           font-size: 17px;
+          @include adaptive-value-large-desktop(font-size, 17);
           width: 100%;
           padding: 15px 45px;
+          @include adaptive-value-large-desktop(padding-top, 15);
+          @include adaptive-value-large-desktop(padding-right, 45);
+          @include adaptive-value-large-desktop(padding-bottom, 15);
+          @include adaptive-value-large-desktop(padding-left, 45);
           border-radius: 14px !important;
+          @include adaptive-value-large-desktop(border-radius, 14);
         }
 
         .top-btn-group {
           display: flex;
           justify-content: space-between;
           margin-bottom: 10px;
+          @include adaptive-value-large-desktop(margin-bottom, 10);
 
           .task-status-btn {
             width: 82px;
+            @include adaptive-value-large-desktop(width, 82);
             border-radius: 14px;
+            @include adaptive-value-large-desktop(border-radius, 14);
             padding: 0;
           }
         }
@@ -464,11 +550,15 @@
     .info-parts {
       padding: 0;
       margin-bottom: 20px;
+      @include adaptive-value-large-desktop(margin-bottom, 20);
 
       .date {
         font-size: 17px;
+        @include adaptive-value-large-desktop(font-size, 17);
         line-height: 20px;
+        @include adaptive-value-large-desktop(line-height, 20);
         letter-spacing: -0.41px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.41);
         color: #8E8E93;
       }
     }
@@ -481,8 +571,11 @@
         flex-direction: row;
         align-items: center;
         margin-top: 15px;
+        @include adaptive-value-large-desktop(margin-top, 15);
+
         .value {
           font-size: 26px;
+          @include adaptive-value-large-desktop(font-size, 26);
         }
       }
     }
@@ -493,19 +586,25 @@
     z-index: 1;
     position: relative;
     max-width: 240px;
+    @include adaptive-value-large-desktop(max-width, 240);
 
     .popper-title {
       font-size: 14px;
+      @include adaptive-value-large-desktop(font-size, 14);
       line-height: 17px;
+      @include adaptive-value-large-desktop(line-height, 17);
       color: #252525;
       font-weight: bold;
       margin-bottom: 10px;
+      @include adaptive-value-large-desktop(margin-bottom, 10);
     }
 
     .task-list {
       > li {
         font-size: 11px;
+        @include adaptive-value-large-desktop(font-size, 11);
         line-height: 17px;
+        @include adaptive-value-large-desktop(line-height, 17);
         color: #252525;
       }
     }
@@ -516,6 +615,7 @@
     border: 12px solid transparent;
     border-bottom: 25px solid #fff;
     width: 20px;
+    @include adaptive-value-large-desktop(width, 20);
     top: -30px;
   }
 }

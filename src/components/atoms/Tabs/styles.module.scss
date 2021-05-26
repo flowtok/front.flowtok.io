@@ -118,15 +118,19 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .tabs-wrapper {
     & .tabs-inner-wrapper {
       height: 48px;
+      @include adaptive-value-large-desktop(height, 48);
     }
   }
   .tab {
     font-size: 17px;
+    @include adaptive-value-large-desktop(font-size, 17);
     line-height: 20px;
+    @include adaptive-value-large-desktop(line-height, 20);
     letter-spacing: -0.41px;
+    @include adaptive-value-large-desktop(letter-spacing, -0.41);
   }
 }

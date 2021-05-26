@@ -20,9 +20,14 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .paper-wrapper {
     padding: 55px 60px;
+    @include adaptive-value-large-desktop(padding-top, 55);
+    @include adaptive-value-large-desktop(padding-left, 60);
+    @include adaptive-value-large-desktop(padding-right, 60);
+    @include adaptive-value-large-desktop(padding-bottom, 55);
     border-radius: 30px;
+    @include adaptive-value-large-desktop(border-radius, 30);
   }
 }

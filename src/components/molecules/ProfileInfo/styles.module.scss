@@ -1,3 +1,4 @@
+@import "src/styles/mixins";
 .row {
   display: flex;
   align-items: center;
@@ -53,24 +54,28 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .row {
     .column {
       margin-right: 10px;
+      @include adaptive-value-large-desktop(margin-right, 10);
       margin-left: 15px;
-
+      @include adaptive-value-large-desktop(margin-left, 15);
       .title-group {
         .title {
           font: {
             size: 32px;
             weight: bold;
           };
+          @include adaptive-value-large-desktop(font-size, 32);
           margin-bottom: 8px;
+          @include adaptive-value-large-desktop(margin-bottom, 8);
         }
       }
 
       .subtitle {
         font-size: 21px;
+        @include adaptive-value-large-desktop(font-size, 21);
       }
     }
   }

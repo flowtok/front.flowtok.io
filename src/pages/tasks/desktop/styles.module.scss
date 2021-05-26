@@ -3,6 +3,7 @@
 .tabs-container {
   width: 380px;
   @include adaptive-value-small-desktop(width, 380);
+  @include adaptive-value-large-desktop(width, 380);
 }
 
 .page-wrapper {
@@ -14,25 +15,32 @@
   .disable-message {
     font-size: 19px;
     @include adaptive-value-small-desktop(font-size, 19);
+    @include adaptive-value-large-desktop(font-size, 19);
     line-height: 22px;
     @include adaptive-value-small-desktop(line-height, 22);
+    @include adaptive-value-large-desktop(line-height, 22);
     letter-spacing: -0.458235px;
     @include adaptive-value-small-desktop(letter-spacing, -0.458235);
+    @include adaptive-value-large-desktop(letter-spacing, -0.458235);
     color: #868686;
     padding-left: 40px;
     @include adaptive-value-small-desktop(padding-left, 40);
+    @include adaptive-value-large-desktop(padding-left, 40);
     margin-bottom: 20px;
     @include adaptive-value-small-desktop(margin-bottom, 20);
+    @include adaptive-value-large-desktop(margin-bottom, 20);
   }
 
   .task-outter-wrapper {
     margin-top: 25px;
     @include adaptive-value-small-desktop(margin-top, 25);
+    @include adaptive-value-large-desktop(margin-top, 25);
     overflow-x: scroll;
 
     > div:not(:last-child) {
       margin-bottom: 25px;
       @include adaptive-value-small-desktop(margin-bottom, 25);
+      @include adaptive-value-large-desktop(margin-bottom, 25);
     }
 
     &::-webkit-scrollbar {
@@ -49,6 +57,7 @@
   .page-wrapper {
     .task-outter-wrapper {
       width: 584px;
+      @include adaptive-value-small-desktop(width, 584);
       height: calc(100vh - 92px);
       @media (min-height: 665px) {
         height: calc(100vh - 130px);
@@ -75,24 +84,31 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .tabs-container {
     width: 380px;
+    @include adaptive-value-large-desktop(width, 380);
   }
   .page-wrapper {
     margin-top: 100px;
-
+    @include adaptive-value-large-desktop(margin-top, 100);
     .task-outter-wrapper {
       width: 880px;
+      @include adaptive-value-large-desktop(width, 880);
       height: calc(100vh - 203px);
     }
 
     .disable-message {
       font-size: 19px;
+      @include adaptive-value-large-desktop(font-size, 19);
       line-height: 22px;
+      @include adaptive-value-large-desktop(line-height, 22);
       letter-spacing: -0.458235px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.458235);
       margin-bottom: 20px;
+      @include adaptive-value-large-desktop(margin-bottom, 20);
       padding-left: 40px;
+      @include adaptive-value-large-desktop(padding-left, 40);
     }
   }
 }

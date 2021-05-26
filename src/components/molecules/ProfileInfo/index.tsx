@@ -16,7 +16,7 @@ export const ProfileInfo: FC<TikTokProfileInfoPropsT> = ({
   profileData,
   isActivated = false,
 }) => {
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   let activatedIcon = null;
   if (isActivated) {
     activatedIcon = (

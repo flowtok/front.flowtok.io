@@ -17,7 +17,7 @@ export const SavedMethod = ({
   canDelete,
 }: MethodsBtnGroupProps) => {
   const [isChecked, setChecked] = useState<boolean>(false);
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   const style = isChecked
     ? styles[`saved_method-active`]
     : styles[`saved_method`];
