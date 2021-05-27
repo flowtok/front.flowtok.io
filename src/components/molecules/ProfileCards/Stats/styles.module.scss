@@ -23,6 +23,9 @@
 @media (min-width: 1024px) {
   .stats .data {
     height: 115px;
+    margin-top: 45px;
+    @include adaptive-value-tablet(margin-top, 45);
+    @include adaptive-value-small-desktop(margin-top, 45);
     @include adaptive-value-tablet(height, 115);
     @include adaptive-value-small-desktop(height, 115);
 

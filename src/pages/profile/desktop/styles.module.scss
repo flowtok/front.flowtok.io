@@ -143,8 +143,7 @@
     }
 
     .top-papers {
-      height: 425px;
-      @include adaptive-value-large-desktop(height, 425);
+      height: fit-content;
 
       > div:last-child {
         display: flex;
@@ -201,7 +200,6 @@
       > div:first-child {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
       }
     }
   }

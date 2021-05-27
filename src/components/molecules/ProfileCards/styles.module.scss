@@ -98,6 +98,7 @@
     font-size: 21px;
     @include adaptive-value-tablet(font-size, 21);
     @include adaptive-value-small-desktop(font-size, 21);
+
   }
   .value-secondary {
     font-size: 10px;

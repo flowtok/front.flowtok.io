@@ -24,8 +24,8 @@
       width: 100%;
       border-radius: 30px;
       @include adaptive-value-tablet(border-radius, 30);
- 	    @include adaptive-value-small-desktop(border-radius, 30);
- 	    @include adaptive-value-large-desktop(border-radius, 30);
+      @include adaptive-value-small-desktop(border-radius, 30);
+      @include adaptive-value-large-desktop(border-radius, 30);
       padding: 10px 15px;
       @include adaptive-value-tablet(padding-top, 10);
       @include adaptive-value-tablet(padding-left, 15);
@@ -57,6 +57,7 @@
       @include adaptive-value-tablet(margin-right, 10);
       @include adaptive-value-small-desktop(margin-right, 10);
       @include adaptive-value-large-desktop(margin-right, 10);
+
       > p {
         overflow: hidden;
       }
@@ -128,7 +129,6 @@
     > div:first-child {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       width: 60%;
     }
 
@@ -138,11 +138,12 @@
       flex-direction: column;
       @include adaptive-value-small-desktop(padding-right, 30);
       padding-bottom: 0;
+      margin-top: 35px;
 
       & .field {
         width: unset;
         height: 24px;
- 	      @include adaptive-value-small-desktop(height, 24);
+        @include adaptive-value-small-desktop(height, 24);
         padding: 3px 15px;
         @include adaptive-value-tablet(padding-top, 3);
         @include adaptive-value-tablet(padding-left, 15);
@@ -183,6 +184,7 @@
   .ref {
     display: flex;
     justify-content: space-between;
+
     .copy-block {
       & .field {
         height: 42px;
