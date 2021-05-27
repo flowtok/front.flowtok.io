@@ -1,4 +1,5 @@
 @import "src/styles/mixins";
+
 .stats {
   grid-area: 3 / 1 / auto / 3;
 
@@ -24,9 +25,7 @@
   .stats .data {
     height: 115px;
     margin-top: 15px;
-    @include adaptive-value-tablet(margin-top, 15);
     @include adaptive-value-small-desktop(margin-top, 45);
-    @include adaptive-value-tablet(height, 115);
     @include adaptive-value-small-desktop(height, 115);
 
     & .block {
@@ -38,10 +37,12 @@
 }
 
 @media (min-width: 1440px) {
+  .stats .data {
+    margin-top: 32px;
+    @include adaptive-value-large-desktop(margin-top, 32);
+  }
   .block:not(:first-child) {
     margin-left: 12px;
-    @include adaptive-value-tablet(margin-left, 12);
-    @include adaptive-value-small-desktop(margin-left, 12);
     @include adaptive-value-large-desktop(margin-left, 12);
   }
 }
