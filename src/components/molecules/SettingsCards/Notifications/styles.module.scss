@@ -1,3 +1,5 @@
+@import "src/styles/mixins";
+
 .action-block {
   display: flex;
   justify-content: space-between;
@@ -5,6 +7,9 @@
 
   & .switch {
     margin-top: -10px;
+    @include adaptive-value-tablet(margin-top, -10);
+
+    @include adaptive-value-large-desktop(margin-top, -10);
   }
 }
 
@@ -38,23 +43,34 @@
   .notifications-container {
     h3 {
       font-size: 26px;
+      @include adaptive-value-large-desktop(font-size, 26);
       line-height: 30px;
+      @include adaptive-value-large-desktop(line-height, 30);
       letter-spacing: -0.627059px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.627059);
       margin-bottom: 35px;
+      @include adaptive-value-large-desktop(margin-bottom, 35);
     }
 
     .action-block {
       p:first-child {
         font-size: 17px;
+        @include adaptive-value-large-desktop(font-size, 17);
         margin-bottom: 7px;
+        @include adaptive-value-large-desktop(margin-bottom, 7);
         line-height: 20px;
+        @include adaptive-value-large-desktop(line-height, 20);
         letter-spacing: -0.41px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.41);
       }
 
       p:last-child {
         font-size: 14px;
+        @include adaptive-value-large-desktop(font-size, 14);
         line-height: 17px;
+        @include adaptive-value-large-desktop(line-height, 17);
         letter-spacing: -0.337647px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.337647);
       }
     }
   }

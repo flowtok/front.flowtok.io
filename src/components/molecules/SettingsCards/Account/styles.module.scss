@@ -1,6 +1,5 @@
 @import "src/styles/mixins";
 
-
 .account-card {
   .user-main-info {
     margin-bottom: 20px;
@@ -190,7 +189,7 @@
 
             > div:first-child {
               span {
-                font-size: 15px !important;
+                font-size: 15px;
                 @include adaptive-value-small-desktop(font-size, 15);
                 line-height: 15px;
                 @include adaptive-value-small-desktop(line-height, 15);
@@ -327,7 +326,7 @@
           > div:last-child {
             > div:first-child {
               span {
-                font-size: 23px !important;
+                font-size: 23px;
                 @include adaptive-value-large-desktop(font-size, 23);
                 letter-spacing: -0.554706px;
                 @include adaptive-value-large-desktop(letter-spacing, -0.554706);

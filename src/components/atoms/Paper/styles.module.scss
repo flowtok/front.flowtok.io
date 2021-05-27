@@ -1,7 +1,19 @@
+@import "src/styles/mixins";
+
 .paper-wrapper {
   border-radius: 14px;
+  @include adaptive-value-tablet(border-radius, 14);
+  @include adaptive-value-large-desktop(border-radius, 14);
   background-color: #fff;
   padding: 20px;
+  @include adaptive-value-tablet(padding-top, 20);
+  @include adaptive-value-tablet(padding-bottom, 20);
+  @include adaptive-value-tablet(padding-left, 20);
+  @include adaptive-value-tablet(padding-right, 20);
+  @include adaptive-value-large-desktop(padding-top, 20);
+  @include adaptive-value-large-desktop(padding-bottom, 20);
+  @include adaptive-value-large-desktop(padding-left, 20);
+  @include adaptive-value-large-desktop(padding-right, 20);
 }
 
 @media (min-width: 1024px) {
@@ -13,6 +25,11 @@
 @media (min-width: 1440px) {
   .paper-wrapper {
     padding: 55px 60px;
+    @include adaptive-value-large-desktop(padding-top, 55);
+    @include adaptive-value-large-desktop(padding-bottom, 55);
+    @include adaptive-value-large-desktop(padding-left, 60);
+    @include adaptive-value-large-desktop(padding-right, 60);
     border-radius: 30px;
+    @include adaptive-value-large-desktop(border-radius, 30);
   }
 }

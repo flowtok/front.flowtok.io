@@ -1,3 +1,5 @@
+@import "src/styles/mixins";
+
 .saved_method {
   @extend %saved_method;
 
@@ -10,10 +12,22 @@
 %saved_method {
   display: flex;
   padding: 17px 15px;
+  @include adaptive-value-tablet(padding-top, 17);
+  @include adaptive-value-tablet(padding-bottom, 17);
+  @include adaptive-value-tablet(padding-left, 15);
+  @include adaptive-value-tablet(padding-right, 15);
+  @include adaptive-value-large-desktop(padding-top, 17);
+  @include adaptive-value-large-desktop(padding-bottom, 17);
+  @include adaptive-value-large-desktop(padding-left, 15);
+  @include adaptive-value-large-desktop(padding-right, 15);
   border: 1px solid #E5E5EA;
   border-radius: 14px;
+  @include adaptive-value-tablet(border-radius, 14);
+  @include adaptive-value-large-desktop(border-radius, 14);
   justify-content: space-between;
   margin-bottom: 10px;
+  @include adaptive-value-tablet(margin-bottom, 10);
+  @include adaptive-value-large-desktop(margin-bottom, 10);
   cursor: pointer;
 
   & > div:first-child {
@@ -22,6 +36,8 @@
 
     & > div {
       margin-right: 17px;
+      @include adaptive-value-tablet(margin-right, 17);
+      @include adaptive-value-large-desktop(margin-right, 17);
     }
   }
 }
@@ -43,6 +59,7 @@
     .delete-method {
       background: transparent;
       margin-left: 20px;
+      @include adaptive-value-large-desktop(margin-left, 20);
       height: fit-content;
       width: fit-content;
     }
