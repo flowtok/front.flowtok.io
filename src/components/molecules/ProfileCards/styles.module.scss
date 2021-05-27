@@ -101,7 +101,7 @@
 
   }
   .value-secondary {
-    font-size: 10px;
+    font-size: 25px;
     @include adaptive-value-tablet(font-size, 25);
     @include adaptive-value-small-desktop(font-size, 25);
   }
