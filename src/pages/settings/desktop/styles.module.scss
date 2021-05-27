@@ -49,12 +49,12 @@
     > div {
       &:first-child {
         margin-right: 25px;
-        @include adaptive-value-large-desktop(margin-top, 25);
+        @include adaptive-value-large-desktop(margin-right, 25);
       }
 
       > div:first-child {
         margin-bottom: 25px;
-        @include adaptive-value-large-desktop(margin-top, 25);
+        @include adaptive-value-large-desktop(margin-bottom, 25);
       }
     }
   }
