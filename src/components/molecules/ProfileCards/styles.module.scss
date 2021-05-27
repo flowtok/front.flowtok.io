@@ -74,7 +74,7 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .title-primary {
     font-size: 32px;
     @include adaptive-value-tablet(font-size, 32);

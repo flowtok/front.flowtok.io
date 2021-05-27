@@ -21,7 +21,7 @@ export const ReferalCard = ({
 }: ReferalCardProps) => {
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   let desktopStyle = {};
   if (isDesktop) {
     desktopStyle = { fontSize: 11, lineHeight: 'auto' };

@@ -20,7 +20,7 @@ export const VerificationPopup = forwardRef<
   PropsWithChildren<VerificationPopupProps>
 >(({ isOpen }) => {
   const { t } = useTranslation();
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   const finalClassName = classNames(
     commonStyles['description'],
     styles['description-list']

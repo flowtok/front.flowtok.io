@@ -1,3 +1,4 @@
+@import "src/styles/mixins";
 .wrapper-style {
   display: flex;
   height: 100vh;
@@ -7,12 +8,21 @@
 .page-style {
   background: #E5E5EA;
   border-radius: 30px 0 0 30px;
+  @include adaptive-value-small-desktop(border-top-left-radius, 30);
+  @include adaptive-value-small-desktop(border-bottom-left-radius, 30);
+  @include adaptive-value-large-desktop(border-top-left-radius, 30);
+  @include adaptive-value-large-desktop(border-bottom-left-radius, 30);
   padding: 0 80px;
+  @include adaptive-value-small-desktop(padding-right, 80);
+  @include adaptive-value-small-desktop(padding-left, 80);
   width: calc(100% - 82px);
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .page-style{
-    width: calc(100% - 470px);
+    width: 100%;
+    padding: 0 80px;
+    @include adaptive-value-large-desktop(padding-right, 80);
+    @include adaptive-value-large-desktop(padding-left, 80);
   }
 }

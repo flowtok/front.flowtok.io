@@ -187,7 +187,7 @@ function getFileWithMixin(occurrences, data) {
   }
 }
 
-const files = getFiles('src/pages/settings/');
+const files = getFiles('src/components/molecules/SettingsCards/Account/');
 
 files.forEach((file) => {
   new Promise((resolve) => {
