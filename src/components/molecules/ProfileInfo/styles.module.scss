@@ -1,4 +1,5 @@
 @import "src/styles/mixins";
+
 .row {
   display: flex;
   align-items: center;
@@ -76,6 +77,10 @@
       .subtitle {
         font-size: 21px;
         @include adaptive-value-large-desktop(font-size, 21);
+        line-height: 25px;
+        @include adaptive-value-large-desktop(line-height, 25);
+        letter-spacing: -0.506471px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.506471);
       }
     }
   }
