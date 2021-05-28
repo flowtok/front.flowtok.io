@@ -8,7 +8,6 @@
   display: flex;
   flex-wrap: nowrap;
 
-
   > div {
     width: 50%;
   }
@@ -18,9 +17,11 @@
   .outter-wrapper {
     max-width: 694px;
     @include adaptive-value-small-desktop(max-width, 694);
-
+    margin-top: 35px;
+    padding-top: 0;
     @media (min-height: 665px) {
-      margin-top: 66px;
+      padding-top: 90px;
+      margin-top: 0;
       justify-content: flex-start;
     }
 
@@ -41,6 +42,7 @@
 
 @media (min-width: 1440px) {
   .outter-wrapper {
+    padding-top: 0;
     max-width: 1060px;
     @include adaptive-value-large-desktop(max-width, 1060);
     margin-top: 80px;
