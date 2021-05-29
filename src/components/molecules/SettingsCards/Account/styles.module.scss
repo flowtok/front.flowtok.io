@@ -313,8 +313,6 @@
 
       > div {
         > div:first-child {
-          margin-left: 15px;
-          @include adaptive-value-large-desktop(margin-left, 15);
 
           > div:first-child {
             width: 52px !important;
