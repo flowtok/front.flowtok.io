@@ -173,26 +173,14 @@
 
   .button_size-sm {
     padding: 15px 36px;
-    @include adaptive-value-small-desktop(padding-top, 15);
-    @include adaptive-value-small-desktop(padding-left, 36);
-    @include adaptive-value-small-desktop(padding-right, 36);
-    @include adaptive-value-small-desktop(padding-bottom, 15);
     font-size: 15px;
-    @include adaptive-value-small-desktop(font-size, 15);
     line-height: 18px;
-    @include adaptive-value-small-desktop(font-size, 18);
   }
 
   .button_size-m {
     padding: 17px 36px;
-    @include adaptive-value-small-desktop(padding-top, 17);
-    @include adaptive-value-small-desktop(padding-left, 36);
-    @include adaptive-value-small-desktop(padding-right, 36);
-    @include adaptive-value-small-desktop(padding-bottom, 17);
     font-size: 15px;
-    @include adaptive-value-small-desktop(font-size, 15);
     line-height: 18px;
-    @include adaptive-value-small-desktop(font-size, 18);
   }
 
   .button_payment-method {
@@ -283,5 +271,17 @@
     letter-spacing: -0.361765px;
     margin-right: 10px;
     margin-bottom: 10px;
+  }
+
+  .button_size-sm {
+    padding: 15px 36px;
+    @include adaptive-value-large-desktop(padding-top, 15);
+    @include adaptive-value-large-desktop(padding-bottom, 15);
+    @include adaptive-value-large-desktop(padding-left, 36);
+    @include adaptive-value-large-desktop(padding-right, 36);
+    font-size: 15px;
+    @include adaptive-value-large-desktop(font-size, 15);
+    line-height: 18px;
+    @include adaptive-value-large-desktop(line-height, 18);
   }
 }

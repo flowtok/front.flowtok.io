@@ -1,7 +1,8 @@
 @import "src/styles/mixins";
 
 .wrapper {
-  padding: 0 20px 141px;
+  padding: 100px 20px 141px 20px;
+  @include adaptive-value-tablet(padding-top, 100);
   @include adaptive-value-tablet(padding-left, 20);
   @include adaptive-value-tablet(padding-right, 20);
   @include adaptive-value-tablet(padding-bottom, 141);

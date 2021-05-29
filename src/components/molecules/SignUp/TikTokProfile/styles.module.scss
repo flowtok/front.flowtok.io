@@ -106,22 +106,29 @@
 @media (min-width: 1024px) {
   .btn-row {
     height: 42px;
+      @include adaptive-value-large-desktop(height, 42);
     > *:first-child {
       margin-right: 10px;
+        @include adaptive-value-large-desktop(margin-right, 10);
     }
   }
   .form {
     > div:first-child {
       margin-bottom: 10px;
+        @include adaptive-value-large-desktop(margin-bottom, 10);
     }
   }
 
   .row {
     .link {
       font-size: 16px;
+        @include adaptive-value-large-desktop(font-size, 16);
       line-height: 19px;
+        @include adaptive-value-large-desktop(line-height, 19);
       letter-spacing: -0.385882px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.385882);
       max-width: 124px;
+        @include adaptive-value-large-desktop(max-width, 124);
     }
   }
 }
