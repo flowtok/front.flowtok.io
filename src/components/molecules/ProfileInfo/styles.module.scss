@@ -76,6 +76,7 @@
       @include adaptive-value-large-desktop(margin-right, 10);
       margin-left: 15px;
       @include adaptive-value-large-desktop(margin-left, 15);
+
       .title-group {
         .title {
           font: {
