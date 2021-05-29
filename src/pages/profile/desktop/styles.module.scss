@@ -3,7 +3,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 35px;
   height: 100%;
   @media (min-height: 665px) {
     padding-top: 55px;
