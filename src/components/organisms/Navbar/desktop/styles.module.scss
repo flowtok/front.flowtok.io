@@ -1,22 +1,22 @@
 @import "src/styles/mixins";
 .wrapper {
   width: 81px;
- 	@include adaptive-value-small-desktop(width, 81); 
+  @include adaptive-value-small-desktop(width, 81);
   padding: 61px 12px;
- 	@include adaptive-value-small-desktop(padding-top, 61);
-           
- 	@include adaptive-value-small-desktop(padding-left, 12);
-           
- 	@include adaptive-value-small-desktop(padding-right, 12);
-           
- 	@include adaptive-value-small-desktop(padding-bottom, 61); 
+  @include adaptive-value-small-desktop(padding-top, 61);
+
+  @include adaptive-value-small-desktop(padding-left, 12);
+
+  @include adaptive-value-small-desktop(padding-right, 12);
+
+  @include adaptive-value-small-desktop(padding-bottom, 61);
   @extend %verticalCenter;
 
   .logo {
     width: 21px;
- 	@include adaptive-value-small-desktop(width, 21); 
+    @include adaptive-value-small-desktop(width, 21);
     margin-bottom: 10px;
- 	@include adaptive-value-small-desktop(margin-bottom, 10); 
+    @include adaptive-value-small-desktop(margin-bottom, 10);
   }
 
   .sidebar-container {
@@ -34,7 +34,7 @@
     }
 
     margin-bottom: 35px;
- 	@include adaptive-value-small-desktop(margin-bottom, 35); 
+    @include adaptive-value-small-desktop(margin-bottom, 35);
   }
 
   .nav {
@@ -49,18 +49,18 @@
     @include adaptive-value-small-desktop(padding-bottom, 35);
     > a:first-child, span {
       margin-bottom: 55px;
- 	@include adaptive-value-small-desktop(margin-bottom, 55); 
+      @include adaptive-value-small-desktop(margin-bottom, 55);
     }
   }
 
   .networks {
     @extend %verticalCenter;
     padding-top: 35px;
- 	@include adaptive-value-small-desktop(padding-top, 35); 
+    @include adaptive-value-small-desktop(padding-top, 35);
 
     > button:not(:last-child) {
       margin-bottom: 30px;
- 	@include adaptive-value-small-desktop(margin-bottom, 30); 
+      @include adaptive-value-small-desktop(margin-bottom, 30);
     }
   }
 }

@@ -144,131 +144,65 @@
 
   .button {
     border-radius: 42px;
-    @include adaptive-value-small-desktop(border-radius, 42);
   }
 
   .button_size-s {
     padding: 11px 36px;
-    @include adaptive-value-small-desktop(padding-top, 11);
-    @include adaptive-value-small-desktop(padding-left, 36);
-    @include adaptive-value-small-desktop(padding-right, 36);
-    @include adaptive-value-small-desktop(padding-bottom, 11);
     font-size: 14px;
-    @include adaptive-value-small-desktop(font-size, 14);
     line-height: 16px;
-    @include adaptive-value-small-desktop(line-height, 16);
   }
 
   .button_size-ssm {
     padding: 12px 15px;
-    @include adaptive-value-small-desktop(padding-top, 12);
-    @include adaptive-value-small-desktop(padding-left, 15);
-    @include adaptive-value-small-desktop(padding-right, 15);
-    @include adaptive-value-small-desktop(padding-bottom, 12);
     font-size: 15px;
-    @include adaptive-value-small-desktop(font-size, 15);
     line-height: 18px;
-    @include adaptive-value-small-desktop(font-size, 18);
   }
 
   .button_size-sm {
     padding: 15px 36px;
-    @include adaptive-value-small-desktop(padding-top, 15);
-    @include adaptive-value-small-desktop(padding-left, 36);
-    @include adaptive-value-small-desktop(padding-right, 36);
-    @include adaptive-value-small-desktop(padding-bottom, 15);
     font-size: 15px;
-    @include adaptive-value-small-desktop(font-size, 15);
     line-height: 18px;
-    @include adaptive-value-small-desktop(font-size, 18);
   }
 
   .button_size-m {
     padding: 17px 36px;
-    @include adaptive-value-small-desktop(padding-top, 17);
-    @include adaptive-value-small-desktop(padding-left, 36);
-    @include adaptive-value-small-desktop(padding-right, 36);
-    @include adaptive-value-small-desktop(padding-bottom, 17);
     font-size: 15px;
-    @include adaptive-value-small-desktop(font-size, 15);
     line-height: 18px;
-    @include adaptive-value-small-desktop(font-size, 18);
   }
 
   .button_payment-method {
     border-radius: 18px;
-    @include adaptive-value-small-desktop(border-radius, 18);
-    padding: 9px 14px;
-    @include adaptive-value-small-desktop(padding-top, 9);
-    @include adaptive-value-small-desktop(padding-left, 14);
-    @include adaptive-value-small-desktop(padding-right, 14);
-    @include adaptive-value-small-desktop(padding-bottom, 9);
-    letter-spacing: -0.361765px;
-    @include adaptive-value-small-desktop(letter-spacing, -0.361765);
-    font-size: 15px;
-    @include adaptive-value-small-desktop(font-size, 15);
-    margin-right: 10px;
-    @include adaptive-value-small-desktop(margin-right, 10);
-    margin-bottom: 10px;
-    @include adaptive-value-small-desktop(margin-bottom, 10);
-  }
-  .button_success {
-    padding: 12px 40px;
-    @include adaptive-value-small-desktop(padding-top, 12);
-    @include adaptive-value-small-desktop(padding-left, 40);
-    @include adaptive-value-small-desktop(padding-right, 40);
-    @include adaptive-value-small-desktop(padding-bottom, 12);
-    border-radius: 21px;
-    @include adaptive-value-small-desktop(border-radius, 21);
-  }
-  .button_success_gray {
-    padding: 12px 40px;
-    @include adaptive-value-small-desktop(padding-top, 12);
-    @include adaptive-value-small-desktop(padding-left, 40);
-    @include adaptive-value-small-desktop(padding-right, 40);
-    @include adaptive-value-small-desktop(padding-bottom, 12);
-    border-radius: 21px;
-    @include adaptive-value-small-desktop(border-radius, 21);
-    background: #E5E5E9;
-    color: #838383;
-  }
-  .button_light {
-    padding: 0;
-    font-size: 14px;
-    @include adaptive-value-small-desktop(font-size, 14);
-    line-height: 17px;
-    @include adaptive-value-small-desktop(line-height, 17);
-  }
-  .button_white {
-    border: 1px solid #E5E5EA;
-    @include adaptive-value-small-desktop(border-radius, 1);
-  }
-  .button_size-s-task {
-    padding: 10px 30px;
-    @include adaptive-value-small-desktop(padding-top, 10);
-    @include adaptive-value-small-desktop(padding-left, 30);
-    @include adaptive-value-small-desktop(padding-right, 30);
-    @include adaptive-value-small-desktop(padding-bottom, 10);
-    font-size: 11px;
-    @include adaptive-value-small-desktop(font-size, 11);
-    line-height: 11px;
-    @include adaptive-value-small-desktop(line-height, 11);
-    letter-spacing: -0.41px;
-    @include adaptive-value-small-desktop(letter-spacing, -0.41);
-    border-radius: 11px;
-    @include adaptive-value-small-desktop(border-radius, 11);
-  }
-}
-
-
-@media (min-width: 1024px) {
-  .button_payment-method {
     padding: 6px 10px;
     font-size: 10px;
     line-height: 12px;
     letter-spacing: -0.361765px;
     margin-right: 7px;
     margin-bottom: 7px;
+  }
+  .button_success {
+    padding: 12px 40px;
+    border-radius: 21px;
+  }
+  .button_success_gray {
+    padding: 12px 40px;
+    border-radius: 21px;
+    background: #E5E5E9;
+    color: #838383;
+  }
+  .button_light {
+    padding: 0;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .button_white {
+    border: 1px solid #E5E5EA;
+  }
+  .button_size-s-task {
+    padding: 10px 30px;
+    font-size: 11px;
+    line-height: 11px;
+    letter-spacing: -0.41px;
+    border-radius: 11px;
   }
 }
 
@@ -278,10 +212,19 @@
   }
   .button_payment-method {
     padding: 9px 14px;
+    @include adaptive-value-large-desktop(padding-top, 9);
+    @include adaptive-value-large-desktop(padding-bottom, 9);
+    @include adaptive-value-large-desktop(padding-left, 14);
+    @include adaptive-value-large-desktop(padding-right, 14);
     font-size: 15px;
+    @include adaptive-value-large-desktop(font-size, 15);
     line-height: 18px;
+    @include adaptive-value-large-desktop(line-height, 18);
     letter-spacing: -0.361765px;
+    @include adaptive-value-large-desktop(letter-spacing, -0.361765);
     margin-right: 10px;
+    @include adaptive-value-large-desktop(margin-right, 10);
     margin-bottom: 10px;
+    @include adaptive-value-large-desktop(margin-bottom, 10);
   }
 }

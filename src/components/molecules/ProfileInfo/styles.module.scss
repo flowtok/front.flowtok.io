@@ -6,8 +6,11 @@
 
   .column {
     margin-right: 10px;
+    @include adaptive-value-tablet(margin-right, 10);
     margin-left: 15px;
+    @include adaptive-value-tablet(margin-left, 15);
     max-width: 120px;
+    @include adaptive-value-tablet(max-width, 120);
     @media (min-width: 390px) {
       max-width: 155px;
     }
@@ -24,29 +27,40 @@
       .active-icon {
         background: linear-gradient(225deg, #2545F3 0%, #6E35F1 100%);
         width: 26px;
+        @include adaptive-value-tablet(width, 26);
         height: 26px;
+        @include adaptive-value-tablet(height, 26);
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-left: 10px;
+        @include adaptive-value-tablet(margin-left, 10);
 
         > img {
           width: 15px;
+          @include adaptive-value-tablet(width, 15);
         }
       }
 
       .title {
         font-size: 23px;
+        @include adaptive-value-tablet(font-size, 23);
         line-height: 27px;
+        @include adaptive-value-tablet(line-height, 27);
         letter-spacing: -0.554706px;
+        @include adaptive-value-tablet(letter-spacing, -0.554706);
         margin-bottom: 4px;
+        @include adaptive-value-tablet(margin-bottom, 4);
       }
     }
     .subtitle {
       font-size: 13px;
+      @include adaptive-value-tablet(font-size, 13);
       line-height: 16px;
+      @include adaptive-value-tablet(line-height, 16);
       letter-spacing: -0.313520px;
+      @include adaptive-value-tablet(letter-spacing, -0.313520);
     }
     .title, .subtitle {
       overflow: hidden;

@@ -1,7 +1,9 @@
 @import "src/styles/mixins";
+
 .support-methods {
   margin-top: 19px;
- 	@include adaptive-value-small-desktop(margin-top, 19);
+  @include adaptive-value-tablet(margin-top, 19);
+  @include adaptive-value-large-desktop(margin-top, 19);
 
   & .support-method {
     display: flex;
@@ -10,17 +12,20 @@
 
     & p {
       font-size: 17px;
- 	@include adaptive-value-small-desktop(font-size, 17);
+      @include adaptive-value-tablet(font-size, 17);
+      @include adaptive-value-large-desktop(font-size, 17);
     }
 
     &:not(:last-child) {
       margin-bottom: 15px;
- 	@include adaptive-value-small-desktop(margin-bottom, 15);
+      @include adaptive-value-tablet(margin-bottom, 15);
+      @include adaptive-value-large-desktop(margin-bottom, 15);
     }
 
     &:not(:first-child) {
       margin-top: 15px;
- 	@include adaptive-value-small-desktop(margin-top, 15);
+      @include adaptive-value-tablet(margin-top, 15);
+      @include adaptive-value-large-desktop(margin-top, 15);
     }
   }
 }
@@ -65,35 +70,45 @@
   .support-container {
     h3 {
       font-size: 26px;
- 	@include adaptive-value-small-desktop(font-size, 26);
+      @include adaptive-value-large-desktop(font-size, 26);
       line-height: 30px;
- 	@include adaptive-value-small-desktop(line-height, 30);
+      @include adaptive-value-large-desktop(line-height, 30);
       letter-spacing: -0.627059px;
- 	@include adaptive-value-small-desktop(letter-spacing, -0.627059);
+      @include adaptive-value-large-desktop(letter-spacing, -0.627059);
       margin-bottom: 10px;
- 	@include adaptive-value-small-desktop(margin-bottom, 10);
+      @include adaptive-value-large-desktop(margin-bottom, 10);
     }
 
     > div {
       > p {
         font-size: 14px;
+        @include adaptive-value-large-desktop(font-size, 14);
         line-height: 17px;
+        @include adaptive-value-large-desktop(line-height, 17);
         letter-spacing: -0.337647px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.337647);
         max-width: 309px;
+        @include adaptive-value-large-desktop(max-width, 309);
       }
 
       .support-methods {
         .support-method {
           > p {
             font-size: 17px;
+            @include adaptive-value-large-desktop(font-size, 17);
             line-height: 20px;
+            @include adaptive-value-large-desktop(line-height, 20);
             letter-spacing: -0.41px;
+            @include adaptive-value-large-desktop(letter-spacing, -0.41);
           }
 
           > a {
             font-size: 17px;
+            @include adaptive-value-large-desktop(font-size, 17);
             line-height: 20px;
+            @include adaptive-value-large-desktop(line-height, 20);
             letter-spacing: -0.41px;
+            @include adaptive-value-large-desktop(letter-spacing, -0.41);
           }
         }
       }
