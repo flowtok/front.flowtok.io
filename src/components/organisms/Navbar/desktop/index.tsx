@@ -18,22 +18,27 @@ export const NavbarDesktop = forwardRef<HTMLDivElement>(({}, ref) => {
     <div className={styles['wrapper']} ref={ref}>
       <img src={logo} className={styles['logo']} />
       <div className={styles['sidebar-container']}>
-        <div className={styles['account']}>
-          <Avatar image={avatar} size={41} />
-        </div>
-        <Divider />
-        <div className={styles['nav']}>
-          <Link to="/profile" className={styles['row-item']}>
-            <ProfileIcon color={'#000'} isActive={pathname === '/profile'} />
-          </Link>
-          <Notification value={3}>
-            <Link to="/tasks" className={styles['row-item']}>
-              <TasksIcon color={'#000'} isActive={pathname === '/tasks'} />
+        <div>
+          <div className={styles['account']}>
+            <Avatar image={avatar} size={41} />
+          </div>
+          <Divider />
+          <div className={styles['nav']}>
+            <Link to="/profile" className={styles['row-item']}>
+              <ProfileIcon color={'#000'} isActive={pathname === '/profile'} />
             </Link>
-          </Notification>
-          <Link to="/settings" className={styles['row-item']}>
-            <SettingsIcon color={'#000'} isActive={pathname === '/settings'} />
-          </Link>
+            <Notification value={3}>
+              <Link to="/tasks" className={styles['row-item']}>
+                <TasksIcon color={'#000'} isActive={pathname === '/tasks'} />
+              </Link>
+            </Notification>
+            <Link to="/settings" className={styles['row-item']}>
+              <SettingsIcon
+                color={'#000'}
+                isActive={pathname === '/settings'}
+              />
+            </Link>
+          </div>
         </div>
         <Divider />
         <div className={styles['networks']}>
