@@ -25,7 +25,7 @@
   .stats .data {
     height: 115px;
     margin-top: 15px;
-    @include adaptive-value-small-desktop(margin-top, 45);
+    @include adaptive-value-small-desktop(margin-top, 15);
     @include adaptive-value-small-desktop(height, 115);
 
     & .block {

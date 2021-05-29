@@ -138,7 +138,7 @@
       flex-direction: column;
       @include adaptive-value-small-desktop(padding-right, 30);
       padding-bottom: 0;
-      margin-top: 35px;
+      margin-top: 20px;
 
       & .field {
         width: unset;
