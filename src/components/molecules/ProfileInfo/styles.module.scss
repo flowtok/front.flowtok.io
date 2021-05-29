@@ -51,6 +51,7 @@
         letter-spacing: -0.554706px;
         @include adaptive-value-tablet(letter-spacing, -0.554706);
         margin-bottom: 4px;
+        @include adaptive-value-tablet(margin-bottom-top, 4);
       }
     }
 
