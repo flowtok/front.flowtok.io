@@ -50,11 +50,21 @@
   .network-button {
     border: 1.5px solid #E5E5EA;
     border-radius: 30px;
+    @include adaptive-value-large-desktop(border-radius, 30);
     height: 48px;
+    @include adaptive-value-large-desktop(height, 48);
     font-size: 15px;
+    @include adaptive-value-large-desktop(font-size, 15);
     line-height: 18px;
+    @include adaptive-value-large-desktop(line-height, 18);
     padding: 15px;
+    @include adaptive-value-large-desktop(padding-top, 15);
+    @include adaptive-value-large-desktop(padding-bottom, 15);
+    @include adaptive-value-large-desktop(padding-left, 15);
+    @include adaptive-value-large-desktop(padding-right, 15);
     letter-spacing: -0.361765px;
+    @include adaptive-value-large-desktop(letter-spacing, -0.361765);
+
     &_light {
       height: fit-content;
       width: fit-content;

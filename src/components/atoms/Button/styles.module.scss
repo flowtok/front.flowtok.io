@@ -227,4 +227,16 @@
     margin-bottom: 10px;
     @include adaptive-value-large-desktop(margin-bottom, 10);
   }
+
+  .button_size-sm {
+    padding: 15px 36px;
+    @include adaptive-value-large-desktop(padding-top, 15);
+    @include adaptive-value-large-desktop(padding-bottom, 15);
+    @include adaptive-value-large-desktop(padding-left, 36);
+    @include adaptive-value-large-desktop(padding-right, 36);
+    font-size: 15px;
+    @include adaptive-value-large-desktop(font-size, 15);
+    line-height: 18px;
+    @include adaptive-value-large-desktop(line-height, 18);
+  }
 }

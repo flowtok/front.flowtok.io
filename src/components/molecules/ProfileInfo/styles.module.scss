@@ -51,9 +51,9 @@
         letter-spacing: -0.554706px;
         @include adaptive-value-tablet(letter-spacing, -0.554706);
         margin-bottom: 4px;
-        @include adaptive-value-tablet(margin-bottom, 4);
       }
     }
+
     .subtitle {
       font-size: 13px;
       @include adaptive-value-tablet(font-size, 13);
@@ -62,6 +62,7 @@
       letter-spacing: -0.313520px;
       @include adaptive-value-tablet(letter-spacing, -0.313520);
     }
+
     .title, .subtitle {
       overflow: hidden;
       text-overflow: ellipsis;

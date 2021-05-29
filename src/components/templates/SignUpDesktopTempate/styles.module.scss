@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 40px;
   }
 
   .video-wrap {
@@ -43,12 +44,13 @@
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
   }
+
   .child-container {
     max-width: 1060px;
   }
+
   .logo {
     right: 70px;
     left: auto;
   }
 }
-
