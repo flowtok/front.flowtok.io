@@ -6,8 +6,8 @@
   padding-top: 35px;
   height: 100%;
   @media (min-height: 665px) {
-    padding-top: 55px;
-    @include adaptive-value-small-desktop(padding-top, 55);
+    padding-top: 66px;
+    @include adaptive-value-small-desktop(padding-top, 66);
     justify-content: flex-start;
   }
 
@@ -108,6 +108,10 @@
 
 @media (min-width: 1440px) {
   .wrapper {
+    @media (min-height: 865px) {
+      padding-top: 80px;
+      @include adaptive-value-small-desktop(padding-top, 80);
+    }
     > div > div:not(:nth-child(2)) {
       padding: 62px 60px;
       @include adaptive-value-large-desktop(padding-top, 62);

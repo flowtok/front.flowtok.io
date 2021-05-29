@@ -20,7 +20,7 @@
     margin-top: 35px;
     padding-top: 0;
     @media (min-height: 665px) {
-      padding-top: 90px;
+      padding-top: 66px;
       margin-top: 0;
       justify-content: flex-start;
     }
@@ -45,8 +45,10 @@
     padding-top: 0;
     max-width: 1060px;
     @include adaptive-value-large-desktop(max-width, 1060);
-    margin-top: 80px;
-    @include adaptive-value-large-desktop(margin-top, 80);
+    @media (min-height: 665px) {
+      margin-top: 80px;
+      @include adaptive-value-large-desktop(margin-top, 80);
+    }
 
     > div {
       &:first-child {

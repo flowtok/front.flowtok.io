@@ -9,7 +9,7 @@
 .page-wrapper {
   margin-top: 35px;
   @media (min-height: 665px) {
-    margin-top: 65px;
+    margin-top: 66px;
   }
 
   .disable-message {
@@ -90,8 +90,11 @@
     @include adaptive-value-large-desktop(width, 380);
   }
   .page-wrapper {
-    margin-top: 100px;
-    @include adaptive-value-large-desktop(margin-top, 100);
+    @media (min-height: 865px) {
+      margin-top: 80px;
+      @include adaptive-value-large-desktop(margin-top, 80);
+    }
+
     .task-outter-wrapper {
       width: 880px;
       @include adaptive-value-large-desktop(width, 880);
