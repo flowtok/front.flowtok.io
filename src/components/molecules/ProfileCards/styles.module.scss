@@ -1,3 +1,4 @@
+@import "src/styles/mixins";
 .title-primary,
 .value-primary,
 .value-secondary {
@@ -7,32 +8,77 @@
 .value-secondary,
 .rating {
   font-size: 19px;
+  @include adaptive-value-tablet(font-size, 19);
+  @include adaptive-value-small-desktop(font-size, 19);
+  @include adaptive-value-large-desktop(font-size, 19);
   line-height: 22px;
+  @include adaptive-value-tablet(line-height, 22);
+  @include adaptive-value-small-desktop(line-height, 22);
+  @include adaptive-value-large-desktop(line-height, 22);
   letter-spacing: -0.458235px;
+  @include adaptive-value-tablet(letter-spacing, -0.458235);
+  @include adaptive-value-small-desktop(letter-spacing, -0.458235);
+  @include adaptive-value-large-desktop(letter-spacing, -0.458235);
 }
 
 .title-primary {
   font-size: 17px;
+  @include adaptive-value-tablet(font-size, 17);
+  @include adaptive-value-small-desktop(font-size, 17);
+  @include adaptive-value-large-desktop(font-size, 17);
   line-height: 20px;
+  @include adaptive-value-tablet(line-height, 20);
+  @include adaptive-value-small-desktop(line-height, 20);
+  @include adaptive-value-large-desktop(line-height, 20);
   letter-spacing: -0.41px;
+  @include adaptive-value-tablet(letter-spacing, -0.41);
+  @include adaptive-value-small-desktop(letter-spacing, -0.41);
+  @include adaptive-value-large-desktop(letter-spacing, -0.41);
   color: #000000;
   margin-bottom: 20px;
+  @include adaptive-value-tablet(margin-bottom, 20);
+  @include adaptive-value-small-desktop(margin-bottom, 20);
+  @include adaptive-value-large-desktop(margin-bottom, 20);
 }
 
 .title-secondary {
   font-size: 15px;
+  @include adaptive-value-tablet(font-size, 15);
+  @include adaptive-value-small-desktop(font-size, 15);
+  @include adaptive-value-large-desktop(font-size, 15);
+  word-break: break-word;
   line-height: 18px;
+  @include adaptive-value-tablet(line-height, 18);
+  @include adaptive-value-small-desktop(line-height, 18);
+  @include adaptive-value-large-desktop(line-height, 18);
   letter-spacing: -0.361765px;
+  @include adaptive-value-tablet(letter-spacing, -0.361765);
+  @include adaptive-value-small-desktop(letter-spacing, -0.361765);
+  @include adaptive-value-large-desktop(letter-spacing, -0.361765);
   color: #8E8E93;
   margin-bottom: 10px;
+  @include adaptive-value-tablet(margin-bottom, 10);
+  @include adaptive-value-small-desktop(margin-bottom, 10);
+  @include adaptive-value-large-desktop(margin-bottom, 10);
 }
 
 .value-primary {
   font-size: 28px;
+  @include adaptive-value-tablet(font-size, 28);
+  @include adaptive-value-small-desktop(font-size, 28);
+  @include adaptive-value-large-desktop(font-size, 28);
   line-height: 33px;
+  @include adaptive-value-tablet(line-height, 33);
+  @include adaptive-value-small-desktop(line-height, 33);
+  @include adaptive-value-large-desktop(line-height, 33);
   letter-spacing: -0.675294px;
+  @include adaptive-value-tablet(letter-spacing, -0.675294);
+  @include adaptive-value-small-desktop(letter-spacing, -0.675294);
+  @include adaptive-value-large-desktop(letter-spacing, -0.675294);
   color: #000000;
   margin-bottom: 20px;
+ 	@include adaptive-value-small-desktop(margin-bottom, 20);
+ 	@include adaptive-value-large-desktop(margin-bottom, 20);
 }
 
 .value-secondary {
@@ -50,29 +96,52 @@
 @media (min-width: 1024px) {
   .title-primary {
     font-size: 21px;
+    @include adaptive-value-tablet(font-size, 21);
+    @include adaptive-value-small-desktop(font-size, 21);
+
   }
   .value-secondary {
     font-size: 25px;
+    @include adaptive-value-tablet(font-size, 25);
+    @include adaptive-value-small-desktop(font-size, 25);
+  }
+  .title-secondary {
+    font-size: 10px;
+    @include adaptive-value-small-desktop(font-size, 10);
+    line-height: 12px;
+    @include adaptive-value-small-desktop(line-height, 12);
+    letter-spacing: -0.361765px;
+    @include adaptive-value-small-desktop(letter-spacing, -0.361765);
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .title-primary {
     font-size: 32px;
+    @include adaptive-value-large-desktop(font-size, 32);
     line-height: 37px;
+    @include adaptive-value-large-desktop(line-height, 37);
     letter-spacing: -0.771765px;
+    @include adaptive-value-large-desktop(letter-spacing, -0.771765);
   }
   .value-secondary {
     font-size: 32px;
+    @include adaptive-value-large-desktop(font-size, 32);
   }
   .title-secondary {
     font-size: 17px;
+    @include adaptive-value-large-desktop(font-size, 17);
     line-height: 20px;
+    @include adaptive-value-large-desktop(line-height, 20);
     margin-bottom: 22px;
+    @include adaptive-value-large-desktop(margin-bottom, 22);
   }
   .value-primary {
     font-size: 48px;
+    @include adaptive-value-large-desktop(font-size, 48);
     line-height: 56px;
+    @include adaptive-value-large-desktop(line-height, 56);
     letter-spacing: -1.15765px;
+    @include adaptive-value-large-desktop(letter-spacing, -1.15765);
   }
 }

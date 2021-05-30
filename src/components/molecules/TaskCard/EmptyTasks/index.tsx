@@ -8,8 +8,10 @@ export const EmptyTasks = () => {
   return (
     <div className={styles['default-page']}>
       <img src={defaultImage} />
-      <h2>{t('pages.tasks-default.title')}</h2>
-      <p>{t('pages.tasks-default.description')}</p>
+      <div>
+        <h2>{t('pages.tasks-default.title')}</h2>
+        <p>{t('pages.tasks-default.description')}</p>
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import { Avatar } from '../../atoms/Avatar';
 import check from '../../../assets/common/icons/check.svg';
 import { useMediaQuery } from 'react-responsive';
+
 type TikTokProfileInfoPropsT = {
   profileData: {
     fullName: string;
@@ -16,12 +17,12 @@ export const ProfileInfo: FC<TikTokProfileInfoPropsT> = ({
   profileData,
   isActivated = false,
 }) => {
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   let activatedIcon = null;
   if (isActivated) {
     activatedIcon = (
       <span className={styles['active-icon']}>
-        <img src={check} />
+        <img src={check} alt={''} />
       </span>
     );
   }

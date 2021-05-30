@@ -1,0 +1,43 @@
+@import "src/styles/mixins";
+.outter-wrapper {
+  background-color: #F2F2F2;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0 10px 10px 10px;
+ 	@include adaptive-value-tablet(padding-top, 0);
+ 	@include adaptive-value-tablet(padding-left, 10);
+ 	@include adaptive-value-tablet(padding-right, 10);
+ 	@include adaptive-value-tablet(padding-bottom, 10); 
+  overflow: hidden;
+
+  & .task-outter-wrapper {
+    > * {
+      margin-bottom: 10px;
+ 	    @include adaptive-value-tablet(margin-bottom, 10);
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    & .disable-message {
+      font-size: 15px;
+ 	    @include adaptive-value-tablet(font-size, 15);
+      line-height: 18px;
+    	@include adaptive-value-tablet(line-height, 18);
+      letter-spacing: -0.361765px;
+ 	    @include adaptive-value-tablet(letter-spacing, -0.361765);
+      color: #868686;
+      padding: 0 6px;
+    	@include adaptive-value-tablet(padding-top, 0);
+ 	    @include adaptive-value-tablet(padding-left, 6);
+ 	    @include adaptive-value-tablet(padding-right, 6);
+ 	    @include adaptive-value-tablet(padding-bottom, 0);
+    }
+  }
+}
+.tabs-container {
+  padding-top: 15px;
+ 	@include adaptive-value-tablet(padding-top, 15); 
+  padding-bottom: 10px;
+ 	@include adaptive-value-tablet(padding-bottom, 10); 
+}

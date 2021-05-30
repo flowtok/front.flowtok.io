@@ -2,14 +2,22 @@ import styles from './styles.module.scss';
 import { Checkbox } from '../../../../atoms/Checkbox';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
+import deleteIcon from '../../../../../assets/common/icons/delete.svg';
 
 export interface MethodsBtnGroupProps {
   value: string;
   title: string;
+  canDelete?: boolean;
 }
 
-export const SavedMethod = ({ title, value }: MethodsBtnGroupProps) => {
+export const SavedMethod = ({
+  title,
+  value,
+  canDelete,
+}: MethodsBtnGroupProps) => {
   const [isChecked, setChecked] = useState<boolean>(false);
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   const style = isChecked
     ? styles[`saved_method-active`]
     : styles[`saved_method`];
@@ -26,12 +34,19 @@ export const SavedMethod = ({ title, value }: MethodsBtnGroupProps) => {
   };
 
   return (
-    <div className={style} onClick={() => setChecked(!isChecked)}>
-      <div>
-        <Checkbox isChecked={isChecked} />
-        <p>{getTitleMethodByType(title)}</p>
+    <div className={styles['method-container']}>
+      <div className={style} onClick={() => setChecked(!isChecked)}>
+        <div>
+          <Checkbox isChecked={isChecked} />
+          <p>{getTitleMethodByType(title)}</p>
+        </div>
+        <div>{'...'.concat(value.slice(-4))}</div>
       </div>
-      <div>{'...'.concat(value.slice(-4))}</div>
+      {isDesktopLarge && canDelete && (
+        <button className={styles['delete-method']}>
+          <img src={deleteIcon} alt={''} />
+        </button>
+      )}
     </div>
   );
 };

@@ -1,41 +1,15 @@
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
-import {
-  AccountCard,
-  NotificationsCard,
-  SupportCard,
-  WithdrawalCard,
-} from 'components/molecules/SettingsCards';
-import { PageTemplate } from 'components/templates/Page';
-import styles from './styles.module.scss';
+import SettingsDesktop from './desktop';
+import SettingsMobile from './mobile/';
 
 export default () => {
-  const { t } = useTranslation();
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1024px)' });
 
-  return (
-    <PageTemplate
-      headerProps={{
-        title: t('header.settings.title'),
-        rounded: true,
-      }}
-      extendedStyleProps={{
-        paddingTop: 10,
-        paddingBottom: 10,
-      }}
-      isNavbar={true}
-    >
-      <div className={styles['outter-wrapper']}>
-        <AccountCard
-          age={26}
-          country="Россия"
-          name="Карина"
-          tagname="@karinakross"
-          username="karinakrosseeeeeeeeeeeeeeeee"
-        />
-        <NotificationsCard />
-        <WithdrawalCard />
-        <SupportCard />
-      </div>
-    </PageTemplate>
-  );
+  if (isDesktopLarge) {
+    return <SettingsDesktop />;
+  } else {
+    return <SettingsMobile />;
+  }
 };

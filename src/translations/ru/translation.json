@@ -36,7 +36,8 @@
     "popup-titles": {
       "how-to-do": "Как выполнить задание?",
       "that-is-done": "Вы выполнили все пункты",
-      "that-is-not-done": "Вы выполнили не все пункты"
+      "that-is-not-done": "Вы выполнили не все пункты",
+      "description": "Описание"
     }
   },
   "pages": {

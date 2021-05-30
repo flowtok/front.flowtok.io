@@ -53,9 +53,65 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .verification-container {
     width: 415px;
     margin: 0 auto;
+
+    .blogger-wrapper {
+      > div {
+        > div:first-child {
+          > div:first-child {
+            width: 52px !important;
+            height: 52px !important;
+          }
+
+          > div:nth-child(2) {
+            > div:first-child {
+              span {
+                font-size: 23px;
+                line-height: 27px;
+                letter-spacing: -0.554706px;
+              }
+            }
+
+            > div:last-child {
+              font-size: 13px;
+              line-height: 16px;
+              letter-spacing: -0.313529px;
+              color: #8E8E93;
+            }
+          }
+        }
+      }
+    }
+  }
+  .steps-wrapper {
+    > li {
+      justify-content: center;
+
+      > div:first-child {
+        display: none;
+      }
+
+      > p {
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: -0.361765px;
+        text-align: center;
+      }
+    }
+  }
+
+  .footer-popup {
+    margin-bottom: 0;
+
+    button {
+      padding: 15px 73px;
+    }
+
+    & > .load-block {
+      display: none;
+    }
   }
 }

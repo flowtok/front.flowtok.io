@@ -9,3 +9,46 @@
     margin-bottom: 10px;
   }
 }
+
+@media (min-width: 1024px) {
+  .popup-wrapper {
+    .popup-input {
+      input {
+        padding: 9px 15px;
+        font-size: 12px;
+        line-height: 10px;
+        letter-spacing: -0.361765px;
+      }
+    }
+
+    > button {
+      padding: 10px 15px;
+      font-size: 12px;
+      line-height: 12px;
+      letter-spacing: -0.361765px;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .popup-wrapper {
+    .popup-input {
+      margin-bottom: 15px;
+
+      input {
+        padding: 12px 20px;
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: -0.361765px;
+      }
+    }
+
+    > button {
+      border-radius: 21px;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: -0.361765px;
+      padding: 12px 40px;
+    }
+  }
+}

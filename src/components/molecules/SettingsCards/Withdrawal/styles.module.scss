@@ -1,27 +1,45 @@
+@import "src/styles/mixins";
+
 .saved-block {
   margin-bottom: 18px;
+  @include adaptive-value-tablet(margin-bottom, 18);
+  @include adaptive-value-large-desktop(margin-bottom, 18);
 
   & > p {
     margin-bottom: 15px;
+    @include adaptive-value-tablet(margin-bottom, 15);
+    @include adaptive-value-large-desktop(margin-bottom, 15);
     font-size: 17px;
+    @include adaptive-value-tablet(margin-bottom, 17);
+    @include adaptive-value-large-desktop(margin-bottom, 17);
   }
 }
 
 .add-method-block {
   margin-top: 20px;
+  @include adaptive-value-tablet(margin-top, 20);
+  @include adaptive-value-large-desktop(margin-top, 20);
 
   & > p {
     font-size: 17px;
+    @include adaptive-value-tablet(font-size, 17);
+    @include adaptive-value-large-desktop(font-size, 17);
   }
 }
 
 .btn-group {
   margin-top: 20px;
+  @include adaptive-value-tablet(margin-top, 20);
+  @include adaptive-value-large-desktop(margin-top, 20);
   margin-bottom: -10px;
+  @include adaptive-value-tablet(margin-bottom, -10);
+  @include adaptive-value-large-desktop(margin-bottom, -10);
 }
 
 .primary-title-custom {
   margin-bottom: 15px;
+  @include adaptive-value-tablet(margin-bottom, 15);
+  @include adaptive-value-large-desktop(margin-bottom, 15);
 }
 
 .popup-wrapper {
@@ -33,6 +51,141 @@
   & > .popup-input {
     width: 100%;
     margin-bottom: 10px;
+    @include adaptive-value-tablet(margin-bottom, 10);
+    @include adaptive-value-large-desktop(margin-bottom, 10);
     text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .withdrawal-container {
+    h3 {
+      font-size: 17px;
+      line-height: 21px;
+      letter-spacing: -0.41px;
+      margin-bottom: 23px;
+    }
+  }
+  .saved-block {
+    margin-bottom: 13px;
+
+    > p {
+      font-size: 12px;
+      line-height: 12px;
+      letter-spacing: -0.41px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .saved-methods {
+    > p {
+      font-size: 9px;
+      line-height: 11px;
+      letter-spacing: -0.337647px;
+      margin-bottom: 0;
+    }
+
+    .saved-methods_container {
+      height: 100px;
+      overflow-y: scroll;
+      padding-right: 10px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: #8E8E93;
+      }
+    }
+  }
+
+  .add-method-block {
+    margin-top: 13px;
+
+    & > p {
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+
+    > div {
+      margin-top: 16px;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .withdrawal-container {
+    h3 {
+      font-size: 26px;
+      @include adaptive-value-large-desktop(font-size, 26);
+      line-height: 30px;
+      @include adaptive-value-large-desktop(line-height, 30);
+      letter-spacing: -0.627059px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.627059);
+      margin-bottom: 35px;
+      @include adaptive-value-large-desktop(margin-bottom, 35);
+    }
+  }
+  .saved-block {
+    > p {
+      font-size: 17px;
+      @include adaptive-value-large-desktop(font-size, 17);
+      line-height: 20px;
+      @include adaptive-value-large-desktop(line-height, 20);
+      letter-spacing: -0.41px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.41);
+      margin-bottom: 20px;
+      @include adaptive-value-large-desktop(margin-bottom, 20);
+    }
+  }
+  .saved-methods {
+    margin-bottom: 20px;
+    @include adaptive-value-large-desktop(margin-bottom, 20);
+
+    > p {
+      font-size: 14px;
+      @include adaptive-value-large-desktop(font-size, 14);
+      line-height: 17px;
+      @include adaptive-value-large-desktop(line-height, 17);
+      letter-spacing: -0.337647px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.337647);
+    }
+
+    .saved-methods_container {
+      height: 100px;
+      @include adaptive-value-large-desktop(height, 100);
+      overflow-y: scroll;
+      padding-right: 10px;
+      @include adaptive-value-large-desktop(padding-right, 10);
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        @include adaptive-value-large-desktop(width, 5);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        @include adaptive-value-large-desktop(border-radius, 3);
+        background: #8E8E93;
+      }
+    }
+  }
+
+  .add-method-block {
+    margin-top: 13px;
+    @include adaptive-value-large-desktop(margin-top, 13);
+
+    & > p {
+      font-size: 17px;
+      @include adaptive-value-large-desktop(font-size, 17);
+      margin-bottom: 0;
+    }
+
+    > div {
+      margin-top: 23px;
+      @include adaptive-value-large-desktop(margin-top, 23);
+    }
   }
 }

@@ -1,9 +1,18 @@
+@import "src/styles/mixins";
 .outter-wrapper {
+  margin: 0;
   background-color: #F2F2F2;
   min-height: 100vh;
   width: 100vw;
   padding: 0 10px 10px 10px;
-  
+ 	@include adaptive-value-tablet(padding-top, 0);
+
+ 	@include adaptive-value-tablet(padding-left, 10);
+
+ 	@include adaptive-value-tablet(padding-right, 10);
+
+ 	@include adaptive-value-tablet(padding-bottom, 10);
+
   & .inner-wrapper {
     height: auto;
     width: 100%;
@@ -18,13 +27,21 @@
       & .pay-off-button {
         width: 100%;
         border-radius: 11px;
+ 	@include adaptive-value-tablet(border-radius, 11);
         padding: 14px;
+ 	@include adaptive-value-tablet(padding-top, 14);
+
+ 	@include adaptive-value-tablet(padding-left, 14);
+
+ 	@include adaptive-value-tablet(padding-right, 14);
+
+ 	@include adaptive-value-tablet(padding-bottom, 14);
       }
     }
 
     & .stats {
       grid-area: 3 / 1 / auto / 3;
-      
+
       & .data {
         display: flex;
         justify-content: space-between;
@@ -32,6 +49,13 @@
         & .block {
           position: relative;
           padding: 0 6px;
+ 	@include adaptive-value-tablet(padding-top, 0);
+
+ 	@include adaptive-value-tablet(padding-left, 6);
+
+ 	@include adaptive-value-tablet(padding-right, 6);
+
+ 	@include adaptive-value-tablet(padding-bottom, 0);
           text-align: left;
         }
       }
@@ -45,34 +69,55 @@
         grid-template-columns: 1fr 52px;
         grid-gap: 10px;
         padding-bottom: 15px;
+ 	@include adaptive-value-tablet(padding-bottom, 15);
 
         & .field,
         & .copy-button {
           height: 36px;
+ 	@include adaptive-value-tablet(height, 36);
         }
-  
+
         & .field {
           background: #F0F0F0;
           border-radius: 30px;
+ 	@include adaptive-value-tablet(border-radius, 30);
           padding: 10px 15px;
+ 	@include adaptive-value-tablet(padding-top, 10);
+
+ 	@include adaptive-value-tablet(padding-left, 15);
+
+ 	@include adaptive-value-tablet(padding-right, 15);
+
+ 	@include adaptive-value-tablet(padding-bottom, 10);
           color: #1D1D1D;
           font-size: 15px;
+ 	@include adaptive-value-tablet(font-size, 15);
           line-height: 18px;
+ 	@include adaptive-value-tablet(line-height, 18);
           letter-spacing: -0.361765px;
+ 	@include adaptive-value-tablet(letter-spacing, -0.361765);
           overflow: hidden;
 
           > p {
             overflow: hidden;
           }
         }
-  
+
         & .copy-button {
           padding: 10px 15px;
+ 	@include adaptive-value-tablet(padding-top, 10);
+
+ 	@include adaptive-value-tablet(padding-left, 15);
+
+ 	@include adaptive-value-tablet(padding-right, 15);
+
+ 	@include adaptive-value-tablet(padding-bottom, 10);
         }
       }
 
       & .stats-block {
         padding-top: 10px;
+ 	@include adaptive-value-tablet(padding-top, 10);
         display: flex;
         justify-content: space-between;
 
@@ -91,32 +136,47 @@
     & .value-secondary,
     & .rating {
       font-size: 19px;
+ 	@include adaptive-value-tablet(font-size, 19);
       line-height: 22px;
+ 	@include adaptive-value-tablet(line-height, 22);
       letter-spacing: -0.458235px;
+ 	@include adaptive-value-tablet(letter-spacing, -0.458235);
     }
-  
+
     & .title-primary {
       font-size: 17px;
+ 	@include adaptive-value-tablet(font-size, 17);
       line-height: 20px;
+ 	@include adaptive-value-tablet(line-height, 20);
       letter-spacing: -0.41px;
+ 	@include adaptive-value-tablet(letter-spacing, -0.41);
       color: #000000;
       margin-bottom: 20px;
+ 	@include adaptive-value-tablet(margin-bottom, 20);
     }
-  
+
     & .title-secondary {
       font-size: 15px;
+ 	@include adaptive-value-tablet(font-size, 15);
       line-height: 18px;
+ 	@include adaptive-value-tablet(line-height, 18);
       letter-spacing: -0.361765px;
+ 	@include adaptive-value-tablet(letter-spacing, -0.361765);
       color: #8E8E93;
       margin-bottom: 10px;
+ 	@include adaptive-value-tablet(margin-bottom, 10);
     }
 
     & .value-primary {
       font-size: 28px;
+      @include adaptive-value-tablet(font-size, 28);
       line-height: 33px;
+ 	@include adaptive-value-tablet(line-height, 33);
       letter-spacing: -0.675294px;
+ 	@include adaptive-value-tablet(letter-spacing, -0.675294);
       color: #000000;
       margin-bottom: 20px;
+ 	@include adaptive-value-tablet(margin-bottom, 20);
     }
 
     & .value-secondary {

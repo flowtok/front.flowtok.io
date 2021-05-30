@@ -1,0 +1,65 @@
+@import "src/styles/mixins";
+
+.outter-wrapper {
+  margin: 35px 0 0;
+  @include adaptive-value-tablet(padding-top, 35);
+  @include adaptive-value-small-desktop(padding-top, 35);
+  @include adaptive-value-large-desktop(padding-top, 35);
+  display: flex;
+  flex-wrap: nowrap;
+
+  > div {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .outter-wrapper {
+    max-width: 694px;
+    @include adaptive-value-small-desktop(max-width, 694);
+    margin-top: 35px;
+    padding-top: 0;
+    @media (min-height: 665px) {
+      padding-top: 66px;
+      margin-top: 0;
+      justify-content: flex-start;
+    }
+
+
+    > div {
+      &:first-child {
+        margin-right: 20px;
+        @include adaptive-value-small-desktop(margin-right, 20);
+      }
+
+      > div:first-child {
+        margin-bottom: 20px;
+        @include adaptive-value-small-desktop(margin-bottom, 20);
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .outter-wrapper {
+    padding-top: 0;
+    max-width: 1060px;
+    @include adaptive-value-large-desktop(max-width, 1060);
+    @media (min-height: 665px) {
+      margin-top: 80px;
+      @include adaptive-value-large-desktop(margin-top, 80);
+    }
+
+    > div {
+      &:first-child {
+        margin-right: 25px;
+        @include adaptive-value-large-desktop(margin-right, 25);
+      }
+
+      > div:first-child {
+        margin-bottom: 25px;
+        @include adaptive-value-large-desktop(margin-bottom, 25);
+      }
+    }
+  }
+}

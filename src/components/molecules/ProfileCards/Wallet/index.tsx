@@ -10,6 +10,7 @@ import { BalanceType, HistoryItem } from './HistoryItem';
 import { HistoryPopUp } from './HistoryPopUp';
 import { WithdrawalPopUp } from './WithdrawalPopUp';
 import { useMediaQuery } from 'react-responsive';
+import { VerificationPopup } from '../../VerificationPopup';
 
 export interface WalletCardProps {
   balance: string;
@@ -30,7 +31,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
     { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
   ];
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1920px)' });
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   let radius;
   let historyButton = null;
   if (!isDesktop) {
@@ -74,6 +75,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         historyList={history}
       />
       <WithdrawalPopUp
+        isUseProfile={true}
         isOpen={isOpenWithdrawalPopUp}
         close={() => setOpenWithdrawalPopUp(false)}
       />

@@ -1,14 +1,30 @@
+@import "src/styles/mixins";
+
 .tabs-wrapper {
   background: #EFEFF4;
   border-radius: 30px;
+ 	@include adaptive-value-tablet(border-radius, 30);
+  @include adaptive-value-small-desktop(border-radius, 30);
+  @include adaptive-value-large-desktop(border-radius, 30);
   padding: 3px;
-
+ 	@include adaptive-value-tablet(padding-top, 3);
+ 	@include adaptive-value-tablet(padding-left, 3);
+ 	@include adaptive-value-tablet(padding-right, 3);
+ 	@include adaptive-value-tablet(padding-bottom, 3);
+  @include adaptive-value-small-desktop(padding-top, 3);
+  @include adaptive-value-small-desktop(padding-left, 3);
+  @include adaptive-value-small-desktop(padding-right, 3);
+  @include adaptive-value-small-desktop(padding-bottom, 3);
+  @include adaptive-value-large-desktop(padding-top, 3);
+  @include adaptive-value-large-desktop(padding-left, 3);
+  @include adaptive-value-large-desktop(padding-right, 3);
+  @include adaptive-value-large-desktop(padding-bottom, 3);
   & .tabs-inner-wrapper {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     --index: -1;
     --count: 1;
 
@@ -21,6 +37,9 @@
       background: #000000;
       transition: .3s ease-in-out;
       border-radius: 30px;
+ 	    @include adaptive-value-tablet(border-radius, 30);
+      @include adaptive-value-small-desktop(border-radius, 30);
+      @include adaptive-value-large-desktop(border-radius, 30);
     }
   }
 }
@@ -29,14 +48,41 @@
   position: relative;
   background: none;
   border-radius: 30px;
+  @include adaptive-value-tablet(border-radius, 30);
+  @include adaptive-value-small-desktop(border-radius, 30);
+  @include adaptive-value-large-desktop(border-radius, 30);
   margin-right: 3px;
+ 	@include adaptive-value-tablet(margin-right, 3);
+  @include adaptive-value-small-desktop(margin-right, 3);
+  @include adaptive-value-large-desktop(margin-right, 3);
   font-size: 15px;
+ 	@include adaptive-value-tablet(font-size, 15);
+  @include adaptive-value-small-desktop(font-size, 15);
+  @include adaptive-value-large-desktop(font-size, 15);
   font-weight: 500;
   line-height: 18px;
+ 	@include adaptive-value-tablet(line-height, 18);
+  @include adaptive-value-small-desktop(line-height, 18);
+  @include adaptive-value-large-desktop(line-height, 18);
   letter-spacing: -0.361765px;
+ 	@include adaptive-value-tablet(letter-spacing, -0.361765);
+  @include adaptive-value-small-desktop(letter-spacing, -0.361765);
+  @include adaptive-value-large-desktop(letter-spacing, -0.361765);
   color: #000000;
   width: 100%;
   padding: 7px 0;
+  @include adaptive-value-tablet(padding-top, 7);
+  @include adaptive-value-tablet(padding-left, 0);
+  @include adaptive-value-tablet(padding-right, 0);
+  @include adaptive-value-tablet(padding-bottom, 7);
+  @include adaptive-value-small-desktop(padding-top, 7);
+  @include adaptive-value-small-desktop(padding-left, 0);
+  @include adaptive-value-small-desktop(padding-right, 0);
+  @include adaptive-value-small-desktop(padding-bottom, 7);
+  @include adaptive-value-large-desktop(padding-top, 7);
+  @include adaptive-value-large-desktop(padding-left, 0);
+  @include adaptive-value-large-desktop(padding-right, 0);
+  @include adaptive-value-large-desktop(padding-bottom, 7);
   overflow: hidden;
   z-index: 0;
   transition-delay: .15s;
@@ -50,4 +96,41 @@
 .tab_selected {
   color: #FFFFFF;
   transition: .3s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .tabs-wrapper {
+    background: #fff;
+
+    & .tabs-inner-wrapper {
+      height: 31px;
+ 	    @include adaptive-value-small-desktop(height, 31);
+    }
+  }
+  .tab {
+    font-size: 12px;
+ 	  @include adaptive-value-small-desktop(font-size, 12);
+    line-height: 11px;
+ 	  @include adaptive-value-small-desktop(line-height, 11);
+    letter-spacing: -0.361765px;
+ 	  @include adaptive-value-small-desktop(letter-spacing, -0.361765);
+    height: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .tabs-wrapper {
+    & .tabs-inner-wrapper {
+      height: 48px;
+      @include adaptive-value-large-desktop(height, 48);
+    }
+  }
+  .tab {
+    font-size: 17px;
+    @include adaptive-value-large-desktop(font-size, 17);
+    line-height: 20px;
+    @include adaptive-value-large-desktop(line-height, 20);
+    letter-spacing: -0.41px;
+    @include adaptive-value-large-desktop(letter-spacing, -0.41);
+  }
 }
