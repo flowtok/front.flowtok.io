@@ -1,6 +1,5 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from './pages/home';
 import ProfilePage from './pages/profile';
@@ -8,25 +7,10 @@ import SignUpPage from './pages/signup';
 import TasksPage from './pages/tasks';
 import LoginPage from './pages/login';
 import SettingsPage from './pages/settings';
-import { RootStateT } from './redux/store';
-import { initialize } from './redux/app-reducer/app-reducer';
-import { PopUp } from './components/molecules/PopUp';
-import { DonePopUpContent } from './components/molecules/PaymentMethodNotifications';
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const isLoader = useSelector((state: RootStateT) => state.app.isLoader);
-  const isInit = useSelector((state: RootStateT) => state.app.isInit);
-
-  useEffect(() => {
-    if (!isInit) dispatch(initialize());
-  }, [dispatch, isInit]);
-
-  if (!isInit || isLoader) return <div>Loading...</div>;
-
   return (
     <div style={{ position: 'relative' }}>
-      {isLoader && <div>Loading...</div>}
       {/*<PopUp isOpen={true} size={'s'}>*/}
       {/*  <DonePopUpContent />*/}
       {/*</PopUp>*/}

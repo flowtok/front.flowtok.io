@@ -9,7 +9,15 @@ const User = `
     tagname: String!
     age: Int!
     country: String!
-    balance: Float!
+    balance: String!
+    avg_views: String!
+    price: String!
+    good_rate: Float!
+    held_money: String!
+    total_earnings: String!
+    ref_link: String!
+    ref_count: Int!
+    ref_earnings: String!
   }
 `;
 

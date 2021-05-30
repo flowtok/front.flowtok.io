@@ -16,6 +16,23 @@ import { Paper } from '../../../components/atoms/Paper';
 import { useTranslation } from 'react-i18next';
 import commonStyles from '../../../components/molecules/SettingsCards/styles.module.scss';
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
+import { gql, useQuery } from '@apollo/client';
+
+const USERS = gql`
+  query getUsers {
+    users {
+      balance
+      avg_views
+      price
+      good_rate
+      held_money
+      total_earnings
+      ref_link
+      ref_count
+      ref_earnings
+    }
+  }
+`;
 
 const history: HistoryItem[] = [
   { value: '9 112.90', date: '30.08.2021', type: BalanceType.inc },
@@ -29,14 +46,32 @@ const history: HistoryItem[] = [
 
 export default () => {
   const { t } = useTranslation();
+  const { loading, error, data } = useQuery(USERS);
+
+  if (loading) return <>Loading...</>;
+
+  if (error) return <>Error: {error.message}</>;
+
+  const {
+    balance,
+    avg_views,
+    ref_count,
+    ref_earnings,
+    total_earnings,
+    good_rate,
+    ref_link,
+    price,
+    held_money,
+  } = data.users[0];
+
   return (
     <PageTemplateDesktop>
       <div className={styles['wrapper']}>
         <div className={styles['top-papers']}>
-          <WalletCard balance="15 236.00 ₽" />
+          <WalletCard balance={balance} />
           <div className={styles['middle-group']}>
-            <InProcessCard inProcessAmount="6 703.50 ₽" />
-            <TotalEarningsCard totalEarnings="164 520.30 ₽" />
+            <InProcessCard inProcessAmount={held_money} />
+            <TotalEarningsCard totalEarnings={total_earnings} />
           </div>
           <Paper>
             <h3 className={commonStyles['primary-title']}>
@@ -53,11 +88,15 @@ export default () => {
           </Paper>
         </div>
         <div className={styles['bottom-papers']}>
-          <StatsCard viewsMedian="2.6М" payOffPerVideo="255 ₽" rating={4.6} />
+          <StatsCard
+            viewsMedian={avg_views}
+            payOffPerVideo={price}
+            rating={good_rate}
+          />
           <ReferalCard
-            refUrl="https://flowtok.com/ref/5f3eba819845264b903e746f"
-            refsCount={17}
-            totalEarningsFromRefs="890.00 ₽"
+            refUrl={ref_link}
+            refsCount={ref_count}
+            totalEarningsFromRefs={ref_earnings}
           />
         </div>
       </div>
