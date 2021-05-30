@@ -12,12 +12,56 @@
     flex: 1 1 50%;
   }
 
-  > *:first-child {
-    margin-right: 9px;
-    @include adaptive-value-tablet(margin-right, 9);
-    @include adaptive-value-large-desktop(margin-right, 9);
-  }
+  .select-group {
+    display: flex;
+    flex-direction: column;
 
+    > div {
+      & > div {
+        height: 42px;
+        @include adaptive-value-tablet(height, 42);
+        @include adaptive-value-large-desktop(height, 42);
+        border-radius: 30px;
+        @include adaptive-value-tablet(border-radius, 30);
+        @include adaptive-value-large-desktop(border-radius, 30);
+        padding-left: 10px;
+
+        &:nth-child(3) {
+          height: fit-content;
+          border-radius: 10px;
+          @include adaptive-value-tablet(border-radius, 10);
+          @include adaptive-value-large-desktop(border-radius, 10);
+          padding: 5px;
+          @include adaptive-value-tablet(padding-top, 5);
+          @include adaptive-value-tablet(padding-bottom, 5);
+          @include adaptive-value-tablet(padding-left, 5);
+          @include adaptive-value-tablet(padding-right, 5);
+          @include adaptive-value-large-desktop(padding-top, 5);
+          @include adaptive-value-large-desktop(padding-bottom, 5);
+          @include adaptive-value-large-desktop(padding-left, 5);
+          @include adaptive-value-large-desktop(padding-right, 5);
+        }
+
+        > div {
+          > div {
+            font-size: 15px;
+            @include adaptive-value-tablet(font-size, 15);
+            @include adaptive-value-large-desktop(font-size, 15);
+            line-height: 18px;
+            @include adaptive-value-tablet(line-height, 18);
+            @include adaptive-value-large-desktop(line-height, 18);
+            letter-spacing: -0.361765px;
+            @include adaptive-value-tablet(letter-spacing, -0.361765);
+            @include adaptive-value-large-desktop(letter-spacing, -0.361765);
+          }
+        }
+      }
+
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 .btn-icon {
