@@ -138,12 +138,35 @@
 
 @media (min-width: 1024px) {
   .row {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
-    > *:first-child {
-      margin-right: 9px;
+    > div > input {
+      padding: 12px 20px;
+      font-size: 12px;
+      height: 38px;
     }
 
+    .select-group {
+      > div {
+        & > div {
+          height: 35px;
+
+          &:nth-child(3) {
+            padding: 5px;
+          }
+
+          > div {
+            > div {
+              font-size: 12px;
+            }
+          }
+        }
+
+        &:first-child {
+          margin-bottom: 5px;
+        }
+      }
+    }
   }
 
   .btn-icon {
@@ -167,7 +190,10 @@
     bottom: 0;
 
     button {
-      max-width: 228px;
+      padding: 10px 20px;
+      font-size: 12px;
+      line-height: 17px;
+      letter-spacing: -0.361765px;
     }
 
     .label {
@@ -181,6 +207,52 @@
 }
 
 @media (min-width: 1440px) {
+  .row {
+    margin-bottom: 15px;
+    @include adaptive-value-large-desktop(margin-bottom, 15);
+
+    > div > input {
+      padding: 12px 20px;
+      @include adaptive-value-large-desktop(padding-top, 12);
+      @include adaptive-value-large-desktop(padding-bottom, 12);
+      @include adaptive-value-large-desktop(padding-left, 20);
+      @include adaptive-value-large-desktop(padding-right, 20);
+      font-size: 15px;
+      @include adaptive-value-large-desktop(font-size, 15);
+      height: 42px;
+      @include adaptive-value-large-desktop(height, 42);
+    }
+
+    .select-group {
+      > div {
+        & > div {
+          height: 42px;
+          @include adaptive-value-large-desktop(height, 42);
+
+          &:nth-child(3) {
+            padding: 5px;
+            @include adaptive-value-large-desktop(padding-top, 5);
+            @include adaptive-value-large-desktop(padding-bottom, 5);
+            @include adaptive-value-large-desktop(padding-left, 5);
+            @include adaptive-value-large-desktop(padding-right, 5);
+          }
+
+          > div {
+            > div {
+              font-size: 15px;
+              @include adaptive-value-large-desktop(font-size, 15);
+            }
+          }
+        }
+
+        &:first-child {
+          margin-bottom: 15px;
+          @include adaptive-value-large-desktop(margin-bottom, 15);
+        }
+      }
+    }
+  }
+
   .btn-container {
     bottom: 0;
 

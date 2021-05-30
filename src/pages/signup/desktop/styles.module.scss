@@ -25,15 +25,47 @@
   }
 
   &:nth-child(2) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   &:nth-child(3) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   &:nth-child(4) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 28px;
+    line-height: 28px;
+    margin-bottom: 15px;
+  }
+
+  .wrapper {
+    width: 400px;
+    padding: 50px 20px 90px;
+  }
+
+  .container {
+    > * {
+      margin-bottom: 5px;
+    }
+
+    &:nth-child(3) {
+      > div > div:first-child > div:nth-child(2) {
+        > div:first-child span {
+          font-size: 16px;
+        }
+      }
+
+      > div > div:nth-child(2) {
+        font-size: 12px;
+        margin-top: 5px;
+      }
+    }
   }
 }
 
@@ -47,10 +79,47 @@
     @include adaptive-value-large-desktop(line-height, 49);
   }
 
+  .wrapper {
+    width: unset;
+    padding: 50px 20px 110px;
+    @include adaptive-value-large-desktop(padding-top, 50);
+    @include adaptive-value-large-desktop(padding-bottom, 110);
+    @include adaptive-value-large-desktop(padding-left, 20);
+    @include adaptive-value-large-desktop(padding-right, 20);
+  }
+
   .container {
+    > * {
+      margin-bottom: 15px;
+      @include adaptive-value-large-desktop(margin-bottom, 15);
+    }
+
     &:nth-child(3) {
       margin-bottom: 35px;
       @include adaptive-value-large-desktop(margin-bottom, 35);
+
+      > div > div:first-child > div:nth-child(2) {
+        > div:first-child span {
+          font-size: 23px;
+          @include adaptive-value-large-desktop(font-size, 23);
+          line-height: 27px;
+          @include adaptive-value-large-desktop(line-height, 27);
+          letter-spacing: -0.554706px;
+          @include adaptive-value-large-desktop(letter-spacing, -0.554706);
+        }
+      }
+
+      > div > div:nth-child(2) {
+        font-size: 16px;
+        @include adaptive-value-large-desktop(font-size, 16);
+        line-height: 19px;
+        @include adaptive-value-large-desktop(line-height, 19);
+        letter-spacing: -0.385882px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.385882);
+      }
+
+      @include adaptive-value-large-desktop(margin-bottom, 35);
+
       > div > div {
         > div:first-child {
           width: 52px !important;

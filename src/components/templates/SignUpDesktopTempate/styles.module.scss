@@ -11,6 +11,10 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
+    @media (max-height: 700px) and (max-width: 1440px) and (min-width: 1024px) {
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
   }
 
   .video-wrap {
@@ -33,6 +37,10 @@
     left: 70px;
     width: 142px;
     height: 36px;
+    @media (max-height: 700px) and (max-width: 1440px) and (min-width: 1024px) {
+      top: 35px;
+      left: 0;
+    }
   }
 }
 

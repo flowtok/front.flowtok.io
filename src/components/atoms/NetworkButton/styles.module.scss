@@ -51,17 +51,11 @@
     border: 1.5px solid #E5E5EA;
     border-radius: 30px;
     @include adaptive-value-large-desktop(border-radius, 30);
-    height: 48px;
-    @include adaptive-value-large-desktop(height, 48);
-    font-size: 15px;
-    @include adaptive-value-large-desktop(font-size, 15);
+    height: 38px;
+    font-size: 12px;
     line-height: 18px;
     @include adaptive-value-large-desktop(line-height, 18);
-    padding: 15px;
-    @include adaptive-value-large-desktop(padding-top, 15);
-    @include adaptive-value-large-desktop(padding-bottom, 15);
-    @include adaptive-value-large-desktop(padding-left, 15);
-    @include adaptive-value-large-desktop(padding-right, 15);
+    padding: 5px;
     letter-spacing: -0.361765px;
     @include adaptive-value-large-desktop(letter-spacing, -0.361765);
 
@@ -74,5 +68,19 @@
   }
   .icon-container {
     left: 15px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .network-button {
+    padding: 15px;
+    @include adaptive-value-large-desktop(padding-top, 15);
+    @include adaptive-value-large-desktop(padding-bottom, 15);
+    @include adaptive-value-large-desktop(padding-left, 15);
+    @include adaptive-value-large-desktop(padding-right, 15);
+    height: 35px;
+    @include adaptive-value-large-desktop(height, 48);
+    font-size: 15px;
+    @include adaptive-value-large-desktop(font-size, 15);
   }
 }
