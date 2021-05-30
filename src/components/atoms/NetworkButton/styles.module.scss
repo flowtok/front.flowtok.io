@@ -35,6 +35,7 @@
 .icon-container {
   position: absolute;
   left: 15px;
+
   @include adaptive-value-tablet(left, 15);
   display: flex;
   align-items: center;
@@ -55,6 +56,7 @@
     line-height: 18px;
     padding: 15px;
     letter-spacing: -0.361765px;
+
     &_light {
       height: fit-content;
       width: fit-content;
@@ -64,5 +66,32 @@
   }
   .icon-container {
     left: 15px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .network-button {
+    &_light {
+      &:first-child img {
+        width: 48px;
+        @include adaptive-value-large-desktop(width, 48);
+        height: 28px;
+        @include adaptive-value-large-desktop(height, 28);
+      }
+
+      &:nth-child(2) img {
+        width: 33px;
+        @include adaptive-value-large-desktop(width, 33);
+        height: 28px;
+        @include adaptive-value-large-desktop(height, 28);
+      }
+
+      &:last-child img {
+        width: 28px;
+        @include adaptive-value-large-desktop(width, 28);
+        height: 28px;
+        @include adaptive-value-large-desktop(height, 28);
+      }
+    }
   }
 }

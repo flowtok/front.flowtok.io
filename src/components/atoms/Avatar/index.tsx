@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 export interface AvatarProps {
   image: string;
   /// @default 32px
-  size?: number;
+  size?: number | string;
 }
 
 export const Avatar = ({ image, size = 32 }: AvatarProps) => {

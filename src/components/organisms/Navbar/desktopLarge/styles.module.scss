@@ -1,4 +1,5 @@
 @import "src/styles/mixins";
+
 .wrapper {
   width: 470px;
   @include adaptive-value-large-desktop(width, 470);
@@ -17,11 +18,24 @@
   .logo {
     margin-bottom: 61px;
     @include adaptive-value-large-desktop(margin-bottom, 61);
+    width: 142px;
+    @include adaptive-value-large-desktop(width, 142);
+    height: 36px;
+    @include adaptive-value-large-desktop(height, 36);
   }
 
   .account {
     margin-bottom: 45px;
     @include adaptive-value-large-desktop(margin-bottom, 45);
+
+    > div {
+      > div:first-child {
+        width: 120px;
+        @include adaptive-value-large-desktop(width, 120);
+        height: 120px;
+        @include adaptive-value-large-desktop(height, 120);
+      }
+    }
   }
 
   .nav {
@@ -56,6 +70,7 @@
   .networks {
     width: fit-content;
     margin: 55px auto auto;
+    @include adaptive-value-large-desktop(margin-top, 55);
 
     > button:not(:last-child) {
       margin-right: 25px;

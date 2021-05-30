@@ -1,3 +1,5 @@
+@import "src/styles/mixins";
+
 .wrapper {
   position: fixed;
   bottom: 0;
@@ -10,6 +12,10 @@
     width: 100%;
     justify-content: space-between;
     padding: 11px 40px;
+    @include adaptive-value-tablet(padding-top, 11);
+    @include adaptive-value-tablet(padding-bottom, 11);
+    @include adaptive-value-tablet(padding-left, 40);
+    @include adaptive-value-tablet(padding-right, 40);
     background: #ffffff;
 
     &-item {
@@ -19,13 +25,17 @@
 
       svg {
         margin-bottom: 7px;
+        @include adaptive-value-tablet(margin-bottom, 7);
       }
 
       .label {
         font-size: 10px;
+        @include adaptive-value-tablet(font-size, 10);
         line-height: 12px;
+        @include adaptive-value-tablet(line-height, 12);
         text-align: center;
         letter-spacing: 0.12px;
+        @include adaptive-value-tablet(letter-spacing, 0.12);
       }
     }
 
@@ -35,6 +45,4 @@
       }
     }
   }
-
-
 }
