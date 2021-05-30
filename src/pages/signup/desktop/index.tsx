@@ -39,7 +39,7 @@ export default ({}: SignUpDesktopPropsT) => {
         <div className={styles['container']}>
           <TikTokProfile
             profileData={{
-              fullName: 'karinakrosssafsdgdsfgdfqwqwewq',
+              fullName: 'karinakrosssa',
               shortName: '@karinakross',
               avatar,
             }}
