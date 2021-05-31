@@ -94,6 +94,10 @@
             weight: bold;
           };
           @include adaptive-value-large-desktop(font-size, 32);
+          line-height: 37px;
+          @include adaptive-value-large-desktop(line-height, 37);
+          letter-spacing: -0.771765px;
+          @include adaptive-value-large-desktop(letter-spacing, -0.771765);
         }
       }
 

@@ -47,6 +47,20 @@
     @include adaptive-value-large-desktop(padding-bottom, 50);
     align-items: baseline;
 
+    a {
+      display: flex;
+      align-items: center;
+
+      svg {
+        &:first-child {
+          width: 23px;
+          @include adaptive-value-large-desktop(width, 23);
+          height: 26px;
+          @include adaptive-value-large-desktop(height, 26);
+        }
+      }
+    }
+
     > a:first-child, > span {
       margin-bottom: 50px;
       @include adaptive-value-large-desktop(margin-bottom, 50);

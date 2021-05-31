@@ -177,9 +177,9 @@
       > div {
         > div:first-child {
           > div:first-child {
-            width: 34px !important;
+            width: 34px;
             @include adaptive-value-small-desktop(width, 34);
-            height: 34px !important;
+            height: 34px;
             @include adaptive-value-small-desktop(height, 34);
           }
 
@@ -315,9 +315,9 @@
         > div:first-child {
 
           > div:first-child {
-            width: 52px !important;
+            width: 52px;
             @include adaptive-value-large-desktop(width, 52);
-            height: 52px !important;
+            height: 52px;
             @include adaptive-value-large-desktop(height, 52);
           }
 
@@ -330,6 +330,8 @@
                 @include adaptive-value-large-desktop(letter-spacing, -0.554706);
                 margin-bottom: 4px;
                 @include adaptive-value-large-desktop(margin-bottom, 4);
+                line-height: 27px;
+                @include adaptive-value-large-desktop(line-height, 27);
               }
             }
 

@@ -1,18 +1,25 @@
+@import "src/styles/mixins";
+
 .notification {
   position: relative;
 
   > span {
     position: absolute;
     top: -13px;
+    @include adaptive-value-large-desktop(top, -13);
     left: 12px;
+    @include adaptive-value-large-desktop(left, 12);
     width: 26px;
+    @include adaptive-value-large-desktop(width, 26);
     background: #FF3B30;
     height: 26px;
+    @include adaptive-value-large-desktop(height, 26);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 15px;
+    @include adaptive-value-large-desktop(font-size, 15);
     color: #fff;
     border: 2px solid;
   }
