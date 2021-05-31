@@ -18,7 +18,7 @@
 .switch-track .switch-circle {
   content: '';
   position: absolute;
-  left: 2px;
+  left: 0;
   width: 24px;
   height: 24px;
   border-radius: 45px;
@@ -60,15 +60,20 @@
 
 @media (min-width: 1024px) {
   .switch-track .switch-circle {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px
   }
   .switch-wrapper {
     width: 28px;
   }
   .switch-track {
-    width: 28px;
-    height: 9px;
+    width: 32px;
+    height: 12px;
+  }
+  .switch-wrapper {
+    .label {
+      top: calc(50% - 12px);
+    }
   }
 }
 

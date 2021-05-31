@@ -21,6 +21,12 @@
     margin-bottom: 10px;
     @include adaptive-value-tablet(margin-bottom, 10);
   }
+
+  > div > input {
+    padding: 12px 20px;
+    font-size: 12px;
+    height: 38px;
+  }
 }
 
 .row {
@@ -42,6 +48,7 @@
     color: #2B44F2;
     max-width: 124px;
     @include adaptive-value-tablet(max-width, 124);
+    cursor: pointer;
   }
 }
 
@@ -106,8 +113,15 @@
 
 @media (min-width: 1024px) {
   .btn-row {
-    height: 42px;
-    @include adaptive-value-large-desktop(height, 42);
+    height: 36px;
+    @include adaptive-value-large-desktop(height, 36);
+
+    button {
+      padding: 10px 20px;
+      font-size: 12px;
+      line-height: 12px;
+      letter-spacing: -0.361765px;
+    }
 
     > *:first-child {
       margin-right: 10px;
@@ -122,7 +136,6 @@
   }
 
   .row {
-    align-items: unset;
 
     .link {
       font-size: 16px;
@@ -133,6 +146,43 @@
       @include adaptive-value-large-desktop(letter-spacing, -0.385882);
       max-width: 124px;
       @include adaptive-value-large-desktop(max-width, 124);
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .btn-row {
+    height: 42px;
+    @include adaptive-value-large-desktop(height, 42);
+
+    button {
+      padding: 12px 30px;
+      @include adaptive-value-large-desktop(padding-top, 12);
+      @include adaptive-value-large-desktop(padding-bottom, 12);
+      @include adaptive-value-large-desktop(padding-left, 30);
+      @include adaptive-value-large-desktop(padding-right, 30);
+      max-width: unset;
+      font-size: 15px;
+      @include adaptive-value-large-desktop(font-size, 15);
+      line-height: 15px;
+      @include adaptive-value-large-desktop(line-height, 15);
+      letter-spacing: -0.361765px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.361765);
+      border-radius: 21px;
+      @include adaptive-value-large-desktop(border-radius, 21);
+    }
+  }
+  .form {
+    > div > input {
+      padding: 12px 20px;
+      @include adaptive-value-large-desktop(padding-top, 12);
+      @include adaptive-value-large-desktop(padding-bottom, 12);
+      @include adaptive-value-large-desktop(padding-left, 20);
+      @include adaptive-value-large-desktop(padding-right, 20);
+      font-size: 15px;
+      @include adaptive-value-large-desktop(font-size, 15);
+      height: 42px;
+      @include adaptive-value-large-desktop(height, 42);
     }
   }
 }

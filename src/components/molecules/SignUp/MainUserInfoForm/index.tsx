@@ -53,6 +53,7 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
       const color = chroma(data.color);
       return {
         ...styles,
+        zIndex: 990,
         backgroundColor: isDisabled
           ? null
           : isSelected

@@ -17,6 +17,7 @@
     flex-direction: column;
 
     > div {
+
       & > div {
         height: 42px;
         @include adaptive-value-tablet(height, 42);
@@ -40,6 +41,7 @@
           @include adaptive-value-large-desktop(padding-bottom, 5);
           @include adaptive-value-large-desktop(padding-left, 5);
           @include adaptive-value-large-desktop(padding-right, 5);
+          z-index: 5;
         }
 
         > div {
@@ -104,7 +106,7 @@
   align-items: center;
   left: 0;
   right: 0;
-  z-index: 3;
+  //z-index: 0;
 
   button {
     max-width: 228px;
@@ -225,6 +227,7 @@
 
     .select-group {
       > div {
+
         & > div {
           height: 42px;
           @include adaptive-value-large-desktop(height, 42);

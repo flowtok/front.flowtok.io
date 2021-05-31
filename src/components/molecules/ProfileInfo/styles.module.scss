@@ -44,18 +44,18 @@
       }
 
       .title {
+        font-weight: bold;
         font-size: 23px;
         @include adaptive-value-tablet(font-size, 23);
         line-height: 27px;
         @include adaptive-value-tablet(line-height, 27);
         letter-spacing: -0.554706px;
         @include adaptive-value-tablet(letter-spacing, -0.554706);
-        margin-bottom: 4px;
-        @include adaptive-value-tablet(margin-bottom-top, 4);
       }
     }
 
     .subtitle {
+      color: #8E8E93;
       font-size: 13px;
       @include adaptive-value-tablet(font-size, 13);
       line-height: 16px;
