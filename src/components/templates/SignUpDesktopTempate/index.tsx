@@ -21,7 +21,7 @@ export const SignUpDesktopTemplate: FC<SignUpTemplatePropsT> = ({
   video,
 }) => {
   const { mp4, ogv, webm } = video;
-  const isDesktop = useMediaQuery({ query: '(min-height: 700px)' });
+  const isDesktop = useMediaQuery({ query: '(min-height: 750px)' });
   return (
     <div
       className={cn(styles['wrapper'], { [styles['reversed']]: isReversed })}
