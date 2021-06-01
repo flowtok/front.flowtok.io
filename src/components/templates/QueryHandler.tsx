@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { QueryResult } from '@apollo/client';
 import { ApolloError } from '@apollo/client/errors';
 
 export type QueryHandlerPropsT = {
