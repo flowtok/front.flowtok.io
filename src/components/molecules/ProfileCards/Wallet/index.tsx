@@ -6,11 +6,12 @@ import ClockIcon from 'assets/common/icons/clock.svg';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
 import { useState } from 'react';
-import { BalanceType, HistoryItem } from './HistoryItem';
+import { HistoryItem } from './HistoryItem';
 import { HistoryPopUp } from './HistoryPopUp';
 import { WithdrawalPopUp } from './WithdrawalPopUp';
 import { useMediaQuery } from 'react-responsive';
 import { VerificationPopup } from '../../VerificationPopup';
+import { HistoryItemType } from '../../../../models/models';
 
 export interface WalletCardProps {
   balance: string;
@@ -26,9 +27,9 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
 
   /*will be deleted*/
   const history: HistoryItem[] = [
-    { value: '9 112.90', date: '30.08.2021', type: BalanceType.inc },
-    { value: '1 112.90', date: '30.08.2020', type: BalanceType.dec },
-    { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
+    { value: '9 112.90', date: '30.08.2021', type: HistoryItemType.Inc },
+    { value: '1 112.90', date: '30.08.2020', type: HistoryItemType.Dec },
+    { value: '112.90', date: '30.08.2023', type: HistoryItemType.Dec },
   ];
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
@@ -40,7 +41,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         className={styles.history}
         onClick={() => setOpenHistoryPopUp(true)}
       >
-        <img src={ClockIcon} />
+        <img src={ClockIcon} alt={''} />
       </button>
     );
   }

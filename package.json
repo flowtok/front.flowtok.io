@@ -100,7 +100,8 @@
     "test": "node scripts/test.js",
     "adaptive-tablet": "node adaptivescript.js tablet",
     "adaptive-small-desktop": "node adaptivescript.js small-desktop",
-    "adaptive-large-desktop": "node adaptivescript.js large-desktop"
+    "adaptive-large-desktop": "node adaptivescript.js large-desktop",
+    "generate-models": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": [
@@ -121,6 +122,7 @@
     ]
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.21.5",
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
@@ -135,7 +137,11 @@
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "2.2.1",
     "sass": "^1.32.8",
-    "sass-loader": "10.1.1"
+    "sass-loader": "10.1.1",
+    "@graphql-codegen/typescript-operations": "1.18.0",
+    "@graphql-codegen/typescript": "1.22.1",
+    "@graphql-codegen/typescript-react-apollo": "2.2.5",
+    "@graphql-codegen/introspection": "1.18.2"
   },
   "jest": {
     "roots": [

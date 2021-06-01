@@ -20,10 +20,14 @@ type User {
     ref_earnings: String!
     history: [HistoryItem]!
 }
+enum HistoryItemType {
+    dec
+    inc
+}
 type HistoryItem {
     value: String!
     date: String!
-    type: String!
+    type: HistoryItemType!
 }
 type Task {
     id: ID!

@@ -2,14 +2,18 @@ const { ApolloServer } = require('apollo-server');
 const resolvers = require('./resolvers/resolvers');
 const { GraphQLFileLoader } = require('@graphql-tools/graphql-file-loader');
 const { loadSchema } = require('@graphql-tools/load');
+const { addResolversToSchema } = require('@graphql-tools/schema');
 
-loadSchema('./schemas/*.graphql', {
-  // load from multiple files using glob
+loadSchema('./schemas/schemas.graphql', {
   loaders: [new GraphQLFileLoader()],
 }).then((schema) => {
-  const server = new ApolloServer({
-    resolvers,
+  const schemaWithResolvers = addResolversToSchema({
     schema,
+    resolvers,
+  });
+
+  const server = new ApolloServer({
+    schema: schemaWithResolvers,
   });
 
   server.listen().then(({ url }) => {

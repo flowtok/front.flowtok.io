@@ -14,10 +14,11 @@ import { useTranslation } from 'react-i18next';
 import commonStyles from '../../../components/molecules/SettingsCards/styles.module.scss';
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
 import { gql, useQuery } from '@apollo/client';
+import { QueryUserArgs, User } from '../../../models/models';
 
 const USER = gql`
-  query getUser {
-    user(id: "2") {
+  query getUser($id: ID!) {
+    user(id: $id) {
       balance
       avg_views
       price
@@ -27,32 +28,31 @@ const USER = gql`
       ref_link
       ref_count
       ref_earnings
-      history
+      history {
+        value
+        date
+        type
+      }
     }
   }
 `;
 
-type UserDataT {
-
-}
-
-// const history: HistoryItem[] = [
-//   { value: '9 112.90', date: '30.08.2021', type: BalanceType.inc },
-//   { value: '1 112.90', date: '30.08.2020', type: BalanceType.dec },
-//   { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
-//   { value: '112.90', date: '30.08.2023', type: BalanceType.inc },
-//   { value: '1 112.90', date: '30.08.2020', type: BalanceType.dec },
-//   { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
-//   { value: '112.90', date: '30.08.2023', type: BalanceType.inc },
-// ];
-
 export default () => {
   const { t } = useTranslation();
-  const { loading, error, data } = useQuery(USER);
+  const { loading, error, data } = useQuery<{ user: User }, QueryUserArgs>(
+    USER,
+    {
+      variables: {
+        id: '1',
+      },
+    }
+  );
 
   if (loading) return <>Loading...</>;
 
   if (error) return <>Error: {error.message}</>;
+
+  if (!data) return <></>;
 
   const {
     balance,
@@ -66,7 +66,6 @@ export default () => {
     held_money,
     history,
   } = data.user;
-
   return (
     <PageTemplateDesktop>
       <div className={styles['wrapper']}>
@@ -81,12 +80,15 @@ export default () => {
               {t('pages.profile.wallet.popup-title')}
             </h3>
             <div className={styles['history-window']}>
-              {history.map((h, key) => (
-                <>
-                  <HistoryItem item={h} key={'history-item-' + key} />
-                  {history.length !== 1 && <Divider />}
-                </>
-              ))}
+              {history?.map(
+                (h, key) =>
+                  h && (
+                    <>
+                      <HistoryItem item={h} key={'history-item-' + key} />
+                      {history.length !== 1 && <Divider />}
+                    </>
+                  )
+              )}
             </div>
           </Paper>
         </div>
