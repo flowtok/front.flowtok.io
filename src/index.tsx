@@ -1,24 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
-
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/store';
 import i18n from './i18n';
 import './styles/index.scss';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: 'http://localhost:4000',
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <ApolloProvider client={client}>
       <I18nextProvider i18n={i18n}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </I18nextProvider>
-    </Provider>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
