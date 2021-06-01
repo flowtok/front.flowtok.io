@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import styles from './styles.module.scss';
 import cn from 'classnames';
 import logo from '../../../assets/common/icons/logo_desktop.svg';
+import logoMini from '../../../assets/common/icons/logo.svg';
+import { useMediaQuery } from 'react-responsive';
 
 type SignUpTemplatePropsT = {
   video: {
@@ -19,12 +21,16 @@ export const SignUpDesktopTemplate: FC<SignUpTemplatePropsT> = ({
   video,
 }) => {
   const { mp4, ogv, webm } = video;
-
+  const isDesktop = useMediaQuery({ query: '(min-height: 750px)' });
   return (
     <div
       className={cn(styles['wrapper'], { [styles['reversed']]: isReversed })}
     >
-      <img src={logo} alt="" className={styles['logo']} />
+      <img
+        src={isDesktop ? logo : logoMini}
+        alt=""
+        className={styles['logo']}
+      />
       <div className={styles['child-container']}>{children}</div>
       <div className={styles['video-wrap']}>
         <video

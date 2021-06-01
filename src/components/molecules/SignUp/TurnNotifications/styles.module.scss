@@ -8,6 +8,7 @@
 
 .column {
   width: 100%;
+
   .title {
     margin-bottom: 5px;
     @include adaptive-value-tablet(margin-bottom, 5);
@@ -32,19 +33,27 @@
     opacity: 0.5;
   }
 }
+
 @media (min-width: 1024px) {
   .column {
     .title {
       margin-bottom: 5px;
+      @include adaptive-value-large-desktop(margin-bottom, 5);
       font-size: 15px;
+      @include adaptive-value-large-desktop(font-size, 15);
       line-height: 18px;
+      @include adaptive-value-large-desktop(line-height, 18);
       letter-spacing: -0.361765px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.361765);
     }
 
     .desc {
       font-size: 13px;
+      @include adaptive-value-large-desktop(font-size, 13);
       line-height: 15px;
+      @include adaptive-value-large-desktop(line-height, 15);
       letter-spacing: -0.313529px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.313529);
     }
   }
 }

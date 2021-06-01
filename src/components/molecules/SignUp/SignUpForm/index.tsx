@@ -21,7 +21,7 @@ export const SignUpForm: FC<SignUpFormPropsT> = ({}) => {
       <div className={styles['container']}>
         <TikTokProfile
           profileData={{
-            fullName: 'karinakrosssafsdgdsfgdfqwqwewq',
+            fullName: 'karinakrosssafsdg',
             shortName: '@karinakross',
             avatar,
           }}

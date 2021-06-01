@@ -46,17 +46,29 @@
 @media (min-width: 1024px) {
   .input {
     border-radius: 30px;
+    @include adaptive-value-large-desktop(border-radius, 30);
     border: 1px solid #E5E5EA;
     font-size: 15px;
+    @include adaptive-value-large-desktop(font-size, 15);
     line-height: 18px;
+    @include adaptive-value-large-desktop(line-height, 18);
     padding: 12px 16px;
+    @include adaptive-value-large-desktop(padding-top, 12);
+    @include adaptive-value-large-desktop(padding-bottom, 12);
+    @include adaptive-value-large-desktop(padding-left, 16);
+    @include adaptive-value-large-desktop(padding-right, 16);
     letter-spacing: -0.361765px;
+    @include adaptive-value-large-desktop(letter-spacing, -0.361765);
   }
   .error {
     font-size: 13px;
+    @include adaptive-value-large-desktop(font-size, 13);
     line-height: 15px;
+    @include adaptive-value-large-desktop(line-height, 15);
     letter-spacing: -0.313529px;
+    @include adaptive-value-large-desktop(letter-spacing, -0.313529);
     margin-top: 8px;
+    @include adaptive-value-large-desktop(margin-top, 8);
   }
 }
 

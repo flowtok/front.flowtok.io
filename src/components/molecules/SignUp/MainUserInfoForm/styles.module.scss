@@ -6,16 +6,64 @@
   width: 100%;
   margin-bottom: 10px;
   @include adaptive-value-tablet(margin-bottom, 10);
+  @include adaptive-value-large-desktop(margin-bottom, 10);
 
   > * {
     flex: 1 1 50%;
   }
 
-  > *:first-child {
-    margin-right: 9px;
-    @include adaptive-value-tablet(margin-right, 9);
-  }
+  .select-group {
+    display: flex;
+    flex-direction: column;
 
+    > div {
+
+      & > div {
+        height: 42px;
+        @include adaptive-value-tablet(height, 42);
+        @include adaptive-value-large-desktop(height, 42);
+        border-radius: 30px;
+        @include adaptive-value-tablet(border-radius, 30);
+        @include adaptive-value-large-desktop(border-radius, 30);
+        padding-left: 10px;
+
+        &:nth-child(3) {
+          height: fit-content;
+          border-radius: 10px;
+          @include adaptive-value-tablet(border-radius, 10);
+          @include adaptive-value-large-desktop(border-radius, 10);
+          padding: 5px;
+          @include adaptive-value-tablet(padding-top, 5);
+          @include adaptive-value-tablet(padding-bottom, 5);
+          @include adaptive-value-tablet(padding-left, 5);
+          @include adaptive-value-tablet(padding-right, 5);
+          @include adaptive-value-large-desktop(padding-top, 5);
+          @include adaptive-value-large-desktop(padding-bottom, 5);
+          @include adaptive-value-large-desktop(padding-left, 5);
+          @include adaptive-value-large-desktop(padding-right, 5);
+          z-index: 5;
+        }
+
+        > div {
+          > div {
+            font-size: 15px;
+            @include adaptive-value-tablet(font-size, 15);
+            @include adaptive-value-large-desktop(font-size, 15);
+            line-height: 18px;
+            @include adaptive-value-tablet(line-height, 18);
+            @include adaptive-value-large-desktop(line-height, 18);
+            letter-spacing: -0.361765px;
+            @include adaptive-value-tablet(letter-spacing, -0.361765);
+            @include adaptive-value-large-desktop(letter-spacing, -0.361765);
+          }
+        }
+      }
+
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 .btn-icon {
@@ -24,20 +72,26 @@
   &:first-child {
     width: 13px;
     @include adaptive-value-tablet(width, 13);
+    @include adaptive-value-large-desktop(width, 13);
     height: 21px;
     @include adaptive-value-tablet(height, 21);
+    @include adaptive-value-large-desktop(height, 21);
     top: 14px;
     @include adaptive-value-tablet(top, 14);
+    @include adaptive-value-large-desktop(top, 14);
     left: 10%;
   }
 
   &:last-child {
     width: 25px;
     @include adaptive-value-tablet(width, 25);
+    @include adaptive-value-large-desktop(width, 25);
     height: 25px;
     @include adaptive-value-tablet(height, 25);
+    @include adaptive-value-large-desktop(height, 25);
     top: 10.5px;
     @include adaptive-value-tablet(top, 10.5);
+    @include adaptive-value-large-desktop(top, 10.5);
     left: 9%;
   }
 }
@@ -46,44 +100,75 @@
   position: absolute;
   bottom: 20px;
   @include adaptive-value-tablet(bottom, 20);
+  @include adaptive-value-large-desktop(bottom, 20);
   display: flex;
   flex-direction: column;
   align-items: center;
   left: 0;
   right: 0;
-  z-index: 3;
+  //z-index: 0;
 
   button {
     max-width: 228px;
     @include adaptive-value-tablet(max-width, 228);
+    @include adaptive-value-large-desktop(max-width, 228);
   }
 
   .label {
     margin-top: 12px;
     @include adaptive-value-tablet(margin-top, 12);
+    @include adaptive-value-large-desktop(margin-top, 12);
     font-weight: 300;
     font-size: 11px;
     @include adaptive-value-tablet(font-size, 11);
+    @include adaptive-value-large-desktop(font-size, 11);
     line-height: 13px;
     @include adaptive-value-tablet(line-height, 13);
+    @include adaptive-value-large-desktop(line-height, 13);
     text-align: center;
     letter-spacing: -0.265294px;
+    @include adaptive-value-tablet(letter-spacing, -0.265294);
+    @include adaptive-value-large-desktop(letter-spacing, -0.265294);
     color: #1D1D1D;
     mix-blend-mode: normal;
     opacity: 0.5;
     max-width: 302px;
     @include adaptive-value-tablet(max-width, 302);
+    @include adaptive-value-large-desktop(max-width, 302);
   }
 }
 
 @media (min-width: 1024px) {
   .row {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
-    > *:first-child {
-      margin-right: 9px;
+    > div > input {
+      padding: 12px 20px;
+      font-size: 12px;
+      height: 38px;
     }
 
+    .select-group {
+      > div {
+        & > div {
+          height: 35px;
+
+          &:nth-child(3) {
+            padding: 5px;
+          }
+
+          > div {
+            > div {
+              font-size: 12px;
+            }
+          }
+        }
+
+        &:first-child {
+          margin-bottom: 5px;
+        }
+      }
+    }
   }
 
   .btn-icon {
@@ -107,7 +192,10 @@
     bottom: 0;
 
     button {
-      max-width: 228px;
+      padding: 10px 20px;
+      font-size: 12px;
+      line-height: 17px;
+      letter-spacing: -0.361765px;
     }
 
     .label {
@@ -116,6 +204,87 @@
       line-height: 13px;
       letter-spacing: -0.265294px;
       max-width: 302px;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .row {
+    margin-bottom: 15px;
+    @include adaptive-value-large-desktop(margin-bottom, 15);
+
+    > div > input {
+      padding: 12px 20px;
+      @include adaptive-value-large-desktop(padding-top, 12);
+      @include adaptive-value-large-desktop(padding-bottom, 12);
+      @include adaptive-value-large-desktop(padding-left, 20);
+      @include adaptive-value-large-desktop(padding-right, 20);
+      font-size: 15px;
+      @include adaptive-value-large-desktop(font-size, 15);
+      height: 42px;
+      @include adaptive-value-large-desktop(height, 42);
+    }
+
+    .select-group {
+      > div {
+
+        & > div {
+          height: 42px;
+          @include adaptive-value-large-desktop(height, 42);
+
+          &:nth-child(3) {
+            padding: 5px;
+            @include adaptive-value-large-desktop(padding-top, 5);
+            @include adaptive-value-large-desktop(padding-bottom, 5);
+            @include adaptive-value-large-desktop(padding-left, 5);
+            @include adaptive-value-large-desktop(padding-right, 5);
+          }
+
+          > div {
+            > div {
+              font-size: 15px;
+              @include adaptive-value-large-desktop(font-size, 15);
+            }
+          }
+        }
+
+        &:first-child {
+          margin-bottom: 15px;
+          @include adaptive-value-large-desktop(margin-bottom, 15);
+        }
+      }
+    }
+  }
+
+  .btn-container {
+    bottom: 0;
+
+    button {
+      padding: 15px 40px;
+      @include adaptive-value-large-desktop(padding-top, 15);
+      @include adaptive-value-large-desktop(padding-bottom, 15);
+      @include adaptive-value-large-desktop(padding-left, 40);
+      @include adaptive-value-large-desktop(padding-right, 40);
+      max-width: unset;
+      font-size: 15px;
+      @include adaptive-value-large-desktop(font-size, 15);
+      line-height: 18px;
+      @include adaptive-value-large-desktop(line-height, 18);
+      letter-spacing: -0.361765px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.361765);
+    }
+
+    .label {
+      margin-top: 12px;
+      @include adaptive-value-large-desktop(margin-top, 12);
+      font-size: 11px;
+      @include adaptive-value-large-desktop(font-size, 11);
+      line-height: 13px;
+      @include adaptive-value-large-desktop(line-height, 13);
+      letter-spacing: -0.265294px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.265294);
+      max-width: 302px;
+      @include adaptive-value-large-desktop(max-width, 302);
     }
   }
 }

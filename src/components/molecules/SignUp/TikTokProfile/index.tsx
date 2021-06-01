@@ -52,10 +52,10 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
           placeholder={t('pages.signup.placeholders.link')}
         />
         <div className={styles['btn-row']}>
-          <Button preset={'white'} size={'ssm'} radius={21}>
+          <Button preset={'white'} size={'ssm'}>
             {t('pages.signup.buttons.tiktok')}
           </Button>
-          <Button preset={'black'} size={'ssm'} radius={21} type={'submit'}>
+          <Button preset={'black'} size={'ssm'} type={'submit'}>
             {t('pages.signup.buttons.confirm')}
           </Button>
         </div>
