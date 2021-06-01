@@ -18,9 +18,9 @@ import commonStyles from '../../../components/molecules/SettingsCards/styles.mod
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
 import { gql, useQuery } from '@apollo/client';
 
-const USERS = gql`
-  query getUsers {
-    users {
+const USER = gql`
+  query getUser {
+    user(id: "2") {
       balance
       avg_views
       price
@@ -46,7 +46,7 @@ const history: HistoryItem[] = [
 
 export default () => {
   const { t } = useTranslation();
-  const { loading, error, data } = useQuery(USERS);
+  const { loading, error, data } = useQuery(USER);
 
   if (loading) return <>Loading...</>;
 
@@ -62,7 +62,7 @@ export default () => {
     ref_link,
     price,
     held_money,
-  } = data.users[0];
+  } = data.user;
 
   return (
     <PageTemplateDesktop>

@@ -2,7 +2,8 @@ const User = `
   type Query {
     "Get users array"
     users: [User]
-  }
+    user(id: ID!): User!
+  } 
   type User {
     id: ID!
     name: String!
