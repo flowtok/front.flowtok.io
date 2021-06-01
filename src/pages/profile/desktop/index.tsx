@@ -7,10 +7,7 @@ import {
   TotalEarningsCard,
   WalletCard,
 } from '../../../components/molecules/ProfileCards';
-import {
-  BalanceType,
-  HistoryItem,
-} from '../../../components/molecules/ProfileCards/Wallet/HistoryItem';
+import { HistoryItem } from '../../../components/molecules/ProfileCards/Wallet/HistoryItem';
 import { Divider } from '../../../components/atoms/Divider';
 import { Paper } from '../../../components/atoms/Paper';
 import { useTranslation } from 'react-i18next';
@@ -30,19 +27,24 @@ const USER = gql`
       ref_link
       ref_count
       ref_earnings
+      history
     }
   }
 `;
 
-const history: HistoryItem[] = [
-  { value: '9 112.90', date: '30.08.2021', type: BalanceType.inc },
-  { value: '1 112.90', date: '30.08.2020', type: BalanceType.dec },
-  { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
-  { value: '112.90', date: '30.08.2023', type: BalanceType.inc },
-  { value: '1 112.90', date: '30.08.2020', type: BalanceType.dec },
-  { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
-  { value: '112.90', date: '30.08.2023', type: BalanceType.inc },
-];
+type UserDataT {
+
+}
+
+// const history: HistoryItem[] = [
+//   { value: '9 112.90', date: '30.08.2021', type: BalanceType.inc },
+//   { value: '1 112.90', date: '30.08.2020', type: BalanceType.dec },
+//   { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
+//   { value: '112.90', date: '30.08.2023', type: BalanceType.inc },
+//   { value: '1 112.90', date: '30.08.2020', type: BalanceType.dec },
+//   { value: '112.90', date: '30.08.2023', type: BalanceType.dec },
+//   { value: '112.90', date: '30.08.2023', type: BalanceType.inc },
+// ];
 
 export default () => {
   const { t } = useTranslation();
@@ -62,6 +64,7 @@ export default () => {
     ref_link,
     price,
     held_money,
+    history,
   } = data.user;
 
   return (

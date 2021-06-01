@@ -1,10 +1,9 @@
-const User = `
-  type Query {
-    "Get users array"
+type Query {
     users: [User]
     user(id: ID!): User!
-  } 
-  type User {
+    tasks: [Task]
+}
+type User {
     id: ID!
     name: String!
     tagname: String!
@@ -20,12 +19,17 @@ const User = `
     ref_count: Int!
     ref_earnings: String!
     history: [HistoryItem]!
-  }
-  type HistoryItem {
-    value: String! 
+}
+type HistoryItem {
+    value: String!
     date: String!
     type: String!
-  }
-`;
-
-module.exports = User;
+}
+type Task {
+    id: ID!
+    title: String!
+    description: String!
+    promo: String!
+    price: Float!
+    state: String!
+}

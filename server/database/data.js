@@ -14,6 +14,15 @@ const users = [
     ref_link: 'https://flowtok.com/ref/23i14ssg433s5rtgsd435',
     ref_count: 311,
     ref_earnings: '3 431.5 ₽',
+    history: [
+      { value: '9 112.90', date: '30.08.2021', type: 'inc' },
+      { value: '1 112.90', date: '30.08.2020', type: 'dec' },
+      { value: '112.90', date: '30.08.2023', type: 'inc' },
+      { value: '112.90', date: '30.08.2023', type: 'inc' },
+      { value: '1 112.90', date: '30.08.2020', type: 'dec' },
+      { value: '112.90', date: '30.08.2023', type: 'inc' },
+      { value: '112.90', date: '30.08.2023', type: 'dec' },
+    ],
   },
   {
     id: '2',
@@ -30,6 +39,15 @@ const users = [
     ref_link: 'https://flowtok.com/ref/1471gb71bv1d1s12accv',
     ref_count: 319,
     ref_earnings: '32 431.5 ₽',
+    history: [
+      { value: '91 112.90', date: '30.08.2001', type: 'inc' },
+      { value: '1 112.90', date: '30.08.2020', type: 'dec' },
+      { value: '112.90', date: '30.08.2023', type: 'inc' },
+      { value: '1122.93', date: '30.08.2013', type: 'dec' },
+      { value: '1 112.90', date: '30.08.2020', type: 'dec' },
+      { value: '112.90', date: '30.08.2023', type: 'inc' },
+      { value: '11 223', date: '30.08.2023', type: 'dec' },
+    ],
   },
 ];
 
