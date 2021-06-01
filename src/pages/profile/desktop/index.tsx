@@ -13,59 +13,22 @@ import { Paper } from '../../../components/atoms/Paper';
 import { useTranslation } from 'react-i18next';
 import commonStyles from '../../../components/molecules/SettingsCards/styles.module.scss';
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
-import { gql, useQuery } from '@apollo/client';
-import { QueryUserArgs, User } from '../../../models/models';
+import { User } from '../../../models/models';
 
-const USER = gql`
-  query getUser($id: ID!) {
-    user(id: $id) {
-      balance
-      avg_views
-      price
-      good_rate
-      held_money
-      total_earnings
-      ref_link
-      ref_count
-      ref_earnings
-      history {
-        value
-        date
-        type
-      }
-    }
-  }
-`;
-
-export default () => {
+export default ({
+  balance,
+  avg_views,
+  ref_count,
+  ref_earnings,
+  total_earnings,
+  good_rate,
+  ref_link,
+  price,
+  held_money,
+  history,
+}: User) => {
   const { t } = useTranslation();
-  const { loading, error, data } = useQuery<{ user: User }, QueryUserArgs>(
-    USER,
-    {
-      variables: {
-        id: '1',
-      },
-    }
-  );
 
-  if (loading) return <>Loading...</>;
-
-  if (error) return <>Error: {error.message}</>;
-
-  if (!data) return <></>;
-
-  const {
-    balance,
-    avg_views,
-    ref_count,
-    ref_earnings,
-    total_earnings,
-    good_rate,
-    ref_link,
-    price,
-    held_money,
-    history,
-  } = data.user;
   return (
     <PageTemplateDesktop>
       <div className={styles['wrapper']}>
