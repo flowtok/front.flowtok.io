@@ -34,7 +34,7 @@ export default () => {
     USER,
     {
       variables: {
-        id: '1',
+        id: '2',
       },
     }
   );

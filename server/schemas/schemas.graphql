@@ -37,3 +37,10 @@ type Task {
     price: Float!
     state: String!
 }
+input UserNameInput {
+    name: String!
+    id: ID!
+}
+type Mutation {
+    updateUserName(input: UserNameInput): User
+}

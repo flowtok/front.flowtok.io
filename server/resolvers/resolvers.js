@@ -6,6 +6,17 @@ const resolvers = {
       return users.filter((user) => user.id === id)[0];
     },
   },
+  Mutation: {
+    updateUserName: (parent, { input }, context) => {
+      const { id, name } = input;
+      users.forEach((user) => {
+        if (user.id === id) {
+          user.name = name;
+        }
+      });
+      return users.filter((user) => user.id === id)[0];
+    },
+  },
 };
 
 module.exports = resolvers;
