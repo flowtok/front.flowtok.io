@@ -4,7 +4,7 @@ const { GraphQLFileLoader } = require('@graphql-tools/graphql-file-loader');
 const { loadSchema } = require('@graphql-tools/load');
 const { addResolversToSchema } = require('@graphql-tools/schema');
 
-loadSchema('./schemas/schemas.graphql', {
+loadSchema('./schemas/*.graphql', {
   loaders: [new GraphQLFileLoader()],
 }).then((schema) => {
   const schemaWithResolvers = addResolversToSchema({

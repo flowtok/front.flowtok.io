@@ -6,12 +6,8 @@ import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import i18n from './i18n';
 import './styles/index.scss';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  uri: 'http://localhost:4000',
-});
+import { client } from 'api/apollo';
+import { ApolloProvider } from '@apollo/client';
 
 ReactDOM.render(
   <React.StrictMode>
