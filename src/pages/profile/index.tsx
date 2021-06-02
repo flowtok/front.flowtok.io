@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import ProfileDesktop from './desktop/index';
 import ProfileMobile from './mobile/index';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { QueryUserArgs, User } from '../../models/models';
 import { QueryHandler } from '../../components/templates/QueryHandler';
 import { USER } from '../../api/queries';
