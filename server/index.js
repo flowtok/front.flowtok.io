@@ -24,7 +24,3 @@ loadSchema('./schemas/*.graphql', {
   `);
   });
 });
-
-
-
-

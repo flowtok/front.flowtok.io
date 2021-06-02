@@ -23,20 +23,15 @@
 
 @media (min-width: 1024px) {
   .wrap-content {
-    width: 300px;
-    @include adaptive-value-small-desktop(width, 300);
+    width: 380px;
     margin: 0 auto;
 
     > h3 {
       text-align: center;
       font-size: 17px;
-      @include adaptive-value-small-desktop(font-size, 17);
       line-height: 21px;
-      @include adaptive-value-small-desktop(line-height, 21);
       letter-spacing: -0.41px;
-      @include adaptive-value-small-desktop(letter-spacing, -0.41);
       margin-bottom: 15px;
-      @include adaptive-value-small-desktop(margin-bottom, 15);
     }
   }
 }
@@ -46,24 +41,6 @@
     width: unset;
     margin: 0 auto;
     padding: 55px 60px;
-    @include adaptive-value-large-desktop(padding-top, 55);
-    @include adaptive-value-large-desktop(padding-bottom, 55);
-    @include adaptive-value-large-desktop(padding-left, 60);
-    @include adaptive-value-large-desktop(padding-right, 60);
-  }
-
-  .close {
-    top: 25px;
-    @include adaptive-value-large-desktop(top, 25);
-    right: 25px;
-    @include adaptive-value-large-desktop(right, 25);
-
-    > img {
-      width: 12px;
-      @include adaptive-value-large-desktop(width, 12);
-      height: 12px;
-      @include adaptive-value-large-desktop(height, 12);
-    }
   }
 
   .wrap-content_s {
