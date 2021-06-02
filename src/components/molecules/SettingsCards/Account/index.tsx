@@ -8,8 +8,9 @@ import styles from './styles.module.scss';
 import { useForm } from 'react-hook-form';
 import { TikTokProfile } from '../../SignUp/TikTokProfile';
 import AvatarMock from '../../../../assets/common/images/avatar_mock.png';
-import { gql, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { MutationUpdateUserNameArgs, User } from '../../../../models/models';
+import { UPDATE_NAME } from '../../../../api/mutations';
 
 export interface AccountCardProps {
   username: string;
@@ -24,14 +25,6 @@ type FormDataT = {
   age: number;
   country: string;
 };
-
-const UPDATE_NAME = gql`
-  mutation updateUserName($input: UserNameInput) {
-    updateUserName(input: $input) {
-      name
-    }
-  }
-`;
 
 export const AccountCard = ({
   username,

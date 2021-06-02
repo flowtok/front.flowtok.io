@@ -6,27 +6,7 @@ import ProfileMobile from './mobile/index';
 import { gql, useQuery } from '@apollo/client';
 import { QueryUserArgs, User } from '../../models/models';
 import { QueryHandler } from '../../components/templates/QueryHandler';
-
-const USER = gql`
-  query getUser($id: ID!) {
-    user(id: $id) {
-      balance
-      avg_views
-      price
-      good_rate
-      held_money
-      total_earnings
-      ref_link
-      ref_count
-      ref_earnings
-      history {
-        value
-        date
-        type
-      }
-    }
-  }
-`;
+import { USER } from '../../api/queries';
 
 export default () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
