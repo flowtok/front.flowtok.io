@@ -7,6 +7,7 @@ import { Button } from '../../../atoms/Button';
 import Select from 'react-select';
 import { Option } from 'react-select/src/filters';
 import chroma from 'chroma-js';
+import { Link } from 'react-router-dom';
 
 type FormPropsT = any;
 type FormDataT = {
@@ -129,9 +130,11 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
         </div>
       </div>
       <div className={styles['btn-container']}>
-        <Button preset={'black'} type={'submit'}>
-          {t('pages.signup.buttons.flowtok')}
-        </Button>
+        <Link to={'/profile'}>
+          <Button preset={'black'} type={'submit'}>
+            {t('pages.signup.buttons.flowtok')}
+          </Button>
+        </Link>
         <div className={styles['label']}>{t('pages.signup.agreement')}</div>
       </div>
     </form>
