@@ -21,11 +21,9 @@
 
     > li {
       font-size: 17px;
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-tablet(font-size, 17); 
+ 	    @include adaptive-value-large-desktop(font-size, 17);
       line-height: 26px;
- 	@include adaptive-value-small-desktop(line-height, 26); 
- 	@include adaptive-value-tablet(line-height, 26); 
+ 	    @include adaptive-value-large-desktop(line-height, 26);
       color: #252525;
     }
   }

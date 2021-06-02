@@ -1,6 +1,17 @@
+@import "src/styles/mixins";
+
+
 .wrap-content {
   width: calc(100vw - 40px);
   padding: 40px 20px 30px 20px;
+  @include adaptive-value-tablet(padding-top, 40);
+  @include adaptive-value-tablet(padding-bottom, 30);
+  @include adaptive-value-tablet(padding-left, 20);
+  @include adaptive-value-tablet(padding-right, 20);
+  @include adaptive-value-small-desktop(padding-top, 40);
+  @include adaptive-value-small-desktop(padding-bottom, 30);
+  @include adaptive-value-small-desktop(padding-left, 20);
+  @include adaptive-value-small-desktop(padding-right, 20);
   margin: 0 auto;
 }
 
@@ -14,14 +25,19 @@
 @media (min-width: 1024px) {
   .wrap-content {
     width: 300px;
+    @include adaptive-value-small-desktop(width, 300);
     margin: 0 auto;
 
     > h3 {
       text-align: center;
       font-size: 17px;
+      @include adaptive-value-small-desktop(font-size, 17);
       line-height: 21px;
+      @include adaptive-value-small-desktop(line-height, 21);
       letter-spacing: -0.41px;
+      @include adaptive-value-small-desktop(letter-spacing, -0.41);
       margin-bottom: 15px;
+      @include adaptive-value-small-desktop(margin-bottom, 15);
     }
   }
 }
@@ -31,32 +47,51 @@
     width: unset;
     margin: 0 auto;
     padding: 55px 60px;
+    @include adaptive-value-large-desktop(padding-top, 55);
+    @include adaptive-value-large-desktop(padding-bottom, 55);
+    @include adaptive-value-large-desktop(padding-left, 60);
+    @include adaptive-value-large-desktop(padding-right, 60);
   }
 
   .wrap-content_s {
     width: 460px;
+    @include adaptive-value-large-desktop(width, 460);
 
     > h3 {
       font-size: 26px;
+      @include adaptive-value-large-desktop(font-size, 26);
       line-height: 30px;
+      @include adaptive-value-large-desktop(line-height, 30);
       letter-spacing: -0.627059px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.627059);
       margin-bottom: 30px;
+      @include adaptive-value-large-desktop(margin-bottom, 30);
     }
   }
 
   .wrap-content_m {
     width: 1065px;
+    @include adaptive-value-large-desktop(width, 1065);
   }
 
   .wrap-content_sm {
     width: 510px;
+    @include adaptive-value-large-desktop(width, 510);
     padding: 55px 50px;
+    @include adaptive-value-large-desktop(padding-top, 55);
+    @include adaptive-value-large-desktop(padding-bottom, 55);
+    @include adaptive-value-large-desktop(padding-left, 50);
+    @include adaptive-value-large-desktop(padding-right, 50);
 
     > h3 {
       font-size: 26px;
+      @include adaptive-value-large-desktop(font-size, 26);
       line-height: 30px;
+      @include adaptive-value-large-desktop(line-height, 30);
       letter-spacing: -0.627059px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.627059);
       margin-bottom: 30px;
+      @include adaptive-value-large-desktop(margin-bottom, 30);
     }
   }
 }
