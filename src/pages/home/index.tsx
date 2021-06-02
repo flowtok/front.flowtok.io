@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next';
-
+import React from 'react';
 import { Button } from 'components/atoms/Button';
 import { HomeInteractive } from 'components/molecules/HomeInteractive';
 import { PageTemplate } from 'components/templates/Page';
 
 import styles from './styles.module.scss';
+import { Link } from 'react-router-dom';
 
 export default () => {
   const { t } = useTranslation();
@@ -15,7 +16,9 @@ export default () => {
         <div className={styles['top-block']}>
           <h1 className={styles.title}>{t('pages.home.title')}</h1>
           <p className={styles.description}>{t('pages.home.description')}</p>
-          <Button>{t('pages.home.signin-button-text')}</Button>
+          <Link to={'/login'}>
+            <Button>{t('pages.home.signin-button-text')}</Button>
+          </Link>
         </div>
         <HomeInteractive />
         <div className={styles['bottom-block']}>
