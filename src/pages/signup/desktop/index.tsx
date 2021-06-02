@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import { AuthenticationTemplate } from '../../../components/templates/SignUpDesktopTempate';
+import { AuthenticationTemplate } from '../../../components/templates/AuthenticationTemplate';
 import videoMp4 from '../../../assets/login/videos/login_video.mp4';
 import videoOgv from '../../../assets/login/videos/login_video.ogv';
 import videoWebm from '../../../assets/login/videos/login_video.webm';

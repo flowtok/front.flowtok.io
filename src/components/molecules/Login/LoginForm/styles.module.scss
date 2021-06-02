@@ -73,8 +73,9 @@
 
 @media (min-width: 1024px) {
   .sign-in {
+    justify-content: center;
     width: 300px;
-    padding: 37px 15px 82px;
+    padding: 37px 15px;
   }
   .sign-up-btn {
     padding: 11px 30px;
