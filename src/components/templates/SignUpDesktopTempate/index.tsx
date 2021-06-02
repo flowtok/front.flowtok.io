@@ -15,7 +15,7 @@ type SignUpTemplatePropsT = {
   isWhiteLogo?: boolean;
 };
 
-export const SignUpDesktopTemplate: FC<SignUpTemplatePropsT> = ({
+export const AuthenticationTemplate: FC<SignUpTemplatePropsT> = ({
   children,
   isReversed,
   video,
