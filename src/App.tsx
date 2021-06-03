@@ -7,6 +7,8 @@ import SignUpPage from './pages/signup';
 import TasksPage from './pages/tasks';
 import LoginPage from './pages/login';
 import SettingsPage from './pages/settings';
+import { DonePopUpContent } from './components/molecules/PaymentMethodNotifications';
+import { PopUp } from './components/molecules/PopUp';
 
 export const App = () => {
   return (
