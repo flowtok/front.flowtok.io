@@ -65,6 +65,9 @@
     width: 17px;
     height: 17px
   }
+  .switch-track:active .switch-circle {
+    width: 23px;
+  }
   .switch-wrapper {
     width: 28px;
   }
@@ -85,6 +88,9 @@
     @include adaptive-value-large-desktop(width, 24);
     height: 24px;
     @include adaptive-value-large-desktop(height, 24);
+  }
+  .switch-track:active .switch-circle {
+    width: 30px;
   }
   .switch-wrapper {
     width: 45px;

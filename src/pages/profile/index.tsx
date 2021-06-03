@@ -1,6 +1,5 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-
 import ProfileDesktop from './desktop/index';
 import ProfileMobile from './mobile/index';
 import { gql, useQuery } from '@apollo/client';
