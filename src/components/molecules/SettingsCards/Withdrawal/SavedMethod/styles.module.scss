@@ -51,17 +51,54 @@
     .saved_method {
       width: 100%;
 
+      & > div:first-child > p {
+        font-size: 15px;
+        @include adaptive-value-large-desktop(font-size, 15);
+        line-height: 18px;
+        @include adaptive-value-large-desktop(line-height, 18);
+        letter-spacing: -0.361765px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.361765);
+      }
+
+      & > div:last-child {
+        font-size: 17px;
+        @include adaptive-value-large-desktop(font-size, 15);
+        line-height: 20px;
+        @include adaptive-value-large-desktop(line-height, 20);
+        letter-spacing: -0.41px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.41);
+      }
+
       &-active {
         width: 100%;
-      }
-    }
 
-    .delete-method {
-      background: transparent;
-      margin-left: 20px;
-      @include adaptive-value-large-desktop(margin-left, 20);
-      height: fit-content;
-      width: fit-content;
+        & > div:first-child > p {
+          font-size: 15px;
+          @include adaptive-value-large-desktop(font-size, 15);
+          line-height: 18px;
+          @include adaptive-value-large-desktop(line-height, 18);
+          letter-spacing: -0.361765px;
+          @include adaptive-value-large-desktop(letter-spacing, -0.361765);
+        }
+
+        & > div:last-child {
+          font-size: 17px;
+          @include adaptive-value-large-desktop(font-size, 15);
+          line-height: 20px;
+          @include adaptive-value-large-desktop(line-height, 20);
+          letter-spacing: -0.41px;
+          @include adaptive-value-large-desktop(letter-spacing, -0.41);
+        }
+      }
+
+
+      .delete-method {
+        background: transparent;
+        margin-left: 20px;
+        @include adaptive-value-large-desktop(margin-left, 20);
+        height: fit-content;
+        width: fit-content;
+      }
     }
   }
 }

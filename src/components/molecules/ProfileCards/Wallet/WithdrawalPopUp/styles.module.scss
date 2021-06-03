@@ -1,122 +1,103 @@
 @import "src/styles/mixins";
+
 .methods-list {
   > p {
     margin-bottom: 15px;
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
+    @include adaptive-value-large-desktop(margin-bottom, 15);
   }
 }
+
 .form-withdrawal {
   margin-top: 15px;
- 	@include adaptive-value-small-desktop(margin-top, 15); 
- 	@include adaptive-value-small-desktop(margin-top, 15); 
+  @include adaptive-value-large-desktop(margin-top, 15);
 
   .payment-method {
     margin-bottom: 5px;
- 	@include adaptive-value-small-desktop(margin-bottom, 5); 
- 	@include adaptive-value-small-desktop(margin-bottom, 5); 
+    @include adaptive-value-large-desktop(margin-bottom, 5);
 
     .methods-btn_group {
       & > p {
-        background: #000;
         margin-bottom: 15px;
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
- 	@include adaptive-value-small-desktop(margin-bottom, 15); 
+        @include adaptive-value-large-desktop(margin-bottom, 15);
       }
     }
   }
 
   .methods-list {
     & > p {
+      font-size: 17px;
+      @include adaptive-value-large-desktop(font-size, 17);
+      line-height: 20px;
+      @include adaptive-value-large-desktop(line-height, 20);
+      letter-spacing: -0.41px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.41);
       margin-bottom: 15px;
+      @include adaptive-value-large-desktop(margin-bottom, 15);
     }
   }
 
   .balance-info {
     margin: 15px 0;
+    @include adaptive-value-large-desktop(margin-top, 15);
+    @include adaptive-value-large-desktop(margin-bottom, 15);
     display: flex;
     justify-content: space-between;
 
     & > p:last-child {
       font-size: 19px;
- 	@include adaptive-value-small-desktop(font-size, 19); 
- 	@include adaptive-value-small-desktop(font-size, 19); 
+      @include adaptive-value-large-desktop(font-size, 19);
       line-height: 22px;
- 	@include adaptive-value-small-desktop(line-height, 22); 
- 	@include adaptive-value-small-desktop(line-height, 22); 
+      @include adaptive-value-large-desktop(line-height, 22);
       letter-spacing: -0.458235px;
- 	@include adaptive-value-small-desktop(letter-spacing, -0.458235); 
- 	@include adaptive-value-small-desktop(letter-spacing, -0.458235); 
+      @include adaptive-value-large-desktop(letter-spacing, -0.458235);
       color: #24C054;
     }
   }
 
   .sum {
     margin-bottom: 15px;
+    @include adaptive-value-large-desktop(margin-bottom, 15);
   }
 }
 
 
 .sum-input {
   margin-bottom: 15px;
+  @include adaptive-value-large-desktop(margin-bottom, 10);
 }
 
 .all-sum {
   padding: 12px;
- 	@include adaptive-value-small-desktop(padding-top, 12);
-           
- 	@include adaptive-value-small-desktop(padding-left, 12);
-           
- 	@include adaptive-value-small-desktop(padding-right, 12);
-           
- 	@include adaptive-value-small-desktop(padding-bottom, 12); 
- 	@include adaptive-value-small-desktop(padding-top, 12);
-           
- 	@include adaptive-value-small-desktop(padding-left, 12);
-           
- 	@include adaptive-value-small-desktop(padding-right, 12);
-           
- 	@include adaptive-value-small-desktop(padding-bottom, 12); 
+  @include adaptive-value-large-desktop(padding-top, 12);
+  @include adaptive-value-large-desktop(padding-left, 12);
+  @include adaptive-value-large-desktop(padding-right, 12);
+  @include adaptive-value-large-desktop(padding-bottom, 12);
   width: 100%;
   margin-bottom: 10px;
- 	@include adaptive-value-small-desktop(margin-bottom, 10); 
- 	@include adaptive-value-small-desktop(margin-bottom, 10); 
+  @include adaptive-value-large-desktop(margin-bottom, 10);
 }
 
 .success-btn {
   width: 100%;
   margin-top: 15px;
- 	@include adaptive-value-small-desktop(margin-top, 15); 
- 	@include adaptive-value-small-desktop(margin-top, 15); 
+  @include adaptive-value-large-desktop(margin-top, 15);
 }
 
 @media (min-width: 1440px) {
   .success-btn {
     font-size: 17px;
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-small-desktop(font-size, 17); 
+    @include adaptive-value-large-desktop(font-size, 17);
   }
   .methods-btn_group {
     > p {
       margin-bottom: 23px;
- 	@include adaptive-value-small-desktop(margin-bottom, 23); 
- 	@include adaptive-value-small-desktop(margin-bottom, 23); 
+      @include adaptive-value-large-desktop(margin-bottom, 23);
     }
   }
   .methods-list {
     > p {
-
       margin-bottom: 23px;
- 	@include adaptive-value-small-desktop(margin-bottom, 23); 
- 	@include adaptive-value-small-desktop(margin-bottom, 23); 
+      @include adaptive-value-large-desktop(margin-bottom, 23);
     }
   }
   .form-container {
@@ -129,34 +110,22 @@
 
       .sum {
         margin-bottom: 20px;
- 	@include adaptive-value-small-desktop(margin-bottom, 20); 
- 	@include adaptive-value-small-desktop(margin-bottom, 20); 
+        @include adaptive-value-large-desktop(margin-bottom, 20);
       }
 
       .balance-info {
         margin-top: 22px;
- 	@include adaptive-value-small-desktop(margin-top, 22); 
- 	@include adaptive-value-small-desktop(margin-top, 22); 
+        @include adaptive-value-large-desktop(margin-top, 22);
       }
     }
 
     .methods-btn_group {
       button:last-child {
         padding: 9px 14px;
- 	@include adaptive-value-small-desktop(padding-top, 9);
-           
- 	@include adaptive-value-small-desktop(padding-left, 14);
-           
- 	@include adaptive-value-small-desktop(padding-right, 14);
-           
- 	@include adaptive-value-small-desktop(padding-bottom, 9); 
- 	@include adaptive-value-small-desktop(padding-top, 9);
-           
- 	@include adaptive-value-small-desktop(padding-left, 14);
-           
- 	@include adaptive-value-small-desktop(padding-right, 14);
-           
- 	@include adaptive-value-small-desktop(padding-bottom, 9); 
+        @include adaptive-value-large-desktop(padding-top, 9);
+        @include adaptive-value-large-desktop(padding-left, 14);
+        @include adaptive-value-large-desktop(padding-right, 14);
+        @include adaptive-value-large-desktop(padding-bottom, 9);
         margin-top: 0;
       }
     }
@@ -170,24 +139,13 @@
 
     button:last-child {
       padding: 16px 74px;
- 	@include adaptive-value-small-desktop(padding-top, 16);
-           
- 	@include adaptive-value-small-desktop(padding-left, 74);
-           
- 	@include adaptive-value-small-desktop(padding-right, 74);
-           
- 	@include adaptive-value-small-desktop(padding-bottom, 16); 
- 	@include adaptive-value-small-desktop(padding-top, 16);
-           
- 	@include adaptive-value-small-desktop(padding-left, 74);
-           
- 	@include adaptive-value-small-desktop(padding-right, 74);
-           
- 	@include adaptive-value-small-desktop(padding-bottom, 16); 
+      @include adaptive-value-large-desktop(padding-top, 16);
+      @include adaptive-value-large-desktop(padding-left, 74);
+      @include adaptive-value-large-desktop(padding-right, 74);
+      @include adaptive-value-large-desktop(padding-bottom, 16);
       width: fit-content;
       margin-top: 20px;
- 	@include adaptive-value-small-desktop(margin-top, 20); 
- 	@include adaptive-value-small-desktop(margin-top, 20); 
+      @include adaptive-value-large-desktop(margin-top, 20);
     }
   }
 
@@ -201,32 +159,21 @@
 
       .methods-btn_group {
         margin-bottom: 20px;
- 	@include adaptive-value-small-desktop(margin-bottom, 20); 
- 	@include adaptive-value-small-desktop(margin-bottom, 20); 
+        @include adaptive-value-large-desktop(margin-bottom, 20);
 
         > p {
           font-size: 17px;
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-small-desktop(font-size, 17); 
- 	@include adaptive-value-small-desktop(font-size, 17); 
+          @include adaptive-value-large-desktop(font-size, 17);
           line-height: 20px;
- 	@include adaptive-value-small-desktop(line-height, 20); 
- 	@include adaptive-value-small-desktop(line-height, 20); 
+          @include adaptive-value-large-desktop(line-height, 20);
           letter-spacing: -0.41px;
- 	@include adaptive-value-small-desktop(letter-spacing, -0.41); 
- 	@include adaptive-value-small-desktop(letter-spacing, -0.41); 
+          @include adaptive-value-large-desktop(letter-spacing, -0.41);
         }
       }
 
       .methods-list {
         margin-bottom: 10px;
- 	@include adaptive-value-small-desktop(margin-bottom, 10); 
- 	@include adaptive-value-small-desktop(margin-bottom, 10); 
+        @include adaptive-value-large-desktop(margin-bottom, 10);
       }
     }
 
@@ -234,16 +181,17 @@
       .balance-info {
         > p:first-child {
           font-size: 17px;
+          @include adaptive-value-large-desktop(font-size, 17);
         }
 
         margin-bottom: 22px;
- 	@include adaptive-value-small-desktop(margin-bottom, 22); 
- 	@include adaptive-value-small-desktop(margin-bottom, 22); 
+        @include adaptive-value-large-desktop(margin-bottom, 22);
       }
 
       .sum {
         > p {
           font-size: 17px;
+          @include adaptive-value-large-desktop(font-size, 17);
         }
       }
     }
@@ -251,7 +199,9 @@
     .popup-inputs {
       > button:first-child {
         font-size: 17px;
+        @include adaptive-value-large-desktop(font-size, 17);
         margin-bottom: 15px;
+        @include adaptive-value-large-desktop(margin-bottom, 15);
       }
     }
   }

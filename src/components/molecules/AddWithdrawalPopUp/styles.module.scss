@@ -1,3 +1,5 @@
+@import "src/styles/mixins";
+
 .popup-wrapper {
   display: flex;
   flex-direction: column;
@@ -34,21 +36,37 @@
   .popup-wrapper {
     .popup-input {
       margin-bottom: 15px;
+      @include adaptive-value-large-desktop(margin-bottom, 15);
 
       input {
         padding: 12px 20px;
+        @include adaptive-value-large-desktop(padding-top, 12);
+        @include adaptive-value-large-desktop(padding-bottom, 12);
+        @include adaptive-value-large-desktop(padding-left, 20);
+        @include adaptive-value-large-desktop(padding-right, 20);
         font-size: 15px;
+        @include adaptive-value-large-desktop(font-size, 15);
         line-height: 18px;
+        @include adaptive-value-large-desktop(line-height, 18);
         letter-spacing: -0.361765px;
+        @include adaptive-value-large-desktop(letter-spacing, -0.361765);
       }
     }
 
     > button {
       border-radius: 21px;
+      @include adaptive-value-large-desktop(border-radius, 21);
       font-size: 15px;
+      @include adaptive-value-large-desktop(font-size, 15);
       line-height: 18px;
+      @include adaptive-value-large-desktop(line-height, 18);
       letter-spacing: -0.361765px;
+      @include adaptive-value-large-desktop(letter-spacing, -0.361765);
       padding: 12px 40px;
+      @include adaptive-value-large-desktop(padding-top, 12);
+      @include adaptive-value-large-desktop(padding-bottom, 12);
+      @include adaptive-value-large-desktop(padding-left, 40);
+      @include adaptive-value-large-desktop(padding-right, 40);
     }
   }
 }
