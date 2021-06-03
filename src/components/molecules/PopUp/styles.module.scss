@@ -23,8 +23,8 @@
 
 @media (min-width: 1024px) {
   .wrap-content {
-    width: 300px;
-    @include adaptive-value-small-desktop(width, 300);
+    width: 380px;
+    @include adaptive-value-small-desktop(width, 380);
     margin: 0 auto;
 
     > h3 {
