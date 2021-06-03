@@ -32,6 +32,9 @@
         width: 26px;
         @include adaptive-value-tablet(width, 26);
         @include adaptive-value-large-desktop(width, 26);
+        min-width: 26px;
+        @include adaptive-value-tablet(min-width, 26);
+        @include adaptive-value-large-desktop(min-width, 26);
         height: 26px;
         @include adaptive-value-tablet(height, 26);
         @include adaptive-value-large-desktop(height, 26);

@@ -29,7 +29,7 @@ export interface ButtonProps
   // @default = 'm'
   size?: ButtonSizeUnionType;
   // @default = 42
-  radius?: number;
+  radius?: number | null;
 }
 
 export const Button = forwardRef<
@@ -55,11 +55,17 @@ export const Button = forwardRef<
       className
     );
 
-    const finalStyle = {
+    let finalStyle = {
       ...style,
-      borderRadius: style.borderRadius || radius,
-      '--gradient-border-radius': `${radius - 2}px`,
+      '--gradient-border-radius': `${radius ?? 14 - 2}px`,
     };
+
+    if (radius) {
+      finalStyle = {
+        ...finalStyle,
+        borderRadius: style.borderRadius || radius,
+      };
+    }
 
     return (
       <button

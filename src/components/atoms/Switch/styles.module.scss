@@ -1,3 +1,5 @@
+@import "src/styles/mixins";
+
 .switch-checkbox {
   display: none;
 }
@@ -80,13 +82,18 @@
 @media (min-width: 1440px) {
   .switch-track .switch-circle {
     width: 24px;
+    @include adaptive-value-large-desktop(width, 24);
     height: 24px;
+    @include adaptive-value-large-desktop(height, 24);
   }
   .switch-wrapper {
     width: 45px;
+    @include adaptive-value-large-desktop(width, 45);
   }
   .switch-track {
     width: 45px;
+    @include adaptive-value-large-desktop(width, 45);
     height: 15px;
+    @include adaptive-value-large-desktop(height, 15);
   }
 }

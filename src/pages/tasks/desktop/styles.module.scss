@@ -58,9 +58,9 @@
     .task-outter-wrapper {
       width: 584px;
       @include adaptive-value-small-desktop(width, 584);
-      height: calc(100vh - 92px);
+      height: calc(100vh - 85px);
       @media (min-height: 665px) {
-        height: calc(100vh - 130px);
+        height: calc(100vh - 115px);
       }
 
       > div:not(:last-child) {
@@ -98,7 +98,7 @@
     .task-outter-wrapper {
       width: 880px;
       @include adaptive-value-large-desktop(width, 880);
-      height: calc(100vh - 203px);
+      height: calc(100vh - 145px);
     }
 
     .disable-message {
