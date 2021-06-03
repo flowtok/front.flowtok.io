@@ -17,7 +17,6 @@
 
     .methods-btn_group {
       & > p {
-        background: #000;
         margin-bottom: 15px;
         @include adaptive-value-large-desktop(margin-bottom, 15);
       }

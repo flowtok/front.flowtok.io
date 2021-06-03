@@ -1,6 +1,5 @@
 @import "src/styles/mixins";
 
-
 .wrap-content {
   width: calc(100vw - 40px);
   padding: 40px 20px 30px 20px;
@@ -51,6 +50,20 @@
     @include adaptive-value-large-desktop(padding-bottom, 55);
     @include adaptive-value-large-desktop(padding-left, 60);
     @include adaptive-value-large-desktop(padding-right, 60);
+  }
+
+  .close {
+    top: 25px;
+    @include adaptive-value-large-desktop(top, 25);
+    right: 25px;
+    @include adaptive-value-large-desktop(right, 25);
+
+    > img {
+      width: 12px;
+      @include adaptive-value-large-desktop(width, 12);
+      height: 12px;
+      @include adaptive-value-large-desktop(height, 12);
+    }
   }
 
   .wrap-content_s {
