@@ -63,6 +63,9 @@
     width: 17px;
     height: 17px
   }
+  .switch-track:active .switch-circle {
+    width: 23px;
+  }
   .switch-wrapper {
     width: 28px;
   }
@@ -81,6 +84,9 @@
   .switch-track .switch-circle {
     width: 24px;
     height: 24px;
+  }
+  .switch-track:active .switch-circle {
+    width: 30px;
   }
   .switch-wrapper {
     width: 45px;
