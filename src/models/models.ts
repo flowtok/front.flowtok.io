@@ -17,6 +17,13 @@ export type Scalars = {
   Float: number;
 };
 
+export type GeneralSettings = {
+  __typename?: 'GeneralSettings';
+  facebook?: Maybe<Scalars['String']>;
+  telegram?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
+};
+
 export type HistoryItem = {
   __typename?: 'HistoryItem';
   value: Scalars['String'];
@@ -34,6 +41,7 @@ export type Query = {
   users?: Maybe<Array<Maybe<User>>>;
   user: User;
   tasks?: Maybe<Array<Maybe<Task>>>;
+  generalSettings?: Maybe<GeneralSettings>;
 };
 
 export type QueryUserArgs = {
@@ -54,6 +62,7 @@ export type User = {
   __typename?: 'User';
   id: Scalars['ID'];
   name: Scalars['String'];
+  user_image: Scalars['String'];
   tagname: Scalars['String'];
   age: Scalars['Int'];
   country: Scalars['String'];

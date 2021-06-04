@@ -2,10 +2,12 @@ type Query {
     users: [User]
     user(id: ID!): User!
     tasks: [Task]
+    generalSettings: GeneralSettings
 }
 type User {
     id: ID!
     name: String!
+    user_image: String!
     tagname: String!
     age: Int!
     country: String!
@@ -20,6 +22,7 @@ type User {
     ref_earnings: String!
     history: [HistoryItem]!
 }
+
 enum HistoryItemType {
     dec
     inc
@@ -36,4 +39,9 @@ type Task {
     promo: String!
     price: Float!
     state: String!
+}
+type GeneralSettings {
+    facebook: String
+    telegram: String
+    instagram: String
 }

@@ -2,6 +2,7 @@ const users = [
   {
     id: '1',
     name: 'Ketty Bounce',
+    user_image: `https://robohash.org/1?set=set4`,
     tagname: '@prettykitty',
     age: 21,
     country: 'Ukraine',
@@ -27,6 +28,7 @@ const users = [
   {
     id: '2',
     name: 'Michael Root',
+    user_image: `https://robohash.org/2?set=set4`,
     tagname: '@coolman',
     age: 27,
     country: 'Russia',
@@ -51,6 +53,13 @@ const users = [
   },
 ];
 
+const generalSettings = {
+  facebook: 'https://www.facebook.com/',
+  telegram: 'https://web.telegram.org',
+  instagram: 'https://www.instagram.com/'
+};
+
 module.exports = {
   users,
+  generalSettings
 };
