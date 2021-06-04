@@ -17,9 +17,12 @@
     @media (min-width: 430px) {
       max-width: 180px;
     }
-    @media (min-width: 600px) {
+    @media (min-width: 600px) and (max-width: 1440px) {
       max-width: 280px;
     }
+
+    @include adaptive-value-large-desktop(max-width, 220);
+    
 
     .title-group {
       display: flex;
