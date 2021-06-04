@@ -1,8 +1,7 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, PropsWithChildren } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.scss';
 import logo from 'assets/common/icons/logo_desktop.svg';
-import AvatarMock from '../../../../assets/common/images/avatar_mock.png';
 import { ProfileInfo } from '../../../molecules/ProfileInfo';
 import { Divider } from '../../../atoms/Divider';
 import { ProfileIcon } from '../Icons/ProfileIcon';
@@ -11,23 +10,34 @@ import { TasksIcon } from '../Icons/TasksIcon';
 import { SettingsIcon } from '../Icons/SettingsIcon';
 import { useTranslation } from 'react-i18next';
 import { NetworkButton } from '../../../atoms/NetworkButton';
+import { GeneralSettings, User } from '../../../../models/models';
 
-export const NavbarDesktopLarge = forwardRef<HTMLDivElement>(({}, ref) => {
+interface DesktopLargeProps {
+  data: { user: User; generalSettings: GeneralSettings };
+}
+
+export const NavbarDesktopLarge = forwardRef<
+  HTMLDivElement,
+  PropsWithChildren<DesktopLargeProps>
+>(({ data }, ref) => {
   const { pathname } = useLocation();
   const { t } = useTranslation();
 
-  /*will be deleted*/
-  const blogger = {
-    fullName: 'karinakross',
-    shortName: '@karinakross',
-    avatar: AvatarMock,
-  };
   return (
     <div className={styles['wrapper']} ref={ref}>
       <div>
         <img src={logo} className={styles['logo']} />
         <div className={styles['account']}>
-          <ProfileInfo profileData={{ ...blogger }} isActivated={true} />
+          <ProfileInfo
+            profileData={{
+              ...{
+                fullName: data.user?.name,
+                shortName: data.user?.tagname,
+                avatar: data.user?.user_image,
+              },
+            }}
+            isActivated={true}
+          />
         </div>
         <Divider />
         <div className={styles['nav']}>
