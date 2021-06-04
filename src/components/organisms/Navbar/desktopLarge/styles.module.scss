@@ -30,10 +30,12 @@
 
     > div {
       > div:first-child {
-        width: 120px;
-        @include adaptive-value-large-desktop(width, 120);
-        height: 120px;
-        @include adaptive-value-large-desktop(height, 120);
+        min-width: 120px;
+        @include adaptive-value-large-desktop(min-width, 120);
+        min-height: 120px;
+        @include adaptive-value-large-desktop(min-height, 120);
+        width: 100%;
+        height: 100%;
       }
     }
   }
