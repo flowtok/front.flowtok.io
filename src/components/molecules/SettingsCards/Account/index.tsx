@@ -8,6 +8,9 @@ import styles from './styles.module.scss';
 import { useForm } from 'react-hook-form';
 import { TikTokProfile } from '../../SignUp/TikTokProfile';
 import AvatarMock from '../../../../assets/common/images/avatar_mock.png';
+import { useMutation } from '@apollo/client';
+import { MutationUpdateUserNameArgs, User } from '../../../../models/models';
+import { UPDATE_NAME } from '../../../../api/mutations';
 
 export interface AccountCardProps {
   username: string;
@@ -22,6 +25,7 @@ type FormDataT = {
   age: number;
   country: string;
 };
+
 export const AccountCard = ({
   username,
   tagname,
@@ -37,7 +41,22 @@ export const AccountCard = ({
     formState: { errors },
   } = useForm<FormDataT>();
 
-  const onSubmit = (data: FormDataT) => console.log(data);
+  const [updateUserName] = useMutation<User, MutationUpdateUserNameArgs>(
+    UPDATE_NAME
+  );
+
+  const onSubmit = (data: FormDataT) => {
+    updateUserName({
+      variables: {
+        input: {
+          name: data.name,
+          id: '2',
+        },
+      },
+    }).then((data) => {
+      console.log(data);
+    });
+  };
 
   return (
     <Paper className={styles['account-card']}>
@@ -67,9 +86,13 @@ export const AccountCard = ({
           onSubmit={handleSubmit(onSubmit)}
           className={styles['info-block']}
         >
-          <Input visited={true} value={name} {...register('name')} />
-          <Input visited={true} value={age} {...register('age')} />
-          <Input visited={true} value={country} {...register('country')} />
+          <Input visited={true} defaultValue={name} {...register('name')} />
+          <Input visited={true} defaultValue={age} {...register('age')} />
+          <Input
+            visited={true}
+            defaultValue={country}
+            {...register('country')}
+          />
         </form>
       </div>
       <Divider />

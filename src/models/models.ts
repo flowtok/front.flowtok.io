@@ -29,6 +29,15 @@ export enum HistoryItemType {
   Inc = 'inc',
 }
 
+export type Mutation = {
+  __typename?: 'Mutation';
+  updateUserName?: Maybe<User>;
+};
+
+export type MutationUpdateUserNameArgs = {
+  input?: Maybe<UserNameInput>;
+};
+
 export type Query = {
   __typename?: 'Query';
   users?: Maybe<Array<Maybe<User>>>;
@@ -67,4 +76,9 @@ export type User = {
   ref_count: Scalars['Int'];
   ref_earnings: Scalars['String'];
   history: Array<Maybe<HistoryItem>>;
+};
+
+export type UserNameInput = {
+  name: Scalars['String'];
+  id: Scalars['ID'];
 };
