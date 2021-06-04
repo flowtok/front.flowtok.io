@@ -31,15 +31,12 @@
         font-weight: 500;
         font-size: 17px;
         @include adaptive-value-tablet(font-size, 17);
-        @include adaptive-value-small-desktop(font-size, 17);
         @include adaptive-value-large-desktop(font-size, 17);
         line-height: 20px;
         @include adaptive-value-tablet(line-height, 20);
-        @include adaptive-value-small-desktop(line-height, 20);
         @include adaptive-value-large-desktop(line-height, 20);
         letter-spacing: -0.41px;
         @include adaptive-value-tablet(letter-spacing, -0.41);
-        @include adaptive-value-small-desktop(letter-spacing, -0.41);
         @include adaptive-value-large-desktop(letter-spacing, -0.41);
         color: #000000;
         padding: 5px 0;
@@ -47,10 +44,6 @@
         @include adaptive-value-tablet(padding-left, 0);
         @include adaptive-value-tablet(padding-right, 0);
         @include adaptive-value-tablet(padding-bottom, 5);
-        @include adaptive-value-small-desktop(padding-top, 5);
-        @include adaptive-value-small-desktop(padding-left, 0);
-        @include adaptive-value-small-desktop(padding-right, 0);
-        @include adaptive-value-small-desktop(padding-bottom, 5);
         @include adaptive-value-large-desktop(padding-top, 5);
         @include adaptive-value-large-desktop(padding-left, 0);
         @include adaptive-value-large-desktop(padding-right, 0);
@@ -58,7 +51,6 @@
         vertical-align: middle;
         margin-right: 10px;
         @include adaptive-value-tablet(margin-right, 10);
-        @include adaptive-value-small-desktop(margin-right, 10);
         @include adaptive-value-large-desktop(margin-right, 10);
       }
 
@@ -72,15 +64,12 @@
       float: right;
       font-size: 13px;
       @include adaptive-value-tablet(font-size, 13);
-      @include adaptive-value-small-desktop(font-size, 13);
       @include adaptive-value-large-desktop(font-size, 13);
       line-height: 15px;
       @include adaptive-value-tablet(line-height, 15);
-      @include adaptive-value-small-desktop(line-height, 15);
       @include adaptive-value-large-desktop(line-height, 15);
       letter-spacing: -0.313529px;
       @include adaptive-value-tablet(letter-spacing, -0.313529);
-      @include adaptive-value-small-desktop(letter-spacing, -0.313529);
       @include adaptive-value-large-desktop(letter-spacing, -0.313529);
       color: #8E8E93;
     }
@@ -89,15 +78,12 @@
   & .description {
     font-size: 15px;
     @include adaptive-value-tablet(font-size, 15);
-    @include adaptive-value-small-desktop(font-size, 15);
     @include adaptive-value-large-desktop(font-size, 15);
     line-height: 19px;
     @include adaptive-value-tablet(line-height, 19);
-    @include adaptive-value-small-desktop(line-height, 19);
     @include adaptive-value-large-desktop(line-height, 19);
     letter-spacing: -0.361765px;
     @include adaptive-value-tablet(letter-spacing, -0.361765);
-    @include adaptive-value-small-desktop(letter-spacing, -0.361765);
     @include adaptive-value-large-desktop(letter-spacing, -0.361765);
     color: #8E8E93;
     padding: 10px 20px 10px 0;
@@ -105,10 +91,6 @@
     @include adaptive-value-tablet(padding-left, 0);
     @include adaptive-value-tablet(padding-right, 20);
     @include adaptive-value-tablet(padding-bottom, 10);
-    @include adaptive-value-small-desktop(padding-top, 10);
-    @include adaptive-value-small-desktop(padding-left, 0);
-    @include adaptive-value-small-desktop(padding-right, 20);
-    @include adaptive-value-small-desktop(padding-bottom, 10);
     @include adaptive-value-large-desktop(padding-top, 10);
     @include adaptive-value-large-desktop(padding-left, 0);
     @include adaptive-value-large-desktop(padding-right, 20);
@@ -124,10 +106,6 @@
     @include adaptive-value-tablet(padding-left, 0);
     @include adaptive-value-tablet(padding-right, 0);
     @include adaptive-value-tablet(padding-bottom, 11);
-    @include adaptive-value-small-desktop(padding-top, 11);
-    @include adaptive-value-small-desktop(padding-left, 0);
-    @include adaptive-value-small-desktop(padding-right, 0);
-    @include adaptive-value-small-desktop(padding-bottom, 11);
     @include adaptive-value-large-desktop(padding-top, 11);
     @include adaptive-value-large-desktop(padding-left, 0);
     @include adaptive-value-large-desktop(padding-right, 0);
@@ -136,15 +114,12 @@
     & .label {
       font-size: 15px;
       @include adaptive-value-tablet(font-size, 15);
-      @include adaptive-value-small-desktop(font-size, 15);
       @include adaptive-value-large-desktop(font-size, 15);
       line-height: 18px;
       @include adaptive-value-tablet(line-height, 18);
-      @include adaptive-value-small-desktop(line-height, 18);
       @include adaptive-value-large-desktop(line-height, 18);
       letter-spacing: -0.361765px;
       @include adaptive-value-tablet(letter-spacing, -0.361765);
-      @include adaptive-value-small-desktop(letter-spacing, -0.361765);
       @include adaptive-value-large-desktop(letter-spacing, -0.361765);
       color: #000000;
     }
@@ -154,7 +129,6 @@
       background: rgba(0, 186, 50, 0.183403);
       border-radius: 17px;
       @include adaptive-value-tablet(border-radius, 17);
-      @include adaptive-value-small-desktop(border-radius, 17);
       @include adaptive-value-large-desktop(border-radius, 17);
       color: #00BA32;
       padding: 6px 15px;
@@ -162,10 +136,6 @@
       @include adaptive-value-tablet(padding-left, 15);
       @include adaptive-value-tablet(padding-right, 15);
       @include adaptive-value-tablet(padding-bottom, 6);
-      @include adaptive-value-small-desktop(padding-top, 6);
-      @include adaptive-value-small-desktop(padding-left, 15);
-      @include adaptive-value-small-desktop(padding-right, 15);
-      @include adaptive-value-small-desktop(padding-bottom, 6);
       @include adaptive-value-large-desktop(padding-top, 6);
       @include adaptive-value-large-desktop(padding-left, 15);
       @include adaptive-value-large-desktop(padding-right, 15);
@@ -180,10 +150,6 @@
     @include adaptive-value-tablet(padding-left, 0);
     @include adaptive-value-tablet(padding-right, 0);
     @include adaptive-value-tablet(padding-bottom, 12);
-    @include adaptive-value-small-desktop(padding-top, 12);
-    @include adaptive-value-small-desktop(padding-left, 0);
-    @include adaptive-value-small-desktop(padding-right, 0);
-    @include adaptive-value-small-desktop(padding-bottom, 12);
     @include adaptive-value-large-desktop(padding-top, 12);
     @include adaptive-value-large-desktop(padding-left, 0);
     @include adaptive-value-large-desktop(padding-right, 0);
@@ -198,7 +164,6 @@
 
       margin-right: 10px;
       @include adaptive-value-tablet(margin-right, 10);
-      @include adaptive-value-small-desktop(margin-right, 10);
       @include adaptive-value-large-desktop(margin-right, 10);
 
       &:last-child {
@@ -214,19 +179,15 @@
   & .cancel {
     padding-top: 5px;
     @include adaptive-value-tablet(padding-top, 5);
-    @include adaptive-value-small-desktop(padding-top, 5);
     @include adaptive-value-large-desktop(padding-top, 5);
     font-size: 15px;
     @include adaptive-value-tablet(font-size, 15);
-    @include adaptive-value-small-desktop(font-size, 15);
     @include adaptive-value-large-desktop(font-size, 15);
     line-height: 18px;
     @include adaptive-value-tablet(line-height, 18);
-    @include adaptive-value-small-desktop(line-height, 18);
     @include adaptive-value-large-desktop(line-height, 18);
     letter-spacing: -0.361765px;
     @include adaptive-value-tablet(letter-spacing, -0.361765);
-    @include adaptive-value-small-desktop(letter-spacing, -0.361765);
     @include adaptive-value-large-desktop(letter-spacing, -0.361765);
     color: #FF3B30;
     background: none;
@@ -240,68 +201,47 @@
 
     .info-parts {
       padding-right: 69px;
-      @include adaptive-value-small-desktop(padding-right, 69);
 
       .description {
         padding: 0;
         font-size: 13px;
-        @include adaptive-value-small-desktop(font-size, 13);
         line-height: 17px;
-        @include adaptive-value-small-desktop(line-height, 17);
         letter-spacing: -0.361765px;
-        @include adaptive-value-small-desktop(letter-spacing, 0.361765);
         color: #000000;
         font-weight: 500;
       }
 
       .description-title {
         font-size: 11px;
-        @include adaptive-value-small-desktop(font-size, 11);
         line-height: 11px;
-        @include adaptive-value-small-desktop(line-height, 11);
         letter-spacing: -0.361765px;
-        @include adaptive-value-small-desktop(letter-spacing, -0.361765);
         color: #8E8E93;
         margin-bottom: 12px;
-        @include adaptive-value-small-desktop(margin-bottom, 12);
       }
 
       .title-block {
         .title {
           padding: 0;
           font-size: 21px;
-          @include adaptive-value-small-desktop(font-size, 21);
           line-height: 21px;
-          @include adaptive-value-small-desktop(line-height, 21);
           letter-spacing: -0.41px;
-          @include adaptive-value-small-desktop(letter-spacing, -0.41);
           font-weight: bold;
           margin-bottom: 20px;
-          @include adaptive-value-small-desktop(margin-bottom, 20);
         }
       }
     }
 
     .actions-block {
       padding-left: 20px;
-      @include adaptive-value-small-desktop(padding-left, 20);
 
       .cancel {
         font-size: 11px;
-        @include adaptive-value-small-desktop(font-size, 11);
         line-height: 11px;
-        @include adaptive-value-small-desktop(line-height, 11);
         letter-spacing: -0.41px;
-        @include adaptive-value-small-desktop(line-height, 11);
         background: #FF3B30;
         border-radius: 11px;
-        @include adaptive-value-small-desktop(border-radius, 11);
         color: #FFFFFF;
         padding: 10px 0;
-        @include adaptive-value-small-desktop(padding-top, 10);
-        @include adaptive-value-small-desktop(padding-left, 0);
-        @include adaptive-value-small-desktop(padding-right, 0);
-        @include adaptive-value-small-desktop(padding-bottom, 10);
         width: 100%;
       }
 
@@ -309,30 +249,21 @@
         flex-direction: column;
         align-items: end;
         padding-left: 15px;
-        @include adaptive-value-small-desktop(padding-left, 15);
         padding-top: 0;
         padding-bottom: 0;
         margin-bottom: 30px;
-        @include adaptive-value-small-desktop(margin-bottom, 30);
 
         .title {
           font-size: 11px;
-          @include adaptive-value-small-desktop(font-size, 11);
           line-height: 11px;
-          @include adaptive-value-small-desktop(line-height, 11);
           letter-spacing: -0.361765px;
-          @include adaptive-value-small-desktop(letter-spacing, -0.361765);
           margin-bottom: 10px;
-          @include adaptive-value-small-desktop(margin-bottom, 10);
         }
 
         .value {
           font-size: 25px;
-          @include adaptive-value-small-desktop(font-size, 25);
           line-height: 25px;
-          @include adaptive-value-small-desktop(line-height, 25);
           letter-spacing: -0.675294px;
-          @include adaptive-value-small-desktop(letter-spacing, -0.675294);
           color: #00D439;
           padding: 0;
           background: none;
@@ -344,15 +275,14 @@
         flex-direction: column;
         padding: 0;
         margin-bottom: 7px;
-        @include adaptive-value-small-desktop(margin-bottom, 7);
 
         button {
           font-size: 11px;
-          @include adaptive-value-small-desktop(font-size, 11);
 
           &:first-child {
             background: #000;
             color: #fff;
+
             &:before {
               display: none;
             }
@@ -363,13 +293,13 @@
           display: flex;
           justify-content: space-between;
           margin-bottom: 7px;
-          @include adaptive-value-small-desktop(margin-bottom, 7);
 
           .task-status-btn {
             width: 54px;
-            @include adaptive-value-small-desktop(width, 54);
             border-radius: 11px;
-            @include adaptive-value-small-desktop(border-radius, 11);
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
       }
@@ -382,15 +312,11 @@
     .info-parts {
       padding: 0;
       margin-bottom: 20px;
-      @include adaptive-value-small-desktop(margin-bottom, 20);
 
       .date {
         font-size: 14px;
-        @include adaptive-value-small-desktop(font-size, 14);
         line-height: 20px;
-        @include adaptive-value-small-desktop(line-height, 20);
         letter-spacing: -0.41px;
-        @include adaptive-value-small-desktop(letter-spacing, -0.41);
         color: #8E8E93;
       }
     }
@@ -406,7 +332,6 @@
 
         .value {
           font-size: 25px;
-          @include adaptive-value-small-desktop(font-size, 25);
         }
       }
     }
@@ -517,13 +442,12 @@
           font-size: 17px;
           width: 100%;
           padding: 15px 45px;
-          border-radius: 14px !important;
+          border-radius: 14px;
           @include adaptive-value-large-desktop(font-size, 17);
           @include adaptive-value-large-desktop(padding-top, 15);
           @include adaptive-value-large-desktop(padding-right, 45);
           @include adaptive-value-large-desktop(padding-bottom, 15);
           @include adaptive-value-large-desktop(padding-left, 45);
-          border-radius: 14px !important;
           @include adaptive-value-large-desktop(border-radius, 14);
         }
 
@@ -539,6 +463,13 @@
             border-radius: 14px;
             @include adaptive-value-large-desktop(border-radius, 14);
             padding: 0;
+
+            > img {
+              width: 26px;
+              @include adaptive-value-large-desktop(width, 26);
+              height: 26px;
+              @include adaptive-value-large-desktop(height, 26);
+            }
           }
         }
       }

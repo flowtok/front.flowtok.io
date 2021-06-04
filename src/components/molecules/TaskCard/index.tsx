@@ -191,7 +191,7 @@ export const TaskCard = ({
                       <Button
                         disabled={disabled}
                         size={getSize()}
-                        radius={isDesktopLarge ? 14 : 11}
+                        radius={isDesktopLarge ? null : 11}
                         preset={isDesktop ? 'black' : 'border-gradient'}
                       >
                         {rest.linkButton.text}
@@ -202,7 +202,7 @@ export const TaskCard = ({
                   <Button
                     disabled={disabled}
                     size={getSize()}
-                    radius={isDesktopLarge ? 14 : 11}
+                    radius={isDesktopLarge ? null : 11}
                     onClick={() => {
                       if (inProgress) {
                         setTypePopUp(TasksPopUpTypes.thatIsDone);

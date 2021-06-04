@@ -18,7 +18,7 @@ export const NavbarDesktopLarge = forwardRef<HTMLDivElement>(({}, ref) => {
 
   /*will be deleted*/
   const blogger = {
-    fullName: 'karinakross',
+    fullName: 'karinakrossssssssssssss',
     shortName: '@karinakross',
     avatar: AvatarMock,
   };

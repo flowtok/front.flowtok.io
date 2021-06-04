@@ -45,12 +45,6 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
       </button>
     );
   }
-  if (isDesktop) {
-    radius = 11;
-  }
-  if (isDesktopLarge) {
-    radius = 20;
-  }
   return (
     <>
       <Paper className={styles.wallet}>
@@ -64,7 +58,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         <p className={commonStyles['value-primary']}>{balance}</p>
         <Button
           className={styles['pay-off-button']}
-          radius={radius}
+          radius={null}
           onClick={() => setOpenWithdrawalPopUp(true)}
         >
           {t('pages.profile.wallet.pay-off-button-text')}

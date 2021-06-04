@@ -21,14 +21,7 @@ export const ReferalCard = ({
 }: ReferalCardProps) => {
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
-  let desktopStyle = {};
-  if (isDesktop) {
-    desktopStyle = { fontSize: 11, lineHeight: 'auto' };
-  }
-  if (isDesktopLarge) {
-    desktopStyle = { fontSize: 17, lineHeight: 'unset' };
-  }
+
   return (
     <Paper className={styles.ref}>
       <div>
@@ -40,8 +33,7 @@ export const ReferalCard = ({
             <p>{refUrl}</p>
           </div>
           <Button
-            radius={isDesktop ? 11 : 42}
-            style={desktopStyle}
+            radius={isDesktop ? null : 42}
             className={styles['copy-button']}
           >
             {isDesktop ? (

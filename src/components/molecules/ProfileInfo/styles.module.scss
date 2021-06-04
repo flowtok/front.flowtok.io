@@ -17,9 +17,12 @@
     @media (min-width: 430px) {
       max-width: 180px;
     }
-    @media (min-width: 600px) {
+    @media (min-width: 600px) and (max-width: 1440px) {
       max-width: 280px;
     }
+
+    @include adaptive-value-large-desktop(max-width, 220);
+    
 
     .title-group {
       display: flex;
@@ -32,6 +35,9 @@
         width: 26px;
         @include adaptive-value-tablet(width, 26);
         @include adaptive-value-large-desktop(width, 26);
+        min-width: 26px;
+        @include adaptive-value-tablet(min-width, 26);
+        @include adaptive-value-large-desktop(min-width, 26);
         height: 26px;
         @include adaptive-value-tablet(height, 26);
         @include adaptive-value-large-desktop(height, 26);

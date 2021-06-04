@@ -52,6 +52,8 @@
       @include adaptive-value-large-desktop(font-size, 26);
       line-height: 30px;
       @include adaptive-value-large-desktop(line-height, 30);
+      border-radius: 20px;
+      @include adaptive-value-large-desktop(border-radius, 20);
     }
   }
 }
