@@ -115,9 +115,11 @@
         margin-right: 25px;
         @include adaptive-value-large-desktop(margin-right, 25);
       }
-    > a:not(:last-child) {
-      margin-right: 25px;
-      @include adaptive-value-large-desktop(margin-right, 25);
+
+      > a:not(:last-child) {
+        margin-right: 25px;
+        @include adaptive-value-large-desktop(margin-right, 25);
+      }
     }
   }
 

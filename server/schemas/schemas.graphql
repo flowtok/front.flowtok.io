@@ -47,6 +47,7 @@ input UserNameInput {
 }
 type Mutation {
     updateUserName(input: UserNameInput): User
+}
 type GeneralSettings {
     facebook: String
     telegram: String
