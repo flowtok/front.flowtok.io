@@ -1,8 +1,9 @@
 import { forwardRef, PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HistoryItem } from '../HistoryItem';
+import { HistoryItemComponent } from '../HistoryItem';
 import { Divider } from '../../../../atoms/Divider';
 import { PopUp } from '../../../PopUp';
+import { HistoryItem } from '../../../../../models/models';
 
 interface HistoryPopUpProps {
   isOpen: boolean;
@@ -25,7 +26,7 @@ export const HistoryPopUp = forwardRef<
       <div>
         {historyList.map((h, key) => (
           <>
-            <HistoryItem item={h} key={'history-item-' + key} />
+            <HistoryItemComponent item={h} key={'history-item-' + key} />
             {history.length !== 1 && <Divider />}
           </>
         ))}

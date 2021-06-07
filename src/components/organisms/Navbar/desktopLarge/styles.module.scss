@@ -86,6 +86,7 @@
   .networks {
     width: fit-content;
     margin: 55px auto auto;
+    display: flex;
     @include adaptive-value-large-desktop(margin-top, 55);
 
     > button {
@@ -114,6 +115,9 @@
         margin-right: 25px;
         @include adaptive-value-large-desktop(margin-right, 25);
       }
+    > a:not(:last-child) {
+      margin-right: 25px;
+      @include adaptive-value-large-desktop(margin-right, 25);
     }
   }
 

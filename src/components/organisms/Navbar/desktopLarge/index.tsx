@@ -1,8 +1,7 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, PropsWithChildren } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.scss';
 import logo from 'assets/common/icons/logo_desktop.svg';
-import AvatarMock from '../../../../assets/common/images/avatar_mock.png';
 import { ProfileInfo } from '../../../molecules/ProfileInfo';
 import { Divider } from '../../../atoms/Divider';
 import { ProfileIcon } from '../Icons/ProfileIcon';
@@ -11,23 +10,34 @@ import { TasksIcon } from '../Icons/TasksIcon';
 import { SettingsIcon } from '../Icons/SettingsIcon';
 import { useTranslation } from 'react-i18next';
 import { NetworkButton } from '../../../atoms/NetworkButton';
+import { GeneralSettings, User } from '../../../../models/models';
 
-export const NavbarDesktopLarge = forwardRef<HTMLDivElement>(({}, ref) => {
+interface DesktopLargeProps {
+  data: { user: User; generalSettings: GeneralSettings };
+}
+
+export const NavbarDesktopLarge = forwardRef<
+  HTMLDivElement,
+  PropsWithChildren<DesktopLargeProps>
+>(({ data }, ref) => {
   const { pathname } = useLocation();
   const { t } = useTranslation();
 
-  /*will be deleted*/
-  const blogger = {
-    fullName: 'karinakrossssssssssssss',
-    shortName: '@karinakross',
-    avatar: AvatarMock,
-  };
   return (
     <div className={styles['wrapper']} ref={ref}>
       <div>
-        <img src={logo} className={styles['logo']} />
+        <img src={logo} className={styles['logo']} alt="" />
         <div className={styles['account']}>
-          <ProfileInfo profileData={{ ...blogger }} isActivated={true} />
+          <ProfileInfo
+            profileData={{
+              ...{
+                fullName: data.user?.name,
+                shortName: data.user?.tagName,
+                avatar: data.user?.userImage,
+              },
+            }}
+            isActivated={true}
+          />
         </div>
         <Divider />
         <div className={styles['nav']}>
@@ -75,9 +85,21 @@ export const NavbarDesktopLarge = forwardRef<HTMLDivElement>(({}, ref) => {
         </div>
         <Divider />
         <div className={styles['networks']}>
-          <NetworkButton preset="light" network={'vk-large'} />
-          <NetworkButton preset="light" network={'t-large'} />
-          <NetworkButton preset="light" network={'i-large'} />
+          <NetworkButton
+            href={data.generalSettings?.facebook ?? ''}
+            preset="light"
+            network={'vk-large'}
+          />
+          <NetworkButton
+            href={data.generalSettings?.telegram ?? ''}
+            preset="light"
+            network={'t-large'}
+          />
+          <NetworkButton
+            href={data.generalSettings?.instagram ?? ''}
+            preset="light"
+            network={'i-large'}
+          />
         </div>
       </div>
       <div className={styles['copyright']}>© FlowTok. All Rights Reserved.</div>

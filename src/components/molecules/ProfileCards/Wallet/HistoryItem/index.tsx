@@ -1,19 +1,13 @@
 import styles from './styles.module.scss';
 import commonStyles from '../../../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
-import { HistoryItemType } from '../../../../../models/models';
-
-export interface HistoryItem {
-  value: string;
-  date: string;
-  type: HistoryItemType;
-}
+import { HistoryItemType, HistoryItem } from '../../../../../models/models';
 
 export interface HistoryItemProps {
   item: HistoryItem;
 }
 
-export const HistoryItem = ({ item }: HistoryItemProps) => {
+export const HistoryItemComponent = ({ item }: HistoryItemProps) => {
   const { value, date, type } = item;
   const balanceType = type === HistoryItemType.Inc ? '+' : '-';
   const color = type === HistoryItemType.Inc ? '#24C054' : '#ED0000';

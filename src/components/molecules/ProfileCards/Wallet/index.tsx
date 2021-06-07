@@ -6,12 +6,12 @@ import ClockIcon from 'assets/common/icons/clock.svg';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
 import { useState } from 'react';
-import { HistoryItem } from './HistoryItem';
+import { HistoryItemComponent } from './HistoryItem';
 import { HistoryPopUp } from './HistoryPopUp';
 import { WithdrawalPopUp } from './WithdrawalPopUp';
 import { useMediaQuery } from 'react-responsive';
 import { VerificationPopup } from '../../VerificationPopup';
-import { HistoryItemType } from '../../../../models/models';
+import { HistoryItem, HistoryItemType } from '../../../../models/models';
 
 export interface WalletCardProps {
   balance: string;

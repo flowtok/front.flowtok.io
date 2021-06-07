@@ -1,8 +1,7 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, PropsWithChildren } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.scss';
 import logo from 'assets/common/icons/logo.svg';
-import avatar from 'assets/common/images/avatar_mock.png';
 import { ProfileIcon } from '../Icons/ProfileIcon';
 import { TasksIcon } from '../Icons/TasksIcon';
 import { SettingsIcon } from '../Icons/SettingsIcon';
@@ -10,17 +9,25 @@ import { Avatar } from '../../../atoms/Avatar';
 import { Divider } from '../../../atoms/Divider';
 import { Notification } from '../../../atoms/Notifacation';
 import { NetworkButton } from '../../../atoms/NetworkButton';
+import { GeneralSettings, User } from '../../../../models/models';
 
-export const NavbarDesktop = forwardRef<HTMLDivElement>(({}, ref) => {
+interface DesktopProps {
+  data: { user: User; generalSettings: GeneralSettings };
+}
+
+export const NavbarDesktop = forwardRef<
+  HTMLDivElement,
+  PropsWithChildren<DesktopProps>
+>(({ data }, ref) => {
   const { pathname } = useLocation();
 
   return (
     <div className={styles['wrapper']} ref={ref}>
-      <img src={logo} className={styles['logo']} />
+      <img src={logo} className={styles['logo']} alt="" />
       <div className={styles['sidebar-container']}>
         <div>
           <div className={styles['account']}>
-            <Avatar image={avatar} size={41} />
+            <Avatar image={data.user?.userImage} size={41} />
           </div>
           <Divider />
           <div className={styles['nav']}>
@@ -42,9 +49,21 @@ export const NavbarDesktop = forwardRef<HTMLDivElement>(({}, ref) => {
         </div>
         <Divider />
         <div className={styles['networks']}>
-          <NetworkButton preset="light" network={'vk-light'} />
-          <NetworkButton preset="light" network={'t-light'} />
-          <NetworkButton preset="light" network={'i-light'} />
+          <NetworkButton
+            href={data.generalSettings?.facebook ?? ''}
+            preset="light"
+            network={'vk-light'}
+          />
+          <NetworkButton
+            href={data.generalSettings?.telegram ?? ''}
+            preset="light"
+            network={'t-light'}
+          />
+          <NetworkButton
+            href={data.generalSettings?.instagram ?? ''}
+            preset="light"
+            network={'i-light'}
+          />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { forwardRef, PropsWithChildren } from 'react';
+import React, { forwardRef, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import vkIcon from '../../../assets/login/vk.svg';
 import gmIcon from '../../../assets/login/google.svg';
@@ -15,8 +15,8 @@ export type ButtonNetworkPresetUnionType = 'light';
 
 export type NetworkButtonProps = Omit<
   React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
   >,
   'ref'
 > & { network: NetworkT; preset?: ButtonNetworkPresetUnionType };
@@ -33,7 +33,7 @@ export type NetworkT =
   | 'i-large';
 
 export const NetworkButton = forwardRef<
-  HTMLButtonElement,
+  HTMLAnchorElement,
   PropsWithChildren<NetworkButtonProps>
 >(({ children, className, network, preset, ...rest }, ref) => {
   const getImageSrcByNetwork = (network: NetworkT) => {
@@ -67,7 +67,7 @@ export const NetworkButton = forwardRef<
   );
 
   return (
-    <button ref={ref} {...rest} className={classNames(finalClassName)}>
+    <a ref={ref} {...rest} className={classNames(finalClassName)}>
       <div className={styles['icon-container']}>
         <img
           src={getImageSrcByNetwork(network)}
@@ -76,6 +76,6 @@ export const NetworkButton = forwardRef<
         />
       </div>
       {children}
-    </button>
+    </a>
   );
 });

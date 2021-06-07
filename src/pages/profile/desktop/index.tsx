@@ -7,7 +7,7 @@ import {
   TotalEarningsCard,
   WalletCard,
 } from '../../../components/molecules/ProfileCards';
-import { HistoryItem } from '../../../components/molecules/ProfileCards/Wallet/HistoryItem';
+import { HistoryItemComponent } from '../../../components/molecules/ProfileCards/Wallet/HistoryItem';
 import { Divider } from '../../../components/atoms/Divider';
 import { Paper } from '../../../components/atoms/Paper';
 import { useTranslation } from 'react-i18next';
@@ -17,14 +17,14 @@ import { User } from '../../../models/models';
 
 export default ({
   balance,
-  avg_views,
-  ref_count,
-  ref_earnings,
-  total_earnings,
-  good_rate,
-  ref_link,
+  avgViews,
+  refCount,
+  refEarnings,
+  totalEarnings,
+  goodRate,
+  refLink,
   price,
-  held_money,
+  heldMoney,
   history,
 }: User) => {
   const { t } = useTranslation();
@@ -35,8 +35,8 @@ export default ({
         <div className={styles['top-papers']}>
           <WalletCard balance={balance} />
           <div className={styles['middle-group']}>
-            <InProcessCard inProcessAmount={held_money} />
-            <TotalEarningsCard totalEarnings={total_earnings} />
+            <InProcessCard inProcessAmount={heldMoney} />
+            <TotalEarningsCard totalEarnings={totalEarnings} />
           </div>
           <Paper>
             <h3 className={commonStyles['primary-title']}>
@@ -47,7 +47,10 @@ export default ({
                 (h, key) =>
                   h && (
                     <>
-                      <HistoryItem item={h} key={'history-item-' + key} />
+                      <HistoryItemComponent
+                        item={h}
+                        key={'history-item-' + key}
+                      />
                       {history.length !== 1 && <Divider />}
                     </>
                   )
@@ -57,14 +60,14 @@ export default ({
         </div>
         <div className={styles['bottom-papers']}>
           <StatsCard
-            viewsMedian={avg_views}
+            viewsMedian={avgViews}
             payOffPerVideo={price}
-            rating={good_rate}
+            rating={goodRate}
           />
           <ReferalCard
-            refUrl={ref_link}
-            refsCount={ref_count}
-            totalEarningsFromRefs={ref_earnings}
+            refUrl={refLink}
+            refsCount={refCount}
+            totalEarningsFromRefs={refEarnings}
           />
         </div>
       </div>
