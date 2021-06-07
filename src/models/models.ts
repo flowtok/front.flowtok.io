@@ -69,6 +69,7 @@ export type Task = {
 export type User = {
   __typename?: 'User';
   id: Scalars['ID'];
+  password: Scalars['String'];
   name: Scalars['String'];
   userImage: Scalars['String'];
   tagName: Scalars['String'];
