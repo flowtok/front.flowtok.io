@@ -4,22 +4,23 @@ type Query {
     tasks: [Task]
     generalSettings: GeneralSettings
 }
+
 type User {
     id: ID!
     name: String!
-    user_image: String!
-    tagname: String!
+    userImage: String!
+    tagName: String!
     age: Int!
     country: String!
     balance: String!
-    avg_views: String!
+    avgViews: String!
     price: String!
-    good_rate: Float!
-    held_money: String!
-    total_earnings: String!
-    ref_link: String!
-    ref_count: Int!
-    ref_earnings: String!
+    goodRate: Float!
+    heldMoney: String!
+    totalEarnings: String!
+    refLink: String!
+    refCount: Int!
+    refEarnings: String!
     history: [HistoryItem]!
 }
 

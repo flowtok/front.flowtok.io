@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -62,18 +61,18 @@ export type User = {
   __typename?: 'User';
   id: Scalars['ID'];
   name: Scalars['String'];
-  user_image: Scalars['String'];
-  tagname: Scalars['String'];
+  userImage: Scalars['String'];
+  tagName: Scalars['String'];
   age: Scalars['Int'];
   country: Scalars['String'];
   balance: Scalars['String'];
-  avg_views: Scalars['String'];
+  avgViews: Scalars['String'];
   price: Scalars['String'];
-  good_rate: Scalars['Float'];
-  held_money: Scalars['String'];
-  total_earnings: Scalars['String'];
-  ref_link: Scalars['String'];
-  ref_count: Scalars['Int'];
-  ref_earnings: Scalars['String'];
+  goodRate: Scalars['Float'];
+  heldMoney: Scalars['String'];
+  totalEarnings: Scalars['String'];
+  refLink: Scalars['String'];
+  refCount: Scalars['Int'];
+  refEarnings: Scalars['String'];
   history: Array<Maybe<HistoryItem>>;
 };

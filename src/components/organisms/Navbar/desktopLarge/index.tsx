@@ -26,14 +26,14 @@ export const NavbarDesktopLarge = forwardRef<
   return (
     <div className={styles['wrapper']} ref={ref}>
       <div>
-        <img src={logo} className={styles['logo']} />
+        <img src={logo} className={styles['logo']} alt="" />
         <div className={styles['account']}>
           <ProfileInfo
             profileData={{
               ...{
                 fullName: data.user?.name,
-                shortName: data.user?.tagname,
-                avatar: data.user?.user_image,
+                shortName: data.user?.tagName,
+                avatar: data.user?.userImage,
               },
             }}
             isActivated={true}
@@ -85,9 +85,21 @@ export const NavbarDesktopLarge = forwardRef<
         </div>
         <Divider />
         <div className={styles['networks']}>
-          <NetworkButton preset="light" network={'vk-large'} />
-          <NetworkButton preset="light" network={'t-large'} />
-          <NetworkButton preset="light" network={'i-large'} />
+          <NetworkButton
+            href={data.generalSettings?.facebook ?? ''}
+            preset="light"
+            network={'vk-large'}
+          />
+          <NetworkButton
+            href={data.generalSettings?.telegram ?? ''}
+            preset="light"
+            network={'t-large'}
+          />
+          <NetworkButton
+            href={data.generalSettings?.instagram ?? ''}
+            preset="light"
+            network={'i-large'}
+          />
         </div>
       </div>
       <div className={styles['copyright']}>© FlowTok. All Rights Reserved.</div>

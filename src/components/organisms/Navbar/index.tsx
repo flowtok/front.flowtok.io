@@ -4,21 +4,15 @@ import { useMediaQuery } from 'react-responsive';
 import { NavbarDesktop } from './desktop';
 import { NavbarDesktopLarge } from './desktopLarge';
 import { gql, useQuery } from '@apollo/client';
-import { User } from '../../../models/models';
+import { GeneralSettings, User } from '../../../models/models';
 import { QueryHandler } from '../../templates/QueryHandler';
 
-interface GeneralSettings {
-  facebook: string;
-  telegram: string;
-  instagram: string;
-}
-
 const DATA = gql`
-  query getUser($id: ID!) {
+  query getData($id: ID!) {
     user(id: $id) {
       name
-      tagname
-      user_image
+      tagName
+      userImage
     }
     generalSettings {
       facebook
@@ -44,7 +38,7 @@ export const Navbar = forwardRef<HTMLDivElement>(({}, ref) => {
       if (isDesktopLarge) {
         return <NavbarDesktopLarge data={data} ref={ref} />;
       } else if (isDesktop) {
-        return <NavbarDesktop ref={ref} />;
+        return <NavbarDesktop data={data} ref={ref} />;
       } else {
         return <NavbarMobile ref={ref} />;
       }
