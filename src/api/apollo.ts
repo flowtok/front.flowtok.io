@@ -1,10 +1,5 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  HttpLink,
-  ApolloLink,
-  concat,
-} from '@apollo/client';
+import { ApolloClient, HttpLink, ApolloLink, concat } from '@apollo/client';
+import { cache } from './cache';
 
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' });
 
@@ -12,7 +7,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext(({ headers = {} }) => ({
     headers: {
       ...headers,
-      authorization: localStorage.getItem('token') || null,
+      authorization: localStorage.getItem('token') || '',
     },
   }));
 
@@ -20,6 +15,6 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 });
 
 export const client = new ApolloClient({
-  cache: new InMemoryCache(),
+  cache,
   link: concat(authMiddleware, httpLink),
 });

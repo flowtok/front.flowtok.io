@@ -3,7 +3,6 @@ const resolvers = require('./resolvers/resolvers');
 const { GraphQLFileLoader } = require('@graphql-tools/graphql-file-loader');
 const { loadSchema } = require('@graphql-tools/load');
 const { addResolversToSchema } = require('@graphql-tools/schema');
-const httpHeadersPlugin = require('apollo-server-plugin-http-headers');
 
 loadSchema('./schemas/*.graphql', {
   loaders: [new GraphQLFileLoader()],
@@ -11,19 +10,10 @@ loadSchema('./schemas/*.graphql', {
   const schemaWithResolvers = addResolversToSchema({
     schema,
     resolvers,
-    plugins: [httpHeadersPlugin],
   });
 
   const server = new ApolloServer({
-    schema: schemaWithResolvers,
-    context: ({ req }) => {
-      const token = req.headers.authorization || '';
-      let isVerify = false;
-      if (token) {
-        isVerify = req.cookies['token'] === token;
-      }
-      return { isVerify, token, setCookies: [] };
-    },
+    schema: schemaWithResolvers
   });
   server.listen().then(({ url }) => {
     console.log(`

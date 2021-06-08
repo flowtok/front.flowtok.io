@@ -1,13 +1,59 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { NetworkButton } from '../../../atoms/NetworkButton';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
+import { gql, useLazyQuery } from '@apollo/client';
+import { LoginResponse, QueryLoginArgs } from '../../../../models/models';
+import { currentUserVar } from '../../../../api/cache';
+
+const LOGIN = gql`
+  query getQuery($name: String!, $password: String!) {
+    login(name: $name, password: $password) {
+      user {
+        balance
+        avg_views
+        price
+        good_rate
+        held_money
+        total_earnings
+        ref_link
+        ref_count
+        ref_earnings
+        history {
+          value
+          date
+          type
+        }
+      }
+      token
+    }
+  }
+`;
 
 type SignUpFormPropsT = any;
 
 export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
+  const [runQuery, { called, loading, data }] = useLazyQuery<
+    { login: LoginResponse },
+    QueryLoginArgs
+  >(LOGIN);
+
+  const loginHandler = () => {
+    return runQuery({
+      variables: {
+        name: 'Ketty Bounce',
+        password: '1234567',
+      },
+    });
+  };
+
+  useEffect(() => {
+    currentUserVar(data?.login.user);
+    localStorage.setItem('user', JSON.stringify(data?.login.user));
+  }, [data]);
+
   const { t } = useTranslation();
   return (
     <div className={styles['sign-in']}>
@@ -19,7 +65,7 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
         <NetworkButton network={'fb'}>
           {t('pages.login.sign-in-fb')}
         </NetworkButton>
-        <NetworkButton network={'gm'}>
+        <NetworkButton network={'gm'} onClick={() => loginHandler()}>
           {t('pages.login.sign-in-google')}
         </NetworkButton>
         <div className={styles['label']}>{t('pages.login.no-account')}</div>

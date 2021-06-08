@@ -35,6 +35,12 @@ export enum HistoryItemType {
   Inc = 'inc',
 }
 
+export type LoginResponse = {
+  __typename?: 'LoginResponse';
+  user?: Maybe<User>;
+  token?: Maybe<Scalars['String']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   updateUserName?: Maybe<User>;
@@ -48,11 +54,22 @@ export type Query = {
   __typename?: 'Query';
   users?: Maybe<Array<Maybe<User>>>;
   user: User;
+  login?: Maybe<LoginResponse>;
+  getCurrentUser?: Maybe<User>;
   tasks?: Maybe<Array<Maybe<Task>>>;
   generalSettings?: Maybe<GeneralSettings>;
 };
 
 export type QueryUserArgs = {
+  id: Scalars['ID'];
+};
+
+export type QueryLoginArgs = {
+  name: Scalars['String'];
+  password: Scalars['String'];
+};
+
+export type QueryGetCurrentUserArgs = {
   id: Scalars['ID'];
 };
 
