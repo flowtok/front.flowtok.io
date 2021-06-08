@@ -1,0 +1,1 @@
+web: cd /server yarn install yarn start cd ../ yarn start
