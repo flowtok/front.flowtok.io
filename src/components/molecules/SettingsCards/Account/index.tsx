@@ -107,6 +107,7 @@ export const AccountCard = ({
           onClick={() => {
             currentUserVar(null);
             localStorage.removeItem('user');
+            localStorage.removeItem('token');
           }}
         >
           {t('pages.settings.cards.account.exit-button-text')}
