@@ -63,10 +63,10 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
     <div className={styles['sign-in']}>
       <div className={styles['title']}>{t('pages.login.enter')}</div>
       <div className={styles['column']}>
-        <NetworkButton network={'vk'}>
+        <NetworkButton network={'vk'} onClick={() => loginHandler()}>
           {t('pages.login.sign-in-vk')}
         </NetworkButton>
-        <NetworkButton network={'fb'}>
+        <NetworkButton network={'fb'} onClick={() => loginHandler()}>
           {t('pages.login.sign-in-fb')}
         </NetworkButton>
         <NetworkButton network={'gm'} onClick={() => loginHandler()}>
