@@ -98,6 +98,7 @@
     "start-https": "set HTTPS=true&&node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
+    "start-with-server": "node scripts/start.js && node ./server/index.js",
     "adaptive-tablet": "node adaptivescript.js tablet",
     "adaptive-small-desktop": "node adaptivescript.js small-desktop",
     "adaptive-large-desktop": "node adaptivescript.js large-desktop",
