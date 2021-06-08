@@ -2,6 +2,7 @@ const users = [
   {
     id: '1',
     name: 'Ketty Bounce',
+    password: '1234567',
     userImage: `https://robohash.org/1?set=set4`,
     tagName: '@prettykitty',
     age: 21,
@@ -28,6 +29,7 @@ const users = [
   {
     id: '2',
     name: 'Michael Root',
+    password: '7654321',
     userImage: `https://robohash.org/2?set=set4`,
     tagName: '@coolman',
     age: 27,

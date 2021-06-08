@@ -12,15 +12,18 @@ const LOGIN = gql`
   query getQuery($name: String!, $password: String!) {
     login(name: $name, password: $password) {
       user {
+        name
+        tagName
+        userImage
         balance
-        avg_views
+        avgViews
         price
-        good_rate
-        held_money
-        total_earnings
-        ref_link
-        ref_count
-        ref_earnings
+        goodRate
+        heldMoney
+        totalEarnings
+        refLink
+        refCount
+        refEarnings
         history {
           value
           date

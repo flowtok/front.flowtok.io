@@ -11,7 +11,7 @@ export default () => {
   const { t } = useTranslation();
 
   return (
-    <PageTemplate isNavbar={false}>
+    <PageTemplate isNavbar={true}>
       <div>
         <div className={styles['top-block']}>
           <h1 className={styles.title}>{t('pages.home.title')}</h1>

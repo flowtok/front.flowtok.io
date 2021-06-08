@@ -1,28 +1,26 @@
 import React, { FC } from 'react';
-import styles from './styles.module.scss';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import ProfilePage from '../../pages/profile';
 import TasksPage from '../../pages/tasks';
 import SettingsPage from '../../pages/settings';
 import HomePage from '../../pages/home';
+import { useReactiveVar } from '@apollo/client';
+import { currentUserVar } from '../../api/cache';
 
 type BloggerLayoutPropsT = any;
 
 export const BloggerLayout: FC<BloggerLayoutPropsT> = ({}) => {
+  const user = useReactiveVar(currentUserVar);
   return (
     <Switch>
-      <Route path="/profile">
-        <ProfilePage />
-      </Route>
+      <Route path="/profile">{user && <ProfilePage user={user} />}</Route>
       <Route path="/tasks">
         <TasksPage />
       </Route>
       <Route path="/settings">
         <SettingsPage />
       </Route>
-      <Route path="/">
-        <HomePage />
-      </Route>
+      <Route path="/">{user ? <Redirect to="/profile" /> : <HomePage />}</Route>
     </Switch>
   );
 };

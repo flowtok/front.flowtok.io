@@ -13,13 +13,14 @@ import { NetworkButton } from '../../../atoms/NetworkButton';
 import { GeneralSettings, User } from '../../../../models/models';
 
 interface DesktopLargeProps {
-  data: { user: User; generalSettings: GeneralSettings };
+  generalSettings: GeneralSettings;
+  user: User;
 }
 
 export const NavbarDesktopLarge = forwardRef<
   HTMLDivElement,
   PropsWithChildren<DesktopLargeProps>
->(({ data }, ref) => {
+>(({ generalSettings, user }, ref) => {
   const { pathname } = useLocation();
   const { t } = useTranslation();
 
@@ -31,9 +32,9 @@ export const NavbarDesktopLarge = forwardRef<
           <ProfileInfo
             profileData={{
               ...{
-                fullName: data.user?.name,
-                shortName: data.user?.tagName,
-                avatar: data.user?.userImage,
+                fullName: user?.name,
+                shortName: user?.tagName,
+                avatar: user?.userImage,
               },
             }}
             isActivated={true}
@@ -86,17 +87,17 @@ export const NavbarDesktopLarge = forwardRef<
         <Divider />
         <div className={styles['networks']}>
           <NetworkButton
-            href={data.generalSettings?.facebook ?? ''}
+            href={generalSettings?.facebook ?? ''}
             preset="light"
             network={'vk-large'}
           />
           <NetworkButton
-            href={data.generalSettings?.telegram ?? ''}
+            href={generalSettings?.telegram ?? ''}
             preset="light"
             network={'t-large'}
           />
           <NetworkButton
-            href={data.generalSettings?.instagram ?? ''}
+            href={generalSettings?.instagram ?? ''}
             preset="light"
             network={'i-large'}
           />

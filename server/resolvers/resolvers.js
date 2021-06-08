@@ -1,11 +1,12 @@
 const { users } = require('../database/data');
 const jwt = require('jsonwebtoken');
+const { generalSettings } = require('../database/data');
 const { JWT_SECRET } = require('../config');
 
 const resolvers = {
   Query: {
     user: (parent, { id }) => users.find(user => user.id === id),
-
+    generalSettings: () => generalSettings,
     login: (parent, { name, password }) => {
       const user = users.find(user => {
         if (user.name === name && user.password === password) return true;

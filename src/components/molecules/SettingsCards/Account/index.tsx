@@ -11,6 +11,7 @@ import AvatarMock from '../../../../assets/common/images/avatar_mock.png';
 import { useMutation } from '@apollo/client';
 import { MutationUpdateUserNameArgs, User } from '../../../../models/models';
 import { UPDATE_NAME } from '../../../../api/mutations';
+import { currentUserVar } from '../../../../api/cache';
 
 export interface AccountCardProps {
   username: string;
@@ -100,7 +101,14 @@ export const AccountCard = ({
         <h5 className={commonStyles['secondary-title']}>
           {t('pages.settings.cards.account.exit')}
         </h5>
-        <Button preset="custom" className={styles['exit-button']}>
+        <Button
+          preset="custom"
+          className={styles['exit-button']}
+          onClick={() => {
+            currentUserVar(null);
+            localStorage.removeItem('user');
+          }}
+        >
           {t('pages.settings.cards.account.exit-button-text')}
         </Button>
       </div>
