@@ -13,7 +13,7 @@ loadSchema('./schemas/*.graphql', {
   });
 
   const server = new ApolloServer({
-    schema: schemaWithResolvers
+    schema: schemaWithResolvers,
   });
   server.listen().then(({ url }) => {
     console.log(`

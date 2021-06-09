@@ -5,10 +5,10 @@ const { JWT_SECRET } = require('../config');
 
 const resolvers = {
   Query: {
-    user: (parent, { id }) => users.find(user => user.id === id),
+    user: (parent, { id }) => users.find((user) => user.id === id),
     generalSettings: () => generalSettings,
     login: (parent, { name, password }) => {
-      const user = users.find(user => {
+      const user = users.find((user) => {
         if (user.name === name && user.password === password) return true;
       });
       const token = jwt.sign(user, JWT_SECRET);
