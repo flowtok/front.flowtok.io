@@ -54,7 +54,6 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
 
   useEffect(() => {
     currentUserVar(data?.login.user);
-    localStorage.setItem('user', JSON.stringify(data?.login.user));
     localStorage.setItem('token', JSON.stringify(data?.login.token));
   }, [data]);
 
