@@ -1,16 +1,30 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { BloggerLayout } from './BloggerLayout';
-import { useReactiveVar } from '@apollo/client';
+import { useQuery, useReactiveVar } from '@apollo/client';
 import { currentUserVar } from '../../api/cache';
-import { NonAuthLayout } from './NonAuthLayout';
+import { User, UserType } from '../../models/models';
+import { USER } from '../../api/queries';
+import { QueryHandler } from './QueryHandler';
+import { AdvertiserLayout } from './AdvertiserLayout';
 
 type AuthLayoutPropsT = any;
 
 export const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
   const user = useReactiveVar(currentUserVar);
-  if (user) {
-    return <BloggerLayout />;
-  } else {
-    return <NonAuthLayout />;
-  }
+
+  const { data, loading, error } = useQuery<{ user: User }>(USER);
+
+  useEffect(() => {
+    currentUserVar(data?.user);
+  }, [data]);
+
+  return (
+    <QueryHandler loading={loading} error={error}>
+      {user?.type === UserType.Blogger ? (
+        <BloggerLayout />
+      ) : (
+        <AdvertiserLayout />
+      )}
+    </QueryHandler>
+  );
 };

@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -60,10 +61,6 @@ export type Query = {
   generalSettings?: Maybe<GeneralSettings>;
 };
 
-export type QueryUserArgs = {
-  id: Scalars['ID'];
-};
-
 export type QueryLoginArgs = {
   name: Scalars['String'];
   password: Scalars['String'];
@@ -102,9 +99,15 @@ export type User = {
   refCount: Scalars['Int'];
   refEarnings: Scalars['String'];
   history: Array<Maybe<HistoryItem>>;
+  type: UserType;
 };
 
 export type UserNameInput = {
   name: Scalars['String'];
   id: Scalars['ID'];
 };
+
+export enum UserType {
+  Blogger = 'Blogger',
+  Advertiser = 'Advertiser',
+}

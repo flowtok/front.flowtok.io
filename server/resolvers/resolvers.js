@@ -5,7 +5,9 @@ const { JWT_SECRET } = require('../config');
 
 const resolvers = {
   Query: {
-    user: (parent, { id }) => users.find((user) => user.id === id),
+    user: () => {
+      return users[0];
+    },
     generalSettings: () => generalSettings,
     login: (parent, { name, password }) => {
       const user = users.find((user) => {

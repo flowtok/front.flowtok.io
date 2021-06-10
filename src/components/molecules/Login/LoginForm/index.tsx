@@ -4,36 +4,10 @@ import { NetworkButton } from '../../../atoms/NetworkButton';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
-import { gql, useLazyQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { LoginResponse, QueryLoginArgs } from '../../../../models/models';
-import { currentUserVar } from '../../../../api/cache';
-
-const LOGIN = gql`
-  query getQuery($name: String!, $password: String!) {
-    login(name: $name, password: $password) {
-      user {
-        name
-        tagName
-        userImage
-        balance
-        avgViews
-        price
-        goodRate
-        heldMoney
-        totalEarnings
-        refLink
-        refCount
-        refEarnings
-        history {
-          value
-          date
-          type
-        }
-      }
-      token
-    }
-  }
-`;
+import { currentUserVar, isAuthVar } from '../../../../api/cache';
+import { LOGIN } from '../../../../api/queries';
 
 type SignUpFormPropsT = any;
 
@@ -55,6 +29,7 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
   useEffect(() => {
     currentUserVar(data?.login.user);
     localStorage.setItem('token', JSON.stringify(data?.login.token));
+    isAuthVar(true);
   }, [data]);
 
   const { t } = useTranslation();
