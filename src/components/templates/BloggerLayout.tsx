@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import ProfilePage from '../../pages/profile';
 import TasksPage from '../../pages/tasks';
 import SettingsPage from '../../pages/settings';
@@ -20,8 +20,11 @@ export const BloggerLayout: FC<BloggerLayoutPropsT> = ({}) => {
       <Route path="/settings">
         <SettingsPage />
       </Route>
-      <Route path="/">
+      <Route path="/" exact>
         <HomePage />
+      </Route>
+      <Route path="/">
+        <Redirect to={'/profile'} />
       </Route>
     </Switch>
   );

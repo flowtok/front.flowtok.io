@@ -4,7 +4,7 @@ import { NetworkButton } from '../../../atoms/NetworkButton';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery, useReactiveVar } from '@apollo/client';
 import { LoginResponse, QueryLoginArgs } from '../../../../models/models';
 import { currentUserVar, isAuthVar } from '../../../../api/cache';
 import { LOGIN } from '../../../../api/queries';
@@ -27,9 +27,11 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
   };
 
   useEffect(() => {
-    currentUserVar(data?.login.user);
-    localStorage.setItem('token', JSON.stringify(data?.login.token));
-    isAuthVar(true);
+    if (data) {
+      currentUserVar(data?.login.user);
+      localStorage.setItem('token', JSON.stringify(data?.login.token));
+      isAuthVar(true);
+    }
   }, [data]);
 
   const { t } = useTranslation();

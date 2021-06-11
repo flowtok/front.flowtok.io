@@ -10,7 +10,7 @@ export const App = () => {
   return (
     <div style={{ position: 'relative' }}>
       <Suspense fallback={<div>Loading...</div>}>
-        {!isAuth ? <AuthLayout /> : <NonAuthLayout />}
+        {isAuth ? <AuthLayout /> : <NonAuthLayout />}
       </Suspense>
     </div>
   );
