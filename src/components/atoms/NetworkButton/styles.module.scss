@@ -20,6 +20,8 @@
   @include adaptive-value-tablet(letter-spacing, -0.361765);
   color: #1D1D1D;
   position: relative;
+  margin-bottom: 10px;
+  @include adaptive-value-tablet(margin-bottom, 10);
 
   &_light {
     height: fit-content;
@@ -83,5 +85,7 @@
     @include adaptive-value-large-desktop(height, 48);
     font-size: 15px;
     @include adaptive-value-large-desktop(font-size, 15);
+    margin-bottom: 15px;
+    @include adaptive-value-large-desktop(margin-bottom, 15);
   }
 }

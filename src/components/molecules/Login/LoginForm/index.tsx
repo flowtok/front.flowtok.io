@@ -1,25 +1,51 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { NetworkButton } from '../../../atoms/NetworkButton';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
+import { useLazyQuery, useReactiveVar } from '@apollo/client';
+import { LoginResponse, QueryLoginArgs } from '../../../../models/models';
+import { currentUserVar, isAuthVar } from '../../../../api/cache';
+import { LOGIN } from '../../../../api/queries';
 
 type SignUpFormPropsT = any;
 
 export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
+  const [runQuery, { called, loading, data }] = useLazyQuery<
+    { login: LoginResponse },
+    QueryLoginArgs
+  >(LOGIN);
+
+  const loginHandler = () => {
+    return runQuery({
+      variables: {
+        name: 'Ketty Bounce',
+        password: '1234567',
+      },
+    });
+  };
+
+  useEffect(() => {
+    if (data) {
+      currentUserVar(data?.login.user);
+      localStorage.setItem('token', JSON.stringify(data?.login.token));
+      isAuthVar(true);
+    }
+  }, [data]);
+
   const { t } = useTranslation();
   return (
     <div className={styles['sign-in']}>
       <div className={styles['title']}>{t('pages.login.enter')}</div>
       <div className={styles['column']}>
-        <NetworkButton network={'vk'}>
+        <NetworkButton network={'vk'} onClick={() => loginHandler()}>
           {t('pages.login.sign-in-vk')}
         </NetworkButton>
-        <NetworkButton network={'fb'}>
+        <NetworkButton network={'fb'} onClick={() => loginHandler()}>
           {t('pages.login.sign-in-fb')}
         </NetworkButton>
-        <NetworkButton network={'gm'}>
+        <NetworkButton network={'gm'} onClick={() => loginHandler()}>
           {t('pages.login.sign-in-google')}
         </NetworkButton>
         <div className={styles['label']}>{t('pages.login.no-account')}</div>

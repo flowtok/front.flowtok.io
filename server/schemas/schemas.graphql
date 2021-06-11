@@ -1,12 +1,19 @@
 type Query {
     users: [User]
-    user(id: ID!): User!
+    user: User!
+    login(name: String!, password: String!): LoginResponse
+    getCurrentUser(id: ID!): User
     tasks: [Task]
     generalSettings: GeneralSettings
 }
 
+type LoginResponse{
+    user: User
+    token: String
+}
 type User {
     id: ID!
+    password: String!
     name: String!
     userImage: String!
     tagName: String!
@@ -22,6 +29,12 @@ type User {
     refCount: Int!
     refEarnings: String!
     history: [HistoryItem]!
+    type: UserType!
+}
+
+enum UserType {
+    Blogger
+    Advertiser
 }
 
 enum HistoryItemType {

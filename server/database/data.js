@@ -2,6 +2,7 @@ const users = [
   {
     id: '1',
     name: 'Ketty Bounce',
+    password: '1234567',
     userImage: `https://robohash.org/1?set=set4`,
     tagName: '@prettykitty',
     age: 21,
@@ -24,10 +25,12 @@ const users = [
       { value: '112.90', date: '30.08.2023', type: 'inc' },
       { value: '112.90', date: '30.08.2023', type: 'dec' },
     ],
+    type: 'Blogger',
   },
   {
     id: '2',
     name: 'Michael Root',
+    password: '7654321',
     userImage: `https://robohash.org/2?set=set4`,
     tagName: '@coolman',
     age: 27,
@@ -50,16 +53,17 @@ const users = [
       { value: '112.90', date: '30.08.2023', type: 'inc' },
       { value: '11 223', date: '30.08.2023', type: 'dec' },
     ],
+    type: 'Blogger',
   },
 ];
 
 const generalSettings = {
   facebook: 'https://www.facebook.com/',
   telegram: 'https://web.telegram.org',
-  instagram: 'https://www.instagram.com/'
+  instagram: 'https://www.instagram.com/',
 };
 
 module.exports = {
   users,
-  generalSettings
+  generalSettings,
 };

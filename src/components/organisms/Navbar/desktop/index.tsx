@@ -12,13 +12,14 @@ import { NetworkButton } from '../../../atoms/NetworkButton';
 import { GeneralSettings, User } from '../../../../models/models';
 
 interface DesktopProps {
-  data: { user: User; generalSettings: GeneralSettings };
+  generalSettings: GeneralSettings;
+  user: User;
 }
 
 export const NavbarDesktop = forwardRef<
   HTMLDivElement,
   PropsWithChildren<DesktopProps>
->(({ data }, ref) => {
+>(({ generalSettings, user }, ref) => {
   const { pathname } = useLocation();
 
   return (
@@ -27,7 +28,7 @@ export const NavbarDesktop = forwardRef<
       <div className={styles['sidebar-container']}>
         <div>
           <div className={styles['account']}>
-            <Avatar image={data.user?.userImage} size={41} />
+            <Avatar image={user?.userImage} size={41} />
           </div>
           <Divider />
           <div className={styles['nav']}>
@@ -50,17 +51,17 @@ export const NavbarDesktop = forwardRef<
         <Divider />
         <div className={styles['networks']}>
           <NetworkButton
-            href={data.generalSettings?.facebook ?? ''}
+            href={generalSettings?.facebook ?? ''}
             preset="light"
             network={'vk-light'}
           />
           <NetworkButton
-            href={data.generalSettings?.telegram ?? ''}
+            href={generalSettings?.telegram ?? ''}
             preset="light"
             network={'t-light'}
           />
           <NetworkButton
-            href={data.generalSettings?.instagram ?? ''}
+            href={generalSettings?.instagram ?? ''}
             preset="light"
             network={'i-light'}
           />

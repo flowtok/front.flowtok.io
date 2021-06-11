@@ -1,14 +1,21 @@
-const {
-  users,
-  generalSettings,
-} = require('../database/data');
+const { users } = require('../database/data');
+const jwt = require('jsonwebtoken');
+const { generalSettings } = require('../database/data');
+const { JWT_SECRET } = require('../config');
 
 const resolvers = {
   Query: {
-    user: (parent, { id }, context) => {
-      return users.filter((user) => user.id === id)[0];
+    user: () => {
+      return users[0];
     },
     generalSettings: () => generalSettings,
+    login: (parent, { name, password }) => {
+      const user = users.find((user) => {
+        if (user.name === name && user.password === password) return true;
+      });
+      const token = jwt.sign(user, JWT_SECRET);
+      return { user, token };
+    },
   },
   Mutation: {
     updateUserName: (parent, { input }, context) => {

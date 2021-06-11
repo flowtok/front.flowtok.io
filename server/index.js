@@ -15,7 +15,6 @@ loadSchema('./schemas/*.graphql', {
   const server = new ApolloServer({
     schema: schemaWithResolvers,
   });
-
   server.listen().then(({ url }) => {
     console.log(`
     🚀  Server is running on ${url}!

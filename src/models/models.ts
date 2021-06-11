@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -35,6 +36,12 @@ export enum HistoryItemType {
   Inc = 'inc',
 }
 
+export type LoginResponse = {
+  __typename?: 'LoginResponse';
+  user?: Maybe<User>;
+  token?: Maybe<Scalars['String']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   updateUserName?: Maybe<User>;
@@ -48,11 +55,18 @@ export type Query = {
   __typename?: 'Query';
   users?: Maybe<Array<Maybe<User>>>;
   user: User;
+  login?: Maybe<LoginResponse>;
+  getCurrentUser?: Maybe<User>;
   tasks?: Maybe<Array<Maybe<Task>>>;
   generalSettings?: Maybe<GeneralSettings>;
 };
 
-export type QueryUserArgs = {
+export type QueryLoginArgs = {
+  name: Scalars['String'];
+  password: Scalars['String'];
+};
+
+export type QueryGetCurrentUserArgs = {
   id: Scalars['ID'];
 };
 
@@ -69,6 +83,7 @@ export type Task = {
 export type User = {
   __typename?: 'User';
   id: Scalars['ID'];
+  password: Scalars['String'];
   name: Scalars['String'];
   userImage: Scalars['String'];
   tagName: Scalars['String'];
@@ -84,9 +99,15 @@ export type User = {
   refCount: Scalars['Int'];
   refEarnings: Scalars['String'];
   history: Array<Maybe<HistoryItem>>;
+  type: UserType;
 };
 
 export type UserNameInput = {
   name: Scalars['String'];
   id: Scalars['ID'];
 };
+
+export enum UserType {
+  Blogger = 'Blogger',
+  Advertiser = 'Advertiser',
+}

@@ -1,16 +1,16 @@
 import React, { Suspense } from 'react';
 import { AuthLayout } from './components/templates/AuthLayout';
+import { NonAuthLayout } from './components/templates/NonAuthLayout';
+import { isAuthVar } from './api/cache';
+import { useReactiveVar } from '@apollo/client';
 
 export const App = () => {
+  const isAuth = useReactiveVar(isAuthVar);
+
   return (
     <div style={{ position: 'relative' }}>
-      {/*<PopUp isOpen={true} size={'s'}>*/}
-      {/*  <DonePopUpContent />*/}
-      {/*</PopUp>*/}
       <Suspense fallback={<div>Loading...</div>}>
-        {/* here will be if-else block */}
-        <AuthLayout />
-        {/*<NonAuthLayout />*/}
+        {isAuth ? <AuthLayout /> : <NonAuthLayout />}
       </Suspense>
     </div>
   );
