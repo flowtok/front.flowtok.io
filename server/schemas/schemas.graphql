@@ -58,8 +58,13 @@ input UserNameInput {
     name: String!
     id: ID!
 }
+input PayOutInput {
+    type: String!
+    value: String!
+}
 type Mutation {
     updateUserName(input: UserNameInput): User
+    payOut(input: PayOutInput): String
 }
 type GeneralSettings {
     facebook: String

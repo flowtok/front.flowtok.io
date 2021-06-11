@@ -12,6 +12,9 @@ import { SavedMethod } from '../../../SettingsCards/Withdrawal/SavedMethod';
 import { MethodsBtnGroup } from '../../../SettingsCards/Withdrawal/MethodsBtnGroup';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
+import { useMutation } from '@apollo/client';
+import { MutationPayOutArgs, MutationUpdateUserNameArgs, User } from '../../../../../models/models';
+import { PAY_OUT, UPDATE_NAME } from '../../../../../api/mutations';
 
 type FormDataT = {
   value: string;
@@ -35,14 +38,13 @@ export const WithdrawalPopUp = forwardRef<
     formState: { errors, touchedFields },
   } = useForm<FormDataT>();
 
-  const onSubmit = (data: FormDataT) => console.log(data);
-
   const [
     isOpenAddWithdrawalPopUp,
     setOpenAddWithdrawalPopUp,
   ] = useState<boolean>(false);
 
   const [currentMethod, setMethod] = useState<string>('');
+  const [selectedMethod, setSelectedMethod] = useState<number | null>(null);
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
 
   /*will be deleted*/
@@ -62,6 +64,8 @@ export const WithdrawalPopUp = forwardRef<
           {savedMethods.map((method, key) => (
             <SavedMethod
               key={'method-' + key}
+              selectAction={() => setSelectedMethod(key)}
+              isSelected={key === selectedMethod}
               value={method.value.toString()}
               title={method.type}
             />
@@ -87,6 +91,22 @@ export const WithdrawalPopUp = forwardRef<
   const getSize = () => {
     if (isDesktopLarge) return isUseProfile ? 'sm' : 's';
     return '';
+  };
+  const [payOut] = useMutation<string, MutationPayOutArgs>(
+    PAY_OUT
+  );
+
+  const onSubmit = (data: FormDataT) => {
+    payOut({
+      variables: {
+        input: {
+          type: savedMethods[selectedMethod??0].type,
+          value: data.value
+        },
+      },
+    }).then((data) => {
+      console.log(data);
+    });
   };
 
   const finalClassName = classNames(

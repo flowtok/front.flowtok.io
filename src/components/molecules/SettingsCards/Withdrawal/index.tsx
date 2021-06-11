@@ -29,6 +29,8 @@ export const WithdrawalCard = () => {
       <div className={styles['saved-methods_container']}>
         {savedMethods.map((method, key) => (
           <SavedMethod
+            isSelected={true}
+            selectAction={() => console.log(key)}
             value={method.value.toString()}
             title={method.type}
             key={'saved-method-' + key}

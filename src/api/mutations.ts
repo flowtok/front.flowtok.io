@@ -7,3 +7,9 @@ export const UPDATE_NAME = gql`
     }
   }
 `;
+
+export const PAY_OUT = gql`
+  mutation payOut($input: PayOutInput) {
+    payOut(input: $input)
+  }
+`;

@@ -45,10 +45,20 @@ export type LoginResponse = {
 export type Mutation = {
   __typename?: 'Mutation';
   updateUserName?: Maybe<User>;
+  payOut?: Maybe<Scalars['String']>;
 };
 
 export type MutationUpdateUserNameArgs = {
   input?: Maybe<UserNameInput>;
+};
+
+export type MutationPayOutArgs = {
+  input?: Maybe<PayOutInput>;
+};
+
+export type PayOutInput = {
+  type: Scalars['String'];
+  value: Scalars['String'];
 };
 
 export type Query = {

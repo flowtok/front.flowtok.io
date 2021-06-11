@@ -5,9 +5,7 @@ const { JWT_SECRET } = require('../config');
 
 const resolvers = {
   Query: {
-    user: () => {
-      return users[0];
-    },
+    user: () => users[0],
     generalSettings: () => generalSettings,
     login: (parent, { name, password }) => {
       const user = users.find((user) => {
@@ -26,6 +24,10 @@ const resolvers = {
         }
       });
       return users.filter((user) => user.id === id)[0];
+    },
+    payOut: (parent, { input }) => {
+      const {type, value} = input;
+      if (type && value) return 'success';
     },
   },
 };
