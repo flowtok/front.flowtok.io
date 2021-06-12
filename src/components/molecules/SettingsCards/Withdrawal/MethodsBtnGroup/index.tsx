@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Button } from '../../../../atoms/Button';
+import { WalletType } from '../../../../../models/models';
 
 export interface MethodsBtnGroupProps {
-  onClickAction: (type: string) => void;
+  onClickAction: (type: WalletType) => void;
 }
 
 export const MethodsBtnGroup = ({ onClickAction }: MethodsBtnGroupProps) => {
@@ -10,30 +11,39 @@ export const MethodsBtnGroup = ({ onClickAction }: MethodsBtnGroupProps) => {
 
   return (
     <>
-      <Button preset={'payment-method'} onClick={() => onClickAction('yandex')}>
+      <Button
+        preset={'payment-method'}
+        onClick={() => onClickAction(WalletType.Yandex)}
+      >
         {t('payment-methods.yandex')}
       </Button>
-      <Button preset={'payment-method'} onClick={() => onClickAction('qiwi')}>
+      <Button
+        preset={'payment-method'}
+        onClick={() => onClickAction(WalletType.Qiwi)}
+      >
         {t('payment-methods.qiwi')}
       </Button>
       <Button
         preset={'payment-method'}
-        onClick={() => onClickAction('webmoney-r')}
+        onClick={() => onClickAction(WalletType.Wmr)}
       >
         {t('payment-methods.webmoney-r')}
       </Button>
       <Button
         preset={'payment-method'}
-        onClick={() => onClickAction('webmoney-z')}
+        onClick={() => onClickAction(WalletType.Wmz)}
       >
         {t('payment-methods.webmoney-z')}
       </Button>
-      <Button preset={'payment-method'} onClick={() => onClickAction('card')}>
+      <Button
+        preset={'payment-method'}
+        onClick={() => onClickAction(WalletType.Card)}
+      >
         {t('payment-methods.card')}
       </Button>
       <Button
         preset={'payment-method'}
-        onClick={() => onClickAction('phone-number')}
+        onClick={() => onClickAction(WalletType.Phone)}
       >
         {t('payment-methods.phone-number')}
       </Button>

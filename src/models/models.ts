@@ -57,8 +57,14 @@ export type MutationPayOutArgs = {
 };
 
 export type PayOutInput = {
-  type: Scalars['String'];
+  type: WalletType;
   value: Scalars['String'];
+};
+
+export type PaymentMethod = {
+  __typename?: 'PaymentMethod';
+  value: Scalars['String'];
+  type: WalletType;
 };
 
 export type Query = {
@@ -120,4 +126,13 @@ export type UserNameInput = {
 export enum UserType {
   Blogger = 'Blogger',
   Advertiser = 'Advertiser',
+}
+
+export enum WalletType {
+  Phone = 'phone',
+  Yandex = 'yandex',
+  Card = 'card',
+  Qiwi = 'qiwi',
+  Wmr = 'wmr',
+  Wmz = 'wmz',
 }

@@ -59,8 +59,20 @@ input UserNameInput {
     id: ID!
 }
 input PayOutInput {
-    type: String!
+    type: WalletType!
     value: String!
+}
+enum WalletType {
+    phone
+    yandex
+    card
+    qiwi
+    wmr
+    wmz
+}
+type PaymentMethod  {
+    value: String!
+    type: WalletType!
 }
 type Mutation {
     updateUserName(input: UserNameInput): User

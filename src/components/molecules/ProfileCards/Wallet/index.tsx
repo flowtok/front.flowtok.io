@@ -32,8 +32,6 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
     { value: '112.90', date: '30.08.2023', type: HistoryItemType.Dec },
   ];
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
-  let radius;
   let historyButton = null;
   if (!isDesktop) {
     historyButton = (

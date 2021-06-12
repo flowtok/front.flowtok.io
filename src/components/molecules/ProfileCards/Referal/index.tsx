@@ -52,6 +52,7 @@ export const ReferalCard = ({
         preset="success_gray"
         radius={isDesktop ? null : 42}
         className={styles['copy-button']}
+        disabled={true}
       >
         {isDesktop ? t('button-values.copied') : <img src={CopyIcon} alt="" />}
       </Button>

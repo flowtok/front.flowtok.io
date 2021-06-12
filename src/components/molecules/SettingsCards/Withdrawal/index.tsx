@@ -7,15 +7,16 @@ import { MethodsBtnGroup } from './MethodsBtnGroup';
 import { useState } from 'react';
 import { SavedMethod } from './SavedMethod';
 import { AddWithdrawalPopUp } from '../../AddWithdrawalPopUp';
+import { PaymentMethod, WalletType } from '../../../../models/models';
 
 export const WithdrawalCard = () => {
   const { t } = useTranslation();
 
-  const [currentMethod, setMethod] = useState<string>('');
+  const [addedWallet, setAddedWallet] = useState<WalletType | null>(null);
   const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
 
   /*will be deleted*/
-  const savedMethods: any[] = [];
+  const savedMethods: PaymentMethod[] = [];
 
   const baseDescription = (
     <p className={commonStyles['description']}>
@@ -63,8 +64,8 @@ export const WithdrawalCard = () => {
             </p>
             <div className={styles['btn-group']}>
               <MethodsBtnGroup
-                onClickAction={(type: string) => {
-                  setMethod(type);
+                onClickAction={(type: WalletType) => {
+                  setAddedWallet(type);
                   setOpenPopUp(true);
                 }}
               />
@@ -72,11 +73,13 @@ export const WithdrawalCard = () => {
           </div>
         </div>
       </Paper>
-      <AddWithdrawalPopUp
-        isOpen={isOpenPopUp}
-        method={currentMethod}
-        close={() => setOpenPopUp(false)}
-      />
+      {addedWallet && (
+        <AddWithdrawalPopUp
+          isOpen={isOpenPopUp}
+          method={addedWallet}
+          close={() => setOpenPopUp(false)}
+        />
+      )}
     </>
   );
 };

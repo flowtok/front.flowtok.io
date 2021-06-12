@@ -8,13 +8,16 @@ import { Button } from '../../../../atoms/Button';
 import { Input } from '../../../../atoms/Input';
 import { AddWithdrawalPopUp } from '../../../AddWithdrawalPopUp';
 import { useForm } from 'react-hook-form';
-import { SavedMethod } from '../../../SettingsCards/Withdrawal/SavedMethod';
-import { MethodsBtnGroup } from '../../../SettingsCards/Withdrawal/MethodsBtnGroup';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useMutation } from '@apollo/client';
-import { MutationPayOutArgs } from '../../../../../models/models';
+import {
+  MutationPayOutArgs,
+  PaymentMethod,
+  WalletType,
+} from '../../../../../models/models';
 import { PAY_OUT } from '../../../../../api/mutations';
+import { PaymentMethods } from '../PaymentMethods';
 
 type FormDataT = {
   value: string;
@@ -43,50 +46,18 @@ export const WithdrawalPopUp = forwardRef<
     setOpenAddWithdrawalPopUp,
   ] = useState<boolean>(false);
 
-  const [currentMethod, setMethod] = useState<string>('');
-  const [selectedMethod, setSelectedMethod] = useState<number | null>(null);
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
-
   /*will be deleted*/
-  const savedMethods: any[] = [
-    { type: 'yandex', value: 213443245 },
-    { type: 'card', value: 213443245 },
-    { type: 'phone-number', value: 213443245 },
+  const savedMethods: PaymentMethod[] = [
+    { type: WalletType.Yandex, value: '213443245' },
+    { type: WalletType.Card, value: '1234 1212 3123 4124' },
+    { type: WalletType.Phone, value: '8 918 43-12-123' },
   ];
 
-  const renderPaymentMethod = () => {
-    if (savedMethods.length) {
-      return (
-        <div className={styles['methods-list']}>
-          <p className={commonStyles['secondary-title-small']}>
-            {t('pages.settings.cards.withdrawal.saved-list')}
-          </p>
-          {savedMethods.map((method, key) => (
-            <SavedMethod
-              key={'method-' + key}
-              selectAction={() => setSelectedMethod(key)}
-              isSelected={key === selectedMethod}
-              value={method.value.toString()}
-              title={method.type}
-            />
-          ))}
-        </div>
-      );
-    }
-    return (
-      <div className={styles['methods-btn_group']}>
-        <p className={commonStyles['secondary-title-small']}>
-          {t('pages.settings.cards.withdrawal.add-new-method')}
-        </p>
-        <MethodsBtnGroup
-          onClickAction={(type: string) => {
-            setMethod(type);
-            setOpenAddWithdrawalPopUp(true);
-          }}
-        />
-      </div>
-    );
-  };
+  const [addedWallet, setAddedWallet] = useState<WalletType | null>(null);
+  const [selectedMethod, setSelectedMethod] = useState<
+    PaymentMethod | undefined
+  >(savedMethods[0]);
+  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
 
   const getSize = () => {
     if (isDesktopLarge) return isUseProfile ? 'sm' : 's';
@@ -95,16 +66,18 @@ export const WithdrawalPopUp = forwardRef<
   const [payOut] = useMutation<string, MutationPayOutArgs>(PAY_OUT);
 
   const onSubmit = (data: FormDataT) => {
-    payOut({
-      variables: {
-        input: {
-          type: savedMethods[selectedMethod ?? 0].type,
-          value: data.value,
+    if (selectedMethod?.type) {
+      payOut({
+        variables: {
+          input: {
+            type: selectedMethod.type,
+            value: data.value,
+          },
         },
-      },
-    }).then((data) => {
-      console.log(data);
-    });
+      }).then((data) => {
+        console.log(data);
+      });
+    }
   };
 
   const finalClassName = classNames(
@@ -126,7 +99,13 @@ export const WithdrawalPopUp = forwardRef<
         <div className={finalClassName}>
           <div className={styles['fields-group']}>
             <div className={styles['payment-method']}>
-              {renderPaymentMethod()}
+              <PaymentMethods
+                setOpenAddWithdrawalPopUp={setOpenAddWithdrawalPopUp}
+                setAddedWallet={setAddedWallet}
+                savedMethods={savedMethods}
+                selectedMethod={selectedMethod}
+                setSelectedMethod={setSelectedMethod}
+              />
             </div>
             <Divider />
             <div className={styles['balance-info']}>
@@ -168,11 +147,13 @@ export const WithdrawalPopUp = forwardRef<
           </Button>
         </div>
       </form>
-      <AddWithdrawalPopUp
-        isOpen={isOpenAddWithdrawalPopUp}
-        method={currentMethod}
-        close={() => setOpenAddWithdrawalPopUp(false)}
-      />
+      {addedWallet && (
+        <AddWithdrawalPopUp
+          isOpen={isOpenAddWithdrawalPopUp}
+          method={addedWallet}
+          close={() => setOpenAddWithdrawalPopUp(false)}
+        />
+      )}
     </PopUp>
   );
 });
