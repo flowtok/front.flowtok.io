@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Firebase CI/CD
+name: Firebase CI
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     strategy:
       matrix:
@@ -19,24 +19,46 @@ jobs:
 
     steps:
     - name: git clone
-      uses: actions/checkout@master
-      
+      uses: actions/checkout@v2
+
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    
     - name: npm install and build
-      env: 
+      env:
         CI: ""
       run: |
-        npm install
+        npm i
         npm run build
-      
+        
+    - name: Archive build
+      uses: actions/upload-artifact@v1
+      with:
+        name: build
+        path: build
+
   deploy:
     name: Deploy to Firebase
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: lowply/deploy-firebase@v0.0.3
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          FIREBASE_PROJECT: flowtok-dev-server
-          TARGET_BRANCH: master
+    - name: git clone
+      uses: actions/checkout@v1
+    
+    - name: Download build
+      uses: actions/download-artifact@v2
+      with:
+        name: build
+        path: build
+        
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env: 
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
     
