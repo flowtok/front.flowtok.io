@@ -11,8 +11,8 @@
   @include adaptive-value-tablet(height, 48);
   font-size: 15px;
   @include adaptive-value-tablet(font-size, 15);
-  line-height: 18px;
-  @include adaptive-value-tablet(line-height, 18);
+  line-height: 15px;
+  @include adaptive-value-tablet(line-height, 15);
   padding: 15px;
   @include adaptive-value-tablet(padding, 15);
   text-align: center;
@@ -22,6 +22,7 @@
   position: relative;
   margin-bottom: 10px;
   @include adaptive-value-tablet(margin-bottom, 10);
+
 
   &_light {
     height: fit-content;
@@ -56,11 +57,12 @@
     @include adaptive-value-large-desktop(border-radius, 30);
     height: 38px;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 12px;
     @include adaptive-value-large-desktop(line-height, 18);
-    padding: 5px;
+    padding: 12px;
     letter-spacing: -0.361765px;
     @include adaptive-value-large-desktop(letter-spacing, -0.361765);
+
 
     &_light {
       height: fit-content;
@@ -85,6 +87,8 @@
     @include adaptive-value-large-desktop(height, 48);
     font-size: 15px;
     @include adaptive-value-large-desktop(font-size, 15);
+    line-height: 15px;
+    @include adaptive-value-large-desktop(line-height, 15);
     margin-bottom: 15px;
     @include adaptive-value-large-desktop(margin-bottom, 15);
   }
