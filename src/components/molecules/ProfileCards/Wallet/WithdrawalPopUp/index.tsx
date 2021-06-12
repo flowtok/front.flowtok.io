@@ -13,8 +13,8 @@ import { MethodsBtnGroup } from '../../../SettingsCards/Withdrawal/MethodsBtnGro
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useMutation } from '@apollo/client';
-import { MutationPayOutArgs, MutationUpdateUserNameArgs, User } from '../../../../../models/models';
-import { PAY_OUT, UPDATE_NAME } from '../../../../../api/mutations';
+import { MutationPayOutArgs } from '../../../../../models/models';
+import { PAY_OUT } from '../../../../../api/mutations';
 
 type FormDataT = {
   value: string;
@@ -92,16 +92,14 @@ export const WithdrawalPopUp = forwardRef<
     if (isDesktopLarge) return isUseProfile ? 'sm' : 's';
     return '';
   };
-  const [payOut] = useMutation<string, MutationPayOutArgs>(
-    PAY_OUT
-  );
+  const [payOut] = useMutation<string, MutationPayOutArgs>(PAY_OUT);
 
   const onSubmit = (data: FormDataT) => {
     payOut({
       variables: {
         input: {
-          type: savedMethods[selectedMethod??0].type,
-          value: data.value
+          type: savedMethods[selectedMethod ?? 0].type,
+          value: data.value,
         },
       },
     }).then((data) => {
