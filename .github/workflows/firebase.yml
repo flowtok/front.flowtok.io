@@ -46,7 +46,7 @@ jobs:
     needs: build
     steps:
     - name: git clone
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
     
     - name: Download build
       uses: actions/download-artifact@v2
