@@ -29,15 +29,14 @@ jobs:
         npm run build
       
   deploy:
-    name: Deploy
+    name: Deploy to Firebase
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          expires: 30d
-          projectId: flowtok-dev-server
+      - uses: lowply/deploy-firebase@v0.0.3
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_PROJECT: flowtok-dev-server
+          TARGET_BRANCH: master
 
     
