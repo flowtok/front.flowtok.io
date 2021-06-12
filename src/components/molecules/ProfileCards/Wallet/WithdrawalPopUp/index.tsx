@@ -48,9 +48,9 @@ export const WithdrawalPopUp = forwardRef<
 
   /*will be deleted*/
   const savedMethods: PaymentMethod[] = [
-    { type: WalletType.Yandex, value: '213443245' },
-    { type: WalletType.Card, value: '1234 1212 3123 4124' },
-    { type: WalletType.Phone, value: '8 918 43-12-123' },
+    // { type: WalletType.Yandex, value: '213443245' },
+    // { type: WalletType.Card, value: '1234 1212 3123 4124' },
+    // { type: WalletType.Phone, value: '8 918 43-12-123' },
   ];
 
   const [addedWallet, setAddedWallet] = useState<WalletType | null>(null);
