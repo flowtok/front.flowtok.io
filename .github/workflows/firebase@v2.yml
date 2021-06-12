@@ -12,10 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: npm install and build
+      - name: install yarn and build
         run: |
-         npm install
-         npm run build
+         npm install yarn
+         yarn
+         yarn run build
         
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
