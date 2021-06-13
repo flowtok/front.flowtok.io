@@ -43,3 +43,12 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const WALLETS = gql`
+  query getQuery {
+    wallets {
+      type
+      value
+    }
+  }
+`;

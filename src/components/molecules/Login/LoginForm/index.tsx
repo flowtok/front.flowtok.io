@@ -4,7 +4,7 @@ import { NetworkButton } from '../../../atoms/NetworkButton';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
-import { useLazyQuery, useReactiveVar } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { LoginResponse, QueryLoginArgs } from '../../../../models/models';
 import { currentUserVar, isAuthVar } from '../../../../api/cache';
 import { LOGIN } from '../../../../api/queries';

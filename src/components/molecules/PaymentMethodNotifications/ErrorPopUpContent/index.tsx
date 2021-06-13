@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '../../../atoms/Button';
 
 interface ErrorPopUpProps {
-  tryAction: () => void;
+  tryAction?: () => void;
 }
 
 export const ErrorPopUpContent = ({ tryAction }: ErrorPopUpProps) => {

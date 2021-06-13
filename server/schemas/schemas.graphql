@@ -5,11 +5,16 @@ type Query {
     getCurrentUser(id: ID!): User
     tasks: [Task]
     generalSettings: GeneralSettings
+    wallets: [PaymentMethod]
 }
 
 type LoginResponse{
     user: User
     token: String
+}
+type PayOutResponse {
+    success: Boolean
+    message: String
 }
 type User {
     id: ID!
@@ -62,6 +67,10 @@ input PayOutInput {
     type: WalletType!
     value: String!
 }
+input AddWallet {
+    type: WalletType!
+    value: String!
+}
 enum WalletType {
     phone
     yandex
@@ -76,7 +85,8 @@ type PaymentMethod  {
 }
 type Mutation {
     updateUserName(input: UserNameInput): User
-    payOut(input: PayOutInput): String
+    payOut(input: PayOutInput): PayOutResponse
+    addWallet(input: AddWallet): String
 }
 type GeneralSettings {
     facebook: String

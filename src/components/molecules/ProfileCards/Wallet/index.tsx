@@ -6,12 +6,15 @@ import ClockIcon from 'assets/common/icons/clock.svg';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
 import { useState } from 'react';
-import { HistoryItemComponent } from './HistoryItem';
 import { HistoryPopUp } from './HistoryPopUp';
 import { WithdrawalPopUp } from './WithdrawalPopUp';
 import { useMediaQuery } from 'react-responsive';
-import { VerificationPopup } from '../../VerificationPopup';
 import { HistoryItem, HistoryItemType } from '../../../../models/models';
+import { PopUp } from '../../PopUp';
+import {
+  DonePopUpContent,
+  ErrorPopUpContent,
+} from '../../PaymentMethodNotifications';
 
 export interface WalletCardProps {
   balance: string;
@@ -22,6 +25,8 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
   const [isOpenWithdrawalPopUp, setOpenWithdrawalPopUp] = useState<boolean>(
     false
   );
+  const [isOpenSuccessPopUp, setOpenSuccessPopUp] = useState<boolean>(false);
+  const [isOpenErrorPopUp, setOpenErrorPopUp] = useState<boolean>(false);
 
   const { t } = useTranslation();
 
@@ -31,6 +36,16 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
     { value: '1 112.90', date: '30.08.2020', type: HistoryItemType.Dec },
     { value: '112.90', date: '30.08.2023', type: HistoryItemType.Dec },
   ];
+
+  const handleResultByPayOut = (isSuccess: boolean) => {
+    if (isSuccess) {
+      setOpenWithdrawalPopUp(false);
+      setOpenSuccessPopUp(true);
+    } else {
+      setOpenErrorPopUp(true);
+    }
+  };
+
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   let historyButton = null;
   if (!isDesktop) {
@@ -68,10 +83,26 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         historyList={history}
       />
       <WithdrawalPopUp
+        handleResult={(status) => handleResultByPayOut(status)}
+        balance={balance}
         isUseProfile={true}
         isOpen={isOpenWithdrawalPopUp}
         close={() => setOpenWithdrawalPopUp(false)}
       />
+      <PopUp
+        size="s"
+        isOpen={isOpenSuccessPopUp}
+        close={() => setOpenSuccessPopUp(false)}
+      >
+        <DonePopUpContent />
+      </PopUp>
+      <PopUp
+        size="s"
+        isOpen={isOpenErrorPopUp}
+        close={() => setOpenErrorPopUp(false)}
+      >
+        <ErrorPopUpContent />
+      </PopUp>
       {/*uncomment component for see notification popup */}
       {/*<VerificationPopup isOpen={true} />*/}
     </>

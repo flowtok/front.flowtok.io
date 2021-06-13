@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -15,6 +14,11 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+};
+
+export type AddWallet = {
+  type: WalletType;
+  value: Scalars['String'];
 };
 
 export type GeneralSettings = {
@@ -45,7 +49,8 @@ export type LoginResponse = {
 export type Mutation = {
   __typename?: 'Mutation';
   updateUserName?: Maybe<User>;
-  payOut?: Maybe<Scalars['String']>;
+  payOut?: Maybe<PayOutResponse>;
+  addWallet?: Maybe<Scalars['String']>;
 };
 
 export type MutationUpdateUserNameArgs = {
@@ -56,9 +61,19 @@ export type MutationPayOutArgs = {
   input?: Maybe<PayOutInput>;
 };
 
+export type MutationAddWalletArgs = {
+  input?: Maybe<AddWallet>;
+};
+
 export type PayOutInput = {
   type: WalletType;
   value: Scalars['String'];
+};
+
+export type PayOutResponse = {
+  __typename?: 'PayOutResponse';
+  success?: Maybe<Scalars['Boolean']>;
+  message?: Maybe<Scalars['String']>;
 };
 
 export type PaymentMethod = {
@@ -75,6 +90,7 @@ export type Query = {
   getCurrentUser?: Maybe<User>;
   tasks?: Maybe<Array<Maybe<Task>>>;
   generalSettings?: Maybe<GeneralSettings>;
+  wallets?: Maybe<Array<Maybe<PaymentMethod>>>;
 };
 
 export type QueryLoginArgs = {

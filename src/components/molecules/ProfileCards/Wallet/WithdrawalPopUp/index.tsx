@@ -1,4 +1,9 @@
-import React, { forwardRef, PropsWithChildren, useState } from 'react';
+import React, {
+  forwardRef,
+  PropsWithChildren,
+  useEffect,
+  useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { Divider } from '../../../../atoms/Divider';
 import { PopUp } from '../../../PopUp';
@@ -10,14 +15,15 @@ import { AddWithdrawalPopUp } from '../../../AddWithdrawalPopUp';
 import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
-import { useMutation } from '@apollo/client';
+import { useLazyQuery, useMutation } from '@apollo/client';
 import {
   MutationPayOutArgs,
   PaymentMethod,
   WalletType,
 } from '../../../../../models/models';
-import { PAY_OUT } from '../../../../../api/mutations';
+import { ADD_WALLET, PAY_OUT } from '../../../../../api/mutations';
 import { PaymentMethods } from '../PaymentMethods';
+import { WALLETS } from '../../../../../api/queries';
 
 type FormDataT = {
   value: string;
@@ -27,17 +33,27 @@ interface WithdrawalPopUpProps {
   isOpen: boolean;
   close: () => void;
   isUseProfile?: boolean;
+  balance: string;
+  handleResult: (status: boolean) => void;
 }
 
 export const WithdrawalPopUp = forwardRef<
   HTMLDivElement,
   PropsWithChildren<WithdrawalPopUpProps>
->(({ isOpen, close, isUseProfile = false }) => {
+>(({ isOpen, close, isUseProfile = false, balance = '0', handleResult }) => {
   const { t } = useTranslation();
+  const [addWallet] = useMutation<string, MutationPayOutArgs>(ADD_WALLET);
+  const [payOut] = useMutation<string, MutationPayOutArgs>(PAY_OUT);
+  const [runQuery, { called, loading, data }] = useLazyQuery(WALLETS);
+
+  useEffect(() => {
+    runQuery();
+  }, []);
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, touchedFields },
   } = useForm<FormDataT>();
 
@@ -46,24 +62,16 @@ export const WithdrawalPopUp = forwardRef<
     setOpenAddWithdrawalPopUp,
   ] = useState<boolean>(false);
 
-  /*will be deleted*/
-  const savedMethods: PaymentMethod[] = [
-    // { type: WalletType.Yandex, value: '213443245' },
-    // { type: WalletType.Card, value: '1234 1212 3123 4124' },
-    // { type: WalletType.Phone, value: '8 918 43-12-123' },
-  ];
-
   const [addedWallet, setAddedWallet] = useState<WalletType | null>(null);
   const [selectedMethod, setSelectedMethod] = useState<
     PaymentMethod | undefined
-  >(savedMethods[0]);
+  >(data?.wallets[0]);
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
-
+  const [activeBtnSum, setActiveBtnSum] = useState<boolean>(false);
   const getSize = () => {
     if (isDesktopLarge) return isUseProfile ? 'sm' : 's';
     return '';
   };
-  const [payOut] = useMutation<string, MutationPayOutArgs>(PAY_OUT);
 
   const onSubmit = (data: FormDataT) => {
     if (selectedMethod?.type) {
@@ -74,8 +82,23 @@ export const WithdrawalPopUp = forwardRef<
             value: data.value,
           },
         },
-      }).then((data) => {
-        console.log(data);
+      }).then((data: any) => {
+        handleResult(data?.data?.payOut?.success);
+      });
+    }
+  };
+
+  const addNewWallet = (data: { type: WalletType; value: string }) => {
+    if (data.type) {
+      addWallet({
+        variables: {
+          input: {
+            type: data.type,
+            value: data.value,
+          },
+        },
+      }).then(() => {
+        runQuery();
       });
     }
   };
@@ -102,7 +125,7 @@ export const WithdrawalPopUp = forwardRef<
               <PaymentMethods
                 setOpenAddWithdrawalPopUp={setOpenAddWithdrawalPopUp}
                 setAddedWallet={setAddedWallet}
-                savedMethods={savedMethods}
+                savedMethods={data?.wallets}
                 selectedMethod={selectedMethod}
                 setSelectedMethod={setSelectedMethod}
               />
@@ -121,10 +144,21 @@ export const WithdrawalPopUp = forwardRef<
             </div>
 
             <div className={styles['popup-inputs']}>
-              <Button preset={'white'} className={styles['all-sum']}>
+              <Button
+                preset={activeBtnSum ? 'border-gradient' : 'white'}
+                className={styles['all-sum']}
+                onClick={() => {
+                  setActiveBtnSum(true);
+                  setValue('value', balance.toString(), {
+                    shouldValidate: true,
+                    shouldDirty: true,
+                  });
+                }}
+              >
                 {t('pages.profile.wallet.all-sum')}
               </Button>
               <Input
+                onInput={() => setActiveBtnSum(true)}
                 visited={touchedFields.value}
                 error={errors.value}
                 {...register('value', {
@@ -152,6 +186,7 @@ export const WithdrawalPopUp = forwardRef<
           isOpen={isOpenAddWithdrawalPopUp}
           method={addedWallet}
           close={() => setOpenAddWithdrawalPopUp(false)}
+          addNewWallet={(value) => addNewWallet({ type: addedWallet, value })}
         />
       )}
     </PopUp>

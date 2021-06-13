@@ -15,12 +15,13 @@ interface AddWithdrawalPopUpProps {
   isOpen: boolean;
   method: WalletType;
   close: () => void;
+  addNewWallet: (value: string) => void;
 }
 
 export const AddWithdrawalPopUp = forwardRef<
   HTMLDivElement,
   PropsWithChildren<AddWithdrawalPopUpProps>
->(({ isOpen, method, close }) => {
+>(({ isOpen, method, close, addNewWallet }) => {
   const {
     register,
     handleSubmit,
@@ -29,7 +30,7 @@ export const AddWithdrawalPopUp = forwardRef<
     reValidateMode: 'onChange',
   });
 
-  const onSubmit = (data: FormDataT) => console.log(data);
+  const onSubmit = (data: FormDataT) => addNewWallet(data.value);
   const { t } = useTranslation();
 
   const getTitleMethodByType = (type: WalletType | undefined | null) => {

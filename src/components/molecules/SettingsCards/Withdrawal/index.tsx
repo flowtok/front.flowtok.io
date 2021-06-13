@@ -75,6 +75,7 @@ export const WithdrawalCard = () => {
       </Paper>
       {addedWallet && (
         <AddWithdrawalPopUp
+          addNewWallet={(value) => console.log(value)}
           isOpen={isOpenPopUp}
           method={addedWallet}
           close={() => setOpenPopUp(false)}

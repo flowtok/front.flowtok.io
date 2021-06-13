@@ -1,6 +1,6 @@
 const { users } = require('../database/data');
 const jwt = require('jsonwebtoken');
-const { generalSettings } = require('../database/data');
+const { generalSettings, savedMethods } = require('../database/data');
 const { JWT_SECRET } = require('../config');
 
 const resolvers = {
@@ -14,9 +14,10 @@ const resolvers = {
       const token = jwt.sign(user, JWT_SECRET);
       return { user, token };
     },
+    wallets: () => savedMethods,
   },
   Mutation: {
-    updateUserName: (parent, { input }, context) => {
+    updateUserName: (parent, { input }) => {
       const { id, name } = input;
       users.forEach((user) => {
         if (user.id === id) {
@@ -27,8 +28,12 @@ const resolvers = {
     },
     payOut: (parent, { input }) => {
       const {type, value} = input;
-      if (type && value) return 'success';
+      if (type && value) return { success: true, message: "Success" };
     },
+    addWallet: (parent, { input }) => {
+      const {type, value} = input;
+      if (type && value) return { type, value };
+    }
   },
 };
 
