@@ -6,22 +6,28 @@ import { Button } from '../../../atoms/Button';
 
 interface ErrorPopUpProps {
   tryAction?: () => void;
+  title?: string;
+  description?: string;
 }
 
-export const ErrorPopUpContent = ({ tryAction }: ErrorPopUpProps) => {
+export const ErrorPopUpContent = ({
+  tryAction,
+  title,
+  description,
+}: ErrorPopUpProps) => {
   const { t } = useTranslation();
   return (
     <div className={styles['notification-method-popup']}>
       <img src={ErrorIcon} />
-      <h3 className={commonStyles['primary-title']}>
-        {t('payment-method-notifications.error')}
-      </h3>
+      <h3 className={commonStyles['primary-title']}>{title ?? ''}</h3>
       <p className={commonStyles['secondary-title-small']}>
-        {t('payment-method-notifications.error-description')}
+        {description ?? ''}
       </p>
-      <Button preset="success" onClick={tryAction}>
-        {t('button-values.try')}
-      </Button>
+      {tryAction && (
+        <Button preset="success" onClick={tryAction}>
+          {t('button-values.try')}
+        </Button>
+      )}
     </div>
   );
 };

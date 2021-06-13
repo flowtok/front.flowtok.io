@@ -34,7 +34,7 @@ interface WithdrawalPopUpProps {
   close: () => void;
   isUseProfile?: boolean;
   balance: string;
-  handleResult: (status: boolean) => void;
+  handleResult: (status: boolean, message: string) => void;
 }
 
 export const WithdrawalPopUp = forwardRef<
@@ -83,7 +83,7 @@ export const WithdrawalPopUp = forwardRef<
           },
         },
       }).then((data: any) => {
-        handleResult(data?.data?.payOut?.success);
+        handleResult(data?.data?.payOut?.success, data?.data?.payOut?.message);
       });
     }
   };
@@ -158,7 +158,6 @@ export const WithdrawalPopUp = forwardRef<
                 {t('pages.profile.wallet.all-sum')}
               </Button>
               <Input
-                onInput={() => setActiveBtnSum(true)}
                 visited={touchedFields.value}
                 error={errors.value}
                 {...register('value', {

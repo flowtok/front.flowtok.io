@@ -27,6 +27,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
   );
   const [isOpenSuccessPopUp, setOpenSuccessPopUp] = useState<boolean>(false);
   const [isOpenErrorPopUp, setOpenErrorPopUp] = useState<boolean>(false);
+  const [statusMessage, setStatusMessage] = useState<string>('');
 
   const { t } = useTranslation();
 
@@ -37,13 +38,14 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
     { value: '112.90', date: '30.08.2023', type: HistoryItemType.Dec },
   ];
 
-  const handleResultByPayOut = (isSuccess: boolean) => {
+  const handleResultByPayOut = (isSuccess: boolean, message: string) => {
     if (isSuccess) {
       setOpenWithdrawalPopUp(false);
       setOpenSuccessPopUp(true);
     } else {
       setOpenErrorPopUp(true);
     }
+    setStatusMessage(message);
   };
 
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
@@ -83,7 +85,9 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         historyList={history}
       />
       <WithdrawalPopUp
-        handleResult={(status) => handleResultByPayOut(status)}
+        handleResult={(status, message) =>
+          handleResultByPayOut(status, message)
+        }
         balance={balance}
         isUseProfile={true}
         isOpen={isOpenWithdrawalPopUp}
@@ -94,14 +98,14 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         isOpen={isOpenSuccessPopUp}
         close={() => setOpenSuccessPopUp(false)}
       >
-        <DonePopUpContent />
+        <DonePopUpContent title={statusMessage} />
       </PopUp>
       <PopUp
         size="s"
         isOpen={isOpenErrorPopUp}
         close={() => setOpenErrorPopUp(false)}
       >
-        <ErrorPopUpContent />
+        <ErrorPopUpContent title={statusMessage} />
       </PopUp>
       {/*uncomment component for see notification popup */}
       {/*<VerificationPopup isOpen={true} />*/}
