@@ -16,6 +16,10 @@ type PayOutResponse {
     success: Boolean
     message: String
 }
+type AddWaletResponse {
+    type: String
+    value: String
+}
 type User {
     id: ID!
     password: String!
@@ -67,7 +71,7 @@ input PayOutInput {
     type: WalletType!
     value: String!
 }
-input AddWallet {
+input AddWalletInput {
     type: WalletType!
     value: String!
 }
@@ -86,7 +90,7 @@ type PaymentMethod  {
 type Mutation {
     updateUserName(input: UserNameInput): User
     payOut(input: PayOutInput): PayOutResponse
-    addWallet(input: AddWallet): String
+    addWallet(input: AddWalletInput): AddWaletResponse
 }
 type GeneralSettings {
     facebook: String

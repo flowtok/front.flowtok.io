@@ -1,12 +1,8 @@
 import { gql } from '@apollo/client';
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -16,7 +12,13 @@ export type Scalars = {
   Float: number;
 };
 
-export type AddWallet = {
+export type AddWaletResponse = {
+  __typename?: 'AddWaletResponse';
+  type?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type AddWalletInput = {
   type: WalletType;
   value: Scalars['String'];
 };
@@ -37,7 +39,7 @@ export type HistoryItem = {
 
 export enum HistoryItemType {
   Dec = 'dec',
-  Inc = 'inc',
+  Inc = 'inc'
 }
 
 export type LoginResponse = {
@@ -50,19 +52,22 @@ export type Mutation = {
   __typename?: 'Mutation';
   updateUserName?: Maybe<User>;
   payOut?: Maybe<PayOutResponse>;
-  addWallet?: Maybe<Scalars['String']>;
+  addWallet?: Maybe<AddWaletResponse>;
 };
+
 
 export type MutationUpdateUserNameArgs = {
   input?: Maybe<UserNameInput>;
 };
 
+
 export type MutationPayOutArgs = {
   input?: Maybe<PayOutInput>;
 };
 
+
 export type MutationAddWalletArgs = {
-  input?: Maybe<AddWallet>;
+  input?: Maybe<AddWalletInput>;
 };
 
 export type PayOutInput = {
@@ -93,10 +98,12 @@ export type Query = {
   wallets?: Maybe<Array<Maybe<PaymentMethod>>>;
 };
 
+
 export type QueryLoginArgs = {
   name: Scalars['String'];
   password: Scalars['String'];
 };
+
 
 export type QueryGetCurrentUserArgs = {
   id: Scalars['ID'];
@@ -141,7 +148,7 @@ export type UserNameInput = {
 
 export enum UserType {
   Blogger = 'Blogger',
-  Advertiser = 'Advertiser',
+  Advertiser = 'Advertiser'
 }
 
 export enum WalletType {
@@ -150,5 +157,5 @@ export enum WalletType {
   Card = 'card',
   Qiwi = 'qiwi',
   Wmr = 'wmr',
-  Wmz = 'wmz',
+  Wmz = 'wmz'
 }

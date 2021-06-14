@@ -18,7 +18,10 @@ export const PAY_OUT = gql`
 `;
 
 export const ADD_WALLET = gql`
-  mutation addWallet($input: AddWallet) {
-    addWallet(input: $input)
+  mutation addWallet($input: AddWalletInput) {
+    addWallet(input: $input) {
+      type
+      value
+    }
   }
 `;

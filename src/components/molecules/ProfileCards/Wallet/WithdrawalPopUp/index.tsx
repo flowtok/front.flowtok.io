@@ -99,6 +99,7 @@ export const WithdrawalPopUp = forwardRef<
         },
       }).then(() => {
         runQuery();
+        setOpenAddWithdrawalPopUp(false);
       });
     }
   };
@@ -110,6 +111,7 @@ export const WithdrawalPopUp = forwardRef<
 
   return (
     <PopUp
+      isClose={false}
       isOpen={isOpen}
       close={() => close()}
       title={t('pages.profile.wallet.popup-withdrawal')}
