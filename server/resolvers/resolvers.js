@@ -27,13 +27,13 @@ const resolvers = {
       return users.filter((user) => user.id === id)[0];
     },
     payOut: (parent, { input }) => {
-      const {type, value} = input;
-      if (type && value) return { success: true, message: "Success" };
+      const { type, value } = input;
+      if (type && value) return { success: true, message: 'Success' };
     },
     addWallet: (parent, { input }) => {
-      const {type, value} = input;
+      const { type, value } = input;
       if (type && value) return { type, value };
-    }
+    },
   },
 };
 

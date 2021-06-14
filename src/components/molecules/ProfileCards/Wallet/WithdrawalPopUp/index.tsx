@@ -24,9 +24,10 @@ import {
 import { ADD_WALLET, PAY_OUT } from '../../../../../api/mutations';
 import { PaymentMethods } from '../PaymentMethods';
 import { WALLETS } from '../../../../../api/queries';
+import { trimMoney } from '../../../../../utils/string';
 
 type FormDataT = {
-  value: string;
+  value: number;
 };
 
 interface WithdrawalPopUpProps {
@@ -94,7 +95,7 @@ export const WithdrawalPopUp = forwardRef<
         variables: {
           input: {
             type: data.type,
-            value: data.value,
+            value: +data.value,
           },
         },
       }).then(() => {
@@ -111,7 +112,8 @@ export const WithdrawalPopUp = forwardRef<
 
   return (
     <PopUp
-      isClose={false}
+      closeOnDocumentClick={true}
+      isCross={true}
       isOpen={isOpen}
       close={() => close()}
       title={t('pages.profile.wallet.popup-withdrawal')}
@@ -137,21 +139,21 @@ export const WithdrawalPopUp = forwardRef<
               <p className={commonStyles['secondary-title-small']}>
                 {t('pages.profile.wallet.balance-info')}
               </p>
-              <p>15 236.00 ₽</p>
+              <p>{balance}</p>
             </div>
             <div className={styles['sum']}>
               <p className={commonStyles['secondary-title-small']}>
                 {t('pages.profile.wallet.balance-sum')}
               </p>
             </div>
-
             <div className={styles['popup-inputs']}>
               <Button
                 preset={activeBtnSum ? 'border-gradient' : 'white'}
                 className={styles['all-sum']}
+                type={'button'}
                 onClick={() => {
                   setActiveBtnSum(true);
-                  setValue('value', balance.toString(), {
+                  setValue('value', +trimMoney(balance), {
                     shouldValidate: true,
                     shouldDirty: true,
                   });

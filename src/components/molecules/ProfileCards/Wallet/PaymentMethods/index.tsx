@@ -23,7 +23,7 @@ export const PaymentMethods: FC<PaymentMethodsPropsT> = ({
 }) => {
   const { t } = useTranslation();
 
-  if (savedMethods.length) {
+  if (savedMethods?.length) {
     return (
       <div className={styles['methods-list']}>
         <p className={commonStyles['secondary-title-small']}>

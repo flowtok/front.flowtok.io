@@ -69,7 +69,7 @@ input UserNameInput {
 }
 input PayOutInput {
     type: WalletType!
-    value: String!
+    value: Float!
 }
 input AddWalletInput {
     type: WalletType!

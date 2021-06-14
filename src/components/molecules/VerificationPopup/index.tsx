@@ -36,7 +36,8 @@ export const VerificationPopup = forwardRef<
   return (
     <PopUp
       isOpen={isOpen}
-      isClose={false}
+      isCross={false}
+      closeOnDocumentClick={false}
       title={t('popup-notification.title')}
       size={isDesktopLarge ? 'm' : ''}
       titlePosition={isDesktopLarge ? 'center' : 'left'}
