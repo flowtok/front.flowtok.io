@@ -1,15 +1,16 @@
 import React, { Suspense } from 'react';
 import { AuthLayout } from './components/templates/AuthLayout';
 import { NonAuthLayout } from './components/templates/NonAuthLayout';
-import { isAuthVar } from './api/cache';
 import { useReactiveVar } from '@apollo/client';
+import { tokenExistVar } from './api/cache';
 
 export const App = () => {
-  const isAuth = useReactiveVar(isAuthVar);
+  const tokenExist = useReactiveVar(tokenExistVar);
+
   return (
     <div style={{ position: 'relative' }}>
       <Suspense fallback={<div>Loading...</div>}>
-        {isAuth ? <AuthLayout /> : <NonAuthLayout />}
+        {tokenExist ? <AuthLayout /> : <NonAuthLayout />}
       </Suspense>
     </div>
   );

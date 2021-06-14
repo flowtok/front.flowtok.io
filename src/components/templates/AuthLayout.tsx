@@ -1,31 +1,39 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { BloggerLayout } from './BloggerLayout';
 import { useQuery, useReactiveVar } from '@apollo/client';
-import { currentUserVar } from '../../api/cache';
+import { currentUserVar, isRegisteredVar } from '../../api/cache';
 import { User, UserType } from '../../models/models';
 import { USER } from '../../api/queries';
 import { QueryHandler } from './QueryHandler';
 import { AdvertiserLayout } from './AdvertiserLayout';
+import { Redirect } from 'react-router-dom';
 
 type AuthLayoutPropsT = any;
 
 export const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
   const user = useReactiveVar(currentUserVar);
+  const isRegistered = useReactiveVar(isRegisteredVar);
 
-  const { loading, error } = useQuery<{ user: User }>(USER, {
-    onCompleted: (data) => {
-      currentUserVar(data?.user);
-    },
-  });
+  const { data, loading, error } = useQuery<{ user: User }>(USER);
 
-  return (
-    <QueryHandler loading={loading} error={error}>
-      {user &&
-        (user?.type === UserType.Blogger ? (
+  useEffect(() => {
+    if (!data?.user?.tagName) {
+      isRegisteredVar(false);
+    }
+    currentUserVar(data?.user);
+  }, [data]);
+
+  if (isRegistered) {
+    return (
+      <QueryHandler loading={loading} error={error}>
+        {user?.type === UserType.Blogger ? (
           <BloggerLayout />
         ) : (
           <AdvertiserLayout />
-        ))}
-    </QueryHandler>
-  );
+        )}
+      </QueryHandler>
+    );
+  } else {
+    return <Redirect to={'/signup'} />;
+  }
 };

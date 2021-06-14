@@ -6,7 +6,7 @@ import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
 import { useLazyQuery } from '@apollo/client';
 import { LoginResponse, QueryLoginArgs } from '../../../../models/models';
-import { currentUserVar, isAuthVar } from '../../../../api/cache';
+import { currentUserVar, isRegisteredVar } from '../../../../api/cache';
 import { LOGIN } from '../../../../api/queries';
 
 type SignUpFormPropsT = any;
@@ -30,7 +30,7 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
     if (data) {
       currentUserVar(data?.login.user);
       localStorage.setItem('token', JSON.stringify(data?.login.token));
-      isAuthVar(true);
+      isRegisteredVar(true);
     }
   }, [data]);
 
