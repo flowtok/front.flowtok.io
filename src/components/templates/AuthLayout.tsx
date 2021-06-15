@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { BloggerLayout } from './BloggerLayout';
 import { useQuery, useReactiveVar } from '@apollo/client';
 import { currentUserVar } from '../../api/cache';
@@ -12,19 +12,20 @@ type AuthLayoutPropsT = any;
 export const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
   const user = useReactiveVar(currentUserVar);
 
-  const { data, loading, error } = useQuery<{ user: User }>(USER);
-
-  useEffect(() => {
-    currentUserVar(data?.user);
-  }, [data]);
+  const { loading, error } = useQuery<{ user: User }>(USER, {
+    onCompleted: (data) => {
+      currentUserVar(data?.user);
+    },
+  });
 
   return (
     <QueryHandler loading={loading} error={error}>
-      {user?.type === UserType.Blogger ? (
-        <BloggerLayout />
-      ) : (
-        <AdvertiserLayout />
-      )}
+      {user &&
+        (user?.type === UserType.Blogger ? (
+          <BloggerLayout />
+        ) : (
+          <AdvertiserLayout />
+        ))}
     </QueryHandler>
   );
 };
