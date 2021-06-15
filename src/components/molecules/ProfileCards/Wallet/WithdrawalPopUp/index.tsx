@@ -47,10 +47,6 @@ export const WithdrawalPopUp = forwardRef<
   const [payOut] = useMutation<string, MutationPayOutArgs>(PAY_OUT);
   const [runQuery, { called, loading, data }] = useLazyQuery(WALLETS);
 
-  useEffect(() => {
-    runQuery();
-  }, []);
-
   const {
     register,
     handleSubmit,
@@ -105,6 +101,24 @@ export const WithdrawalPopUp = forwardRef<
     }
   };
 
+  useEffect(() => {
+    runQuery();
+  }, []);
+
+  useEffect(() => {
+    if (activeBtnSum) {
+      setValue('value', +trimMoney(balance).toString(), {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
+    } else {
+      setValue('value', '', {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
+    }
+  }, [activeBtnSum]);
+
   const finalClassName = classNames(
     styles['form-container'],
     styles[`form-container_${getSize()}`]
@@ -151,13 +165,7 @@ export const WithdrawalPopUp = forwardRef<
                 preset={activeBtnSum ? 'border-gradient' : 'white'}
                 className={styles['all-sum']}
                 type={'button'}
-                onClick={() => {
-                  setActiveBtnSum(true);
-                  setValue('value', +trimMoney(balance), {
-                    shouldValidate: true,
-                    shouldDirty: true,
-                  });
-                }}
+                onClick={() => setActiveBtnSum(!activeBtnSum)}
               >
                 {t('pages.profile.wallet.all-sum')}
               </Button>
