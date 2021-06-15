@@ -112,7 +112,7 @@ export const WithdrawalPopUp = forwardRef<
         shouldDirty: true,
       });
     } else {
-      setValue('value', '', {
+      setValue('value', 0, {
         shouldValidate: true,
         shouldDirty: true,
       });

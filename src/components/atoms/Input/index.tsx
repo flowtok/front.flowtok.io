@@ -21,7 +21,7 @@ export const Input = forwardRef<
   return (
     <div>
       <InputMask mask={mask} {...rest}>
-        {() => <input {...rest} className={finalClassName} />}
+        {() => <input ref={ref} className={finalClassName} />}
       </InputMask>
       {error && <p className={styles['error']}>{error.message}</p>}
     </div>
