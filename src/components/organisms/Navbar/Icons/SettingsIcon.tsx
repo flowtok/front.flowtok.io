@@ -24,65 +24,65 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
           <path
             d="M5.3 21.8001V14.1001"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M5.3 9.7V2"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M14.1 21.7999V11.8999"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M14.1 7.5V2"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M22.9001 21.8V16.3"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M22.9001 11.9V2"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M2 14.1H8.6"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M10.8 7.49995H17.4"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M19.6001 16.3H26.2001"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       );
@@ -98,65 +98,65 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
           <path
             d="M5.3 21.8001V14.1001"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M5.3 9.7V2"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M14.1 21.7999V11.8999"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M14.1 7.5V2"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M22.9001 21.8V16.3"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M22.9001 11.9V2"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M2 14.1H8.6"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M10.8 7.49995H17.4"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M19.6001 16.3H26.2001"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       );
@@ -176,73 +176,73 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               id="Path"
               d="M4.5 19V12"
               stroke="url(#paint0_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_2"
               d="M4.5 8V1"
               stroke="url(#paint1_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_3"
               d="M12.5 19V10"
               stroke="url(#paint2_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_4"
               d="M12.5 6V1"
               stroke="url(#paint3_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_5"
               d="M20.5 19V14"
               stroke="url(#paint4_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_6"
               d="M20.5 10V1"
               stroke="url(#paint5_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_7"
               d="M1 11.5H7"
               stroke="url(#paint6_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_8"
               d="M9 6.5H15"
               stroke="url(#paint7_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_9"
               d="M17 13.5H23"
               stroke="url(#paint8_linear)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </g>
           <defs>
@@ -362,73 +362,73 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               id="Path"
               d="M4.5 19V12"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_2"
               d="M4.5 8V1"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_3"
               d="M12.5 19V10"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_4"
               d="M12.5 6V1"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_5"
               d="M20.5 19V14"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_6"
               d="M20.5 10V1"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_7"
               d="M1 11.5H7"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_8"
               d="M9 6.5H15"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Path_9"
               d="M17 13.5H23"
               stroke={color ?? '#979797'}
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </g>
         </svg>

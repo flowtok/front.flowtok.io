@@ -21,16 +21,19 @@ interface PopUpProps {
 }
 
 export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
-  ({
-    children,
-    isOpen,
-    close,
-    title,
-    closeOnDocumentClick = true,
-    isCross = true,
-    titlePosition = 'left',
-    size,
-  }) => {
+  (
+    {
+      children,
+      isOpen,
+      close,
+      title,
+      closeOnDocumentClick = true,
+      isCross = true,
+      titlePosition = 'left',
+      size,
+    },
+    ref
+  ) => {
     const contentStyle = {
       width: 'fit-content',
       margin: 'auto',

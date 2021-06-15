@@ -21,7 +21,7 @@ interface AddWithdrawalPopUpProps {
 export const AddWithdrawalPopUp = forwardRef<
   HTMLDivElement,
   PropsWithChildren<AddWithdrawalPopUpProps>
->(({ isOpen, method, close, addNewWallet }) => {
+>(({ isOpen, method, close, addNewWallet }, ref) => {
   const {
     register,
     handleSubmit,

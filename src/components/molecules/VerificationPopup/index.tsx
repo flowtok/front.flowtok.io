@@ -18,7 +18,7 @@ interface VerificationPopupProps {
 export const VerificationPopup = forwardRef<
   HTMLDivElement,
   PropsWithChildren<VerificationPopupProps>
->(({ isOpen }) => {
+>(({ isOpen }, ref) => {
   const { t } = useTranslation();
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   const finalClassName = classNames(
