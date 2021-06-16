@@ -169,7 +169,6 @@ export const WithdrawalPopUp = forwardRef<
                 {t('pages.profile.wallet.all-sum')}
               </Button>
               <Input
-                isUseMask={false}
                 visited={touchedFields.value}
                 error={errors.value}
                 {...register('value', {
