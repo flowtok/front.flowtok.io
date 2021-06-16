@@ -69,14 +69,13 @@ export const WithdrawalPopUp = forwardRef<
     if (isDesktopLarge) return isUseProfile ? 'sm' : 's';
     return '';
   };
-
   const onSubmit = (data: FormDataT) => {
     if (selectedMethod?.type) {
       payOut({
         variables: {
           input: {
             type: selectedMethod.type,
-            value: data.value,
+            value: parseFloat(String(data.value)),
           },
         },
       }).then((data: any) => {
@@ -170,6 +169,7 @@ export const WithdrawalPopUp = forwardRef<
                 {t('pages.profile.wallet.all-sum')}
               </Button>
               <Input
+                isUseMask={false}
                 visited={touchedFields.value}
                 error={errors.value}
                 {...register('value', {

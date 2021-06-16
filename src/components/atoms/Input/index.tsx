@@ -8,20 +8,22 @@ export type InputProps = {
   error?: FieldError;
   visited?: boolean;
   mask?: string | Array<string | RegExp>;
+  isUseMask?: boolean;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export const Input = forwardRef<
   HTMLInputElement,
   InputProps & ReturnType<UseFormRegister<any>>
->(({ error, visited, mask = '', ...rest }, ref) => {
+>(({ error, visited, mask = '', isUseMask = true, ...rest }, ref) => {
   const finalClassName = classNames(styles['input'], {
     [styles[`input-error`]]: !!error,
     [styles[`input-visited`]]: visited && !error,
   });
+
   return (
     <div>
       <InputMask mask={mask} {...rest}>
-        {() => <input ref={ref} className={finalClassName} />}
+        {() => <input {...rest} ref={ref} className={finalClassName} />}
       </InputMask>
       {error && <p className={styles['error']}>{error.message}</p>}
     </div>
