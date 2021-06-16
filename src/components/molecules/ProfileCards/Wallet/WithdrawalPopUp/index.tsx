@@ -12,7 +12,7 @@ import commonStyles from '../../styles.module.scss';
 import { Button } from '../../../../atoms/Button';
 import { Input } from '../../../../atoms/Input';
 import { AddWithdrawalPopUp } from '../../../AddWithdrawalPopUp';
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useLazyQuery, useMutation } from '@apollo/client';
@@ -51,8 +51,21 @@ export const WithdrawalPopUp = forwardRef<
     register,
     handleSubmit,
     setValue,
+    reset,
+    watch,
     formState: { errors, touchedFields },
-  } = useForm<FormDataT>();
+  } = useForm<FormDataT>({
+    reValidateMode: 'onChange',
+    mode: 'onChange',
+  });
+
+  // watch((data) => {
+  //   if (+data.value === trimmedBalance && !activeBtnSum) {
+  //     setActiveBtnSum(true);
+  //   } else if (activeBtnSum) {
+  //     setActiveBtnSum(false);
+  //   }
+  // });
 
   const [
     isOpenAddWithdrawalPopUp,
@@ -65,10 +78,15 @@ export const WithdrawalPopUp = forwardRef<
   >(data?.wallets[0]);
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
   const [activeBtnSum, setActiveBtnSum] = useState<boolean>(false);
+  const [trimmedBalance, setTrimmedBalance] = useState<number>(
+    +trimMoney(balance)
+  );
+
   const getSize = () => {
     if (isDesktopLarge) return isUseProfile ? 'sm' : 's';
     return '';
   };
+
   const onSubmit = (data: FormDataT) => {
     if (selectedMethod?.type) {
       payOut({
@@ -79,6 +97,10 @@ export const WithdrawalPopUp = forwardRef<
           },
         },
       }).then((data: any) => {
+        reset({
+          value: 0,
+        });
+        setActiveBtnSum(false);
         handleResult(data?.data?.payOut?.success, data?.data?.payOut?.message);
       });
     }
@@ -104,19 +126,21 @@ export const WithdrawalPopUp = forwardRef<
     runQuery();
   }, []);
 
-  useEffect(() => {
-    if (activeBtnSum) {
-      setValue('value', +trimMoney(balance).toString(), {
+  const onClickActiveSumBtn = () => {
+    if (!activeBtnSum) {
+      setActiveBtnSum(true);
+      setValue('value', trimmedBalance, {
         shouldValidate: true,
         shouldDirty: true,
       });
     } else {
+      setActiveBtnSum(false);
       setValue('value', 0, {
         shouldValidate: true,
         shouldDirty: true,
       });
     }
-  }, [activeBtnSum]);
+  };
 
   const finalClassName = classNames(
     styles['form-container'],
@@ -164,7 +188,7 @@ export const WithdrawalPopUp = forwardRef<
                 preset={activeBtnSum ? 'border-gradient' : 'white'}
                 className={styles['all-sum']}
                 type={'button'}
-                onClick={() => setActiveBtnSum(!activeBtnSum)}
+                onClick={onClickActiveSumBtn}
               >
                 {t('pages.profile.wallet.all-sum')}
               </Button>
@@ -177,6 +201,10 @@ export const WithdrawalPopUp = forwardRef<
                     value: 100,
                     message: t('validation-messages.min-output').toString(),
                   },
+                  // max: {
+                  //   value: trimmedBalance,
+                  //   message: t('validation-messages.max-output').toString(),
+                  // },
                 })}
                 placeholder={t('pages.profile.wallet.main-sum')}
               />
