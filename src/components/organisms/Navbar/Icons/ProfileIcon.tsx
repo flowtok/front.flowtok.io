@@ -24,16 +24,16 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
           <path
             d="M21.5556 24.0001V21.5556C21.5556 18.8556 19.3667 16.6667 16.6667 16.6667H6.88889C4.18883 16.6667 2 18.8556 2 21.5556V24.0001"
             stroke="url(#paint0_linear)"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <circle
             cx="11.7778"
             cy="6.88889"
             r="4.88889"
             stroke="url(#paint1_linear)"
-            stroke-width="2.2"
+            strokeWidth="2.2"
           />
           <defs>
             <linearGradient
@@ -44,8 +44,8 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
               y2="29.7966"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#7433F0" />
-              <stop offset="1" stop-color="#22198F" />
+              <stop stopColor="#7433F0" />
+              <stop offset="1" stopColor="#22198F" />
             </linearGradient>
             <linearGradient
               id="paint1_linear"
@@ -55,8 +55,8 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
               y2="14.2222"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#231990" />
-              <stop offset="1" stop-color="#632EDC" />
+              <stop stopColor="#231990" />
+              <stop offset="1" stopColor="#632EDC" />
             </linearGradient>
           </defs>
         </svg>
@@ -73,16 +73,16 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
           <path
             d="M21.5556 24.0001V21.5556C21.5556 18.8556 19.3667 16.6667 16.6667 16.6667H6.88889C4.18883 16.6667 2 18.8556 2 21.5556V24.0001"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <circle
             cx="11.7778"
             cy="6.88889"
             r="4.88889"
             stroke={color ?? '#979797'}
-            stroke-width="2.2"
+            strokeWidth="2.2"
           />
           <defs>
             <linearGradient
@@ -93,8 +93,8 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
               y2="29.7966"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#7433F0" />
-              <stop offset="1" stop-color="#22198F" />
+              <stop stopColor="#7433F0" />
+              <stop offset="1" stopColor="#22198F" />
             </linearGradient>
             <linearGradient
               id="paint1_linear"
@@ -104,8 +104,8 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
               y2="14.2222"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#231990" />
-              <stop offset="1" stop-color="#632EDC" />
+              <stop stopColor="#231990" />
+              <stop offset="1" stopColor="#632EDC" />
             </linearGradient>
           </defs>
         </svg>
@@ -124,18 +124,18 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
           <path
             d="M17 19V17C17 14.7909 15.2091 13 13 13H5C2.79086 13 1 14.7909 1 17V19"
             stroke="url(#paint0_linear)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <circle
             cx="9"
             cy="5"
             r="4"
             stroke="url(#paint1_linear)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <defs>
             <linearGradient
@@ -146,8 +146,8 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
               y2="11.8103"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint1_linear"
@@ -157,8 +157,8 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
               y2="4.72314"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
           </defs>
         </svg>
@@ -175,18 +175,18 @@ export const ProfileIcon: FC<ProfileIconPropsT> = ({
           <path
             d="M17 19V17C17 14.7909 15.2091 13 13 13H5C2.79086 13 1 14.7909 1 17V19"
             stroke={color ?? '#979797'}
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <circle
             cx="9"
             cy="5"
             r="4"
             stroke={color ?? '#979797'}
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       );

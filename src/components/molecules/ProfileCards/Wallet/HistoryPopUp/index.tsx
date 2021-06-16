@@ -14,7 +14,7 @@ interface HistoryPopUpProps {
 export const HistoryPopUp = forwardRef<
   HTMLDivElement,
   PropsWithChildren<HistoryPopUpProps>
->(({ isOpen, close, historyList }) => {
+>(({ isOpen, close, historyList }, ref) => {
   const { t } = useTranslation();
 
   return (
