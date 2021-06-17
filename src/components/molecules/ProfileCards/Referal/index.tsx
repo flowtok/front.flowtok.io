@@ -7,6 +7,9 @@ import commonStyles from '../styles.module.scss';
 import CopyIcon from 'assets/common/icons/copy.svg';
 import styles from './styles.module.scss';
 import { useMediaQuery } from 'react-responsive';
+import { useReactiveVar } from '@apollo/client';
+import { currentUserVar } from '../../../../api/cache';
+import { useState } from 'react';
 
 export interface ReferalCardProps {
   refUrl: string;
@@ -21,6 +24,40 @@ export const ReferalCard = ({
 }: ReferalCardProps) => {
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
+  const user = useReactiveVar(currentUserVar);
+  const [isCopyStatus, setCopyStatus] = useState<boolean>(false);
+
+  const copyAction = () => {
+    navigator.clipboard
+      .writeText(user ? user.refLink : '')
+      .then(() => setCopyStatus(true));
+    setTimeout(() => {
+      setCopyStatus(false);
+    }, 3000);
+  };
+
+  let copyBtn = (
+    <Button
+      onClick={() => copyAction()}
+      radius={isDesktop ? null : 42}
+      className={styles['copy-button']}
+    >
+      {isDesktop ? t('button-values.copy') : <img src={CopyIcon} alt="" />}
+    </Button>
+  );
+
+  if (isCopyStatus) {
+    copyBtn = (
+      <Button
+        preset="success_gray"
+        radius={isDesktop ? null : 42}
+        className={styles['copy-button']}
+        disabled={true}
+      >
+        {isDesktop ? t('button-values.copied') : <img src={CopyIcon} alt="" />}
+      </Button>
+    );
+  }
 
   return (
     <Paper className={styles.ref}>
@@ -32,16 +69,7 @@ export const ReferalCard = ({
           <div className={styles['field']}>
             <p>{refUrl}</p>
           </div>
-          <Button
-            radius={isDesktop ? null : 42}
-            className={styles['copy-button']}
-          >
-            {isDesktop ? (
-              t('button-values.copy')
-            ) : (
-              <img src={CopyIcon} alt="" />
-            )}
-          </Button>
+          {copyBtn}
         </div>
       </div>
       {isDesktop ? <Divider direction="vertical" /> : <Divider />}

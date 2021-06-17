@@ -9,16 +9,19 @@ export interface MethodsBtnGroupProps {
   value: string;
   title: string;
   canDelete?: boolean;
+  isSelected: boolean;
+  selectAction: () => void;
 }
 
 export const SavedMethod = ({
   title,
   value,
+  isSelected,
   canDelete,
+  selectAction,
 }: MethodsBtnGroupProps) => {
-  const [isChecked, setChecked] = useState<boolean>(false);
   const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
-  const style = isChecked
+  const style = isSelected
     ? styles[`saved_method-active`]
     : styles[`saved_method`];
 
@@ -35,9 +38,9 @@ export const SavedMethod = ({
 
   return (
     <div className={styles['method-container']}>
-      <div className={style} onClick={() => setChecked(!isChecked)}>
+      <div className={style} onClick={() => selectAction()}>
         <div>
-          <Checkbox isChecked={isChecked} />
+          <Checkbox isChecked={isSelected} />
           <p>{getTitleMethodByType(title)}</p>
         </div>
         <div>{'...'.concat(value.slice(-4))}</div>

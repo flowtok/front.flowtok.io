@@ -205,6 +205,13 @@
     border-radius: 11px;
   }
 }
+@media (min-width: 1024px) {
+  .button_payment-method {
+    font-size: 14px;
+    padding: 8px 12px;
+    line-height: 14px;
+  }
+}
 
 @media (min-width: 1440px) {
   .button_size-m {

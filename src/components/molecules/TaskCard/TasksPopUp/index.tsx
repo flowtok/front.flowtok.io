@@ -18,7 +18,7 @@ interface TasksPopUpProps {
 export const TasksPopUp = forwardRef<
   HTMLDivElement,
   PropsWithChildren<TasksPopUpProps>
->(({ isOpen, close, type, tasks }) => {
+>(({ isOpen, close, type, tasks }, ref) => {
   const { t } = useTranslation();
   let title = t('task-cards.popup-titles.how-to-do');
 

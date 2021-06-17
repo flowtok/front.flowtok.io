@@ -17,6 +17,17 @@ export type Scalars = {
   Float: number;
 };
 
+export type AddWaletResponse = {
+  __typename?: 'AddWaletResponse';
+  type?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type AddWalletInput = {
+  type: WalletType;
+  value: Scalars['String'];
+};
+
 export type GeneralSettings = {
   __typename?: 'GeneralSettings';
   facebook?: Maybe<Scalars['String']>;
@@ -45,10 +56,37 @@ export type LoginResponse = {
 export type Mutation = {
   __typename?: 'Mutation';
   updateUserName?: Maybe<User>;
+  payOut?: Maybe<PayOutResponse>;
+  addWallet?: Maybe<AddWaletResponse>;
 };
 
 export type MutationUpdateUserNameArgs = {
   input?: Maybe<UserNameInput>;
+};
+
+export type MutationPayOutArgs = {
+  input?: Maybe<PayOutInput>;
+};
+
+export type MutationAddWalletArgs = {
+  input?: Maybe<AddWalletInput>;
+};
+
+export type PayOutInput = {
+  type: WalletType;
+  value: Scalars['Float'];
+};
+
+export type PayOutResponse = {
+  __typename?: 'PayOutResponse';
+  success?: Maybe<Scalars['Boolean']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type PaymentMethod = {
+  __typename?: 'PaymentMethod';
+  value: Scalars['String'];
+  type: WalletType;
 };
 
 export type Query = {
@@ -59,6 +97,7 @@ export type Query = {
   getCurrentUser?: Maybe<User>;
   tasks?: Maybe<Array<Maybe<Task>>>;
   generalSettings?: Maybe<GeneralSettings>;
+  wallets?: Maybe<Array<Maybe<PaymentMethod>>>;
 };
 
 export type QueryLoginArgs = {
@@ -110,4 +149,13 @@ export type UserNameInput = {
 export enum UserType {
   Blogger = 'Blogger',
   Advertiser = 'Advertiser',
+}
+
+export enum WalletType {
+  Phone = 'phone',
+  Yandex = 'yandex',
+  Card = 'card',
+  Qiwi = 'qiwi',
+  Wmr = 'wmr',
+  Wmz = 'wmz',
 }

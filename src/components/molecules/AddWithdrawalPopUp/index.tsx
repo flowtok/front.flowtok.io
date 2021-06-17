@@ -5,6 +5,7 @@ import { Input } from '../../atoms/Input';
 import { Button } from '../../atoms/Button';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { WalletType } from '../../../models/models';
 
 type FormDataT = {
   value: string;
@@ -12,14 +13,15 @@ type FormDataT = {
 
 interface AddWithdrawalPopUpProps {
   isOpen: boolean;
-  method: string;
+  method: WalletType;
   close: () => void;
+  addNewWallet: (value: string) => void;
 }
 
 export const AddWithdrawalPopUp = forwardRef<
   HTMLDivElement,
   PropsWithChildren<AddWithdrawalPopUpProps>
->(({ isOpen, method, close }) => {
+>(({ isOpen, method, close, addNewWallet }, ref) => {
   const {
     register,
     handleSubmit,
@@ -28,40 +30,40 @@ export const AddWithdrawalPopUp = forwardRef<
     reValidateMode: 'onChange',
   });
 
-  const onSubmit = (data: FormDataT) => console.log(data);
+  const onSubmit = (data: FormDataT) => addNewWallet(data.value);
   const { t } = useTranslation();
 
-  const getTitleMethodByType = (type: string) => {
-    if (type === 'yandex') return t('payment-methods.yandex');
-    if (type === 'qiwi') return t('payment-methods.qiwi');
-    if (type === 'webmoney-r') return t('payment-methods.webmoney-r');
-    if (type === 'webmoney-z') return t('payment-methods.webmoney-z');
-    if (type === 'card') return t('payment-methods.card');
+  const getTitleMethodByType = (type: WalletType | undefined | null) => {
+    if (type === WalletType.Yandex) return t('payment-methods.yandex');
+    if (type === WalletType.Qiwi) return t('payment-methods.qiwi');
+    if (type === WalletType.Wmr) return t('payment-methods.webmoney-r');
+    if (type === WalletType.Wmz) return t('payment-methods.webmoney-z');
+    if (type === WalletType.Card) return t('payment-methods.card');
     return t('payment-methods.phone-number');
   };
 
   const masks = new Map();
-  masks.set('card', '9999 9999 9999 9999');
-  masks.set('qiwi', '+9 (999) 999 9999');
-  masks.set('phone-number', '+9 (999) 999 9999');
-  masks.set('yandex', '99999999999999');
-  masks.set('webmoney-r', 'R999999999999');
-  masks.set('webmoney-z', 'Z999999999999');
+  masks.set(WalletType.Card, '9999 9999 9999 9999');
+  masks.set(WalletType.Qiwi, '+9 (999) 999 9999');
+  masks.set(WalletType.Phone, '+9 (999) 999 9999');
+  masks.set(WalletType.Yandex, '99999999999999');
+  masks.set(WalletType.Wmr, 'R999999999999');
+  masks.set(WalletType.Wmz, 'Z999999999999');
 
   const patterns = new Map();
-  patterns.set('card', /(\d{4}([ ]|)\d{4}([ ]|)\d{4}([ ]|)\d{4})/);
+  patterns.set(WalletType.Card, /(\d{4}([ ]|)\d{4}([ ]|)\d{4}([ ]|)\d{4})/);
   patterns.set(
-    'qiwi',
+    WalletType.Qiwi,
     /(([+]|)\d{1}([ ]|)([(]|)\d{3}([)]|)([ ]|)\d{3}([ ]|)\d{4})/
   );
   patterns.set(
-    'phone-number',
+    WalletType.Phone,
     /(([+]|)\d{1}([ ]|)([(]|)\d{3}([)]|)([ ]|)\d{3}([ ]|)\d{4})/
   );
-  patterns.set('yandex', /(\d{14})/);
-  patterns.set('webmoney-r', /(([R]|)\d{12})/);
-  patterns.set('webmoney-z', /(([Z]|)\d{12})/);
-  console.log(errors);
+  patterns.set(WalletType.Yandex, /(\d{14})/);
+  patterns.set(WalletType.Wmr, /(([R]|)\d{12})/);
+  patterns.set(WalletType.Wmz, /(([Z]|)\d{12})/);
+
   return (
     <PopUp
       isOpen={isOpen}

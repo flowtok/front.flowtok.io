@@ -14,28 +14,33 @@ interface PopUpProps {
   isOpen: boolean;
   close?: () => void;
   title?: string;
-  isClose?: boolean;
+  closeOnDocumentClick?: boolean;
+  isCross?: boolean;
   titlePosition?: textPosition;
   size?: size;
 }
 
 export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
-  ({
-    children,
-    isOpen,
-    close,
-    title,
-    isClose = true,
-    titlePosition = 'left',
-    size,
-  }) => {
+  (
+    {
+      children,
+      isOpen,
+      close,
+      title,
+      closeOnDocumentClick = true,
+      isCross = true,
+      titlePosition = 'left',
+      size,
+    },
+    ref
+  ) => {
     const contentStyle = {
       width: 'fit-content',
       margin: 'auto',
     };
     const overlayStyle = { background: 'rgba(0, 0, 0, 0.4)' };
     let closeBtn = null;
-    if (isClose) {
+    if (isCross) {
       closeBtn = (
         <span onClick={close} className={styles['close']}>
           <img src={CloseIcon} />
@@ -53,7 +58,8 @@ export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
     return (
       <Popup
         open={isOpen}
-        closeOnDocumentClick={isClose}
+        nested={true}
+        closeOnDocumentClick={closeOnDocumentClick}
         onClose={close}
         {...{ overlayStyle, contentStyle }}
       >

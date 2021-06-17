@@ -1,13 +1,11 @@
 const { users } = require('../database/data');
 const jwt = require('jsonwebtoken');
-const { generalSettings } = require('../database/data');
+const { generalSettings, savedMethods } = require('../database/data');
 const { JWT_SECRET } = require('../config');
 
 const resolvers = {
   Query: {
-    user: () => {
-      return users[0];
-    },
+    user: () => users[0],
     generalSettings: () => generalSettings,
     login: (parent, { name, password }) => {
       const user = users.find((user) => {
@@ -16,9 +14,10 @@ const resolvers = {
       const token = jwt.sign(user, JWT_SECRET);
       return { user, token };
     },
+    wallets: () => savedMethods,
   },
   Mutation: {
-    updateUserName: (parent, { input }, context) => {
+    updateUserName: (parent, { input }) => {
       const { id, name } = input;
       users.forEach((user) => {
         if (user.id === id) {
@@ -26,6 +25,14 @@ const resolvers = {
         }
       });
       return users.filter((user) => user.id === id)[0];
+    },
+    payOut: (parent, { input }) => {
+      const { type, value } = input;
+      if (type && value) return { success: true, message: 'Success' };
+    },
+    addWallet: (parent, { input }) => {
+      const { type, value } = input;
+      if (type && value) return { type, value };
     },
   },
 };

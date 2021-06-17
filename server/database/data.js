@@ -63,7 +63,14 @@ const generalSettings = {
   instagram: 'https://www.instagram.com/',
 };
 
+const savedMethods = [
+  { type: 'yandex', value: '213443245' },
+  { type: 'card', value: '1234 1212 3123 4124' },
+  { type: 'phone', value: '8 918 43-12-123' },
+];
+
 module.exports = {
   users,
   generalSettings,
+  savedMethods,
 };
