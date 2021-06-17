@@ -57,11 +57,14 @@ export const WithdrawalPopUp = forwardRef<
   } = useForm<FormDataT>({
     reValidateMode: 'onChange',
     mode: 'onChange',
+    defaultValues: {
+      value: 100,
+    },
   });
 
   const balanceValue = watch('value');
   useEffect(() => {
-    if (trimMoney(balance) === balanceValue.toString()) {
+    if (trimMoney(balance) === balanceValue?.toString()) {
       setActiveBtnSum(true);
     } else {
       setActiveBtnSum(false);
