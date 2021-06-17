@@ -95,12 +95,10 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "concurrently \"yarn run server\" \"yarn run client\"",
-    "server": "cd server && node index.js",
     "start-https": "set HTTPS=true&&node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "client": "node scripts/start.js",
+    "start": "node scripts/start.js",
     "adaptive-tablet": "node adaptivescript.js tablet",
     "adaptive-small-desktop": "node adaptivescript.js small-desktop",
     "adaptive-large-desktop": "node adaptivescript.js large-desktop",
