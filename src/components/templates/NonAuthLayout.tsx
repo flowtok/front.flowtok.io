@@ -19,7 +19,7 @@ export const NonAuthLayout: FC<NonAuthLayoutPropsT> = ({}) => {
       <Route exact path="/">
         <HomePage />
       </Route>
-      <Route path="/auth/:token/:registered">
+      <Route path="/auth/">
         <AuthHandler />
       </Route>
       <Route path="/">

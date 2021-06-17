@@ -26,7 +26,7 @@ export const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
   if (isRegistered) {
     return (
       <QueryHandler loading={loading} error={error}>
-        {user?.type === UserType.Blogger ? (
+        {user?.typeUser === UserType.Blogger ? (
           <BloggerLayout />
         ) : (
           <AdvertiserLayout />
