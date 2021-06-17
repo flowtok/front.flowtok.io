@@ -1,33 +1,26 @@
-import React, { FC, useEffect } from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import React, { FC } from 'react';
+import { Redirect } from 'react-router-dom';
 import { isRegisteredVar, tokenExistVar } from '../../api/cache';
 import { useReactiveVar } from '@apollo/client';
+import { useUrlSearchParams } from '../../hooks/useUrlSearchParams';
 
 type OAuthHandlerPropsT = any;
 
 export const AuthHandler: FC<OAuthHandlerPropsT> = ({}) => {
-  debugger;
-
-  const { token, registered } = useParams<{
-    token: string;
-    registered: string;
-  }>();
+  const params = useUrlSearchParams();
+  const token = params.get('token');
+  const registered = params.get('registered');
+  if (token) {
+    localStorage.setItem('token', token);
+    tokenExistVar(true);
+  }
+  if (registered) {
+    localStorage.setItem('registered', registered);
+    isRegisteredVar(registered === 'true');
+  }
 
   const isRegistered = useReactiveVar(isRegisteredVar);
   const tokenExist = useReactiveVar(tokenExistVar);
-
-  useEffect(() => {
-    console.log('token: ', token);
-    console.log('registered: ', registered);
-    if (token) {
-      localStorage.setItem('token', token);
-      tokenExistVar(true);
-    }
-    localStorage.setItem('registered', registered);
-    if (registered === 'true') {
-      isRegisteredVar(true);
-    }
-  }, [token, registered]);
 
   if (tokenExist) {
     if (isRegistered) {

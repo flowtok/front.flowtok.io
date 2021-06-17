@@ -25,3 +25,10 @@ export const ADD_WALLET = gql`
     }
   }
 `;
+export const FINISH_JOIN = gql`
+  mutation finishJoin($input: FinishJoin!) {
+    finishJoin(input: $input) {
+      balance
+    }
+  }
+`;
