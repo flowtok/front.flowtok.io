@@ -5,7 +5,9 @@ import { useReactiveVar } from '@apollo/client';
 
 type OAuthHandlerPropsT = any;
 
-export const OAuthHandler: FC<OAuthHandlerPropsT> = ({}) => {
+export const AuthHandler: FC<OAuthHandlerPropsT> = ({}) => {
+  debugger;
+
   const { token, registered } = useParams<{
     token: string;
     registered: string;
@@ -15,6 +17,8 @@ export const OAuthHandler: FC<OAuthHandlerPropsT> = ({}) => {
   const tokenExist = useReactiveVar(tokenExistVar);
 
   useEffect(() => {
+    console.log('token: ', token);
+    console.log('registered: ', registered);
     if (token) {
       localStorage.setItem('token', token);
       tokenExistVar(true);
