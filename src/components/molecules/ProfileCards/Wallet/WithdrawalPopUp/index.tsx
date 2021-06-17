@@ -59,13 +59,14 @@ export const WithdrawalPopUp = forwardRef<
     mode: 'onChange',
   });
 
-  // watch((data) => {
-  //   if (+data.value === trimmedBalance && !activeBtnSum) {
-  //     setActiveBtnSum(true);
-  //   } else if (activeBtnSum) {
-  //     setActiveBtnSum(false);
-  //   }
-  // });
+  const balanceValue = watch('value');
+  useEffect(() => {
+    if (trimMoney(balance) === balanceValue.toString()) {
+      setActiveBtnSum(true);
+    } else {
+      setActiveBtnSum(false);
+    }
+  }, [balanceValue]);
 
   const [
     isOpenAddWithdrawalPopUp,
