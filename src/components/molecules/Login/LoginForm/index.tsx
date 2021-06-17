@@ -18,12 +18,14 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
   >(LOGIN);
 
   const loginHandler = () => {
-    return runQuery({
-      variables: {
-        name: 'Ketty Bounce',
-        password: '1234567',
-      },
-    });
+    document.location.href =
+      process.env.REACT_APP_API_URL + '/oauth/vk/blog/127.0.0.1:3000';
+    // return runQuery({
+    //   variables: {
+    //     name: 'Ketty Bounce',
+    //     password: '1234567',
+    //   },
+    // });
   };
 
   useEffect(() => {

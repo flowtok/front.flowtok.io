@@ -3,16 +3,13 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import HomePage from '../../pages/home';
 import LoginPage from '../../pages/login';
 import SignUpPage from '../../pages/signup';
-import { OAuthHandler } from './OAuthHandler';
+import { AuthHandler } from './AuthHandler';
 
 type NonAuthLayoutPropsT = any;
 
 export const NonAuthLayout: FC<NonAuthLayoutPropsT> = ({}) => {
   return (
     <Switch>
-      <Route path="/oauth/:token?/:registered?">
-        <OAuthHandler />
-      </Route>
       <Route path="/login">
         <LoginPage />
       </Route>
@@ -21,6 +18,9 @@ export const NonAuthLayout: FC<NonAuthLayoutPropsT> = ({}) => {
       </Route>
       <Route exact path="/">
         <HomePage />
+      </Route>
+      <Route path="/auth/:token/:registered">
+        <AuthHandler />
       </Route>
       <Route path="/">
         <Redirect to={'/'} />
