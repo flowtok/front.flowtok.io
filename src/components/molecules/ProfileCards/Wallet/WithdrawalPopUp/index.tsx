@@ -12,7 +12,7 @@ import commonStyles from '../../styles.module.scss';
 import { Button } from '../../../../atoms/Button';
 import { Input } from '../../../../atoms/Input';
 import { AddWithdrawalPopUp } from '../../../AddWithdrawalPopUp';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useLazyQuery, useMutation } from '@apollo/client';
