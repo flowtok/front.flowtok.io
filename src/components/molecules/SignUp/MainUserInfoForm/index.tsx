@@ -8,27 +8,30 @@ import Select from 'react-select';
 import { Option } from 'react-select/src/filters';
 import chroma from 'chroma-js';
 import { Link } from 'react-router-dom';
+import {
+  Mutation,
+  MutationFinishJoinArgs,
+  Themes,
+  User,
+} from '../../../../models/models';
+import { useMutation } from '@apollo/client';
+import { FINISH_JOIN } from '../../../../api/mutations';
 
 type FormPropsT = any;
 type FormDataT = {
   name: string;
-  sex: 'man' | 'woman';
 };
 
 const options = [
-  { value: 'music', label: 'Music', data: 'Music', color: '#00B8D9' },
-  { value: 'dancing', label: 'Dancing', data: 'Dancing', color: '#0052CC' },
-  { value: 'art', label: 'Art', data: 'Art', color: '#5243AA' },
-  { value: 'art1', label: 'Art1', data: 'Art1', color: '#253858' },
-  { value: 'art2', label: 'Art2', data: 'Art2', color: '#36B37E' },
+  { value: 'music', label: 'Animals', data: Themes.animals, color: '#00B8D9' },
+  {
+    value: 'dancing',
+    label: 'Dancing',
+    data: Themes.dancing,
+    color: '#0052CC',
+  },
+  { value: 'art', label: 'Auto', data: Themes.auto, color: '#5243AA' },
 ];
-
-const countries = [
-  { value: 'uk', label: 'Ukraine', data: 'Ukraine' },
-  { value: 'ru', label: 'Russia', data: 'Russia' },
-  { value: 'us', label: 'United State', data: 'United State' },
-];
-
 export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
   const { t } = useTranslation();
   const {
@@ -38,9 +41,26 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
   } = useForm<FormDataT>();
 
   const [themes, setThemes] = useState<Option[]>([]);
-  const [country, setCountry] = useState<Option | null>(null);
+  const [finishJoin, { data }] = useMutation<User, MutationFinishJoinArgs>(
+    FINISH_JOIN
+  );
 
-  const onSubmit = (data: FormDataT) => console.log(data);
+  const onSubmit = (data: FormDataT) => {
+    console.log('Submit');
+    if (data && themes.length) {
+      finishJoin({
+        variables: {
+          input: {
+            name: data.name,
+            subjects: themes.map((option) => option.data),
+            telegramNotify: true,
+          },
+        },
+      }).then((data) => {
+        console.log(data);
+      });
+    }
+  };
 
   const colourStyles = {
     control: (styles: any) => ({
@@ -105,7 +125,6 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
             value={themes}
             options={options}
             onChange={(options, action) => {
-              console.log(action);
               if (action.action === 'select-option' && themes.length > 2) {
                 alert(`${t('pages.signup.notifications.maxTopics')}`);
               } else {
@@ -122,19 +141,12 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
             }}
             styles={colourStyles}
           />
-          <Select
-            value={country}
-            onChange={(option) => setCountry(option)}
-            options={countries}
-          />
         </div>
       </div>
       <div className={styles['btn-container']}>
-        <Link to={'/profile'}>
-          <Button preset={'black'} type={'submit'}>
-            {t('pages.signup.buttons.flowtok')}
-          </Button>
-        </Link>
+        <Button preset={'black'} type={'submit'}>
+          {t('pages.signup.buttons.flowtok')}
+        </Button>
         <div className={styles['label']}>{t('pages.signup.agreement')}</div>
       </div>
     </form>

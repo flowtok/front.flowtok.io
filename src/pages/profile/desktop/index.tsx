@@ -19,7 +19,7 @@ export default ({
   balance,
   avgViews,
   refCount,
-  refEarnings,
+  refEarning,
   totalEarnings,
   goodRate,
   refLink,
@@ -33,9 +33,9 @@ export default ({
     <PageTemplateDesktop>
       <div className={styles['wrapper']}>
         <div className={styles['top-papers']}>
-          <WalletCard balance={balance} />
+          <WalletCard balance={balance.toString()} />
           <div className={styles['middle-group']}>
-            <InProcessCard inProcessAmount={heldMoney} />
+            <InProcessCard inProcessAmount={heldMoney.toString()} />
             <TotalEarningsCard totalEarnings={totalEarnings} />
           </div>
           <Paper>
@@ -67,7 +67,7 @@ export default ({
           <ReferalCard
             refUrl={refLink}
             refsCount={refCount}
-            totalEarningsFromRefs={refEarnings}
+            totalEarningsFromRefs={refEarning.toString()}
           />
         </div>
       </div>

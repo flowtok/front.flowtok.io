@@ -58,12 +58,21 @@ export type Mutation = {
   updateUserName?: Maybe<User>;
   payOut?: Maybe<PayOutResponse>;
   addWallet?: Maybe<AddWaletResponse>;
+  finishJoin?: Maybe<User>;
+};
+
+type FinishJoinInput = {
+  name: Scalars['String'];
+  subjects: Themes[];
+  telegramNotify: Scalars['Boolean'];
 };
 
 export type MutationUpdateUserNameArgs = {
   input?: Maybe<UserNameInput>;
 };
-
+export type MutationFinishJoinArgs = {
+  input?: Maybe<FinishJoinInput>;
+};
 export type MutationPayOutArgs = {
   input?: Maybe<PayOutInput>;
 };
@@ -126,19 +135,18 @@ export type User = {
   name: Scalars['String'];
   userImage: Scalars['String'];
   tagName: Scalars['String'];
-  age: Scalars['Int'];
-  country: Scalars['String'];
-  balance: Scalars['String'];
+  balance: Scalars['Float'];
   avgViews: Scalars['String'];
   price: Scalars['String'];
   goodRate: Scalars['Float'];
-  heldMoney: Scalars['String'];
+  heldMoney: Scalars['Float'];
   totalEarnings: Scalars['String'];
   refLink: Scalars['String'];
   refCount: Scalars['Int'];
-  refEarnings: Scalars['String'];
-  history: Array<Maybe<HistoryItem>>;
-  type: UserType;
+  refEarning: Scalars['Float'];
+  typeUser: UserType;
+  subjects: Themes[];
+  history: HistoryItem[];
 };
 
 export type UserNameInput = {
@@ -147,8 +155,8 @@ export type UserNameInput = {
 };
 
 export enum UserType {
-  Blogger = 'Blogger',
-  Advertiser = 'Advertiser',
+  Blogger = 1,
+  Advertiser = 2,
 }
 
 export enum WalletType {
@@ -158,4 +166,35 @@ export enum WalletType {
   Qiwi = 'qiwi',
   Wmr = 'wmr',
   Wmz = 'wmz',
+}
+
+export type FinishJoin = {
+  name: Scalars['String'];
+  subjects: [Themes];
+  telegramNotify: Scalars['Boolean'];
+};
+
+export enum Themes {
+  parodies,
+  karaoke,
+  duets,
+  games,
+  unsuccessfulTakes,
+  entertaining,
+  dressingUp,
+  animals,
+  children,
+  magicTricks,
+  challenges,
+  fashion,
+  food,
+  traveling,
+  dancing,
+  sport,
+  cosplay,
+  unpacking,
+  music,
+  socialVideos,
+  auto,
+  congratulations,
 }
