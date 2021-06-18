@@ -23,7 +23,6 @@ export const NavbarDesktopLarge = forwardRef<
 >(({ generalSettings, user }, ref) => {
   const { pathname } = useLocation();
   const { t } = useTranslation();
-
   return (
     <div className={styles['wrapper']} ref={ref}>
       <div>
