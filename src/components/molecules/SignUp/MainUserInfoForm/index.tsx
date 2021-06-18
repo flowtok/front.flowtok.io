@@ -5,33 +5,18 @@ import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { Button } from '../../../atoms/Button';
 import Select from 'react-select';
-import { Option } from 'react-select/src/filters';
 import chroma from 'chroma-js';
-import { Link } from 'react-router-dom';
-import {
-  Mutation,
-  MutationFinishJoinArgs,
-  Themes,
-  User,
-} from '../../../../models/models';
+import { MutationFinishJoinArgs, User } from '../../../../models/models';
 import { useMutation } from '@apollo/client';
 import { FINISH_JOIN } from '../../../../api/mutations';
+import { options } from './options';
+import { Option } from 'react-select/src/filters';
 
 type FormPropsT = any;
 type FormDataT = {
   name: string;
 };
 
-const options = [
-  { value: 'music', label: 'Animals', data: Themes.animals, color: '#00B8D9' },
-  {
-    value: 'dancing',
-    label: 'Dancing',
-    data: Themes.dancing,
-    color: '#0052CC',
-  },
-  { value: 'art', label: 'Auto', data: Themes.auto, color: '#5243AA' },
-];
 export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
   const { t } = useTranslation();
   const {
@@ -46,7 +31,6 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
   );
 
   const onSubmit = (data: FormDataT) => {
-    console.log('Submit');
     if (data && themes.length) {
       finishJoin({
         variables: {
@@ -124,6 +108,7 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
             isMulti
             value={themes}
             options={options}
+            placeholder={t('pages.signup.placeholders.theme')}
             onChange={(options, action) => {
               if (action.action === 'select-option' && themes.length > 2) {
                 alert(`${t('pages.signup.notifications.maxTopics')}`);

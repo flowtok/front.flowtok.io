@@ -73,6 +73,7 @@
   }
   .icon-container {
     left: 15px;
+    @include adaptive-value-large-desktop(left, 15);
   }
 }
 
