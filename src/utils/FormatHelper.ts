@@ -29,7 +29,7 @@ class MoneyBuilder extends FormatBuilder {
   }
 
   addCurrency(currency: string): MoneyBuilder {
-    this.prepareFormat = `${this.prepareFormat}${currency}`;
+    this.prepareFormat = `${this.prepareFormat} ${currency}`;
     return this;
   }
 }
@@ -38,6 +38,7 @@ class DateBuilder extends FormatBuilder {
   constructor(prepareFormat: number) {
     super(String(prepareFormat));
   }
+
   getDateStatus(): DateBuilder {
     const currentDate = new Date();
     const preparedDate = new Date(Number(this.prepareFormat) * 1000);
@@ -46,9 +47,9 @@ class DateBuilder extends FormatBuilder {
     const checkForMonth =
       preparedDate.getUTCMonth() === currentDate.getUTCMonth();
 
-    this.prepareFormat = `${this.getCorrectDate(
+    this.prepareFormat = `${DateBuilder.getCorrectDate(
       preparedDate.getUTCDate()
-    )}.${this.getCorrectDate(
+    )}.${DateBuilder.getCorrectDate(
       preparedDate.getUTCMonth()
     )}.${preparedDate.getUTCFullYear()}`;
 
@@ -65,14 +66,21 @@ class DateBuilder extends FormatBuilder {
     return this;
   }
 
-  private getCorrectDate(date: number) {
+  private static getCorrectDate(date: number) {
     if (date.toString().length === 1) return `0${date}`;
     return date;
   }
 }
 
-export const formatMoney = (n: number) => new MoneyBuilder(n);
-export const formatDate = (n: number) => new DateBuilder(n);
+export const formatMoney = (n: number, currency: string) => {
+  return new MoneyBuilder(n).getString().addCurrency(currency).result();
+};
+export const formatNumber = (n: number) => {
+  return new MoneyBuilder(n).getString().result();
+};
+export const formatDate = (n: number) => {
+  return new DateBuilder(n).getDateStatus().result();
+};
 
 /*For example*/
 /* formatMoney(34535432.34).getString().result(); Аналогично использованию formatNumber */
