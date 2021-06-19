@@ -7,7 +7,6 @@ import { isRegisteredVar, tokenExistVar } from './api/cache';
 export const App = () => {
   const tokenExist = useReactiveVar(tokenExistVar);
   const isRegistered = useReactiveVar(isRegisteredVar);
-
   return (
     <div style={{ position: 'relative' }}>
       <Suspense fallback={<div>Loading...</div>}>

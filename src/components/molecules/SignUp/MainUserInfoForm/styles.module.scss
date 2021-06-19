@@ -23,6 +23,8 @@
         @include adaptive-value-tablet(height, 42);
         @include adaptive-value-large-desktop(height, 42);
         border-radius: 30px;
+        border: 1px solid #E5E5EA;
+        box-shadow: none;
         @include adaptive-value-tablet(border-radius, 30);
         @include adaptive-value-large-desktop(border-radius, 30);
         padding-left: 10px;

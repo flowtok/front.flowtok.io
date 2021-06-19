@@ -1,24 +1,15 @@
 import { Themes } from '../../../../models/models';
 import i18n from '../../../../i18n';
 
-export const options = [
-  {
-    data: Themes.animals,
-    label: i18n.t('pages.signup.themes.animals'),
-    color: '#00B8D9',
-    value: 'animals',
-  },
-  {
-    data: Themes.dancing,
-    label: i18n.t('pages.signup.themes.dancing'),
-    color: '#0052CC',
-    value: 'dancing',
-  },
-  {
-    data: Themes.auto,
-    label: i18n.t('pages.signup.themes.auto'),
-    color: '#5243AA',
-    value: 'auto',
-  },
-  /* continue here pls */
-];
+const themes = Object.keys(Themes);
+
+export const options = themes.splice(themes.length / 2).map((theme) => {
+  return {
+    data: theme,
+    label: i18n.t(`pages.signup.themes.${theme}`),
+    color: `#${(Math.random().toString(16) + '000000')
+      .substring(2, 8)
+      .toUpperCase()}`,
+    value: theme,
+  };
+});
