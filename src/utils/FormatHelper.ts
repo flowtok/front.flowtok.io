@@ -1,8 +1,4 @@
-enum DateStatuses {
-  today = 'Сегодня',
-  yesterday = 'Вчера',
-  tomorrow = 'Завтра',
-}
+import i18n from './../i18n';
 
 abstract class FormatBuilder {
   prepareFormat: string | null | undefined | number;
@@ -58,11 +54,11 @@ class DateBuilder extends FormatBuilder {
 
     if (checkForYear && checkForMonth) {
       if (preparedDate.getUTCDate() === currentDate.getUTCDate()) {
-        this.prepareFormat = DateStatuses.today;
+        this.prepareFormat = String(i18n.t('date-status.today'));
       } else if (preparedDate.getUTCDate() === currentDate.getUTCDate() - 1) {
-        this.prepareFormat = DateStatuses.yesterday;
+        this.prepareFormat = String(i18n.t('date-status.yesterday'));
       } else if (preparedDate.getUTCDate() === currentDate.getUTCDate() + 1) {
-        this.prepareFormat = DateStatuses.tomorrow;
+        this.prepareFormat = String(i18n.t('date-status.tomorrow'));
       }
     }
 
