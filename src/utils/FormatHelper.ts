@@ -5,14 +5,14 @@ enum DateStatuses {
 }
 
 abstract class FormatBuilder {
-  prepareStr: string | null | undefined;
+  prepareFormat: string | null | undefined | number;
 
-  protected constructor(prepareStr: string) {
-    this.prepareStr = prepareStr;
+  protected constructor(prepareFormat: string) {
+    this.prepareFormat = String(prepareFormat);
   }
 
   result(): string {
-    return this.prepareStr ?? '';
+    return String(this.prepareFormat);
   }
 }
 
@@ -22,53 +22,63 @@ class MoneyBuilder extends FormatBuilder {
   }
 
   getString(): MoneyBuilder {
-    if (!this.prepareStr) {
-      this.prepareStr = '';
+    if (!this.prepareFormat) {
+      this.prepareFormat = '';
     } else {
-      const val = Number(this.prepareStr.split('.')[0]);
-      const rest = this.prepareStr.split('.')[1];
-      this.prepareStr = `${val.toLocaleString('ru')}.${rest}`;
+      const val = Number(String(this.prepareFormat).split('.')[0]);
+      const rest = String(this.prepareFormat).split('.')[1];
+      this.prepareFormat = `${val.toLocaleString('ru')}.${rest}`;
     }
     return this;
   }
 
   addCurrency(currency: string): MoneyBuilder {
-    this.prepareStr = `${this.prepareStr}${currency}`;
+    this.prepareFormat = `${this.prepareFormat}${currency}`;
     return this;
   }
 }
 
 class DateBuilder extends FormatBuilder {
-  constructor(prepareStr: string) {
-    super(prepareStr);
+  constructor(prepareFormat: number) {
+    super(String(prepareFormat));
   }
-
   getDateStatus(): DateBuilder {
     const currentDate = new Date();
-    const preparedDate = new Date(this.prepareStr?.toString() ?? '');
+    const preparedDate = new Date(Number(this.prepareFormat) * 1000);
     const checkForYear =
       preparedDate.getUTCFullYear() === currentDate.getUTCFullYear();
     const checkForMonth =
       preparedDate.getUTCMonth() === currentDate.getUTCMonth();
 
+    this.prepareFormat = `${this.getCorrectDate(
+      preparedDate.getUTCDate()
+    )}.${this.getCorrectDate(
+      preparedDate.getUTCMonth()
+    )}.${preparedDate.getUTCFullYear()}`;
+
     if (checkForYear && checkForMonth) {
       if (preparedDate.getUTCDate() === currentDate.getUTCDate()) {
-        this.prepareStr = DateStatuses.today;
+        this.prepareFormat = DateStatuses.today;
       } else if (preparedDate.getUTCDate() === currentDate.getUTCDate() - 1) {
-        this.prepareStr = DateStatuses.yesterday;
+        this.prepareFormat = DateStatuses.yesterday;
       } else if (preparedDate.getUTCDate() === currentDate.getUTCDate() + 1) {
-        this.prepareStr = DateStatuses.tomorrow;
+        this.prepareFormat = DateStatuses.tomorrow;
       }
     }
 
     return this;
   }
+
+  private getCorrectDate(date: number) {
+    if (date.toString().length === 1) return `0${date}`;
+    return date;
+  }
 }
 
 export const formatMoney = (n: number) => new MoneyBuilder(n);
-export const formatDate = (s: string) => new DateBuilder(s);
+export const formatDate = (n: number) => new DateBuilder(n);
 
 /*For example*/
-/* formatMoney(34535432.34).getString().result(); */
-/* formatMoney(34535432.34).getString().addCurrency('₽').result(); */
-/* formatDate('06-19-21 12:00:17').getDateStatus().result(); */
+/* formatMoney(34535432.34).getString().result(); Аналогично использованию formatNumber */
+/* formatMoney(34535432.34).getString().addCurrency('₽').result(); Аналогично использованию formatMoney  */
+/* formatDate('06-19-21 12:00:17').getDateStatus().result(); Аналогично использованию formatDate */
