@@ -6,7 +6,11 @@ import { useForm } from 'react-hook-form';
 import { Button } from '../../../atoms/Button';
 import Select from 'react-select';
 import chroma from 'chroma-js';
-import { MutationFinishJoinArgs, User } from '../../../../models/models';
+import {
+  MutationFinishJoinArgs,
+  Themes,
+  User,
+} from '../../../../models/models';
 import { useMutation } from '@apollo/client';
 import { FINISH_JOIN } from '../../../../api/mutations';
 import { options } from './options';
