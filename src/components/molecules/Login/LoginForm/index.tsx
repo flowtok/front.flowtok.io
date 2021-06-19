@@ -50,17 +50,6 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
         <NetworkButton network={'gm'} onClick={() => loginHandler()}>
           {t('pages.login.sign-in-google')}
         </NetworkButton>
-        <div className={styles['label']}>{t('pages.login.no-account')}</div>
-        <Link to={'/signup'} className={styles['sign-up-link']}>
-          <Button
-            preset={'black'}
-            className={styles['sign-up-btn']}
-            radius={48}
-            size={'sm'}
-          >
-            {t('pages.login.sign-up')}
-          </Button>
-        </Link>
       </div>
     </div>
   );
