@@ -23,13 +23,14 @@ class MoneyBuilder extends FormatBuilder {
     } else {
       const val = Number(String(this.prepareFormat).split('.')[0]);
       const rest = String(this.prepareFormat).split('.')[1];
-      this.prepareFormat = `${val.toLocaleString('ru')}.${rest}`;
+      const preparedRest = rest ? `.${rest}` : '';
+      this.prepareFormat = `${val.toLocaleString('ru')}${preparedRest}`;
     }
     return this;
   }
 
   addCurrency(currency: string): MoneyBuilder {
-    this.prepareFormat = `${this.prepareFormat} ${currency}`;
+    this.prepareFormat = `${this.prepareFormat}${currency}`;
     return this;
   }
 }
@@ -50,7 +51,7 @@ class DateBuilder extends FormatBuilder {
     this.prepareFormat = `${DateBuilder.getCorrectDate(
       preparedDate.getUTCDate()
     )}.${DateBuilder.getCorrectDate(
-      preparedDate.getUTCMonth()
+      preparedDate.getUTCMonth() + 1
     )}.${preparedDate.getUTCFullYear()}`;
 
     if (checkForYear && checkForMonth) {
