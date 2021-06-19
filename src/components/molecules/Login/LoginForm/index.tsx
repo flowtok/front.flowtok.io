@@ -1,8 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { NetworkButton } from '../../../atoms/NetworkButton';
-import { Link } from 'react-router-dom';
-import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
 import { useLazyQuery } from '@apollo/client';
 import { LoginResponse, QueryLoginArgs } from '../../../../models/models';
@@ -17,15 +15,8 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
     QueryLoginArgs
   >(LOGIN);
 
-  const loginHandler = () => {
-    document.location.href =
-      process.env.REACT_APP_API_URL + '/oauth/vk/blog/127.0.0.1:3000';
-    // return runQuery({
-    //   variables: {
-    //     name: 'Ketty Bounce',
-    //     password: '1234567',
-    //   },
-    // });
+  const loginHandler = (network: string) => {
+    document.location.href = `${process.env.REACT_APP_API_URL}/oauth/${network}/google/blog/127.0.0.1:3000`;
   };
 
   useEffect(() => {
@@ -41,13 +32,13 @@ export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
     <div className={styles['sign-in']}>
       <div className={styles['title']}>{t('pages.login.enter')}</div>
       <div className={styles['column']}>
-        <NetworkButton network={'vk'} onClick={() => loginHandler()}>
+        <NetworkButton network={'vk'} onClick={() => loginHandler('vk')}>
           {t('pages.login.sign-in-vk')}
         </NetworkButton>
-        <NetworkButton network={'fb'} onClick={() => loginHandler()}>
+        <NetworkButton network={'fb'} onClick={() => loginHandler('fb')}>
           {t('pages.login.sign-in-fb')}
         </NetworkButton>
-        <NetworkButton network={'gm'} onClick={() => loginHandler()}>
+        <NetworkButton network={'gm'} onClick={() => loginHandler('google')}>
           {t('pages.login.sign-in-google')}
         </NetworkButton>
       </div>
