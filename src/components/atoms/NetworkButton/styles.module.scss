@@ -34,6 +34,28 @@
       position: unset;
     }
   }
+
+  &_colored {
+    display: block;
+    z-index: 0;
+    color: #000;
+    border-radius: 38px;
+    background: linear-gradient(225deg, #2246F3 0%, #7832F0 100%);
+
+    --gradient-border-radius: 38px;
+
+    &:before {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      background: #fff;
+      border-radius: var(--gradient-border-radius);
+    }
+  }
 }
 
 .icon-container {

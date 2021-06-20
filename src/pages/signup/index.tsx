@@ -6,10 +6,11 @@ const SignUpMobile = React.lazy(() => import('./mobile/index'));
 
 export default () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
+  const registerType = localStorage.getItem('registerType');
 
   if (isDesktop) {
-    return <SignUpDesktop />;
+    return <SignUpDesktop registerType={registerType} />;
   } else {
-    return <SignUpMobile />;
+    return <SignUpMobile registerType={registerType} />;
   }
 };

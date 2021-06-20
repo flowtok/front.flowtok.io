@@ -14,11 +14,13 @@ import { MainUserInfoForm } from '../../../components/molecules/SignUp/MainUserI
 import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNotifications';
 import { useTranslation } from 'react-i18next';
 
-type SignUpDesktopPropsT = any;
+export type SignUpPropsT = {
+  registerType: string | null;
+};
 
-export default ({}: SignUpDesktopPropsT) => {
+export default ({ registerType }: SignUpPropsT) => {
   const { t } = useTranslation();
-  const registerType = localStorage.getItem('registerType');
+
   return (
     <AuthenticationTemplate
       video={{
@@ -30,7 +32,10 @@ export default ({}: SignUpDesktopPropsT) => {
       <div className={styles['wrapper']}>
         <div className={styles['title']}>{t('header.signup.title')}</div>
         <div className={styles['container']}>
-          <NetworkButton network={String(registerType) as NetworkT}>
+          <NetworkButton
+            network={String(registerType) as NetworkT}
+            preset={'colored'}
+          >
             {t(`pages.signup.buttons.sign-up-${registerType}`)}
           </NetworkButton>
         </div>
