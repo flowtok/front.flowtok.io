@@ -28,7 +28,7 @@ export const NavbarDesktop = forwardRef<
       <div className={styles['sidebar-container']}>
         <div>
           <div className={styles['account']}>
-            <Avatar image={user?.userImage} size={41} />
+            <Avatar image={user?.userImage ?? ''} size={41} />
           </div>
           <Divider />
           <div className={styles['nav']}>

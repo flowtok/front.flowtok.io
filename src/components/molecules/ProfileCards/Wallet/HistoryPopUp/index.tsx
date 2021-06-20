@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { HistoryItemComponent } from '../HistoryItem';
 import { Divider } from '../../../../atoms/Divider';
 import { PopUp } from '../../../PopUp';
-import { HistoryItem } from '../../../../../models/models';
+import { HistoryItem, HistoryPayment } from '../../../../../models/models';
 
 interface HistoryPopUpProps {
   isOpen: boolean;
   close: () => void;
-  historyList: HistoryItem[];
+  historyList: HistoryPayment[];
 }
 
 export const HistoryPopUp = forwardRef<

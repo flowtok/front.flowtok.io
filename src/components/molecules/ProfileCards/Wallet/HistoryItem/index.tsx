@@ -1,10 +1,10 @@
 import styles from './styles.module.scss';
 import commonStyles from '../../../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
-import { HistoryItemType, HistoryItem } from '../../../../../models/models';
+import { HistoryItemType, HistoryPayment } from '../../../../../models/models';
 
 export interface HistoryItemProps {
-  item: HistoryItem;
+  item: HistoryPayment;
 }
 
 export const HistoryItemComponent = ({ item }: HistoryItemProps) => {

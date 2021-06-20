@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -15,6 +14,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  DateTime: any;
 };
 
 export type AddWaletResponse = {
@@ -47,6 +47,13 @@ export enum HistoryItemType {
   Inc = 'inc',
 }
 
+export type HistoryPayment = {
+  __typename?: 'HistoryPayment';
+  value: Scalars['String'];
+  date: Scalars['String'];
+  type: HistoryItemType;
+};
+
 export type LoginResponse = {
   __typename?: 'LoginResponse';
   user?: Maybe<User>;
@@ -58,23 +65,25 @@ export type Mutation = {
   updateUserName?: Maybe<User>;
   payOut?: Maybe<PayOutResponse>;
   addWallet?: Maybe<AddWaletResponse>;
-  finishJoin?: Maybe<User>;
 };
 
-type FinishJoinInput = {
+export type FinishJoinInput = {
   name: Scalars['String'];
   subjects: Themes[];
   telegramNotify: Scalars['Boolean'];
+  tagName: Scalars['String'];
 };
 
 export type MutationUpdateUserNameArgs = {
   input?: Maybe<UserNameInput>;
 };
-export type MutationFinishJoinArgs = {
-  input?: Maybe<FinishJoinInput>;
-};
+
 export type MutationPayOutArgs = {
   input?: Maybe<PayOutInput>;
+};
+
+export type MutationFinishJoinArgs = {
+  input?: Maybe<FinishJoinInput>;
 };
 
 export type MutationAddWalletArgs = {
@@ -118,6 +127,36 @@ export type QueryGetCurrentUserArgs = {
   id: Scalars['ID'];
 };
 
+export type RefUser = {
+  __typename?: 'RefUser';
+  id: Scalars['ID'];
+  refId: Scalars['Int'];
+  byRef: Scalars['Int'];
+  invited: ReferralInfo;
+  invitedBy: ReferralInfo;
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+};
+
+export type ReferralInfo = {
+  __typename?: 'ReferralInfo';
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  userImage: Scalars['String'];
+  tagName: Scalars['String'];
+  email: Scalars['String'];
+};
+
+export type Social = {
+  __typename?: 'Social';
+  id: Scalars['ID'];
+  socialProvider: Scalars['String'];
+  nickname: Scalars['String'];
+  socialId: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+};
+
 export type Task = {
   __typename?: 'Task';
   id: Scalars['ID'];
@@ -131,33 +170,34 @@ export type Task = {
 export type User = {
   __typename?: 'User';
   id: Scalars['ID'];
-  password: Scalars['String'];
   name: Scalars['String'];
-  userImage: Scalars['String'];
-  tagName: Scalars['String'];
+  email: Scalars['String'];
+  userImage?: Maybe<Scalars['String']>;
+  tagName?: Maybe<Scalars['String']>;
+  verifiedTikTok?: Maybe<Scalars['Boolean']>;
   balance: Scalars['Float'];
-  avgViews: Scalars['String'];
-  price: Scalars['String'];
-  goodRate: Scalars['Float'];
   heldMoney: Scalars['Float'];
-  totalEarnings: Scalars['String'];
+  refEarning: Scalars['Float'];
   refLink: Scalars['String'];
   refCount: Scalars['Int'];
-  refEarning: Scalars['Float'];
-  typeUser: UserType;
-  subjects: Themes[];
-  history: HistoryItem[];
+  typeUser: Scalars['Int'];
+  subjects?: Maybe<Scalars['String']>;
+  telegramNotify?: Maybe<Scalars['Boolean']>;
+  telegramId?: Maybe<Scalars['String']>;
+  verifiedTelegram?: Maybe<Scalars['Boolean']>;
+  telegramVerifyCode?: Maybe<Scalars['String']>;
+  socialId?: Maybe<Scalars['ID']>;
+  social?: Maybe<Social>;
+  referrals?: Maybe<Array<Maybe<RefUser>>>;
+  historyPayment?: Maybe<Array<Maybe<HistoryPayment>>>;
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
 };
 
 export type UserNameInput = {
   name: Scalars['String'];
   id: Scalars['ID'];
 };
-
-export enum UserType {
-  Blogger = 1,
-  Advertiser = 2,
-}
 
 export enum WalletType {
   Phone = 'phone',
@@ -167,12 +207,6 @@ export enum WalletType {
   Wmr = 'wmr',
   Wmz = 'wmz',
 }
-
-export type FinishJoin = {
-  name: Scalars['String'];
-  subjects: [Themes];
-  telegramNotify: Scalars['Boolean'];
-};
 
 export enum Themes {
   parodies,

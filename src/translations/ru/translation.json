@@ -134,9 +134,9 @@
     },
     "login": {
       "enter": "Вход",
-      "sign-in-google": "Войти через Google",
-      "sign-in-vk": "Войти через VK",
-      "sign-in-fb": "Войти через Facebook",
+      "sign-in-google": "Вы вошли через Google",
+      "sign-in-vk": "Вы вошли через VK",
+      "sign-in-fb": "Вы вошли через Facebook",
       "no-account": "Нет аккаунта в FLowTok? Зарегистрируйтесь!",
       "sign-up": "Зарегистрироваться"
     },
