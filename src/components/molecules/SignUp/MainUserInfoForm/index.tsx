@@ -27,9 +27,10 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
   } = useForm<FormDataT>();
 
   const [themes, setThemes] = useState<Option[]>([]);
-  const [finishJoin, { data }] = useMutation<User, MutationFinishJoinArgs>(
-    FINISH_JOIN
-  );
+  const [finishJoin, { data }] = useMutation<
+    { finishJoin: User },
+    MutationFinishJoinArgs
+  >(FINISH_JOIN);
 
   const onSubmit = (data: FormDataT) => {
     if (data && themes.length) {
@@ -42,8 +43,9 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
             tagName: 'test',
           },
         },
-      }).then((data: any) => {
+      }).then((data) => {
         currentUserVar(data?.data?.finishJoin);
+        localStorage.setItem('registered', 'true');
         isRegisteredVar(true);
       });
     }

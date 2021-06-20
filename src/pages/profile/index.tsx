@@ -10,6 +10,7 @@ interface ProfileProps {
 
 export default ({ user }: ProfileProps) => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
+
   if (isDesktop) {
     return <ProfileDesktop {...user} />;
   } else {
