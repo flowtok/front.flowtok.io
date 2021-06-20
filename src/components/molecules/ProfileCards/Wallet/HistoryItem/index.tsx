@@ -2,6 +2,7 @@ import styles from './styles.module.scss';
 import commonStyles from '../../../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
 import { HistoryItemType, HistoryPayment } from '../../../../../models/models';
+import { formatDate } from '../../../../../utils/FormatHelper';
 
 export interface HistoryItemProps {
   item: HistoryPayment;
@@ -22,7 +23,7 @@ export const HistoryItemComponent = ({ item }: HistoryItemProps) => {
       <p className={styles['value']} style={{ color }}>
         {balanceType} {value} ₽
       </p>
-      <p className={finalClassName}>{date}</p>
+      <p className={finalClassName}>{formatDate(Number(date))}</p>
     </div>
   );
 };
