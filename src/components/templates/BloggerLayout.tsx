@@ -11,6 +11,7 @@ type BloggerLayoutPropsT = any;
 
 export const BloggerLayout: FC<BloggerLayoutPropsT> = ({}) => {
   const user = useReactiveVar(currentUserVar);
+
   return (
     <Switch>
       <Route path="/profile">{user && <ProfilePage user={user} />}</Route>
