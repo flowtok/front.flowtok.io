@@ -11,7 +11,7 @@ import instagramLarge from '../../../assets/common/icons/instagram-large.svg';
 
 import styles from './styles.module.scss';
 
-export type ButtonNetworkPresetUnionType = 'light';
+export type ButtonNetworkPresetUnionType = 'light' | 'colored';
 
 export type NetworkButtonProps = Omit<
   React.DetailedHTMLProps<
@@ -35,7 +35,7 @@ export type NetworkT =
 export const NetworkButton = forwardRef<
   HTMLAnchorElement,
   PropsWithChildren<NetworkButtonProps>
->(({ children, className, network, preset, ...rest }, ref) => {
+>(({ children, network, preset, ...rest }, ref) => {
   const getImageSrcByNetwork = (network: NetworkT) => {
     switch (network) {
       case 'vk':

@@ -1,13 +1,13 @@
 @import "src/styles/mixins";
 
 .wrapper {
-  padding: 0 20px 141px;
+  padding: 100px 20px 141px 20px;
+  @include adaptive-value-tablet(padding-top, 100);
   @include adaptive-value-tablet(padding-left, 20);
   @include adaptive-value-tablet(padding-right, 20);
   @include adaptive-value-tablet(padding-bottom, 141);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 100vh;
 }
 .container {
@@ -21,10 +21,18 @@
       margin-bottom: 0;
     }
   }
-  //&:last-child {
-  //  margin: 32px 0 0;
-  //  @include adaptive-value-tablet(margin-top, 20);
-  //  display: flex;
-  //  justify-content: center;
-  //}
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    min-height: auto;
+    padding: 0;
+    max-width: 390px;
+  }
+  .container {
+    margin: 0;
+    > * {
+      margin-bottom: 10px;
+    }
+  }
 }
