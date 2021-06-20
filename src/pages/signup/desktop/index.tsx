@@ -31,7 +31,7 @@ export default ({}: SignUpDesktopPropsT) => {
         <div className={styles['title']}>{t('header.signup.title')}</div>
         <div className={styles['container']}>
           <NetworkButton network={String(registerType) as NetworkT}>
-            {t(`pages.login.sign-in-${registerType}`)}
+            {t(`pages.signup.buttons.sign-up-${registerType}`)}
           </NetworkButton>
         </div>
         <div className={styles['container']}>
