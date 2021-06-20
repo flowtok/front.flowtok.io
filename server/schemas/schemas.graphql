@@ -1,6 +1,6 @@
 type Query {
     users: [User]
-    user: User!
+    me: User!
     login(name: String!, password: String!): LoginResponse
     getCurrentUser(id: ID!): User
     tasks: [Task]
@@ -22,23 +22,63 @@ type AddWaletResponse {
 }
 type User {
     id: ID!
-    password: String!
+    name: String!
+    email: String!
+    userImage: String
+    tagName: String
+    verifiedTikTok: Boolean
+    balance: Float!
+    heldMoney: Float!
+    refEarning: Float!
+    refLink: String!
+    refCount: Int!
+    typeUser: Int!
+    subjects: String
+    telegramNotify: Boolean
+    telegramId: String
+    verifiedTelegram: Boolean
+    telegramVerifyCode: String
+    socialId: ID
+    social: Social
+    referrals: [RefUser]
+    historyPayment: [HistoryPayment]
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Social {
+    id: ID!
+    socialProvider: String!
+    nickname: String!
+    socialId: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+scalar DateTime
+
+type RefUser {
+    id: ID!
+    refId: Int!
+    byRef: Int!
+    invited: ReferralInfo!
+    invitedBy: ReferralInfo!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type ReferralInfo {
+    id: ID!
     name: String!
     userImage: String!
     tagName: String!
-    age: Int!
-    country: String!
-    balance: String!
-    avgViews: String!
-    price: String!
-    goodRate: Float!
-    heldMoney: String!
-    totalEarnings: String!
-    refLink: String!
-    refCount: Int!
-    refEarnings: String!
-    history: [HistoryItem]!
-    type: UserType!
+    email: String!
+}
+
+type HistoryPayment {
+    value: String!
+    date: String!
+    type: HistoryItemType!
 }
 
 enum UserType {
@@ -91,9 +131,20 @@ type Mutation {
     updateUserName(input: UserNameInput): User
     payOut(input: PayOutInput): PayOutResponse
     addWallet(input: AddWalletInput): AddWaletResponse
+    finishJoin(
+        input: FinishJoin!
+    ): User
 }
+
 type GeneralSettings {
     facebook: String
     telegram: String
     instagram: String
+}
+
+input FinishJoin {
+    name: String
+    subjects: [String!]!
+    telegramNotify: Boolean!
+    tagName: String!
 }

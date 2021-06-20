@@ -17,15 +17,11 @@ import { User } from '../../../models/models';
 
 export default ({
   balance,
-  avgViews,
   refCount,
   refEarning,
-  totalEarnings,
-  goodRate,
   refLink,
-  price,
   heldMoney,
-  history,
+  historyPayment = [],
 }: User) => {
   const { t } = useTranslation();
 
@@ -36,14 +32,14 @@ export default ({
           <WalletCard balance={balance.toString()} />
           <div className={styles['middle-group']}>
             <InProcessCard inProcessAmount={heldMoney.toString()} />
-            <TotalEarningsCard totalEarnings={totalEarnings} />
+            <TotalEarningsCard totalEarnings={'10'} />
           </div>
           <Paper>
             <h3 className={commonStyles['primary-title']}>
               {t('pages.profile.wallet.popup-title')}
             </h3>
             <div className={styles['history-window']}>
-              {history?.map(
+              {historyPayment?.map(
                 (h, key) =>
                   h && (
                     <>
@@ -59,11 +55,7 @@ export default ({
           </Paper>
         </div>
         <div className={styles['bottom-papers']}>
-          <StatsCard
-            viewsMedian={avgViews}
-            payOffPerVideo={price}
-            rating={goodRate}
-          />
+          <StatsCard viewsMedian={'3'} payOffPerVideo={'4'} rating={3} />
           <ReferalCard
             refUrl={refLink}
             refsCount={refCount}

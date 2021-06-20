@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { HistoryPopUp } from './HistoryPopUp';
 import { WithdrawalPopUp } from './WithdrawalPopUp';
 import { useMediaQuery } from 'react-responsive';
-import { HistoryItem, HistoryItemType } from '../../../../models/models';
+import { HistoryItemType, HistoryPayment } from '../../../../models/models';
 import { PopUp } from '../../PopUp';
 import {
   DonePopUpContent,
@@ -32,7 +32,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
   const { t } = useTranslation();
 
   /*will be deleted*/
-  const history: HistoryItem[] = [
+  const history: HistoryPayment[] = [
     { value: '9 112.90', date: '30.08.2021', type: HistoryItemType.Inc },
     { value: '1 112.90', date: '30.08.2020', type: HistoryItemType.Dec },
     { value: '112.90', date: '30.08.2023', type: HistoryItemType.Dec },

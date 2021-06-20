@@ -28,7 +28,60 @@ export const ADD_WALLET = gql`
 export const FINISH_JOIN = gql`
   mutation finishJoin($input: FinishJoin!) {
     finishJoin(input: $input) {
+      id
+      name
+      email
+      userImage
+      tagName
+      verifiedTikTok
       balance
+      heldMoney
+      refEarning
+      refLink
+      refCount
+      typeUser
+      subjects
+      telegramNotify
+      telegramId
+      verifiedTelegram
+      telegramVerifyCode
+      socialId
+      social {
+        id
+        socialProvider
+        nickname
+        socialId
+        createdAt
+        updatedAt
+      }
+      referrals {
+        id
+        refId
+        byRef
+        invited {
+          id
+          name
+          userImage
+          tagName
+          email
+        }
+        invitedBy {
+          id
+          name
+          userImage
+          tagName
+          email
+        }
+        createdAt
+        updatedAt
+      }
+      historyPayment {
+        value
+        date
+        type
+      }
+      createdAt
+      updatedAt
     }
   }
 `;

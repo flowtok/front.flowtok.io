@@ -6,15 +6,12 @@ import { useForm } from 'react-hook-form';
 import { Button } from '../../../atoms/Button';
 import Select from 'react-select';
 import chroma from 'chroma-js';
-import {
-  MutationFinishJoinArgs,
-  Themes,
-  User,
-} from '../../../../models/models';
+import { MutationFinishJoinArgs, User } from '../../../../models/models';
 import { useMutation } from '@apollo/client';
 import { FINISH_JOIN } from '../../../../api/mutations';
 import { options } from './options';
 import { Option } from 'react-select/src/filters';
+import { currentUserVar, isRegisteredVar } from '../../../../api/cache';
 
 type FormPropsT = any;
 type FormDataT = {
@@ -42,10 +39,12 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
             name: data.name,
             subjects: themes.map((option) => option.data),
             telegramNotify: true,
+            tagName: 'test',
           },
         },
-      }).then((data) => {
-        console.log(data);
+      }).then((data: any) => {
+        currentUserVar(data?.data?.finishJoin);
+        isRegisteredVar(true);
       });
     }
   };

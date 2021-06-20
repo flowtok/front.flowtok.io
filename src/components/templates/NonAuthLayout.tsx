@@ -8,13 +8,14 @@ import { AuthHandler } from './AuthHandler';
 type NonAuthLayoutPropsT = any;
 
 export const NonAuthLayout: FC<NonAuthLayoutPropsT> = ({}) => {
+  const token = localStorage.getItem('token');
   return (
     <Switch>
       <Route path="/login">
         <LoginPage />
       </Route>
       <Route path="/signup">
-        <SignUpPage />
+        {token ? <SignUpPage /> : <Redirect to="/login" />}
       </Route>
       <Route exact path="/">
         <HomePage />

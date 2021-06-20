@@ -2,6 +2,7 @@ import { InMemoryCache, makeVar } from '@apollo/client';
 import { User } from '../models/models';
 
 export const currentUserVar = makeVar<User | null>(null);
+
 export const isRegisteredVar = makeVar<boolean>(
   localStorage.getItem('registered') === 'true'
 );

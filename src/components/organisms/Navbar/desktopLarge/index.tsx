@@ -31,9 +31,9 @@ export const NavbarDesktopLarge = forwardRef<
           <ProfileInfo
             profileData={{
               ...{
-                fullName: user?.name,
-                shortName: user?.tagName,
-                avatar: user?.userImage,
+                fullName: user?.name ?? '',
+                shortName: user?.tagName ?? '',
+                avatar: user?.userImage ?? '',
               },
             }}
             isActivated={true}
