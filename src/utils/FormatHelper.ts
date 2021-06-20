@@ -30,7 +30,7 @@ class MoneyBuilder extends FormatBuilder {
   }
 
   addCurrency(currency: string): MoneyBuilder {
-    this.prepareFormat = `${this.prepareFormat}${currency}`;
+    this.prepareFormat = `${this.prepareFormat} ${currency}`;
     return this;
   }
 }
