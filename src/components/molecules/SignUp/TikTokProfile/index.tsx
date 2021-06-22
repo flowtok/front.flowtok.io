@@ -11,7 +11,7 @@ import { FindTikTok, MutationFindTickTokArgs } from '../../../../models/models';
 import { FIND_ACCOUNT_TIKTOK } from '../../../../api/mutations';
 
 type TikTokProfilePropsT = {
-  handleVerify?: () => void;
+  handleVerify?: (isFound: boolean) => void;
   profileData?: {
     fullName: string;
     shortName: string;
@@ -47,11 +47,13 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
             account: preparedValue[0],
           },
         }).then((data: any) => {
-          if (data.data.findAccountTikTok.find && handleVerify) {
-            setProfileData(data.data.findAccountTikTok);
-            handleVerify();
-          } else {
-            alert(t('pages.signup.notifications.not-found-account'));
+          if (handleVerify) {
+            if (data?.data?.findAccountTikTok?.find) {
+              setProfileData(data.data.findAccountTikTok);
+              handleVerify(true);
+            } else {
+              handleVerify(false);
+            }
           }
         });
       }
