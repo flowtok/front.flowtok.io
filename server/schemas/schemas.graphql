@@ -134,6 +134,9 @@ type Mutation {
     finishJoin(
         input: FinishJoin!
     ): User
+    findAccountTikTok(
+        input: FindAccount!
+    ): FindTikTok
 }
 
 type GeneralSettings {
@@ -147,4 +150,16 @@ input FinishJoin {
     subjects: [String!]!
     telegramNotify: Boolean!
     tagName: String!
+}
+
+type FindTikTok {
+    find: Boolean!
+    tagName: String!
+    avatar: String
+    name: String
+    isOfficial: Boolean
+}
+
+input FindAccount {
+    accound: String!
 }

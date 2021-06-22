@@ -74,6 +74,10 @@ export type FinishJoinInput = {
   tagName: Scalars['String'];
 };
 
+export type FindAccountInput = {
+  account: Scalars['String'];
+};
+
 export type MutationUpdateUserNameArgs = {
   input?: Maybe<UserNameInput>;
 };
@@ -84,6 +88,10 @@ export type MutationPayOutArgs = {
 
 export type MutationFinishJoinArgs = {
   input?: Maybe<FinishJoinInput>;
+};
+
+export type MutationFindTickTokArgs = {
+  input?: Maybe<FindAccountInput>;
 };
 
 export type MutationAddWalletArgs = {
@@ -192,6 +200,15 @@ export type User = {
   historyPayment?: Maybe<Array<Maybe<HistoryPayment>>>;
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
+};
+
+export type FindTikTok = {
+  __typename?: 'FindTikTok';
+  find: Maybe<Scalars['Boolean']>;
+  tagName: Maybe<Scalars['String']>;
+  avatar: Maybe<Scalars['String']>;
+  name: Maybe<Scalars['String']>;
+  isOfficial: Maybe<Scalars['Boolean']>;
 };
 
 export type UserNameInput = {

@@ -9,7 +9,6 @@ import {
   NetworkT,
 } from '../../../components/atoms/NetworkButton';
 import { TikTokProfile } from '../../../components/molecules/SignUp/TikTokProfile';
-import avatar from '../../../assets/common/images/avatar_mock.png';
 import { MainUserInfoForm } from '../../../components/molecules/SignUp/MainUserInfoForm';
 import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNotifications';
 import { useTranslation } from 'react-i18next';
@@ -40,13 +39,7 @@ export default ({ registerType }: SignUpPropsT) => {
           </NetworkButton>
         </div>
         <div className={styles['container']}>
-          <TikTokProfile
-            profileData={{
-              fullName: 'karinakrosssa',
-              shortName: '@karinakross',
-              avatar,
-            }}
-          />
+          <TikTokProfile />
         </div>
         <div className={styles['container']}>
           <MainUserInfoForm />

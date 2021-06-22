@@ -6,6 +6,10 @@ import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import { ProfileInfo } from '../../ProfileInfo';
+import { useMutation } from '@apollo/client';
+import { FindTikTok, MutationFindTickTokArgs, MutationFinishJoinArgs } from '../../../../models/models';
+import { FIND_ACCOUNT_TIKTOK } from '../../../../api/mutations';
+import { currentUserVar, isRegisteredVar } from '../../../../api/cache';
 
 type TikTokProfilePropsT = {
   profileData?: {
@@ -28,7 +32,24 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
     formState: { errors },
   } = useForm<FormDataT>();
 
-  const onSubmit = (data: FormDataT) => console.log(data);
+  const [findAccountTikTok, { data }] = useMutation<
+    { findAccountTikTok: FindTikTok },
+    MutationFindTickTokArgs
+  >(FIND_ACCOUNT_TIKTOK);
+
+  const onSubmit = (data: FormDataT) => {
+    if (data) {
+      findAccountTikTok({
+        variables: {
+          input: {
+            account: ''
+          },
+        },
+      }).then((data) => {
+
+      });
+    }
+  };
 
   if (profileData) {
     return (
@@ -48,6 +69,10 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
           error={errors.link}
           {...register('link', {
             required: t('validation.required').toString(),
+            pattern: {
+              value: /@[a-zA-Z]+/g,
+              message: t('validation-messages.incorrect').toString(),
+            },
           })}
           placeholder={t('pages.signup.placeholders.link')}
         />

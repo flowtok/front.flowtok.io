@@ -85,3 +85,15 @@ export const FINISH_JOIN = gql`
     }
   }
 `;
+
+export const FIND_ACCOUNT_TIKTOK = gql`
+  mutation findAccountTikTok($input: FindAccount!) {
+    findAccountTikTok(input: $input) {
+      find
+      tagName
+      avatar
+      name
+      isOfficial
+    }
+  }
+`;
