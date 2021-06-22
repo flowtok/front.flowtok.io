@@ -66,6 +66,7 @@ export const AccountCard = ({
       </h3>
       <div className={styles['user-main-info']}>
         <TikTokProfile
+          handleVerify={() => console.log('')}
           profileData={{
             fullName: username,
             shortName: tagname,

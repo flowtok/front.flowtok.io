@@ -91,7 +91,7 @@ export type MutationFinishJoinArgs = {
 };
 
 export type MutationFindTickTokArgs = {
-  input?: Maybe<FindAccountInput>;
+  account?: Scalars['String'];
 };
 
 export type MutationAddWalletArgs = {
@@ -205,10 +205,10 @@ export type User = {
 export type FindTikTok = {
   __typename?: 'FindTikTok';
   find: Maybe<Scalars['Boolean']>;
-  tagName: Maybe<Scalars['String']>;
-  avatar: Maybe<Scalars['String']>;
-  name: Maybe<Scalars['String']>;
-  isOfficial: Maybe<Scalars['Boolean']>;
+  tagName: Scalars['String'];
+  avatar: Scalars['String'];
+  name: Scalars['String'];
+  isOfficial: Scalars['Boolean'];
 };
 
 export type UserNameInput = {

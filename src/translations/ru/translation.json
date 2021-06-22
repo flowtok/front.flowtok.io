@@ -59,7 +59,8 @@
       "notifications": {
         "title": "Включить уведомления в Telegram",
         "desc": "+1.00 ₽ на счет и актуальные задания!",
-        "maxTopics": "Вы можете выбрать максимум три темы"
+        "maxTopics": "Вы можете выбрать максимум три темы",
+        "not-found-account": "TikTok аккаунт не найден"
       },
       "placeholders": {
         "name": "Имя",

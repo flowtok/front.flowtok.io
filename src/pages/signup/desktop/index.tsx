@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import { AuthenticationTemplate } from '../../../components/templates/AuthenticationTemplate';
 import videoMp4 from '../../../assets/login/videos/login_video.mp4';
@@ -19,7 +19,7 @@ export type SignUpPropsT = {
 
 export default ({ registerType }: SignUpPropsT) => {
   const { t } = useTranslation();
-
+  const [isVerify, setVerify] = useState<boolean>(false);
   return (
     <AuthenticationTemplate
       video={{
@@ -39,10 +39,10 @@ export default ({ registerType }: SignUpPropsT) => {
           </NetworkButton>
         </div>
         <div className={styles['container']}>
-          <TikTokProfile />
+          <TikTokProfile handleVerify={() => setVerify(true)} />
         </div>
         <div className={styles['container']}>
-          <MainUserInfoForm />
+          <MainUserInfoForm isVerify={isVerify} />
         </div>
         <div className={styles['container']}>
           <TurnNotifications bonusLabel={'+1.00 ₽'} />

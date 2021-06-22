@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Input } from '../../../atoms/Input';
 import styles from './styles.module.scss';
 import { Button } from '../../../atoms/Button';
@@ -7,11 +7,11 @@ import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import { ProfileInfo } from '../../ProfileInfo';
 import { useMutation } from '@apollo/client';
-import { FindTikTok, MutationFindTickTokArgs, MutationFinishJoinArgs } from '../../../../models/models';
+import { FindTikTok, MutationFindTickTokArgs } from '../../../../models/models';
 import { FIND_ACCOUNT_TIKTOK } from '../../../../api/mutations';
-import { currentUserVar, isRegisteredVar } from '../../../../api/cache';
 
 type TikTokProfilePropsT = {
+  handleVerify?: () => void;
   profileData?: {
     fullName: string;
     shortName: string;
@@ -23,9 +23,10 @@ type FormDataT = {
   link: string;
 };
 
-export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
+export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
   const { t } = useTranslation();
   const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 390px)' });
+  const [profileData, setProfileData] = useState<FindTikTok | null>(null);
   const {
     register,
     handleSubmit,
@@ -39,22 +40,34 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
 
   const onSubmit = (data: FormDataT) => {
     if (data) {
-      findAccountTikTok({
-        variables: {
-          input: {
-            account: ''
+      const preparedValue = data.link.match(/@[A-Za-z0-9]+/g);
+      if (preparedValue) {
+        findAccountTikTok({
+          variables: {
+            account: preparedValue[0],
           },
-        },
-      }).then((data) => {
-
-      });
+        }).then((data: any) => {
+          if (data.data.findAccountTikTok.find && handleVerify) {
+            setProfileData(data.data.findAccountTikTok);
+            handleVerify();
+          } else {
+            alert(t('pages.signup.notifications.not-found-account'));
+          }
+        });
+      }
     }
   };
 
   if (profileData) {
     return (
       <div className={styles['row']}>
-        <ProfileInfo profileData={profileData} />
+        <ProfileInfo
+          profileData={{
+            avatar: profileData.avatar,
+            fullName: profileData.name,
+            shortName: profileData.tagName,
+          }}
+        />
         <div className={styles['link']}>
           {isExtraSmallScreen
             ? t('pages.signup.buttons.change-short')
@@ -70,7 +83,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ profileData }) => {
           {...register('link', {
             required: t('validation.required').toString(),
             pattern: {
-              value: /@[a-zA-Z]+/g,
+              value: /@[A-Za-z0-9]+/g,
               message: t('validation-messages.incorrect').toString(),
             },
           })}

@@ -87,8 +87,8 @@ export const FINISH_JOIN = gql`
 `;
 
 export const FIND_ACCOUNT_TIKTOK = gql`
-  mutation findAccountTikTok($input: FindAccount!) {
-    findAccountTikTok(input: $input) {
+  mutation findAccountTikTok($account: String!) {
+    findAccountTikTok(account: $account) {
       find
       tagName
       avatar

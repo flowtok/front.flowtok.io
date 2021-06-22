@@ -17,12 +17,14 @@ import { options } from './options';
 import { Option } from 'react-select/src/filters';
 import { currentUserVar, isRegisteredVar } from '../../../../api/cache';
 
-type FormPropsT = any;
+type FormPropsT = {
+  isVerify: boolean;
+};
 type FormDataT = {
   name: string;
 };
 
-export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
+export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
   const { t } = useTranslation();
   const {
     register,
@@ -138,7 +140,11 @@ export const MainUserInfoForm: FC<FormPropsT> = ({}) => {
         </div>
       </div>
       <div className={styles['btn-container']}>
-        <Button preset={'black'} type={'submit'}>
+        <Button
+          preset={isVerify ? 'black' : 'success_gray'}
+          type={'submit'}
+          disabled={!isVerify}
+        >
           {t('pages.signup.buttons.flowtok')}
         </Button>
         <div className={styles['label']}>{t('pages.signup.agreement')}</div>

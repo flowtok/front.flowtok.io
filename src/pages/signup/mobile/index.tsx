@@ -39,17 +39,11 @@ export default ({ registerType }: SignUpPropsT) => {
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
-          <TikTokProfile
-            profileData={{
-              fullName: 'karinakrosssafsdg',
-              shortName: '@karinakross',
-              avatar,
-            }}
-          />
+          <TikTokProfile handleVerify={() => console.log('dsa')} />
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
-          <MainUserInfoForm />
+          <MainUserInfoForm isVerify={true} />
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>

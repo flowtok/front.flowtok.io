@@ -135,7 +135,7 @@ type Mutation {
         input: FinishJoin!
     ): User
     findAccountTikTok(
-        input: FindAccount!
+        account: String!
     ): FindTikTok
 }
 
