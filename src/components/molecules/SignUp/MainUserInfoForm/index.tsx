@@ -6,11 +6,7 @@ import { useForm } from 'react-hook-form';
 import { Button } from '../../../atoms/Button';
 import Select from 'react-select';
 import chroma from 'chroma-js';
-import {
-  MutationFinishJoinArgs,
-  Themes,
-  User,
-} from '../../../../models/models';
+import { MutationFinishJoinArgs, User } from '../../../../models/models';
 import { useMutation } from '@apollo/client';
 import { FINISH_JOIN } from '../../../../api/mutations';
 import { options } from './options';
@@ -33,12 +29,17 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
   } = useForm<FormDataT>();
 
   const [themes, setThemes] = useState<Option[]>([]);
+  const [selectEmptyError, setSelectEmptyError] = useState<string>('');
   const [finishJoin, { data }] = useMutation<
     { finishJoin: User },
     MutationFinishJoinArgs
   >(FINISH_JOIN);
 
   const onSubmit = (data: FormDataT) => {
+    if (themes.length === 0) {
+      console.log('dsad');
+      setSelectEmptyError(t('error-messages.select-empty'));
+    }
     if (data && themes.length) {
       finishJoin({
         variables: {
@@ -61,6 +62,10 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
     control: (styles: any) => ({
       ...styles,
       backgroundColor: 'white',
+    }),
+    menuList: (styles: any) => ({
+      ...styles,
+      height: 150,
     }),
     option: (
       styles: { [x: string]: any },
@@ -137,6 +142,9 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
             }}
             styles={colourStyles}
           />
+          {selectEmptyError && (
+            <p className={styles['select-error']}>{selectEmptyError}</p>
+          )}
         </div>
       </div>
       <div className={styles['btn-container']}>

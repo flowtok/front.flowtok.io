@@ -50,7 +50,6 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
       } else {
         setError('link', {
           message: t('error-messages.tiktok-not-found'),
-          shouldFocus: true,
         });
         handleVerify(false);
       }

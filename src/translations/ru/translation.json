@@ -211,7 +211,8 @@
     "error-description": "Проверьте введенные данные и повторитие попытку"
   },
   "error-messages": {
-    "tiktok-not-found": "TikTok аккаунт не найден"
+    "tiktok-not-found": "TikTok аккаунт не найден",
+    "select-empty": "Выберите хотя бы одну тематику"
   },
   "validation-messages": {
     "required": "Поле обязательно для заполнения",
