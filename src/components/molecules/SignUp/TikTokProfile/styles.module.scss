@@ -136,6 +136,8 @@
   }
 
   .row {
+    min-width: 320px;
+    @include adaptive-value-large-desktop(min-width, 320);
 
     .link {
       font-size: 16px;

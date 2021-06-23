@@ -7,13 +7,12 @@ import {
 } from '../../../components/atoms/NetworkButton';
 import { Divider } from '../../../components/atoms/Divider';
 import { TikTokProfile } from '../../../components/molecules/SignUp/TikTokProfile';
-import avatar from '../../../assets/common/images/avatar_mock.png';
 import { MainUserInfoForm } from '../../../components/molecules/SignUp/MainUserInfoForm';
 import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNotifications';
 import React from 'react';
 import { SignUpPropsT } from '../desktop';
 
-export default ({ registerType }: SignUpPropsT) => {
+export default ({ registerType, setVerify, isVerify }: SignUpPropsT) => {
   const { t } = useTranslation();
 
   return (
@@ -39,11 +38,15 @@ export default ({ registerType }: SignUpPropsT) => {
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
-          <TikTokProfile handleVerify={() => console.log('dsa')} />
+          <TikTokProfile
+            handleVerify={(isFound) => {
+              setVerify(isFound);
+            }}
+          />
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
-          <MainUserInfoForm isVerify={true} />
+          <MainUserInfoForm isVerify={isVerify} />
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>

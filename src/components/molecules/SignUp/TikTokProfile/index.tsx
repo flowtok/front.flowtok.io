@@ -11,7 +11,7 @@ import { FindTikTok, MutationFindTickTokArgs } from '../../../../models/models';
 import { FIND_ACCOUNT_TIKTOK } from '../../../../api/mutations';
 
 type TikTokProfilePropsT = {
-  handleVerify?: (isFound: boolean) => void;
+  handleVerify: (isFound: boolean) => void;
   profileData?: {
     fullName: string;
     shortName: string;
@@ -31,33 +31,51 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
+    reset,
+    watch,
   } = useForm<FormDataT>();
+
+  watch('link');
 
   const [findAccountTikTok, { data }] = useMutation<
     { findAccountTikTok: FindTikTok },
     MutationFindTickTokArgs
-  >(FIND_ACCOUNT_TIKTOK);
+  >(FIND_ACCOUNT_TIKTOK, {
+    onCompleted: (data) => {
+      if (data.findAccountTikTok.find) {
+        setProfileData(data.findAccountTikTok);
+        handleVerify(true);
+        reset();
+      } else {
+        setError('link', {
+          message: t('error-messages.tiktok-not-found'),
+          shouldFocus: true,
+        });
+        handleVerify(false);
+      }
+    },
+    onError: (error) => {
+      console.log(error.message);
+    },
+  });
 
-  const onSubmit = (data: FormDataT) => {
+  const onSubmit = async (data: FormDataT) => {
     if (data) {
       const preparedValue = data.link.match(/@[A-Za-z0-9]+/g);
       if (preparedValue) {
-        findAccountTikTok({
+        await findAccountTikTok({
           variables: {
-            account: preparedValue[0],
+            account: preparedValue[0].slice(1),
           },
-        }).then((data: any) => {
-          if (handleVerify) {
-            if (data?.data?.findAccountTikTok?.find) {
-              setProfileData(data.data.findAccountTikTok);
-              handleVerify(true);
-            } else {
-              handleVerify(false);
-            }
-          }
         });
       }
     }
+  };
+
+  const onChangeAccount = () => {
+    handleVerify(false);
+    setProfileData(null);
   };
 
   if (profileData) {
@@ -70,7 +88,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
             shortName: profileData.tagName,
           }}
         />
-        <div className={styles['link']}>
+        <div className={styles['link']} onClick={onChangeAccount}>
           {isExtraSmallScreen
             ? t('pages.signup.buttons.change-short')
             : t('pages.signup.buttons.change')}
@@ -83,7 +101,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
         <Input
           error={errors.link}
           {...register('link', {
-            required: t('validation.required').toString(),
+            required: t('validation-messages.required').toString(),
             pattern: {
               value: /@[A-Za-z0-9]+/g,
               message: t('validation-messages.incorrect').toString(),

@@ -12,17 +12,16 @@ import { TikTokProfile } from '../../../components/molecules/SignUp/TikTokProfil
 import { MainUserInfoForm } from '../../../components/molecules/SignUp/MainUserInfoForm';
 import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNotifications';
 import { useTranslation } from 'react-i18next';
-import { ErrorPopUpContent } from '../../../components/molecules/PaymentMethodNotifications';
-import { PopUp } from '../../../components/molecules/PopUp';
 
 export type SignUpPropsT = {
   registerType: string | null;
+  isVerify: boolean;
+  setVerify: (flag: boolean) => void;
 };
 
-export default ({ registerType }: SignUpPropsT) => {
+export default ({ registerType, isVerify, setVerify }: SignUpPropsT) => {
   const { t } = useTranslation();
-  const [isVerify, setVerify] = useState<boolean>(false);
-  const [isOpenErrorPopUp, setOpenErrorPopUp] = useState<boolean>(false);
+
   return (
     <AuthenticationTemplate
       video={{
@@ -45,7 +44,6 @@ export default ({ registerType }: SignUpPropsT) => {
           <TikTokProfile
             handleVerify={(isFound) => {
               setVerify(isFound);
-              setOpenErrorPopUp(!isFound);
             }}
           />
         </div>
@@ -56,15 +54,6 @@ export default ({ registerType }: SignUpPropsT) => {
           <TurnNotifications bonusLabel={'+1.00 ₽'} />
         </div>
       </div>
-      <PopUp
-        size="s"
-        isOpen={isOpenErrorPopUp}
-        close={() => setOpenErrorPopUp(false)}
-      >
-        <ErrorPopUpContent
-          title={t('pages.signup.notifications.not-found-account')}
-        />
-      </PopUp>
     </AuthenticationTemplate>
   );
 };

@@ -26,6 +26,7 @@ export const ProfileInfo: FC<TikTokProfileInfoPropsT> = ({
       </span>
     );
   }
+
   return (
     <div className={styles['row']}>
       <Avatar image={profileData.avatar} size={isDesktopLarge ? '' : 48} />
