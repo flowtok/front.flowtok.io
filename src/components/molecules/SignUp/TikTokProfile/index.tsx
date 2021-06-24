@@ -61,7 +61,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
 
   const onSubmit = async (data: FormDataT) => {
     if (data) {
-      const preparedValue = data.link.match(/@[A-Za-z0-9_]+/g);
+      const preparedValue = data.link.match(/@[A-Za-z0-9_.]+/g);
       if (preparedValue) {
         await findAccountTikTok({
           variables: {
@@ -102,7 +102,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
           {...register('link', {
             required: t('validation-messages.required').toString(),
             pattern: {
-              value: /@[A-Za-z0-9_]+/g,
+              value: /@[A-Za-z0-9_.]+/g,
               message: t('validation-messages.incorrect').toString(),
             },
           })}
