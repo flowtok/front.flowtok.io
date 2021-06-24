@@ -23,6 +23,8 @@ type FormDataT = {
   link: string;
 };
 
+const TIKTOK_NAME_PATTERN = /@[A-Za-z0-9_.]+/g;
+
 export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
   const { t } = useTranslation();
   const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 390px)' });
@@ -61,7 +63,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
 
   const onSubmit = async (data: FormDataT) => {
     if (data) {
-      const preparedValue = data.link.match(/@[A-Za-z0-9_.]+/g);
+      const preparedValue = data.link.match(TIKTOK_NAME_PATTERN);
       if (preparedValue) {
         await findAccountTikTok({
           variables: {
@@ -102,7 +104,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
           {...register('link', {
             required: t('validation-messages.required').toString(),
             pattern: {
-              value: /@[A-Za-z0-9_.]+/g,
+              value: TIKTOK_NAME_PATTERN,
               message: t('validation-messages.incorrect').toString(),
             },
           })}
