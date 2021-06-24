@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { Input } from '../../../atoms/Input';
 import { useTranslation } from 'react-i18next';
@@ -13,6 +13,10 @@ import { options } from './options';
 import { Option } from 'react-select/src/filters';
 import { currentUserVar, isRegisteredVar } from '../../../../api/cache';
 
+type SelectErrorT = {
+  message: string;
+  type: 'empty' | 'max-topics';
+} | null;
 type FormPropsT = {
   isVerify: boolean;
 };
@@ -29,17 +33,13 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
   } = useForm<FormDataT>();
 
   const [themes, setThemes] = useState<Option[]>([]);
-  const [selectEmptyError, setSelectEmptyError] = useState<string>('');
-  const [finishJoin, { data }] = useMutation<
+  const [selectError, setSelectError] = useState<SelectErrorT>(null);
+  const [finishJoin] = useMutation<
     { finishJoin: User },
     MutationFinishJoinArgs
   >(FINISH_JOIN);
 
   const onSubmit = (data: FormDataT) => {
-    if (themes.length === 0) {
-      console.log('dsad');
-      setSelectEmptyError(t('error-messages.select-empty'));
-    }
     if (data && themes.length) {
       finishJoin({
         variables: {
@@ -107,6 +107,15 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
     },
   };
 
+  useEffect(() => {
+    if (selectError?.type === 'max-topics') {
+      const timer = setTimeout(() => {
+        setSelectError(null);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [selectError]);
+
   return (
     <form className={styles['form']} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles['row']}>
@@ -126,24 +135,40 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
             options={options}
             placeholder={t('pages.signup.placeholders.theme')}
             onChange={(options, action) => {
-              if (action.action === 'select-option' && themes.length > 2) {
-                alert(`${t('pages.signup.notifications.maxTopics')}`);
-              } else {
-                setThemes(
-                  options.map((o) => {
-                    return {
-                      data: o.value,
-                      label: o.label,
-                      value: o.value,
-                    };
-                  })
-                );
+              if (action.action === 'select-option') {
+                if (selectError?.type === 'empty') {
+                  setSelectError(null);
+                }
+                if (themes.length > 2 && !selectError) {
+                  return setSelectError({
+                    message: t(
+                      'pages.signup.notifications.maxTopics'
+                    ).toString(),
+                    type: 'max-topics',
+                  });
+                }
+              } else if (action.action === 'remove-value') {
+                if (themes.length === 1) {
+                  setSelectError({
+                    message: t('error-messages.select-empty'),
+                    type: 'empty',
+                  });
+                }
               }
+              setThemes(
+                options.map((o) => {
+                  return {
+                    data: o.value,
+                    label: o.label,
+                    value: o.value,
+                  };
+                })
+              );
             }}
             styles={colourStyles}
           />
-          {selectEmptyError && (
-            <p className={styles['select-error']}>{selectEmptyError}</p>
+          {selectError && (
+            <p className={styles['select-error']}>{selectError.message}</p>
           )}
         </div>
       </div>

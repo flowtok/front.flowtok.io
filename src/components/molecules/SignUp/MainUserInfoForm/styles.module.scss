@@ -233,11 +233,15 @@
     }
 
     .select-group {
+      max-width: 360px;
+      @include adaptive-value-large-desktop(max-width, 360);
+
       > div {
 
         & > div {
-          height: 42px;
-          @include adaptive-value-large-desktop(height, 42);
+          min-height: 42px;
+          @include adaptive-value-large-desktop(min-height, 42);
+          height: 100%;
 
           &:nth-child(3) {
             padding: 5px;
