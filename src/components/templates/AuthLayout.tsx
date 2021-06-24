@@ -1,15 +1,15 @@
 import React, { FC, useEffect } from 'react';
-import { BloggerLayout } from './BloggerLayout';
 import { useLazyQuery, useReactiveVar } from '@apollo/client';
 import { currentUserVar } from '../../api/cache';
-
 import { QueryHandler } from './QueryHandler';
-import { AdvertiserLayout } from './AdvertiserLayout';
 import { ME } from '../../api/queries';
+
+const BloggerLayout = React.lazy(() => import('./BloggerLayout'));
+const AdvertiserLayout = React.lazy(() => import('./AdvertiserLayout'));
 
 type AuthLayoutPropsT = any;
 
-export const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
+const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
   const user = useReactiveVar(currentUserVar);
 
   const [runQuery, { loading, data, error }] = useLazyQuery(ME);
@@ -32,3 +32,5 @@ export const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
     </QueryHandler>
   );
 };
+
+export default AuthLayout;

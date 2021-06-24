@@ -7,7 +7,7 @@ import { AuthHandler } from './AuthHandler';
 
 type NonAuthLayoutPropsT = any;
 
-export const NonAuthLayout: FC<NonAuthLayoutPropsT> = ({}) => {
+const NonAuthLayout: FC<NonAuthLayoutPropsT> = ({}) => {
   const token = localStorage.getItem('token');
   return (
     <Switch>
@@ -29,3 +29,5 @@ export const NonAuthLayout: FC<NonAuthLayoutPropsT> = ({}) => {
     </Switch>
   );
 };
+
+export default NonAuthLayout;

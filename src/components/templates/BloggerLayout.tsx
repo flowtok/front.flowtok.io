@@ -9,7 +9,7 @@ import { currentUserVar } from '../../api/cache';
 
 type BloggerLayoutPropsT = any;
 
-export const BloggerLayout: FC<BloggerLayoutPropsT> = ({}) => {
+const BloggerLayout: FC<BloggerLayoutPropsT> = ({}) => {
   const user = useReactiveVar(currentUserVar);
 
   return (
@@ -30,3 +30,5 @@ export const BloggerLayout: FC<BloggerLayoutPropsT> = ({}) => {
     </Switch>
   );
 };
+
+export default BloggerLayout;
