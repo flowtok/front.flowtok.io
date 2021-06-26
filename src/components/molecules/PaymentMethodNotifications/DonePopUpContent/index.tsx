@@ -1,7 +1,6 @@
 import styles from '../styles.module.scss';
 import Success from 'assets/common/icons/success.svg';
 import commonStyles from '../../SettingsCards/styles.module.scss';
-import { useTranslation } from 'react-i18next';
 
 export interface DonePopUpContentProps {
   title?: string;
@@ -12,7 +11,6 @@ export const DonePopUpContent = ({
   title,
   description,
 }: DonePopUpContentProps) => {
-  const { t } = useTranslation();
   return (
     <div className={styles['notification-method-popup']}>
       <img src={Success} />

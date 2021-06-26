@@ -10,11 +10,12 @@ import { useMediaQuery } from 'react-responsive';
 import { useReactiveVar } from '@apollo/client';
 import { currentUserVar } from '../../../../api/cache';
 import { useState } from 'react';
+import { formatNumber } from '../../../../utils/FormatHelper';
 
 export interface ReferalCardProps {
   refUrl: string;
   refsCount: number;
-  totalEarningsFromRefs: string;
+  totalEarningsFromRefs: number;
 }
 
 export const ReferalCard = ({
@@ -87,7 +88,7 @@ export const ReferalCard = ({
               {t('pages.profile.ref.stats.total-earnings')}
             </p>
             <p className={commonStyles['value-secondary']}>
-              {totalEarningsFromRefs}
+              {formatNumber(Number(totalEarningsFromRefs))}
             </p>
           </div>
         </div>

@@ -2,9 +2,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Paper } from 'components/atoms/Paper';
 import commonStyles from '../styles.module.scss';
+import { formatMoney } from '../../../../utils/FormatHelper';
 
 export interface InProcessCardProps {
-  inProcessAmount: string;
+  inProcessAmount: number;
 }
 
 export const InProcessCard = ({ inProcessAmount }: InProcessCardProps) => {
@@ -15,7 +16,9 @@ export const InProcessCard = ({ inProcessAmount }: InProcessCardProps) => {
       <p className={commonStyles['title-secondary']}>
         {t('pages.profile.in-process.secondary')}
       </p>
-      <p className={commonStyles['value-secondary']}>{inProcessAmount}</p>
+      <p className={commonStyles['value-secondary']}>
+        {formatMoney(inProcessAmount, '₽')}
+      </p>
     </Paper>
   );
 };

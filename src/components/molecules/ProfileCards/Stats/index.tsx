@@ -5,6 +5,7 @@ import { Paper } from 'components/atoms/Paper';
 import { Divider } from 'components/atoms/Divider';
 import commonStyles from '../styles.module.scss';
 import styles from './styles.module.scss';
+import { formatNumber } from '../../../../utils/FormatHelper';
 
 export interface StatsCardProps {
   viewsMedian: string;
@@ -29,14 +30,18 @@ export const StatsCard = ({
           <p className={commonStyles['title-secondary']}>
             {t('pages.profile.stats.views-median')}
           </p>
-          <p className={commonStyles['value-secondary']}>{viewsMedian}</p>
+          <p className={commonStyles['value-secondary']}>
+            {formatNumber(Number(viewsMedian))}
+          </p>
         </div>
         <Divider direction="vertical" />
         <div className={styles.block}>
           <p className={commonStyles['title-secondary']}>
             {t('pages.profile.stats.pay-off-per-video')}
           </p>
-          <p className={commonStyles['value-secondary']}>{payOffPerVideo}</p>
+          <p className={commonStyles['value-secondary']}>
+            {formatNumber(Number(payOffPerVideo))}
+          </p>
         </div>
         <Divider direction="vertical" />
         <div className={styles.block}>
@@ -49,7 +54,7 @@ export const StatsCard = ({
               commonStyles['rating-positive']
             )}
           >
-            {rating}
+            {formatNumber(rating)}
           </p>
         </div>
       </div>

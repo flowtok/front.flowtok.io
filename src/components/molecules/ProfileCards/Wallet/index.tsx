@@ -15,9 +15,10 @@ import {
   DonePopUpContent,
   ErrorPopUpContent,
 } from '../../PaymentMethodNotifications';
+import { formatMoney } from '../../../../utils/FormatHelper';
 
 export interface WalletCardProps {
-  balance: string;
+  balance: number;
 }
 
 export const WalletCard = ({ balance }: WalletCardProps) => {
@@ -31,7 +32,6 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
 
   const { t } = useTranslation();
 
-  /*will be deleted*/
   const history: HistoryPayment[] = [
     { value: '9 112.90', date: '30.08.2021', type: HistoryItemType.Inc },
     { value: '1 112.90', date: '30.08.2020', type: HistoryItemType.Dec },
@@ -70,7 +70,9 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         <p className={commonStyles['title-secondary']}>
           {t('pages.profile.wallet.secondary')}
         </p>
-        <p className={commonStyles['value-primary']}>{balance}</p>
+        <p className={commonStyles['value-primary']}>
+          {formatMoney(Number(balance), '₽')}
+        </p>
         <Button
           className={styles['pay-off-button']}
           radius={null}
@@ -88,7 +90,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
         handleResult={(status, message) =>
           handleResultByPayOut(status, message)
         }
-        balance={balance}
+        balance={formatMoney(balance, '₽')}
         isUseProfile={true}
         isOpen={isOpenWithdrawalPopUp}
         close={() => setOpenWithdrawalPopUp(false)}

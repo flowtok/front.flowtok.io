@@ -2,9 +2,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Paper } from 'components/atoms/Paper';
 import commonStyles from '../styles.module.scss';
+import { formatMoney } from '../../../../utils/FormatHelper';
 
 export interface TotalEarningsCardProps {
-  totalEarnings: string;
+  totalEarnings: number;
 }
 
 export const TotalEarningsCard = ({
@@ -17,7 +18,9 @@ export const TotalEarningsCard = ({
       <p className={commonStyles['title-secondary']}>
         {t('pages.profile.total-earnings.secondary')}
       </p>
-      <p className={commonStyles['value-secondary']}>{totalEarnings}</p>
+      <p className={commonStyles['value-secondary']}>
+        {formatMoney(totalEarnings, '₽')}
+      </p>
     </Paper>
   );
 };

@@ -12,24 +12,45 @@ abstract class FormatBuilder {
   }
 }
 
-class MoneyBuilder extends FormatBuilder {
+class ValuesBuilder extends FormatBuilder {
   constructor(prepareStr: number) {
     super(String(prepareStr));
   }
 
-  getString(): MoneyBuilder {
-    if (!this.prepareFormat) {
-      this.prepareFormat = '';
-    } else {
-      const val = Number(String(this.prepareFormat).split('.')[0]);
-      const rest = String(this.prepareFormat).split('.')[1];
-      const preparedRest = rest ? `.${rest}` : '';
-      this.prepareFormat = `${val.toLocaleString('ru')}${preparedRest}`;
+  private getParts(value: string): { val: string; rest: string } {
+    const val = String(value).split('.')[0];
+    const rest = String(value).split('.')[1];
+    return { val, rest };
+  }
+
+  private getRest(value: number): string {
+    let result = '';
+    for (let i = 0; i < value; i++) {
+      result += '0';
+    }
+    return result;
+  }
+
+  useRest(lengthForCheck: number): ValuesBuilder {
+    const { val, rest } = this.getParts(String(this.prepareFormat));
+    if (!rest && val.length <= lengthForCheck) {
+      this.prepareFormat = `${val}.${this.getRest(lengthForCheck)}`;
     }
     return this;
   }
 
-  addCurrency(currency: string): MoneyBuilder {
+  getString(): ValuesBuilder {
+    if (!this.prepareFormat) {
+      this.prepareFormat = '';
+    } else {
+      const { val, rest } = this.getParts(String(this.prepareFormat));
+      const preparedRest = rest ? `.${rest}` : '';
+      this.prepareFormat = `${Number(val).toLocaleString('ru')}${preparedRest}`;
+    }
+    return this;
+  }
+
+  addCurrency(currency: string): ValuesBuilder {
     this.prepareFormat = `${this.prepareFormat} ${currency}`;
     return this;
   }
@@ -74,10 +95,14 @@ class DateBuilder extends FormatBuilder {
 }
 
 export const formatMoney = (n: number, currency: string) => {
-  return new MoneyBuilder(n).getString().addCurrency(currency).result();
+  return new ValuesBuilder(n)
+    .getString()
+    .useRest(2)
+    .addCurrency(currency)
+    .result();
 };
 export const formatNumber = (n: number) => {
-  return new MoneyBuilder(n).getString().result();
+  return new ValuesBuilder(n).getString().useRest(1).result();
 };
 export const formatDate = (n: number) => {
   return new DateBuilder(n).getDateStatus().result();

@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next';
 import commonStyles from '../../../components/molecules/SettingsCards/styles.module.scss';
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
 import { User } from '../../../models/models';
+import { EmptyHistory } from '../../../components/molecules/ProfileCards/Wallet/EmptyHistory';
 
 export default ({
   balance,
@@ -25,32 +26,34 @@ export default ({
 }: User) => {
   const { t } = useTranslation();
 
+  const renderHistoryList = () => {
+    if (!historyPayment?.length) return <EmptyHistory />;
+    return historyPayment?.map(
+      (h, key) =>
+        h && (
+          <>
+            <HistoryItemComponent item={h} key={'history-item-' + key} />
+            {history.length !== 1 && <Divider />}
+          </>
+        )
+    );
+  };
+
   return (
     <PageTemplateDesktop>
       <div className={styles['wrapper']}>
         <div className={styles['top-papers']}>
-          <WalletCard balance={balance.toString()} />
+          <WalletCard balance={balance} />
           <div className={styles['middle-group']}>
-            <InProcessCard inProcessAmount={heldMoney.toString()} />
-            <TotalEarningsCard totalEarnings={'10'} />
+            <InProcessCard inProcessAmount={heldMoney} />
+            <TotalEarningsCard totalEarnings={10} />
           </div>
           <Paper>
             <h3 className={commonStyles['primary-title']}>
               {t('pages.profile.wallet.popup-title')}
             </h3>
             <div className={styles['history-window']}>
-              {historyPayment?.map(
-                (h, key) =>
-                  h && (
-                    <>
-                      <HistoryItemComponent
-                        item={h}
-                        key={'history-item-' + key}
-                      />
-                      {history.length !== 1 && <Divider />}
-                    </>
-                  )
-              )}
+              {renderHistoryList()}
             </div>
           </Paper>
         </div>
@@ -59,7 +62,7 @@ export default ({
           <ReferalCard
             refUrl={refLink}
             refsCount={refCount}
-            totalEarningsFromRefs={refEarning.toString()}
+            totalEarningsFromRefs={refEarning}
           />
         </div>
       </div>

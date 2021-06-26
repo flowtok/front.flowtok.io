@@ -14,6 +14,6 @@ export default ({ user }: ProfileProps) => {
   if (isDesktop) {
     return <ProfileDesktop {...user} />;
   } else {
-    return <ProfileMobile />;
+    return <ProfileMobile {...user} />;
   }
 };

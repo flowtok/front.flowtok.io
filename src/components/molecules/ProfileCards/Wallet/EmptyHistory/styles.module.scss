@@ -1,0 +1,34 @@
+@import "src/styles/mixins";
+
+.empty-history-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & > img {
+    margin-bottom: 27px;
+    @include adaptive-value-tablet(margin-bottom, 27);
+    @include adaptive-value-large-desktop(margin-bottom, 27);
+    width: 63px;
+    @include adaptive-value-tablet(width, 63);
+    @include adaptive-value-large-desktop(width, 63);
+    height: 39px;
+    @include adaptive-value-tablet(height, 39);
+    @include adaptive-value-large-desktop(height, 39);
+  }
+
+  .empty-history-title {
+    color: #8E8E93;
+    font-size: 17px;
+    @include adaptive-value-tablet(font-size, 17);
+    @include adaptive-value-large-desktop(font-size, 17);
+    line-height: 20px;
+    @include adaptive-value-tablet(line-height, 20);
+    @include adaptive-value-large-desktop(line-height, 20);
+    letter-spacing: -0.337647px;
+    @include adaptive-value-tablet(letter-spacing, -0.337647);
+    @include adaptive-value-large-desktop(letter-spacing, -0.337647);
+  }
+}

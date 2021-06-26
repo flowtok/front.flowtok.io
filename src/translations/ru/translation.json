@@ -114,7 +114,8 @@
         "balance-info": "Ваш баланс:",
         "balance-sum": "Сумма",
         "all-sum": "Вся сумма",
-        "main-sum": "Своя сумма"
+        "main-sum": "Своя сумма",
+        "empty-history": "Транзакций пока нет"
       },
       "in-process": {
         "secondary": "Ждет зачисления"
