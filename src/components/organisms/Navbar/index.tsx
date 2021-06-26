@@ -18,9 +18,9 @@ export const Navbar = forwardRef<HTMLDivElement>(({}, ref) => {
           <NavbarDesktopLarge
             user={user}
             generalSettings={{
-              facebook: 'https://www.facebook.com/',
-              telegram: 'https://web.telegram.org',
-              instagram: 'https://www.instagram.com/',
+              facebook: process.env.NETWORK_FACEBOOK,
+              telegram: process.env.NETWORK_TELEGRAM,
+              instagram: process.env.NETWORK_INSTAGRAM,
             }}
             ref={ref}
           />
@@ -30,9 +30,9 @@ export const Navbar = forwardRef<HTMLDivElement>(({}, ref) => {
           <NavbarDesktop
             user={user}
             generalSettings={{
-              facebook: 'https://www.facebook.com/',
-              telegram: 'https://web.telegram.org',
-              instagram: 'https://www.instagram.com/',
+              facebook: process.env.NETWORK_FACEBOOK,
+              telegram: process.env.NETWORK_TELEGRAM,
+              instagram: process.env.NETWORK_INSTAGRAM,
             }}
             ref={ref}
           />
