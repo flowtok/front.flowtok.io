@@ -20,6 +20,7 @@ export default ({
   refEarning,
   refLink,
   heldMoney,
+  userImage,
 }: User) => {
   const { t } = useTranslation();
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -42,7 +43,7 @@ export default ({
     <PageTemplate
       headerProps={{
         title: t('header.profile.title'),
-        withAvatar: true,
+        avatar: userImage,
         rounded: true,
       }}
       extendedStyleProps={extendedStyleProps}

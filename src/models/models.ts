@@ -30,7 +30,7 @@ export type AddWalletInput = {
 
 export type GeneralSettings = {
   __typename?: 'GeneralSettings';
-  facebook?: Maybe<Scalars['String']>;
+  vk?: Maybe<Scalars['String']>;
   telegram?: Maybe<Scalars['String']>;
   instagram?: Maybe<Scalars['String']>;
 };

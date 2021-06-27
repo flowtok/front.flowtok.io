@@ -51,7 +51,7 @@ export const NavbarDesktop = forwardRef<
         <Divider />
         <div className={styles['networks']}>
           <NetworkButton
-            href={generalSettings?.facebook ?? ''}
+            href={generalSettings?.vk ?? ''}
             preset="light"
             network={'vk-light'}
           />

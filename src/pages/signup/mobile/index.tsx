@@ -19,7 +19,6 @@ export default ({ registerType, setVerify, isVerify }: SignUpPropsT) => {
     <PageTemplate
       headerProps={{
         title: t('header.signup.title'),
-        withAvatar: false,
         withBackArrow: true,
         withSeparator: true,
       }}
