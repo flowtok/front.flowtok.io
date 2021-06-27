@@ -9,6 +9,12 @@ import './styles/index.scss';
 import { client } from 'api/apollo';
 import { ApolloProvider } from '@apollo/client';
 
+declare global {
+  interface Window {
+    emoji: any;
+  }
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
