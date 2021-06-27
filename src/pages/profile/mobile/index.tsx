@@ -21,6 +21,7 @@ export default ({
   refLink,
   heldMoney,
   userImage,
+  historyPayment,
 }: User) => {
   const { t } = useTranslation();
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -51,7 +52,7 @@ export default ({
     >
       <div className={styles['outter-wrapper']}>
         <div className={styles['inner-wrapper']}>
-          <WalletCard balance={balance} />
+          <WalletCard balance={balance} history={historyPayment ?? []} />
           <InProcessCard inProcessAmount={heldMoney} />
           <TotalEarningsCard totalEarnings={10} />
           <StatsCard viewsMedian={'3'} payOffPerVideo={'4'} rating={3} />

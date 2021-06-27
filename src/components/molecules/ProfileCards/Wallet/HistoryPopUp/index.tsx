@@ -1,14 +1,15 @@
-import { forwardRef, PropsWithChildren } from 'react';
+import React, { forwardRef, PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HistoryItemComponent } from '../HistoryItem';
 import { Divider } from '../../../../atoms/Divider';
 import { PopUp } from '../../../PopUp';
-import { HistoryItem, HistoryPayment } from '../../../../../models/models';
+import { HistoryPayment, Maybe } from '../../../../../models/models';
+import { EmptyHistory } from '../EmptyHistory';
 
 interface HistoryPopUpProps {
   isOpen: boolean;
   close: () => void;
-  historyList: HistoryPayment[];
+  historyList?: Maybe<HistoryPayment>[];
 }
 
 export const HistoryPopUp = forwardRef<
@@ -24,12 +25,19 @@ export const HistoryPopUp = forwardRef<
       title={t('pages.profile.wallet.popup-title')}
     >
       <div>
-        {historyList.map((h, key) => (
-          <>
-            <HistoryItemComponent item={h} key={'history-item-' + key} />
-            {history.length !== 1 && <Divider />}
-          </>
-        ))}
+        {historyList && historyList.length > 0 ? (
+          historyList.map(
+            (h, key) =>
+              h && (
+                <>
+                  <HistoryItemComponent item={h} key={'history-item-' + key} />
+                  {history.length !== 1 && <Divider />}
+                </>
+              )
+          )
+        ) : (
+          <EmptyHistory />
+        )}
       </div>
     </PopUp>
   );

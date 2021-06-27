@@ -9,7 +9,11 @@ import { useState } from 'react';
 import { HistoryPopUp } from './HistoryPopUp';
 import { WithdrawalPopUp } from './WithdrawalPopUp';
 import { useMediaQuery } from 'react-responsive';
-import { HistoryItemType, HistoryPayment } from '../../../../models/models';
+import {
+  HistoryItemType,
+  HistoryPayment,
+  Maybe,
+} from '../../../../models/models';
 import { PopUp } from '../../PopUp';
 import {
   DonePopUpContent,
@@ -19,9 +23,10 @@ import { formatMoney } from '../../../../utils/FormatHelper';
 
 export interface WalletCardProps {
   balance: number;
+  history?: Maybe<HistoryPayment>[];
 }
 
-export const WalletCard = ({ balance }: WalletCardProps) => {
+export const WalletCard = ({ balance, history }: WalletCardProps) => {
   const [isOpenHistoryPopUp, setOpenHistoryPopUp] = useState<boolean>(false);
   const [isOpenWithdrawalPopUp, setOpenWithdrawalPopUp] = useState<boolean>(
     false
@@ -31,12 +36,6 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
   const [statusMessage, setStatusMessage] = useState<string>('');
 
   const { t } = useTranslation();
-
-  const history: HistoryPayment[] = [
-    { value: '9 112.90', date: '30.08.2021', type: HistoryItemType.Inc },
-    { value: '1 112.90', date: '30.08.2020', type: HistoryItemType.Dec },
-    { value: '112.90', date: '30.08.2023', type: HistoryItemType.Dec },
-  ];
 
   const handleResultByPayOut = (isSuccess: boolean, message: string) => {
     if (isSuccess) {
@@ -84,7 +83,7 @@ export const WalletCard = ({ balance }: WalletCardProps) => {
       <HistoryPopUp
         isOpen={isOpenHistoryPopUp}
         close={() => setOpenHistoryPopUp(false)}
-        historyList={history}
+        historyList={history ?? []}
       />
       <WithdrawalPopUp
         handleResult={(status, message) =>
