@@ -39,7 +39,7 @@ export const VerificationPopup = forwardRef<
       isCross={false}
       closeOnDocumentClick={false}
       title={t('popup-notification.title')}
-      size={isDesktopLarge ? 'm' : ''}
+      size={isDesktopLarge ? 'sm' : ''}
       titlePosition={isDesktopLarge ? 'center' : 'left'}
     >
       <div className={styles['verification-container']}>
@@ -64,7 +64,10 @@ export const VerificationPopup = forwardRef<
           />
         </div>
         <div className={styles['footer-popup']}>
-          <Button preset={'success'}>🤣 💛 🐵 🔥</Button>
+          <div className="emoji-list">
+            <span className="bubbly-button" id="emj" />
+          </div>
+          <input id="copyEmoji" />
           <div className={styles['load-block']}>
             <img src={LoadIcon} alt="" />
           </div>

@@ -25,6 +25,7 @@ export const ADD_WALLET = gql`
     }
   }
 `;
+
 export const FINISH_JOIN = gql`
   mutation finishJoin($input: FinishJoin!) {
     finishJoin(input: $input) {
@@ -95,5 +96,11 @@ export const FIND_ACCOUNT_TIKTOK = gql`
       name
       isOfficial
     }
+  }
+`;
+
+export const VERIFY_TIK_TOK = gql`
+  mutation verifyTikTok {
+    verifyTikTok
   }
 `;

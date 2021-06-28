@@ -68,6 +68,7 @@ export const ME = gql`
       userImage
       tagName
       verifiedTikTok
+      verifyTikTokCode
       balance
       heldMoney
       refEarning

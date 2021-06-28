@@ -183,6 +183,7 @@ export type User = {
   userImage?: Maybe<Scalars['String']>;
   tagName?: Maybe<Scalars['String']>;
   verifiedTikTok?: Maybe<Scalars['Boolean']>;
+  verifyTikTokCode?: Maybe<Scalars['Boolean']>;
   balance: Scalars['Float'];
   heldMoney: Scalars['Float'];
   refEarning: Scalars['Float'];

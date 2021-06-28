@@ -27,6 +27,7 @@ type User {
     userImage: String
     tagName: String
     verifiedTikTok: Boolean
+    verifyTikTokCode: String
     balance: Float!
     heldMoney: Float!
     refEarning: Float!
@@ -137,6 +138,7 @@ type Mutation {
     findAccountTikTok(
         account: String!
     ): FindTikTok
+    verifyTikTok: Boolean!
 }
 
 type GeneralSettings {
