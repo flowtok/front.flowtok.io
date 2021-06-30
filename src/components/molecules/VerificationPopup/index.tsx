@@ -18,9 +18,9 @@ interface VerificationPopupProps {
 export const VerificationPopup = forwardRef<
   HTMLDivElement,
   PropsWithChildren<VerificationPopupProps>
->(({ isOpen }, ref) => {
+>(({ isOpen }) => {
   const { t } = useTranslation();
-  const isDesktopLarge = useMediaQuery({ query: '(min-width: 1440px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const finalClassName = classNames(
     commonStyles['description'],
     styles['description-list']
@@ -39,8 +39,8 @@ export const VerificationPopup = forwardRef<
       isCross={false}
       closeOnDocumentClick={false}
       title={t('popup-notification.title')}
-      size={isDesktopLarge ? 'sm' : ''}
-      titlePosition={isDesktopLarge ? 'center' : 'left'}
+      size={isDesktop ? 'sm' : ''}
+      titlePosition={isDesktop ? 'center' : 'left'}
     >
       <div className={styles['verification-container']}>
         <ul className={styles['steps-wrapper']}>
