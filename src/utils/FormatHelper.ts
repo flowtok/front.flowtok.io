@@ -1,4 +1,4 @@
-import i18n from './../i18n';
+import i18n from './../configs/i18n';
 
 abstract class FormatBuilder {
   prepareFormat: string | null | undefined | number;

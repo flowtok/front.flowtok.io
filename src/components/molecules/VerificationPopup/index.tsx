@@ -6,10 +6,10 @@ import { ListItem } from '../../atoms/ListItem';
 import commonStyles from '../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
 import { Button } from '../../atoms/Button';
-import LoadIcon from 'assets/common/icons/load.svg';
 import { TikTokProfile } from '../SignUp/TikTokProfile';
 import AvatarMock from '../../../assets/common/images/avatar_mock.png';
 import { useMediaQuery } from 'react-responsive';
+import { EmojiButton } from '../../atoms/EmojiButton';
 
 interface VerificationPopupProps {
   isOpen: boolean;
@@ -64,13 +64,7 @@ export const VerificationPopup = forwardRef<
           />
         </div>
         <div className={styles['footer-popup']}>
-          <div className="emoji-list">
-            <span className="bubbly-button" id="emj" />
-          </div>
-          <input id="copyEmoji" />
-          <div className={styles['load-block']}>
-            <img src={LoadIcon} alt="" />
-          </div>
+          <EmojiButton />
         </div>
         <Button preset={'light'} className={styles['help-btn']}>
           {t('popup-notification.help-question')}

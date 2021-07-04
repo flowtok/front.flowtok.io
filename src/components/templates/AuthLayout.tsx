@@ -23,7 +23,7 @@ const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
   useEffect(() => {
     if (data) {
       currentUserVar(data?.me);
-      localStorage.setItem('emoji', data?.me.verifyTikTokCode);
+      localStorage.setItem('emoji', data?.me?.verifyTikTokCode);
     }
   }, [data]);
 
