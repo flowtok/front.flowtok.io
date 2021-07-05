@@ -1,47 +1,34 @@
 import React, { FC, useLayoutEffect, useRef, useState } from 'react';
 import './styles.css';
-import EmojiConvertor from 'emoji-js';
+import emoji from '../../../configs/emoji';
 import parse from 'html-react-parser';
-
-const emoji = new EmojiConvertor();
+import { useAnimationClass } from '../../../hooks/useAnimationClass';
 
 type EmojiButtonPropsT = any;
 
 export const EmojiButton: FC<EmojiButtonPropsT> = ({}) => {
   const [htmlEmoji, setHtmlEmoji] = useState<string>('');
   const targetButton = useRef<HTMLSpanElement>(null);
+  const emojiInput = useRef<HTMLInputElement>(null);
+  const bubbles = useAnimationClass(targetButton, 'bubbles', 750);
 
   useLayoutEffect(() => {
     const emojiFromBase = localStorage.getItem('emoji');
     if (emojiFromBase) {
       const emojis = emoji.replace_unified(emojiFromBase);
-      console.log(emojis);
       setHtmlEmoji(emojis);
     }
   }, []);
 
-  const animateButton = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    const button = targetButton.current;
-    if (button) {
-      void 0 !== e && e.preventDefault, button.classList.remove('animate');
-      const t = localStorage.getItem('emoji'),
-        o = document.getElementById('copyEmoji');
-      if (o) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        (o.value = t.trim()),
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          o.select(),
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          o.setSelectionRange(0, 99999),
-          document.execCommand('copy'),
-          button.classList.add('animate'),
-          setTimeout(() => {
-            button.classList.remove('animate');
-          }, 700);
-      }
+  const onClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    bubbles(e);
+    const emojiFromBase = localStorage.getItem('emoji');
+    const input = emojiInput.current;
+    if (input && emojiFromBase) {
+      input.value = emojiFromBase.trim();
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand('copy');
     }
   };
 
@@ -52,12 +39,12 @@ export const EmojiButton: FC<EmojiButtonPropsT> = ({}) => {
           className="bubbly-button"
           id="emj"
           ref={targetButton}
-          onClick={animateButton}
+          onClick={onClick}
         >
           <>{parse(htmlEmoji)}</>
         </span>
       </div>
-      <input id="copyEmoji" />
+      <input id="copyEmoji" ref={emojiInput} />
     </>
   );
 };
