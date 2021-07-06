@@ -11,6 +11,7 @@ import { useReactiveVar } from '@apollo/client';
 import { currentUserVar } from '../../../../api/cache';
 import { useState } from 'react';
 import { formatNumber } from '../../../../utils/FormatHelper';
+import { useCopyToClipboard } from '../../../../hooks/useCopyToClipboard';
 
 export interface ReferalCardProps {
   refUrl: string;
@@ -26,20 +27,11 @@ export const ReferalCard = ({
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const user = useReactiveVar(currentUserVar);
-  const [isCopyStatus, setCopyStatus] = useState<boolean>(false);
-
-  const copyAction = () => {
-    navigator.clipboard
-      .writeText(user ? user.refLink : '')
-      .then(() => setCopyStatus(true));
-    setTimeout(() => {
-      setCopyStatus(false);
-    }, 3000);
-  };
+  const [copy, isCopied] = useCopyToClipboard(1000);
 
   let copyBtn = (
     <Button
-      onClick={() => copyAction()}
+      onClick={() => copy(user ? user.refLink : '')}
       radius={isDesktop ? null : 42}
       className={styles['copy-button']}
     >
@@ -47,7 +39,7 @@ export const ReferalCard = ({
     </Button>
   );
 
-  if (isCopyStatus) {
+  if (isCopied) {
     copyBtn = (
       <Button
         preset="success_gray"

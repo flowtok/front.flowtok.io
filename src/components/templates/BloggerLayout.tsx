@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import ProfilePage from '../../pages/profile';
 import TasksPage from '../../pages/tasks';
@@ -11,11 +11,13 @@ import { VERIFY_TIK_TOK } from '../../api/mutations';
 
 type BloggerLayoutPropsT = any;
 
+const CHECK_VERIFICATION_INTERVAL = 60000;
+
 const BloggerLayout: FC<BloggerLayoutPropsT> = ({}) => {
   const user = useReactiveVar(currentUserVar);
   const [isVerify, setVerify] = useState<boolean>(false);
 
-  const [findAccountTikTok, { data }] = useMutation(VERIFY_TIK_TOK, {
+  const [findAccountTikTok] = useMutation(VERIFY_TIK_TOK, {
     onCompleted: (data) => {
       setVerify(data?.data.verifyTikTok);
     },
@@ -24,18 +26,18 @@ const BloggerLayout: FC<BloggerLayoutPropsT> = ({}) => {
     },
   });
 
-  // useEffect(() => {
-  //   if (!isVerify) {
-  //     const interval = setInterval(() => {
-  //       findAccountTikTok();
-  //     }, 10000);
-  //     return () => clearInterval(interval);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!isVerify) {
+      const interval = setInterval(() => {
+        findAccountTikTok();
+      }, CHECK_VERIFICATION_INTERVAL);
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   const renderVerifyPopUp = () => {
     if (!isVerify) {
-      return <VerificationPopup isOpen={!user?.verifiedTikTok ?? false} />;
+      return <VerificationPopup isOpen={true} />;
     }
   };
 

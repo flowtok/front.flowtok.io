@@ -120,14 +120,14 @@ export const WithdrawalPopUp = forwardRef<
           },
         },
       }).then(() => {
-        runQuery();
+        // runQuery();
         setOpenAddWithdrawalPopUp(false);
       });
     }
   };
 
   useEffect(() => {
-    runQuery();
+    // runQuery();
   }, []);
 
   const onClickActiveSumBtn = () => {
