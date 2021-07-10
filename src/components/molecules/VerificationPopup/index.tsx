@@ -60,7 +60,7 @@ export const VerificationPopup = forwardRef<
         <div className={styles['blogger-wrapper']}>
           <TikTokProfile
             profileData={{ ...blogger }}
-            handleVerify={() => console.log('')}
+            setTikTokIsFound={() => console.log('')}
           />
         </div>
         <div className={styles['footer-popup']}>

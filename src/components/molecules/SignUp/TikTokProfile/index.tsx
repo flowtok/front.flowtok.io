@@ -11,7 +11,7 @@ import { FindTikTok, MutationFindTickTokArgs } from '../../../../models/models';
 import { FIND_ACCOUNT_TIKTOK } from '../../../../api/mutations';
 
 type TikTokProfilePropsT = {
-  handleVerify: (isFound: boolean) => void;
+  setTikTokIsFound: (isFound: boolean) => void;
   profileData?: {
     fullName: string;
     shortName: string;
@@ -25,7 +25,9 @@ type FormDataT = {
 
 const TIKTOK_NAME_PATTERN = /@[A-Za-z0-9_.]+/g;
 
-export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
+export const TikTokProfile: FC<TikTokProfilePropsT> = ({
+  setTikTokIsFound,
+}) => {
   const { t } = useTranslation();
   const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 390px)' });
   const [profileData, setProfileData] = useState<FindTikTok | null>(null);
@@ -47,13 +49,13 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
     onCompleted: (data) => {
       if (data.findAccountTikTok.find) {
         setProfileData(data.findAccountTikTok);
-        handleVerify(true);
+        setTikTokIsFound(true);
         reset();
       } else {
         setError('link', {
           message: t('error-messages.tiktok-not-found'),
         });
-        handleVerify(false);
+        setTikTokIsFound(false);
       }
     },
     onError: (error) => {
@@ -75,7 +77,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({ handleVerify }) => {
   };
 
   const onChangeAccount = () => {
-    handleVerify(false);
+    setTikTokIsFound(false);
     setProfileData(null);
   };
 

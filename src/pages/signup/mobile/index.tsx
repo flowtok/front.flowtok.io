@@ -12,7 +12,7 @@ import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNoti
 import React from 'react';
 import { SignUpPropsT } from '../desktop';
 
-export default ({ registerType, setVerify, isVerify }: SignUpPropsT) => {
+export default ({ registerType, setTikTokIsFound, tikTokIsFound }: SignUpPropsT) => {
   const { t } = useTranslation();
 
   return (
@@ -38,14 +38,14 @@ export default ({ registerType, setVerify, isVerify }: SignUpPropsT) => {
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
           <TikTokProfile
-            handleVerify={(isFound) => {
-              setVerify(isFound);
+            setTikTokIsFound={(isFound) => {
+              setTikTokIsFound(isFound);
             }}
           />
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
-          <MainUserInfoForm isVerify={isVerify} />
+          <MainUserInfoForm isVerify={tikTokIsFound} />
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
