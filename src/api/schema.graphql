@@ -1,0 +1,451 @@
+type Query {
+  # Получить информацию обо мне
+  me: User
+
+  # Получить конкретного пользователя
+  user(id: ID): User
+
+  # Прогнозировать бюджет
+  predictBudgetAds(input: PredictBudgetAdsInput): PredictBudgetAdsType
+
+  # Получить пользователей
+  users(
+    # Limits number of fetched items.
+    first: Int = 10
+
+    # The offset from which items are returned.
+    page: Int
+  ): UserPaginator
+
+  # Получить доступные тематики
+  themes(
+    # Limits number of fetched items.
+    first: Int = 50
+
+    # The offset from which items are returned.
+    page: Int
+  ): ThemesPaginator
+}
+
+# Поля пользователя
+type User {
+  # ID-пользователя
+  id: ID!
+
+  # Имя пользователя
+  name: String!
+
+  # Электронный адрес
+  email: String!
+
+  # Аватарка
+  userImage: String
+
+  # TikTok аккаунт
+  tagName: String
+
+  # Подтвержден ли ТикТок
+  verifiedTikTok: Boolean
+
+  # Баланс
+  balance: Float!
+
+  # Ожидает выплаты
+  heldMoney: Float!
+
+  # Заработано всего
+  earnTotal: Float!
+
+  # Заработано с реферальной программы
+  refEarning: Float!
+
+  # Реферальный код для ссылки
+  refLink: String!
+
+  # Кол-во рефералов
+  refCount: Int!
+
+  # Тип аккаунта. 1-Блогер 2-Рекламодатель
+  typeUser: Int!
+
+  # Тематика аккаунта TikTok
+  subjects: String
+
+  # Телеграм уведомления
+  telegramNotify: Boolean
+
+  # Телеграм ID
+  telegramId: String
+
+  # Подтвержден ли телеграмм
+  verifiedTelegram: Boolean
+
+  # Код подтверждения для телеграмм Бота
+  telegramVerifyCode: String
+
+  # Код-подтверждения TikTok аккаунта.
+  # Подробная документация как взаимодействовать тут:
+  # https://wiki.flowtok.online/ru/
+  # verification/tiktok
+  verifyTikTokCode: String
+
+  # ID строки таблицы социальной сети
+  socialId: ID
+
+  # Информация о пользователи и его данные социальной сети
+  social: Social
+
+  # Рефералы
+  referrals: [RefUser]
+
+  # История баланса
+  historyPayment: [HistoryPayment]
+
+  # Оценка рекламодателя
+  goodRate: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# Поля для социальной сети
+type Social {
+  id: ID!
+
+  # Тип социальной сети
+  socialProvider: String!
+
+  # Имя в социальной сети
+  nickname: String!
+
+  # ID в социальной сети
+  socialId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`.
+scalar DateTime
+
+# Информация о рефералах
+type RefUser {
+  id: ID!
+
+  # ID приглашенного
+  refId: Int!
+
+  # ID того, кто пригласил
+  byRef: Int!
+
+  # Информация о приглашенном
+  invited: ReferralInfo!
+
+  # Информация о том кто пригласил
+  invitedBy: ReferralInfo!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# Информация о реферале
+type ReferralInfo {
+  id: ID!
+
+  # Имя
+  name: String!
+
+  # Аватарка
+  userImage: String!
+
+  # TikTok-имя
+  tagName: String!
+
+  # Электронный адрес
+  email: String!
+}
+
+# История изменения баланса
+type HistoryPayment {
+  # На какое значение было изменено
+  value: String!
+
+  # Дата изменения
+  date: String!
+
+  # Тип изменения
+  type: HistoryItemType!
+}
+
+# Тип изменения баланса
+enum HistoryItemType {
+  # Списание
+  Dec
+
+  # Пополнение
+  Inc
+}
+
+input PredictBudgetAdsInput {
+  # Дата начала рекламной кампании
+  dateStart: String!
+
+  # Дата конца рекламной кампании
+  dateEnd: String!
+
+  # Стоимость одного задания
+  perTask: [Float!]!
+
+  # Тематики
+  subjects: [String!]!
+}
+
+type PredictBudgetAdsType {
+  costPerDay: String
+  views: Int
+  tasksDay: Int
+}
+
+# A paginated list of User items.
+type UserPaginator {
+  # Pagination information about the list of items.
+  paginatorInfo: PaginatorInfo!
+
+  # A list of User items.
+  data: [User!]!
+}
+
+# Information about pagination using a fully featured paginator.
+type PaginatorInfo {
+  # Number of items in the current page.
+  count: Int!
+
+  # Index of the current page.
+  currentPage: Int!
+
+  # Index of the first item in the current page.
+  firstItem: Int
+
+  # Are there more pages after this one?
+  hasMorePages: Boolean!
+
+  # Index of the last item in the current page.
+  lastItem: Int
+
+  # Index of the last available page.
+  lastPage: Int!
+
+  # Number of items per page.
+  perPage: Int!
+
+  # Number of total available items.
+  total: Int!
+}
+
+# A paginated list of Themes items.
+type ThemesPaginator {
+  # Pagination information about the list of items.
+  paginatorInfo: PaginatorInfo!
+
+  # A list of Themes items.
+  data: [Themes!]!
+}
+
+# Тематики тие-кто аккаунтов
+type Themes {
+  # Значение тематики
+  value: String!
+
+  # Имя тематики
+  name: String!
+}
+
+type Mutation {
+  # Завершить регистрацию
+  finishJoin(input: FinishJoin!): User
+
+  # Отказаться от телеграмм уведомлений
+  cancelTelegram(value: Boolean!): NotifyTelegram
+
+  # Сохранить телеграмм
+  saveTelegram(telegramId: String!): NotifyTelegram
+
+  # Найти аккаунт в ТикТок
+  findAccountTikTok(account: String!): FindTikTok
+
+  # Подтверждение TikTok аккаунта
+  verifyTikTok: Boolean!
+
+  # Сгенерировать другие Emoji
+  newCodeTikTok: String!
+}
+
+# Поля для завершения регистрации
+input FinishJoin {
+  # Имя, если оно было изменено, если нет, то передать такое же или не передавать вовсем
+  name: String
+
+  # Массив тематик тик-то аккаунта.
+  # Можно получить по query Themes
+  subjects: [String!]!
+
+  # Включены ли телеграмм уведомления
+  telegramNotify: Boolean!
+
+  # Имя тикток
+  tagName: String!
+}
+
+# Уведомления телеграмм
+type NotifyTelegram {
+  # Телеграм уведомления
+  telegramNotify: Boolean
+
+  # Телеграм ID
+  telegramId: String
+
+  # Подтвержден ли телеграмм
+  verifiedTelegram: Boolean
+
+  # Код подтверждения для телеграмм Бота
+  telegramVerifyCode: String!
+}
+
+# Результат поиска TikTok
+type FindTikTok {
+  # Нашел или нет
+  find: Boolean!
+
+  # TikTok тег
+  tagName: String!
+
+  # Аватарка
+  avatar: String
+
+  # Имя в тикток (оно может отличаться от tagName, поэтому лучше брать его)
+  name: String
+
+  # Официальный аккаунт или нет
+  isOfficial: Boolean
+}
+
+input ForgotPasswordInput {
+  email: String!
+}
+
+input NewPasswordWithCodeInput {
+  email: String!
+  token: String!
+  password: String!
+  password_confirmation: String!
+}
+
+input RegisterInput {
+  name: String!
+  email: String!
+  password: String!
+  password_confirmation: String!
+}
+
+input SocialLoginInput {
+  provider: String!
+}
+
+input VerifyEmailInput {
+  token: String!
+}
+
+input UpdatePassword {
+  old_password: String!
+  password: String!
+  password_confirmation: String!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
+}
+
+input RefreshTokenInput {
+  refresh_token: String
+}
+
+# A date string with format `Y-m-d`, e.g. `2011-05-23`.
+scalar Date
+
+enum RegisterStatuses {
+  MUST_VERIFY_EMAIL
+  SUCCESS
+}
+
+# The available directions for ordering a list of records.
+enum SortOrder {
+  # Sort records in ascending order.
+  ASC
+
+  # Sort records in descending order.
+  DESC
+}
+
+# Allows ordering a list of records.
+input OrderByClause {
+  # The column that is used for ordering.
+  column: String!
+
+  # The direction that is used for ordering.
+  order: SortOrder!
+}
+
+# Information about pagination using a simple paginator.
+type SimplePaginatorInfo {
+  # Number of items in the current page.
+  count: Int!
+
+  # Index of the current page.
+  currentPage: Int!
+
+  # Index of the first item in the current page.
+  firstItem: Int
+
+  # Index of the last item in the current page.
+  lastItem: Int
+
+  # Number of items per page.
+  perPage: Int!
+}
+
+# Information about pagination using a Relay style cursor connection.
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # The cursor to continue paginating backwards.
+  startCursor: String
+
+  # The cursor to continue paginating forwards.
+  endCursor: String
+
+  # Total number of nodes in the paginated connection.
+  total: Int!
+
+  # Number of nodes in the current page.
+  count: Int!
+
+  # Index of the current page.
+  currentPage: Int!
+
+  # Index of the last available page.
+  lastPage: Int!
+}
+
+# Specify if you want to include or exclude trashed results from a query.
+enum Trashed {
+  # Only return trashed results.
+  ONLY
+
+  # Return both trashed and non-trashed results.
+  WITH
+
+  # Only return non-trashed results.
+  WITHOUT
+}

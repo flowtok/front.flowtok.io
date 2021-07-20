@@ -9,18 +9,23 @@ import { Avatar } from '../../../atoms/Avatar';
 import { Divider } from '../../../atoms/Divider';
 import { Notification } from '../../../atoms/Notifacation';
 import { NetworkButton } from '../../../atoms/NetworkButton';
-import { GeneralSettings, User } from '../../../../models/models';
+import { User } from '../../../../types/graphql';
+import { GeneralSettings } from '../../../../types/types.temp';
+import { Maybe } from 'graphql/jsutils/Maybe';
+import { ProfileDataT } from '../../../molecules/ProfileInfo';
 
 interface DesktopProps {
   generalSettings: GeneralSettings;
-  user: User;
+  profileData: Maybe<ProfileDataT>;
 }
 
 export const NavbarDesktop = forwardRef<
   HTMLDivElement,
   PropsWithChildren<DesktopProps>
->(({ generalSettings, user }, ref) => {
+>(({ generalSettings, profileData }, ref) => {
   const { pathname } = useLocation();
+
+  const { userImage } = { ...profileData };
 
   return (
     <div className={styles['wrapper']} ref={ref}>
@@ -28,7 +33,7 @@ export const NavbarDesktop = forwardRef<
       <div className={styles['sidebar-container']}>
         <div>
           <div className={styles['account']}>
-            <Avatar image={user?.userImage ?? ''} size={41} />
+            <Avatar image={userImage ?? ''} size={41} />
           </div>
           <Divider />
           <div className={styles['nav']}>

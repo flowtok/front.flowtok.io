@@ -20,10 +20,10 @@ import {
   MutationPayOutArgs,
   PaymentMethod,
   WalletType,
-} from '../../../../../models/models';
-import { ADD_WALLET, PAY_OUT } from '../../../../../api/mutations';
+} from '../../../../../types/types.temp';
+import { ADD_WALLET, PAY_OUT } from '../../../../../types/types.temp';
 import { PaymentMethods } from '../PaymentMethods';
-import { WALLETS } from '../../../../../api/queries';
+import { WALLETS } from '../../../../../types/types.temp';
 import { trimMoney } from '../../../../../utils/string';
 
 type FormDataT = {

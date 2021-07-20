@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { HistoryItemComponent } from '../HistoryItem';
 import { Divider } from '../../../../atoms/Divider';
 import { PopUp } from '../../../PopUp';
-import { HistoryPayment, Maybe } from '../../../../../models/models';
+import { HistoryPayment, Maybe } from '../../../../../types/graphql';
 import { EmptyHistory } from '../EmptyHistory';
 
 interface HistoryPopUpProps {
   isOpen: boolean;
   close: () => void;
-  historyList?: Maybe<HistoryPayment>[];
+  historyList?: Maybe<any>[];
 }
 
 export const HistoryPopUp = forwardRef<

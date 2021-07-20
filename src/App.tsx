@@ -3,7 +3,7 @@ import { useReactiveVar } from '@apollo/client';
 import { isRegisteredVar, tokenExistVar } from './api/cache';
 
 const AuthLayout = React.lazy(
-  () => import('./components/templates/AuthLayout')
+  () => import('./components/templates/AuthLayout/AuthLayout')
 );
 
 const NonAuthLayout = React.lazy(

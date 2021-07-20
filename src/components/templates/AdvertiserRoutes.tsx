@@ -4,7 +4,7 @@ import HomePage from '../../pages/home';
 
 type AdvertiserLayoutPropsT = any;
 
-const AdvertiserLayout: FC<AdvertiserLayoutPropsT> = ({}) => {
+const AdvertiserRoutes: FC<AdvertiserLayoutPropsT> = ({}) => {
   return (
     <Switch>
       <Route path="/">
@@ -14,4 +14,4 @@ const AdvertiserLayout: FC<AdvertiserLayoutPropsT> = ({}) => {
   );
 };
 
-export default AdvertiserLayout;
+export default AdvertiserRoutes;

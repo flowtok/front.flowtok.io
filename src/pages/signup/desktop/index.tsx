@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './styles.module.scss';
 import { AuthenticationTemplate } from '../../../components/templates/AuthenticationTemplate';
 import videoMp4 from '../../../assets/login/videos/login_video.mp4';
@@ -53,7 +53,7 @@ export default ({
               }}
             />
           ) : (
-            <EditTikTokProfile />
+            <EditTikTokProfile setTikTokIsFound={setTikTokIsFound} />
           )}
         </div>
         <div className={styles['container']}>

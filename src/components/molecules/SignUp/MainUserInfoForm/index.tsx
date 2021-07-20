@@ -6,12 +6,11 @@ import { useForm } from 'react-hook-form';
 import { Button } from '../../../atoms/Button';
 import Select from 'react-select';
 import chroma from 'chroma-js';
-import { MutationFinishJoinArgs, User } from '../../../../models/models';
-import { useMutation } from '@apollo/client';
-import { FINISH_JOIN } from '../../../../api/mutations';
+import { useFinishJoinMutation } from '../../../../types/graphql';
+import { gql } from '@apollo/client';
 import { options } from './options';
 import { Option } from 'react-select/src/filters';
-import { currentUserVar, isRegisteredVar } from '../../../../api/cache';
+import { isRegisteredVar } from '../../../../api/cache';
 
 type SelectErrorT = {
   message: string;
@@ -34,10 +33,24 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
 
   const [themes, setThemes] = useState<Option[]>([]);
   const [selectError, setSelectError] = useState<SelectErrorT>(null);
-  const [finishJoin] = useMutation<
-    { finishJoin: User },
-    MutationFinishJoinArgs
-  >(FINISH_JOIN);
+  const [finishJoin] = useFinishJoinMutation({
+    update(cache, { data }) {
+      cache.writeQuery({
+        query: gql`
+          query writeUser {
+            me {
+              ...UserData
+            }
+          }
+        `,
+        data: data?.finishJoin,
+      });
+    },
+    onCompleted: () => {
+      localStorage.setItem('registered', 'true');
+      isRegisteredVar(true);
+    },
+  });
 
   const onSubmit = (data: FormDataT) => {
     if (data && themes.length) {
@@ -50,10 +63,6 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
             tagName: 'test',
           },
         },
-      }).then((data) => {
-        currentUserVar(data?.data?.finishJoin);
-        localStorage.setItem('registered', 'true');
-        isRegisteredVar(true);
       });
     }
   };

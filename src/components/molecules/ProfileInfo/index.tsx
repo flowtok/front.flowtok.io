@@ -3,13 +3,16 @@ import styles from './styles.module.scss';
 import { Avatar } from '../../atoms/Avatar';
 import check from '../../../assets/common/icons/check.svg';
 import { useMediaQuery } from 'react-responsive';
+import { Maybe } from 'graphql/jsutils/Maybe';
+
+export type ProfileDataT = {
+  name?: Maybe<string>;
+  tagName?: Maybe<string>;
+  userImage?: Maybe<string>;
+};
 
 type TikTokProfileInfoPropsT = {
-  profileData: {
-    fullName: string;
-    shortName: string;
-    avatar: string;
-  };
+  profileData: Maybe<ProfileDataT>;
   isActivated?: boolean;
 };
 
@@ -27,15 +30,17 @@ export const ProfileInfo: FC<TikTokProfileInfoPropsT> = ({
     );
   }
 
+  const { userImage, name, tagName } = { ...profileData };
+
   return (
     <div className={styles['row']}>
-      <Avatar image={profileData.avatar} size={isDesktopLarge ? '' : 48} />
+      <Avatar image={String(userImage)} size={isDesktopLarge ? '' : 48} />
       <div className={styles['column']}>
         <div className={styles['title-group']}>
-          <span className={styles['title']}>{profileData.fullName}</span>
+          <span className={styles['title']}>{String(name)}</span>
           {activatedIcon}
         </div>
-        <div className={styles['subtitle']}>{profileData.shortName}</div>
+        <div className={styles['subtitle']}>{String(tagName)}</div>
       </div>
     </div>
   );

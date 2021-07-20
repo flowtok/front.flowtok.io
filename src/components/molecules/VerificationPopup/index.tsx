@@ -1,4 +1,4 @@
-import { forwardRef, PropsWithChildren } from 'react';
+import { forwardRef, PropsWithChildren, useEffect } from 'react';
 import { PopUp } from '../PopUp';
 import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss';
@@ -10,15 +10,38 @@ import { TikTokProfile } from '../SignUp/TikTokProfile';
 import AvatarMock from '../../../assets/common/images/avatar_mock.png';
 import { useMediaQuery } from 'react-responsive';
 import { EmojiButton } from '../../atoms/EmojiButton';
+import { useVerifyTikTokMutation } from '../../../types/graphql';
 
 interface VerificationPopupProps {
-  isOpen: boolean;
+  isVerified: boolean;
 }
+
+const CHECK_VERIFICATION_INTERVAL = 60000;
+
+const useEnhancer = (isVerified: boolean) => {
+  // const [verifyTikTok] = useMutation<>(VERIFY_TIK_TOK, {
+  //   onCompleted: (data) => {},
+  //   onError: (error) => {
+  //     console.log(error.message);
+  //   },
+  // });
+
+  const [verifyTikTok] = useVerifyTikTokMutation({});
+
+  useEffect(() => {
+    if (!isVerified) {
+      const interval = setInterval(() => {
+        verifyTikTok();
+      }, CHECK_VERIFICATION_INTERVAL);
+      return () => clearInterval(interval);
+    }
+  }, []);
+};
 
 export const VerificationPopup = forwardRef<
   HTMLDivElement,
   PropsWithChildren<VerificationPopupProps>
->(({ isOpen }) => {
+>(({ isVerified }) => {
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const finalClassName = classNames(
@@ -26,16 +49,9 @@ export const VerificationPopup = forwardRef<
     styles['description-list']
   );
 
-  /*will be deleted*/
-  const blogger = {
-    fullName: 'karinakross',
-    shortName: '@karinakross',
-    avatar: AvatarMock,
-  };
-
   return (
     <PopUp
-      isOpen={isOpen}
+      isOpen={isVerified}
       isCross={false}
       closeOnDocumentClick={false}
       title={t('popup-notification.title')}
@@ -58,16 +74,13 @@ export const VerificationPopup = forwardRef<
           </li>
         </ul>
         <div className={styles['blogger-wrapper']}>
-          <TikTokProfile
-            profileData={{ ...blogger }}
-            setTikTokIsFound={() => console.log('')}
-          />
+          <TikTokProfile setTikTokIsFound={() => console.log('')} />
         </div>
         <div className={styles['footer-popup']}>
           <EmojiButton />
         </div>
         <Button preset={'light'} className={styles['help-btn']}>
-          {t('popup-notification.help-question')}
+          c{t('popup-notification.help-question')}
         </Button>
       </div>
     </PopUp>

@@ -1,4 +1,4 @@
-import { Themes } from '../../../../models/models';
+import { Themes } from '../../../../types/types.temp';
 import i18n from '../../../../configs/i18n';
 
 const themes = Object.keys(Themes);

@@ -4,12 +4,16 @@ import { Input } from '../../../atoms/Input';
 import { Button } from '../../../atoms/Button';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useMutation } from '@apollo/client';
-import { FindTikTok, MutationFindTickTokArgs } from '../../../../models/models';
-import { FIND_ACCOUNT_TIKTOK } from '../../../../api/mutations';
+import {
+  FindAccountTikTokMutation,
+  useFindAccountTikTokMutation,
+} from '../../../../types/graphql';
+
+export type TikTokProfileData = Omit<FindAccountTikTokMutation, '__typename'>;
 
 type EditTikTokProfilePropsT = {
   setTikTokIsFound: (isFound: boolean) => void;
+  // setTikTokProfileData: (data: TikTokProfileData) => void;
 };
 
 type FormDataT = {
@@ -31,13 +35,10 @@ export const EditTikTokProfile: FC<EditTikTokProfilePropsT> = ({
     watch,
   } = useForm<FormDataT>();
 
-  const [findAccountTikTok, { data }] = useMutation<
-    { findAccountTikTok: FindTikTok },
-    MutationFindTickTokArgs
-  >(FIND_ACCOUNT_TIKTOK, {
+  const [findAccountTikTok, { data }] = useFindAccountTikTokMutation({
     onCompleted: (data) => {
-      if (data.findAccountTikTok.find) {
-        setProfileData(data.findAccountTikTok);
+      if (data?.findAccountTikTok) {
+        // setProfileData(data.findAccountTikTok);
         setTikTokIsFound(true);
         reset();
       } else {
@@ -89,4 +90,3 @@ export const EditTikTokProfile: FC<EditTikTokProfilePropsT> = ({
     </form>
   );
 };
-

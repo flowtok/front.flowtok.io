@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useReactiveVar } from '@apollo/client';
-import { currentUserVar } from '../../api/cache';
+import { useMeQuery } from '../../types/graphql';
 
 const SignUpDesktop = React.lazy(() => import('./desktop/index'));
 const SignUpMobile = React.lazy(() => import('./mobile/index'));
@@ -10,7 +9,9 @@ export default () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const registerType = localStorage.getItem('registerType');
   const [tikTokIsFound, setTikTokIsFound] = useState<boolean>(false);
-  const userData = useReactiveVar(currentUserVar);
+  const { data } = useMeQuery();
+  const userData = data?.me;
+
   const tikTokProfileData = userData
     ? {
         name: userData.name,

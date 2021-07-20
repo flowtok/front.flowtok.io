@@ -2,7 +2,7 @@ import React, { forwardRef, PropsWithChildren } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.scss';
 import logo from 'assets/common/icons/logo_desktop.svg';
-import { ProfileInfo } from '../../../molecules/ProfileInfo';
+import { ProfileDataT, ProfileInfo } from '../../../molecules/ProfileInfo';
 import { Divider } from '../../../atoms/Divider';
 import { ProfileIcon } from '../Icons/ProfileIcon';
 import { Notification } from '../../../atoms/Notifacation';
@@ -10,17 +10,19 @@ import { TasksIcon } from '../Icons/TasksIcon';
 import { SettingsIcon } from '../Icons/SettingsIcon';
 import { useTranslation } from 'react-i18next';
 import { NetworkButton } from '../../../atoms/NetworkButton';
-import { GeneralSettings, User } from '../../../../models/models';
+import { User } from '../../../../types/graphql';
+import { GeneralSettings } from '../../../../types/types.temp';
+import { Maybe } from 'graphql/jsutils/Maybe';
 
 interface DesktopLargeProps {
   generalSettings: GeneralSettings;
-  user: User;
+  profileData: Maybe<ProfileDataT>;
 }
 
 export const NavbarDesktopLarge = forwardRef<
   HTMLDivElement,
   PropsWithChildren<DesktopLargeProps>
->(({ generalSettings, user }, ref) => {
+>(({ generalSettings, profileData }, ref) => {
   const { pathname } = useLocation();
   const { t } = useTranslation();
   return (
@@ -28,16 +30,7 @@ export const NavbarDesktopLarge = forwardRef<
       <div>
         <img src={logo} className={styles['logo']} alt="" />
         <div className={styles['account']}>
-          <ProfileInfo
-            profileData={{
-              ...{
-                fullName: user?.name ?? '',
-                shortName: user?.tagName ?? '',
-                avatar: user?.userImage ?? '',
-              },
-            }}
-            isActivated={true}
-          />
+          <ProfileInfo profileData={profileData} isActivated={true} />
         </div>
         <Divider />
         <div className={styles['nav']}>

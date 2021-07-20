@@ -4,7 +4,7 @@ import commonStyles from '../../styles.module.scss';
 import { SavedMethod } from '../../../SettingsCards/Withdrawal/SavedMethod';
 import { MethodsBtnGroup } from '../../../SettingsCards/Withdrawal/MethodsBtnGroup';
 import { useTranslation } from 'react-i18next';
-import { PaymentMethod, WalletType } from '../../../../../models/models';
+import { PaymentMethod, WalletType } from '../../../../../types/types.temp';
 
 type PaymentMethodsPropsT = {
   savedMethods: Array<PaymentMethod>;

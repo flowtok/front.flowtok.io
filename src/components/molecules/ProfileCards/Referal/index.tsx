@@ -8,15 +8,15 @@ import CopyIcon from 'assets/common/icons/copy.svg';
 import styles from './styles.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import { useReactiveVar } from '@apollo/client';
-import { currentUserVar } from '../../../../api/cache';
-import { useState } from 'react';
 import { formatNumber } from '../../../../utils/FormatHelper';
 import { useCopyToClipboard } from '../../../../hooks/useCopyToClipboard';
+import { Maybe } from 'graphql/jsutils/Maybe';
+import { useMeQuery } from '../../../../types/graphql';
 
 export interface ReferalCardProps {
-  refUrl: string;
-  refsCount: number;
-  totalEarningsFromRefs: number;
+  refUrl: Maybe<string>;
+  refsCount: Maybe<number>;
+  totalEarningsFromRefs: Maybe<number>;
 }
 
 export const ReferalCard = ({
@@ -26,7 +26,8 @@ export const ReferalCard = ({
 }: ReferalCardProps) => {
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-  const user = useReactiveVar(currentUserVar);
+  const { data } = useMeQuery();
+  const user = data?.me;
   const [copy, isCopied] = useCopyToClipboard(1000);
 
   let copyBtn = (
@@ -60,7 +61,7 @@ export const ReferalCard = ({
         </h3>
         <div className={styles['copy-block']}>
           <div className={styles['field']}>
-            <p>{refUrl}</p>
+            <p>{String(refUrl)}</p>
           </div>
           {copyBtn}
         </div>
@@ -72,7 +73,9 @@ export const ReferalCard = ({
             <p className={commonStyles['title-secondary']}>
               {t('pages.profile.ref.stats.referals')}
             </p>
-            <p className={commonStyles['value-secondary']}>{refsCount}</p>
+            <p className={commonStyles['value-secondary']}>
+              {Number(refsCount)}
+            </p>
           </div>
           {isDesktop ? <Divider /> : <Divider direction="vertical" />}
           <div>

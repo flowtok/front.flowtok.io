@@ -105,7 +105,8 @@
     "adaptive-tablet": "node adaptivescript.js tablet",
     "adaptive-small-desktop": "node adaptivescript.js small-desktop",
     "adaptive-large-desktop": "node adaptivescript.js large-desktop",
-    "generate-models": "graphql-codegen --config codegen.yml"
+    "generate-types": "graphql-codegen --config codegen.yml",
+    "watch-queries": "graphql-codegen --config codegen.yml --watch"
   },
   "eslintConfig": {
     "extends": [

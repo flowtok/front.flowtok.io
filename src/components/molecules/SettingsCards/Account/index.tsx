@@ -9,9 +9,9 @@ import { useForm } from 'react-hook-form';
 import { TikTokProfile } from '../../SignUp/TikTokProfile';
 import AvatarMock from '../../../../assets/common/images/avatar_mock.png';
 import { useMutation } from '@apollo/client';
-import { MutationUpdateUserNameArgs, User } from '../../../../models/models';
-import { UPDATE_NAME } from '../../../../api/mutations';
-import { currentUserVar } from '../../../../api/cache';
+import { User } from '../../../../types/graphql';
+import { MutationUpdateUserNameArgs } from '../../../../types/types.temp';
+import { UPDATE_NAME } from '../../../../types/types.temp';
 
 export interface AccountCardProps {
   username: string;
@@ -65,14 +65,7 @@ export const AccountCard = ({
         {t('pages.settings.cards.account.title')}
       </h3>
       <div className={styles['user-main-info']}>
-        <TikTokProfile
-          setTikTokIsFound={() => console.log('')}
-          profileData={{
-            fullName: username,
-            shortName: tagname,
-            avatar: AvatarMock,
-          }}
-        />
+        <TikTokProfile setTikTokIsFound={() => console.log('')} />
       </div>
       <Divider />
       <div className={styles['user-secondary-info']}>
@@ -106,7 +99,7 @@ export const AccountCard = ({
           preset="custom"
           className={styles['exit-button']}
           onClick={() => {
-            currentUserVar(null);
+            // currentUserVar(null);S
             localStorage.removeItem('user');
             localStorage.removeItem('token');
           }}

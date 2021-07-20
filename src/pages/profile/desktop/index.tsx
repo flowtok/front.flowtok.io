@@ -13,18 +13,20 @@ import { Paper } from '../../../components/atoms/Paper';
 import { useTranslation } from 'react-i18next';
 import commonStyles from '../../../components/molecules/SettingsCards/styles.module.scss';
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
-import { User } from '../../../models/models';
+import { GetBloggerProfileDataQuery } from '../../../types/graphql';
 import { EmptyHistory } from '../../../components/molecules/ProfileCards/Wallet/EmptyHistory';
 
-export default ({
-  balance,
-  refCount,
-  refEarning,
-  refLink,
-  heldMoney,
-  historyPayment = [],
-}: User) => {
+export default ({ me }: GetBloggerProfileDataQuery) => {
   const { t } = useTranslation();
+
+  const {
+    balance,
+    refCount,
+    refEarning,
+    refLink,
+    heldMoney,
+    historyPayment = [],
+  } = { ...me };
 
   const renderHistoryList = () => {
     if (!historyPayment?.length) return <EmptyHistory />;

@@ -7,7 +7,7 @@ import { MethodsBtnGroup } from './MethodsBtnGroup';
 import { useState } from 'react';
 import { SavedMethod } from './SavedMethod';
 import { AddWithdrawalPopUp } from '../../AddWithdrawalPopUp';
-import { PaymentMethod, WalletType } from '../../../../models/models';
+import { PaymentMethod, WalletType } from '../../../../types/types.temp';
 
 export const WithdrawalCard = () => {
   const { t } = useTranslation();

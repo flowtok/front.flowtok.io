@@ -12,7 +12,11 @@ import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNoti
 import React from 'react';
 import { SignUpPropsT } from '../desktop';
 
-export default ({ registerType, setTikTokIsFound, tikTokIsFound }: SignUpPropsT) => {
+export default ({
+  registerType,
+  setTikTokIsFound,
+  tikTokIsFound,
+}: SignUpPropsT) => {
   const { t } = useTranslation();
 
   return (

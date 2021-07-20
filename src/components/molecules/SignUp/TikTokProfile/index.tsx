@@ -6,17 +6,14 @@ import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import { ProfileInfo } from '../../ProfileInfo';
-import { useMutation } from '@apollo/client';
-import { FindTikTok, MutationFindTickTokArgs } from '../../../../models/models';
-import { FIND_ACCOUNT_TIKTOK } from '../../../../api/mutations';
+import {
+  FindTikTok,
+  useFindAccountTikTokMutation,
+  useGetTikTokProfileDataQuery,
+} from '../../../../types/graphql';
 
 type TikTokProfilePropsT = {
   setTikTokIsFound: (isFound: boolean) => void;
-  profileData?: {
-    fullName: string;
-    shortName: string;
-    avatar: string;
-  };
 };
 
 type FormDataT = {
@@ -30,7 +27,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
 }) => {
   const { t } = useTranslation();
   const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 390px)' });
-  const [profileData, setProfileData] = useState<FindTikTok | null>(null);
+  const { data } = useGetTikTokProfileDataQuery();
   const {
     register,
     handleSubmit,
@@ -42,13 +39,10 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
 
   watch('link');
 
-  const [findAccountTikTok, { data }] = useMutation<
-    { findAccountTikTok: FindTikTok },
-    MutationFindTickTokArgs
-  >(FIND_ACCOUNT_TIKTOK, {
+  const [findAccountTikTok] = useFindAccountTikTokMutation({
     onCompleted: (data) => {
-      if (data.findAccountTikTok.find) {
-        setProfileData(data.findAccountTikTok);
+      if (data?.findAccountTikTok?.find) {
+        // setProfileData(data.findAccountTikTok);
         setTikTokIsFound(true);
         reset();
       } else {
@@ -78,17 +72,19 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
 
   const onChangeAccount = () => {
     setTikTokIsFound(false);
-    setProfileData(null);
+    // setProfileData(null);
   };
+
+  const profileData = data?.me;
 
   if (profileData) {
     return (
       <div className={styles['row']}>
         <ProfileInfo
           profileData={{
-            avatar: profileData.avatar,
-            fullName: profileData.name,
-            shortName: profileData.tagName,
+            userImage: String(profileData.userImage),
+            name: String(profileData.name),
+            tagName: String(profileData.tagName),
           }}
         />
         <div className={styles['link']} onClick={onChangeAccount}>

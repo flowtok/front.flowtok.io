@@ -1,7 +1,20 @@
 overwrite: true
-schema: "./server/schemas/*.graphql"
+schema: "./src/api/schema.graphql"
+documents:
+  - "./src/api/queries.ts"
+  - "./src/api/mutations.ts"
+  - "./src/api/fragments.ts"
+  - "./src/components/**/**/*.{ts,tsx}"
+  - "./src/pages/**/*.{ts,tsx}"
+  - "./src/pages/**/**/*.{ts,tsx}"
 generates:
-  ./src/models/models.ts:
+  ./src/types/graphql.ts:
+    config:
+      dedupeOperationSuffix: true
+      withHooks: true
+      withComponent: false
+      withHOC: false
+      addDocBlocks: false
     plugins:
       - "typescript"
       - "typescript-operations"

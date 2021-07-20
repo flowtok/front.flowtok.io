@@ -12,19 +12,21 @@ import styles from './styles.module.scss';
 import React, { useMemo } from 'react';
 import { adaptiveValue } from '../../../utils/mixins';
 import { useWindowResize } from '../../../hooks/useWindowResize';
-import { User } from '../../../models/models';
+import { GetBloggerProfileDataQuery } from '../../../types/graphql';
 
-export default ({
-  balance,
-  refCount,
-  refEarning,
-  refLink,
-  heldMoney,
-  userImage,
-  historyPayment,
-}: User) => {
+export default ({ me }: GetBloggerProfileDataQuery) => {
   const { t } = useTranslation();
   const [width, setWidth] = React.useState(window.innerWidth);
+
+  const {
+    balance,
+    refCount,
+    refEarning,
+    refLink,
+    heldMoney,
+    historyPayment = [],
+    userImage,
+  } = { ...me };
 
   const onWindowResize = () => {
     setWidth(window.innerWidth);

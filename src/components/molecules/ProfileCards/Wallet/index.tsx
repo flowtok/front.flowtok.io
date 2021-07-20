@@ -9,20 +9,17 @@ import { useState } from 'react';
 import { HistoryPopUp } from './HistoryPopUp';
 import { WithdrawalPopUp } from './WithdrawalPopUp';
 import { useMediaQuery } from 'react-responsive';
-import {
-  HistoryItemType,
-  HistoryPayment,
-  Maybe,
-} from '../../../../models/models';
+import { HistoryPayment } from '../../../../types/graphql';
 import { PopUp } from '../../PopUp';
 import {
   DonePopUpContent,
   ErrorPopUpContent,
 } from '../../PaymentMethodNotifications';
 import { formatMoney } from '../../../../utils/FormatHelper';
+import { Maybe } from 'graphql/jsutils/Maybe';
 
 export interface WalletCardProps {
-  balance: number;
+  balance: Maybe<number>;
   history?: Maybe<HistoryPayment>[];
 }
 
@@ -89,7 +86,7 @@ export const WalletCard = ({ balance, history }: WalletCardProps) => {
         handleResult={(status, message) =>
           handleResultByPayOut(status, message)
         }
-        balance={formatMoney(balance, '₽')}
+        balance={formatMoney(Number(balance), '₽')}
         isUseProfile={true}
         isOpen={isOpenWithdrawalPopUp}
         close={() => setOpenWithdrawalPopUp(false)}
@@ -108,8 +105,6 @@ export const WalletCard = ({ balance, history }: WalletCardProps) => {
       >
         <ErrorPopUpContent title={statusMessage} />
       </PopUp>
-      {/*uncomment component for see notification popup */}
-      {/*<VerificationPopup isOpen={true} />*/}
     </>
   );
 };

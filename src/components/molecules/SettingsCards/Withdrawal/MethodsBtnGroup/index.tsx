@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Button } from '../../../../atoms/Button';
-import { WalletType } from '../../../../../models/models';
+import { WalletType } from '../../../../../types/types.temp';
 
 export interface MethodsBtnGroupProps {
   onClickAction: (type: WalletType) => void;
