@@ -49,7 +49,7 @@ export default ({
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>
-          <MainUserInfoForm isVerify={tikTokIsFound} />
+          <MainUserInfoForm tikTokIsFound={tikTokIsFound} />
         </div>
         <Divider direction={'horizontal'} />
         <div className={styles['container']}>

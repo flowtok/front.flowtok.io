@@ -71,7 +71,8 @@
   }
 
   .wrapper {
-    width: unset;
+    width: 390px;
+    @include adaptive-value-large-desktop(width, 390);
     padding: 50px 20px 110px;
     @include adaptive-value-large-desktop(padding-top, 50);
     @include adaptive-value-large-desktop(padding-bottom, 110);

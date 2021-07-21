@@ -4,12 +4,7 @@ import { Avatar } from '../../atoms/Avatar';
 import check from '../../../assets/common/icons/check.svg';
 import { useMediaQuery } from 'react-responsive';
 import { Maybe } from 'graphql/jsutils/Maybe';
-
-export type ProfileDataT = {
-  name?: Maybe<string>;
-  tagName?: Maybe<string>;
-  userImage?: Maybe<string>;
-};
+import { ProfileDataT } from '../SignUp/TikTokProfile';
 
 type TikTokProfileInfoPropsT = {
   profileData: Maybe<ProfileDataT>;

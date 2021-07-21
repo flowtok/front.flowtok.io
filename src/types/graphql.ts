@@ -405,6 +405,18 @@ export type FinishJoinMutation = { __typename?: 'Mutation' } & {
   finishJoin?: Maybe<{ __typename?: 'User' } & UserDataFragment>;
 };
 
+export type GetSocialMediaDataQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetSocialMediaDataQuery = { __typename?: 'Query' } & {
+  me?: Maybe<
+    { __typename?: 'User' } & {
+      social?: Maybe<
+        { __typename?: 'Social' } & Pick<Social, 'nickname' | 'socialId'>
+      >;
+    }
+  >;
+};
+
 export type GetTikTokProfileDataQueryVariables = Exact<{
   [key: string]: never;
 }>;
@@ -692,6 +704,53 @@ export type FinishJoinMutationResult = Apollo.MutationResult<FinishJoinMutation>
 export type FinishJoinMutationOptions = Apollo.BaseMutationOptions<
   FinishJoinMutation,
   FinishJoinMutationVariables
+>;
+export const GetSocialMediaDataDocument = gql`
+  query getSocialMediaData {
+    me {
+      social {
+        nickname
+        socialId
+      }
+    }
+  }
+`;
+
+export function useGetSocialMediaDataQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetSocialMediaDataQuery,
+    GetSocialMediaDataQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    GetSocialMediaDataQuery,
+    GetSocialMediaDataQueryVariables
+  >(GetSocialMediaDataDocument, options);
+}
+
+export function useGetSocialMediaDataLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetSocialMediaDataQuery,
+    GetSocialMediaDataQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetSocialMediaDataQuery,
+    GetSocialMediaDataQueryVariables
+  >(GetSocialMediaDataDocument, options);
+}
+
+export type GetSocialMediaDataQueryHookResult = ReturnType<
+  typeof useGetSocialMediaDataQuery
+>;
+export type GetSocialMediaDataLazyQueryHookResult = ReturnType<
+  typeof useGetSocialMediaDataLazyQuery
+>;
+export type GetSocialMediaDataQueryResult = Apollo.QueryResult<
+  GetSocialMediaDataQuery,
+  GetSocialMediaDataQueryVariables
 >;
 export const GetTikTokProfileDataDocument = gql`
   query getTikTokProfileData {

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import styles from './styles.module.scss';
 import { Input } from '../../../atoms/Input';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +6,10 @@ import { useForm } from 'react-hook-form';
 import { Button } from '../../../atoms/Button';
 import Select from 'react-select';
 import chroma from 'chroma-js';
-import { useFinishJoinMutation } from '../../../../types/graphql';
+import {
+  useFinishJoinMutation,
+  useGetSocialMediaDataQuery,
+} from '../../../../types/graphql';
 import { gql } from '@apollo/client';
 import { options } from './options';
 import { Option } from 'react-select/src/filters';
@@ -17,22 +20,29 @@ type SelectErrorT = {
   type: 'empty' | 'max-topics';
 } | null;
 type FormPropsT = {
-  isVerify: boolean;
+  tikTokIsFound: boolean;
 };
 type FormDataT = {
   name: string;
 };
 
-export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
+export const MainUserInfoForm: FC<FormPropsT> = ({ tikTokIsFound }) => {
   const { t } = useTranslation();
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    setValue,
+    formState: { errors, touchedFields },
   } = useForm<FormDataT>();
-
   const [themes, setThemes] = useState<Option[]>([]);
   const [selectError, setSelectError] = useState<SelectErrorT>(null);
+  const {} = useGetSocialMediaDataQuery({
+    onCompleted: (data) => {
+      if (data?.me?.social?.nickname) {
+        setValue('name', data.me.social.nickname);
+      }
+    },
+  });
   const [finishJoin] = useFinishJoinMutation({
     update(cache, { data }) {
       cache.writeQuery({
@@ -125,10 +135,16 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
     }
   }, [selectError]);
 
+  const isSubmitEnabled = useMemo<boolean>(
+    () => tikTokIsFound && !!themes.length && !errors.name,
+    [tikTokIsFound, themes, errors.name]
+  );
+
   return (
     <form className={styles['form']} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles['row']}>
         <Input
+          visited={touchedFields.name}
           error={errors.name}
           {...register('name', {
             required: t('validation-messages.required').toString(),
@@ -183,9 +199,9 @@ export const MainUserInfoForm: FC<FormPropsT> = ({ isVerify }) => {
       </div>
       <div className={styles['btn-container']}>
         <Button
-          preset={isVerify ? 'black' : 'success_gray'}
+          preset={isSubmitEnabled ? 'black' : 'success_gray'}
           type={'submit'}
-          disabled={!isVerify}
+          disabled={!isSubmitEnabled}
         >
           {t('pages.signup.buttons.flowtok')}
         </Button>

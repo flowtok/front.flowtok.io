@@ -21,11 +21,11 @@
   color: #1D1D1D;
 
   &-error {
-    border: 1px solid #FF3B30;
+    border: 1.5px solid #FF3B30;
   }
 
   &-visited {
-    border: 1px solid #4E3BF1;
+    border: 1.5px solid #4E3BF1;
   }
 }
 
@@ -47,7 +47,6 @@
   .input {
     border-radius: 30px;
     @include adaptive-value-large-desktop(border-radius, 30);
-    border: 1px solid #E5E5EA;
     font-size: 15px;
     @include adaptive-value-large-desktop(font-size, 15);
     line-height: 18px;

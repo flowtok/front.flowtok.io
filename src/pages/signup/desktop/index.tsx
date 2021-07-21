@@ -12,7 +12,6 @@ import { TikTokProfile } from '../../../components/molecules/SignUp/TikTokProfil
 import { MainUserInfoForm } from '../../../components/molecules/SignUp/MainUserInfoForm';
 import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNotifications';
 import { useTranslation } from 'react-i18next';
-import { EditTikTokProfile } from '../../../components/molecules/SignUp/EditTikTokProfile';
 
 export type SignUpPropsT = {
   registerType: string | null;
@@ -46,18 +45,14 @@ export default ({
           </NetworkButton>
         </div>
         <div className={styles['container']}>
-          {tikTokIsFound ? (
-            <TikTokProfile
-              setTikTokIsFound={(isFound) => {
-                setTikTokIsFound(isFound);
-              }}
-            />
-          ) : (
-            <EditTikTokProfile setTikTokIsFound={setTikTokIsFound} />
-          )}
+          <TikTokProfile
+            setTikTokIsFound={(isFound) => {
+              setTikTokIsFound(isFound);
+            }}
+          />
         </div>
         <div className={styles['container']}>
-          <MainUserInfoForm isVerify={tikTokIsFound} />
+          <MainUserInfoForm tikTokIsFound={tikTokIsFound} />
         </div>
         <div className={styles['container']}>
           <TurnNotifications bonusLabel={'+1.00 ₽'} />

@@ -42,7 +42,13 @@
     display: block;
   }
 
+  > div:first-child {
+    flex: 1 1 50%;
+  }
+
   .link {
+    flex: 0 0 40%;
+    justify-self: flex-end;
     font-size: 16px;
     @include adaptive-value-tablet(font-size, 16);
     line-height: 19px;
@@ -50,8 +56,8 @@
     letter-spacing: -0.385882px;
     @include adaptive-value-tablet(letter-spacing, -0.385882);
     color: #2B44F2;
-    max-width: 124px;
-    @include adaptive-value-tablet(max-width, 124);
+    max-width: 134px;
+    @include adaptive-value-tablet(max-width, 134);
     cursor: pointer;
   }
 }
@@ -133,6 +139,12 @@
     }
   }
   .form {
+    input {
+      height: 38px;
+      padding: 12px 20px;
+      font-size: 12px;
+    }
+
     > div:first-child {
       margin-bottom: 10px;
       @include adaptive-value-large-desktop(margin-bottom, 10);

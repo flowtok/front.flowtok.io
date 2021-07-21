@@ -1,4 +1,10 @@
-import { DetailedHTMLProps, forwardRef, InputHTMLAttributes } from 'react';
+import {
+  DetailedHTMLProps,
+  forwardRef,
+  InputHTMLAttributes,
+  useCallback,
+  useMemo,
+} from 'react';
 import InputMask from 'react-input-mask';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
@@ -14,15 +20,19 @@ export const Input = forwardRef<
   HTMLInputElement,
   InputProps & ReturnType<UseFormRegister<any>>
 >(({ error, visited, mask = '', ...rest }, ref) => {
-  const finalClassName = classNames(styles['input'], {
-    [styles[`input-error`]]: !!error,
-    [styles[`input-visited`]]: visited && !error,
-  });
+  const finalClassName = useCallback(
+    () =>
+      classNames(styles['input'], {
+        [styles[`input-error`]]: !!error,
+        [styles[`input-visited`]]: visited && !error,
+      }),
+    [error, visited]
+  );
 
   return (
     <div>
       <InputMask mask={mask} {...rest}>
-        {() => <input {...rest} ref={ref} className={finalClassName} />}
+        {() => <input {...rest} ref={ref} className={finalClassName()} />}
       </InputMask>
       {error && <p className={styles['error']}>{error.message}</p>}
     </div>

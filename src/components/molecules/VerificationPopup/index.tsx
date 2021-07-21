@@ -2,7 +2,7 @@ import { forwardRef, PropsWithChildren, useEffect } from 'react';
 import { PopUp } from '../PopUp';
 import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss';
-import { ListItem } from '../../atoms/ListItem';
+import { ListNumber } from '../../atoms/ListNumber';
 import commonStyles from '../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
 import { Button } from '../../atoms/Button';
@@ -61,13 +61,13 @@ export const VerificationPopup = forwardRef<
       <div className={styles['verification-container']}>
         <ul className={styles['steps-wrapper']}>
           <li>
-            <ListItem value="1" />
+            <ListNumber value="1" />
             <p className={finalClassName}>
               {t('popup-notification.first-step')}
             </p>
           </li>
           <li>
-            <ListItem value="2" />
+            <ListNumber value="2" />
             <p className={finalClassName}>
               {t('popup-notification.second-step')}
             </p>
@@ -80,7 +80,7 @@ export const VerificationPopup = forwardRef<
           <EmojiButton />
         </div>
         <Button preset={'light'} className={styles['help-btn']}>
-          c{t('popup-notification.help-question')}
+          {t('popup-notification.help-question')}
         </Button>
       </div>
     </PopUp>

@@ -5,4 +5,10 @@ export const isRegisteredVar = makeVar<boolean>(
 );
 export const tokenExistVar = makeVar<boolean>(!!localStorage.getItem('token'));
 
-export const cache = new InMemoryCache();
+export const cache = new InMemoryCache({
+  typePolicies: {
+    // User: {
+    //   keyFields: ['id'],
+    // },
+  },
+});

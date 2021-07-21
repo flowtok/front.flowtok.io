@@ -7,10 +7,10 @@ import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import { ProfileInfo } from '../../ProfileInfo';
 import {
-  FindTikTok,
   useFindAccountTikTokMutation,
   useGetTikTokProfileDataQuery,
 } from '../../../../types/graphql';
+import { Maybe } from 'graphql/jsutils/Maybe';
 
 type TikTokProfilePropsT = {
   setTikTokIsFound: (isFound: boolean) => void;
@@ -20,6 +20,12 @@ type FormDataT = {
   link: string;
 };
 
+export type ProfileDataT = {
+  name?: Maybe<string>;
+  tagName?: Maybe<string>;
+  userImage?: Maybe<string>;
+};
+
 const TIKTOK_NAME_PATTERN = /@[A-Za-z0-9_.]+/g;
 
 export const TikTokProfile: FC<TikTokProfilePropsT> = ({
@@ -27,11 +33,19 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
 }) => {
   const { t } = useTranslation();
   const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 390px)' });
-  const { data } = useGetTikTokProfileDataQuery();
+  const [profileData, setProfileData] = useState<null | ProfileDataT>(null);
+  useGetTikTokProfileDataQuery({
+    onCompleted: (data) => {
+      if (data?.me?.tagName) {
+        const { userImage, name, tagName } = data.me;
+        setProfileData({ userImage, name, tagName });
+      }
+    },
+  });
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, touchedFields },
     setError,
     reset,
     watch,
@@ -42,7 +56,12 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
   const [findAccountTikTok] = useFindAccountTikTokMutation({
     onCompleted: (data) => {
       if (data?.findAccountTikTok?.find) {
-        // setProfileData(data.findAccountTikTok);
+        const { name, tagName, avatar } = data.findAccountTikTok;
+        setProfileData({
+          name,
+          tagName,
+          userImage: avatar,
+        });
         setTikTokIsFound(true);
         reset();
       } else {
@@ -72,10 +91,8 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
 
   const onChangeAccount = () => {
     setTikTokIsFound(false);
-    // setProfileData(null);
+    setProfileData(null);
   };
-
-  const profileData = data?.me;
 
   if (profileData) {
     return (
@@ -99,6 +116,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
       <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
         <Input
           error={errors.link}
+          visited={touchedFields.link}
           {...register('link', {
             required: t('validation-messages.required').toString(),
             pattern: {

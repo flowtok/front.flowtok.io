@@ -9,10 +9,9 @@ import { Avatar } from '../../../atoms/Avatar';
 import { Divider } from '../../../atoms/Divider';
 import { Notification } from '../../../atoms/Notifacation';
 import { NetworkButton } from '../../../atoms/NetworkButton';
-import { User } from '../../../../types/graphql';
 import { GeneralSettings } from '../../../../types/types.temp';
 import { Maybe } from 'graphql/jsutils/Maybe';
-import { ProfileDataT } from '../../../molecules/ProfileInfo';
+import { ProfileDataT } from '../../../molecules/SignUp/TikTokProfile';
 
 interface DesktopProps {
   generalSettings: GeneralSettings;

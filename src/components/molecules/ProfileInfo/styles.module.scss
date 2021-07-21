@@ -3,25 +3,15 @@
 .row {
   display: flex;
   align-items: center;
-
+  
   .column {
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-right: 10px;
     @include adaptive-value-tablet(margin-right, 10);
     margin-left: 15px;
     @include adaptive-value-tablet(margin-left, 15);
-    max-width: 120px;
-    @include adaptive-value-tablet(max-width, 120);
-    @media (min-width: 390px) {
-      max-width: 155px;
-    }
-    @media (min-width: 430px) {
-      max-width: 180px;
-    }
-    @media (min-width: 600px) and (max-width: 1440px) {
-      max-width: 280px;
-    }
-
-    @include adaptive-value-large-desktop(max-width, 220);
+    max-width: 100%;
 
     .title-group {
       display: flex;
@@ -61,6 +51,8 @@
         @include adaptive-value-tablet(font-size, 23);
         line-height: 27px;
         @include adaptive-value-tablet(line-height, 27);
+        max-height: 27px;
+        @include adaptive-value-tablet(max-height, 27);
         letter-spacing: -0.554706px;
         @include adaptive-value-tablet(letter-spacing, -0.554706);
       }

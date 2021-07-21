@@ -2,22 +2,27 @@
 
 .steps-wrapper {
   margin-bottom: 44px;
+  @include adaptive-value-tablet(margin-bottom, 44);
 
   & > li {
     display: flex;
+    align-items: center;
 
     &:not(:last-child) {
       margin-bottom: 11px;
+      @include adaptive-value-tablet(margin-bottom, 11);
     }
 
     & > div {
       margin-right: 10px;
+      @include adaptive-value-tablet(margin-right, 10);
     }
   }
 }
 
 .blogger-wrapper {
   margin-bottom: 30px;
+  @include adaptive-value-tablet(margin-bottom, 30);
 }
 
 .description-list {
@@ -29,18 +34,9 @@
   display: flex;
   justify-content: center;
   margin-top: 12px;
+  @include adaptive-value-tablet(margin-top, 12);
   margin-bottom: 23px;
-
-  & > .load-block {
-    width: 41px;
-    height: 41px;
-    background: #2B44F2;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-  }
+  @include adaptive-value-tablet(margin-bottom, 23);
 }
 
 .help-btn {
@@ -130,10 +126,6 @@
       @include adaptive-value-large-desktop(padding-bottom, 15);
       @include adaptive-value-large-desktop(padding-right, 73);
       @include adaptive-value-large-desktop(padding-left, 73);
-    }
-
-    & > .load-block {
-      display: none;
     }
   }
 }
