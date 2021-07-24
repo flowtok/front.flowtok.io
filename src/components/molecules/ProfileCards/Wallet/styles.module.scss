@@ -1,7 +1,22 @@
 @import "src/styles/mixins";
+
 .wallet {
   grid-area: 1 / 1 / auto / 3;
   position: relative;
+
+  .title-primary {
+    margin-bottom: 20px;
+    @include adaptive-value-tablet(margin-bottom, 20);
+    @include adaptive-value-small-desktop(margin-bottom, 20);
+    @include adaptive-value-large-desktop(margin-bottom, 20);
+  }
+
+  .title-secondary {
+    margin-bottom: 7px;
+    @include adaptive-value-tablet(margin-bottom, 7);
+    @include adaptive-value-small-desktop(margin-bottom, 7);
+    @include adaptive-value-large-desktop(margin-bottom, 7);
+  }
 
   & .pay-off-button {
     width: 100%;

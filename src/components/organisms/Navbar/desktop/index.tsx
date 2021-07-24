@@ -7,7 +7,7 @@ import { TasksIcon } from '../Icons/TasksIcon';
 import { SettingsIcon } from '../Icons/SettingsIcon';
 import { Avatar } from '../../../atoms/Avatar';
 import { Divider } from '../../../atoms/Divider';
-import { Notification } from '../../../atoms/Notifacation';
+import { NotifyCircle } from '../../../atoms/NotifyCircle';
 import { NetworkButton } from '../../../atoms/NetworkButton';
 import { GeneralSettings } from '../../../../types/types.temp';
 import { Maybe } from 'graphql/jsutils/Maybe';
@@ -32,18 +32,23 @@ export const NavbarDesktop = forwardRef<
       <div className={styles['sidebar-container']}>
         <div>
           <div className={styles['account']}>
-            <Avatar image={userImage ?? ''} size={41} />
+            <Avatar
+              image={userImage ?? ''}
+              sizes={{
+                desktop: 41,
+              }}
+            />
           </div>
           <Divider />
           <div className={styles['nav']}>
             <Link to="/profile" className={styles['row-item']}>
               <ProfileIcon color={'#000'} isActive={pathname === '/profile'} />
             </Link>
-            <Notification value={3}>
+            <NotifyCircle value={3}>
               <Link to="/tasks" className={styles['row-item']}>
                 <TasksIcon color={'#000'} isActive={pathname === '/tasks'} />
               </Link>
-            </Notification>
+            </NotifyCircle>
             <Link to="/settings" className={styles['row-item']}>
               <SettingsIcon
                 color={'#000'}

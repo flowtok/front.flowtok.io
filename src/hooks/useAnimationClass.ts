@@ -1,5 +1,15 @@
 import React, { RefObject, useLayoutEffect, useState } from 'react';
 
+/**
+ * Хук для добавления css классов для анимации
+ *
+ * @param ref ссылка на элемент, который анимируем
+ * @param className класс, который нало добавить
+ * @param duration время, через которое надо удалить класс
+ *
+ * @return  animate функция для запуска анимации (e: React.MouseEvent<HTMLElement, MouseEvent>) => void
+ */
+
 export function useAnimationClass(
   ref: RefObject<HTMLElement>,
   className: string,

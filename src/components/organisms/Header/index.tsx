@@ -40,14 +40,21 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
         <div className={styles['default-content-wrapper']}>
           <div className={styles['left-element']}>
             {!withBackArrow ? (
-              <img src={logo} />
+              <img src={logo} alt={''} />
             ) : (
-              <img src={chevronLeft} onClick={goBack} />
+              <img src={chevronLeft} onClick={goBack} alt={''} />
             )}
           </div>
           {title && <p className={styles.title}>{title}</p>}
           <div className={styles['right-element']}>
-            {avatar && <Avatar image={avatar} size={32} />}
+            {avatar && (
+              <Avatar
+                image={avatar}
+                sizes={{
+                  mobile: 32,
+                }}
+              />
+            )}
           </div>
         </div>
         {additionalChild}

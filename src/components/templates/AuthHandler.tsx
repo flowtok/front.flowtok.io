@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Redirect } from 'react-router-dom';
-import { isRegisteredVar, tokenExistVar } from '../../api/cache';
 import { useReactiveVar } from '@apollo/client';
 import { useUrlSearchParams } from '../../hooks/useUrlSearchParams';
 import { useTranslation } from 'react-i18next';
+import { isRegisteredVar, tokenExistVar } from '../../api/local-state';
 
 type OAuthHandlerPropsT = any;
 

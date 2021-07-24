@@ -43,7 +43,7 @@ export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
     if (isCross) {
       closeBtn = (
         <span onClick={close} className={styles['close']}>
-          <img src={CloseIcon} />
+          <img src={CloseIcon} alt={''} />
         </span>
       );
     }

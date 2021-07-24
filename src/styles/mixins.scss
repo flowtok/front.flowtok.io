@@ -1,17 +1,42 @@
+/**
+* Адаптирует любое css свойство
+*
+* @param $property - название свойства, которое нужно адаптировать
+* @param $min - минимальное значение
+* @param $maх - максимальное значение
+* @param $min-container - минимальная ширина контейнера
+* @param $max-container - максимальная ширина контейнера
+*/
 @mixin adaptive-value($property, $min, $max, $min-container, $max-container) {
   $add-value: $max - $min;
   #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-container + px}) / #{$max-container - $min-container}));
 }
 
+/**
+* Мы сделали отдельные миксины для каждой ширины экрана, чтобы можно было:
+* 1) Автоматически вычислять минимальное/максимальное значение свойство
+* 2) Изменять значения ширины контейнеров только в этом файле
+*/
+
 $min-tablet-container: 600;
 $max-tablet-container: 1024;
-@mixin adaptive-value-tablet($property, $min) {
-  $max: $max-tablet-container / ($min-tablet-container / $min);
-  $add-value: $max - $min;
+/**
+* Адаптирует свойства для планшета на основе дизайна мобилок.
+*
+* @param $property - название свойства, которое нужно адаптировать
+* @param $design-value - значение свойства из дизайна для ширины экрана до 600px (мобилка)
+*/
+@mixin adaptive-value-tablet($property, $design-value) {
+  $max: $max-tablet-container / ($min-tablet-container / $design-value);
+  $add-value: $max - $design-value;
   @media (min-width: #{$min-tablet-container + px}) and (max-width: #{$max-tablet-container - 1 + px}) {
-    #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-tablet-container + px}) / #{$max-tablet-container - $min-tablet-container}));
+    #{$property}: calc(#{$design-value + px} + #{$add-value} * ((100vw - #{$min-tablet-container + px}) / #{$max-tablet-container - $min-tablet-container}));
   }
 }
+
+/**
+* [Deprecated]
+*/
 $min-small-desktop-container: 1024;
 $max-small-desktop-container: 1440;
 @mixin adaptive-value-small-desktop($property, $min) {
@@ -21,6 +46,13 @@ $max-small-desktop-container: 1440;
     //#{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-small-desktop-container + px}) / #{$max-small-desktop-container - $min-small-desktop-container}));
   }
 }
+
+/**
+* Адаптирует свойства для планшета на основе дизайна десктопной версиин на 1920px ширины экрана.
+*
+* @param $property - название свойства, которое нужно адаптировать
+* @param $design-value - значение свойства из дизайна для ширины экрана 1920px (большой десктоп)
+*/
 $min-large-desktop-container: 1440;
 $design-large-desktop-container: 1920;
 @mixin adaptive-value-large-desktop($property, $design-value) {

@@ -107,8 +107,8 @@
     @include adaptive-value-small-desktop(font-size, 25);
   }
   .title-secondary {
-    font-size: 10px;
-    @include adaptive-value-small-desktop(font-size, 10);
+    font-size: 11px;
+    @include adaptive-value-small-desktop(font-size, 11);
     line-height: 12px;
     @include adaptive-value-small-desktop(line-height, 12);
     letter-spacing: -0.361765px;

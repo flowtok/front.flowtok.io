@@ -3,20 +3,26 @@
 .row {
   display: flex;
   align-items: center;
-  
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    max-width: 45%;
+    align-items: center;
+  }
+
   .column {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: 100%;
     margin-right: 10px;
     @include adaptive-value-tablet(margin-right, 10);
     margin-left: 15px;
     @include adaptive-value-tablet(margin-left, 15);
-    max-width: 100%;
 
     .title-group {
       display: flex;
       align-items: center;
       margin-bottom: 4px;
+      max-width: 100%;
       @include adaptive-value-tablet(margin-bottom, 4);
 
       .active-icon {
@@ -47,14 +53,18 @@
 
       .title {
         font-weight: bold;
-        font-size: 23px;
-        @include adaptive-value-tablet(font-size, 23);
-        line-height: 27px;
-        @include adaptive-value-tablet(line-height, 27);
-        max-height: 27px;
-        @include adaptive-value-tablet(max-height, 27);
+        font-size: 19px;
+        @include adaptive-value-tablet(font-size, 19);
+        @include adaptive-value-large-desktop(font-size, 23);
+        line-height: 23px;
+        @include adaptive-value-tablet(line-height, 23);
+        @include adaptive-value-large-desktop(line-height, 27);
+        max-height: 23px;
+        @include adaptive-value-tablet(max-height, 23);
+        @include adaptive-value-large-desktop(max-height, 27);
         letter-spacing: -0.554706px;
         @include adaptive-value-tablet(letter-spacing, -0.554706);
+        @include adaptive-value-large-desktop(letter-spacing, -0.554706);
       }
     }
 
@@ -62,21 +72,50 @@
       color: #8E8E93;
       font-size: 13px;
       @include adaptive-value-tablet(font-size, 13);
+      @include adaptive-value-large-desktop(font-size, 13);
       line-height: 16px;
       @include adaptive-value-tablet(line-height, 16);
+      @include adaptive-value-large-desktop(line-height, 16);
       letter-spacing: -0.313520px;
       @include adaptive-value-tablet(letter-spacing, -0.313520);
+      @include adaptive-value-large-desktop(letter-spacing, -0.313520);
     }
 
     .title, .subtitle {
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 100%;
     }
+  }
+
+  .right {
+    width: 28%;
+  }
+
+  .link {
+    overflow: hidden;
+    max-width: 100%;
+    text-align: right;
+    font-size: 16px;
+    @include adaptive-value-tablet(font-size, 16);
+    @include adaptive-value-large-desktop(font-size, 16);
+    line-height: 19px;
+    @include adaptive-value-tablet(line-height, 19);
+    @include adaptive-value-large-desktop(line-height, 19);
+    max-height: 19px;
+    @include adaptive-value-tablet(max-height, 19);
+    @include adaptive-value-large-desktop(max-height, 19);
+    letter-spacing: -0.385882px;
+    @include adaptive-value-tablet(letter-spacing, -0.385882);
+    @include adaptive-value-large-desktop(letter-spacing, -0.385882);
+    color: #2B44F2;
+    @include adaptive-value-tablet(max-width, 134);
+    cursor: pointer;
   }
 }
 
 @media (min-width: 1440px) {
-  .row {
+  .row.large {
     .column {
       margin-right: 10px;
       @include adaptive-value-large-desktop(margin-right, 10);
@@ -93,6 +132,8 @@
             weight: bold;
           };
           @include adaptive-value-large-desktop(font-size, 32);
+          max-height: 37px;
+          @include adaptive-value-large-desktop(max-height, 37);
           line-height: 37px;
           @include adaptive-value-large-desktop(line-height, 37);
           letter-spacing: -0.771765px;

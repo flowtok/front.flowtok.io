@@ -4,7 +4,6 @@ import styles from './styles.module.scss';
 import { Button } from '../../../atoms/Button';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import { useMediaQuery } from 'react-responsive';
 import { ProfileInfo } from '../../ProfileInfo';
 import {
   useFindAccountTikTokMutation,
@@ -13,7 +12,7 @@ import {
 import { Maybe } from 'graphql/jsutils/Maybe';
 
 type TikTokProfilePropsT = {
-  setTikTokIsFound: (isFound: boolean) => void;
+  setTikTokIsFound?: (isFound: boolean) => void;
 };
 
 type FormDataT = {
@@ -32,7 +31,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
   setTikTokIsFound,
 }) => {
   const { t } = useTranslation();
-  const isExtraSmallScreen = useMediaQuery({ query: '(max-width: 390px)' });
+
   const [profileData, setProfileData] = useState<null | ProfileDataT>(null);
   useGetTikTokProfileDataQuery({
     onCompleted: (data) => {
@@ -48,10 +47,7 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
     formState: { errors, touchedFields },
     setError,
     reset,
-    watch,
   } = useForm<FormDataT>();
-
-  watch('link');
 
   const [findAccountTikTok] = useFindAccountTikTokMutation({
     onCompleted: (data) => {
@@ -62,13 +58,17 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
           tagName,
           userImage: avatar,
         });
-        setTikTokIsFound(true);
+        if (setTikTokIsFound) {
+          setTikTokIsFound(true);
+        }
         reset();
       } else {
         setError('link', {
           message: t('error-messages.tiktok-not-found'),
         });
-        setTikTokIsFound(false);
+        if (setTikTokIsFound) {
+          setTikTokIsFound(false);
+        }
       }
     },
     onError: (error) => {
@@ -90,26 +90,23 @@ export const TikTokProfile: FC<TikTokProfilePropsT> = ({
   };
 
   const onChangeAccount = () => {
-    setTikTokIsFound(false);
+    if (setTikTokIsFound) {
+      setTikTokIsFound(false);
+    }
     setProfileData(null);
   };
 
   if (profileData) {
     return (
-      <div className={styles['row']}>
-        <ProfileInfo
-          profileData={{
-            userImage: String(profileData.userImage),
-            name: String(profileData.name),
-            tagName: String(profileData.tagName),
-          }}
-        />
-        <div className={styles['link']} onClick={onChangeAccount}>
-          {isExtraSmallScreen
-            ? t('pages.signup.buttons.change-short')
-            : t('pages.signup.buttons.change')}
-        </div>
-      </div>
+      <ProfileInfo
+        profileData={{
+          userImage: String(profileData.userImage),
+          name: String(profileData.name),
+          tagName: String(profileData.tagName),
+        }}
+        onChangeAccount={onChangeAccount}
+        withChangeLink={true}
+      />
     );
   } else
     return (

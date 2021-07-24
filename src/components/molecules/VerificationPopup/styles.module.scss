@@ -40,69 +40,27 @@
 }
 
 .help-btn {
-  margin: 0 auto;
   display: block;
+  font-size: 14px;
+  @include adaptive-value-tablet(font-size, 14);
+  @include adaptive-value-large-desktop(font-size, 14);
+  line-height: 17px;
+  @include adaptive-value-tablet(line-height, 17);
+  @include adaptive-value-large-desktop(line-height, 17);
+  text-align: center;
+  letter-spacing: -0.361765px;
+  color: #1D1D1D;
+  mix-blend-mode: normal;
+  opacity: 0.4;
 }
 
 @media (min-width: 1024px) {
-  .verification-container {
-    width: auto;
-    margin: 0 auto;
-
-    & > button {
-      padding: 24px 0;
-      @include adaptive-value-large-desktop(padding-top, 24);
-      @include adaptive-value-large-desktop(padding-bottom, 24);
-      @include adaptive-value-large-desktop(padding-left, 0);
-      @include adaptive-value-large-desktop(padding-right, 0);
-      font-size: 14px;
-      @include adaptive-value-large-desktop(font-size, 14);
-      line-height: 17px;
-      @include adaptive-value-large-desktop(line-height, 17);
-    }
-
-    .blogger-wrapper {
-      > div {
-        > div:first-child {
-          > div:first-child {
-            width: 52px;
-            @include adaptive-value-large-desktop(width, 52);
-            height: 52px;
-            @include adaptive-value-large-desktop(height, 52);
-          }
-
-          > div:nth-child(2) {
-            > div:first-child {
-              span {
-                font-size: 23px;
-                @include adaptive-value-large-desktop(font-size, 23);
-                line-height: 27px;
-                @include adaptive-value-large-desktop(line-height, 27);
-                letter-spacing: -0.554706px;
-                @include adaptive-value-large-desktop(letter-spacing, -0.554706);
-              }
-            }
-
-            > div:last-child {
-              font-size: 13px;
-              @include adaptive-value-large-desktop(font-size, 13);
-              line-height: 16px;
-              @include adaptive-value-large-desktop(line-height, 16);
-              letter-spacing: -0.313529px;
-              @include adaptive-value-large-desktop(letter-spacing, -0.313529);
-              color: #8E8E93;
-            }
-          }
-        }
-      }
-    }
-  }
   .steps-wrapper {
     > li {
-      justify-content: center;
+      //justify-content: center;
 
       > div:first-child {
-        display: none;
+        //display: none;
       }
 
       > p {
@@ -112,52 +70,7 @@
         @include adaptive-value-large-desktop(line-height, 18);
         letter-spacing: -0.361765px;
         @include adaptive-value-large-desktop(letter-spacing, -0.361765);
-        text-align: center;
-      }
-    }
-  }
-
-  .footer-popup {
-    margin-bottom: 0;
-
-    button {
-      padding: 15px 73px;
-      @include adaptive-value-large-desktop(padding-top, 15);
-      @include adaptive-value-large-desktop(padding-bottom, 15);
-      @include adaptive-value-large-desktop(padding-right, 73);
-      @include adaptive-value-large-desktop(padding-left, 73);
-    }
-  }
-}
-
-@media (max-width: 1440px) and (min-width: 1024px) {
-  .verification-container {
-    > div input {
-      padding: 10px 20px;
-      font-size: 12px;
-      line-height: 12px;
-      letter-spacing: -0.361765px;
-    }
-
-    .blogger-wrapper {
-      margin-bottom: 20px;
-    }
-
-    button {
-      padding: 10px 0;
-      font-size: 12px;
-    }
-  }
-
-  .steps-wrapper {
-    margin-bottom: 20px;
-
-    > li {
-      > p {
-        font-size: 12px;
-        line-height: 18px;
-        letter-spacing: -0.361765px;
-        text-align: center;
+        //text-align: center;
       }
     }
   }

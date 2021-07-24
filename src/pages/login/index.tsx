@@ -1,8 +1,8 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useReactiveVar } from '@apollo/client';
-import { tokenExistVar } from '../../api/cache';
 import { Redirect } from 'react-router-dom';
+import { tokenExistVar } from '../../api/local-state';
 
 const LoginDesktop = React.lazy(() => import('./desktop/index'));
 const LoginMobile = React.lazy(() => import('./mobile/index'));

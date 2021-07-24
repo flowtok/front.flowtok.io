@@ -17,6 +17,7 @@ import {
 } from '../../PaymentMethodNotifications';
 import { formatMoney } from '../../../../utils/FormatHelper';
 import { Maybe } from 'graphql/jsutils/Maybe';
+import { Title } from '../../../atoms/Title/Title';
 
 export interface WalletCardProps {
   balance: Maybe<number>;
@@ -60,12 +61,12 @@ export const WalletCard = ({ balance, history }: WalletCardProps) => {
     <>
       <Paper className={styles.wallet}>
         {historyButton}
-        <h3 className={commonStyles['title-primary']}>
+        <Title className={styles['title-primary']} type={'primary'}>
           {t('pages.profile.wallet.primary')}
-        </h3>
-        <p className={commonStyles['title-secondary']}>
+        </Title>
+        <Title className={styles['title-secondary']} type={'secondary'}>
           {t('pages.profile.wallet.secondary')}
-        </p>
+        </Title>
         <p className={commonStyles['value-primary']}>
           {formatMoney(Number(balance), '₽')}
         </p>

@@ -11,27 +11,6 @@ span.emoji {
     text-indent: -9999px
 }
 
-span.emoji-outer {
-    display: -moz-inline-box;
-    display: inline-block;
-    height: 1em;
-    width: 1em
-}
-
-span.emoji-inner {
-    display: -moz-inline-box;
-    display: inline-block;
-    text-indent: -9999px;
-    width: 100%;
-    height: 100%;
-    vertical-align: baseline
-}
-
-img.emoji {
-    width: 1em;
-    height: 1em
-}
-
 .emoji-list {
     display: flex;
     justify-content: center
@@ -42,9 +21,6 @@ img.emoji {
     align-items: center;
     justify-content: center;
     background-color: #1a202c;
-    width: 120px;
-    padding: 15px;
-    border-radius: 15px;
     -webkit-transition: background-color .3s linear;
     -moz-transition: background-color .3s linear;
     -o-transition: background-color .3s linear;
@@ -125,11 +101,6 @@ img.emoji {
 .bubbly-button.bubbles:after {
     display: block;
     animation: bottomBubbles ease-in-out .75s forwards
-}
-
-.bubbly-button.bubbles {
-    background: red;
-    width: 300px;
 }
 
 @keyframes topBubbles {

@@ -13,7 +13,7 @@ import {
 import { gql } from '@apollo/client';
 import { options } from './options';
 import { Option } from 'react-select/src/filters';
-import { isRegisteredVar } from '../../../../api/cache';
+import { isRegisteredVar } from '../../../../api/local-state';
 
 type SelectErrorT = {
   message: string;

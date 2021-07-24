@@ -10,7 +10,7 @@ import {
 import { PageTemplate } from 'components/templates/Page';
 import styles from './styles.module.scss';
 import React, { useMemo } from 'react';
-import { adaptiveValue } from '../../../utils/mixins';
+import { computeAdaptiveValue } from '../../../utils/mixins';
 import { useWindowResize } from '../../../hooks/useWindowResize';
 import { GetBloggerProfileDataQuery } from '../../../types/graphql';
 
@@ -28,16 +28,16 @@ export default ({ me }: GetBloggerProfileDataQuery) => {
     userImage,
   } = { ...me };
 
-  const onWindowResize = () => {
-    setWidth(window.innerWidth);
+  const onWindowResize = (width: number) => {
+    setWidth(width);
   };
 
   useWindowResize(onWindowResize);
 
   const extendedStyleProps = useMemo(() => {
     return {
-      paddingTop: adaptiveValue(10, 1024, 600, width),
-      paddingBottom: adaptiveValue(10, 1024, 600, width),
+      paddingTop: computeAdaptiveValue(10, 1024, 600, width),
+      paddingBottom: computeAdaptiveValue(10, 1024, 600, width),
       background: 'red',
     };
   }, [width]);

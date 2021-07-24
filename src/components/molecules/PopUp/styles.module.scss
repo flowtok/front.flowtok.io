@@ -2,7 +2,7 @@
 
 .wrap-content {
   width: calc(100vw - 40px);
-  padding: 40px 20px 30px 20px;
+  padding: 40px 20px 20px 20px;
   @include adaptive-value-tablet(padding-top, 40);
   @include adaptive-value-tablet(padding-bottom, 30);
   @include adaptive-value-tablet(padding-left, 20);

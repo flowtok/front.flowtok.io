@@ -1,9 +1,4 @@
-.wrapper {
-  border-radius: 50%;
-  overflow: hidden;
-
-  & img {
-    width: inherit;
-    height: auto;
-  }
+.img  {
+  display: block;
+  border-radius: 100%;
 }

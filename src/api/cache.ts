@@ -1,9 +1,4 @@
-import { InMemoryCache, makeVar } from '@apollo/client';
-
-export const isRegisteredVar = makeVar<boolean>(
-  localStorage.getItem('registered') === 'true'
-);
-export const tokenExistVar = makeVar<boolean>(!!localStorage.getItem('token'));
+import { InMemoryCache } from '@apollo/client';
 
 export const cache = new InMemoryCache({
   typePolicies: {

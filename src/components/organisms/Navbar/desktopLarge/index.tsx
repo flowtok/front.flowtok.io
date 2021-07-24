@@ -5,7 +5,7 @@ import logo from 'assets/common/icons/logo_desktop.svg';
 import { ProfileInfo } from '../../../molecules/ProfileInfo';
 import { Divider } from '../../../atoms/Divider';
 import { ProfileIcon } from '../Icons/ProfileIcon';
-import { Notification } from '../../../atoms/Notifacation';
+import { NotifyCircle } from '../../../atoms/NotifyCircle';
 import { TasksIcon } from '../Icons/TasksIcon';
 import { SettingsIcon } from '../Icons/SettingsIcon';
 import { useTranslation } from 'react-i18next';
@@ -30,7 +30,14 @@ export const NavbarDesktopLarge = forwardRef<
       <div>
         <img src={logo} className={styles['logo']} alt="" />
         <div className={styles['account']}>
-          <ProfileInfo profileData={profileData} isActivated={true} />
+          <ProfileInfo
+            profileData={profileData}
+            isActivated={true}
+            avatarSizes={{
+              largeDesktop: 120,
+            }}
+            size={'large'}
+          />
         </div>
         <Divider />
         <div className={styles['nav']}>
@@ -47,7 +54,7 @@ export const NavbarDesktopLarge = forwardRef<
               {t('header.profile.title')}
             </span>
           </Link>
-          <Notification value={3}>
+          <NotifyCircle value={3}>
             <Link to="/tasks" className={styles['row-item']}>
               <TasksIcon
                 color={'#000'}
@@ -61,7 +68,7 @@ export const NavbarDesktopLarge = forwardRef<
                 {t('header.tasks.title')}
               </span>
             </Link>
-          </Notification>
+          </NotifyCircle>
           <Link to="/settings" className={styles['row-item']}>
             <SettingsIcon
               color={'#000'}

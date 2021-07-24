@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 
-export const useWindowResize = (onWindowResize: () => void) => {
+export const useWindowResize = (onWindowResize: (width: number) => void) => {
   useEffect(() => {
-    window.addEventListener('resize', onWindowResize);
-    return () => window.removeEventListener('resize', onWindowResize);
+    const listener = () => onWindowResize(window.innerWidth);
+    window.addEventListener('resize', listener);
+    return () => window.removeEventListener('resize', listener);
   }, []);
 };

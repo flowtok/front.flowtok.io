@@ -13,7 +13,7 @@ export interface ButtonProps
   value: number;
 }
 
-export const Notification = forwardRef<
+export const NotifyCircle = forwardRef<
   HTMLButtonElement,
   PropsWithChildren<ButtonProps>
 >(({ children, className, value, style = {}, ...rest }, ref) => {

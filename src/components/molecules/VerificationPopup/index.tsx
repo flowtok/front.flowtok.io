@@ -5,9 +5,7 @@ import styles from './styles.module.scss';
 import { ListNumber } from '../../atoms/ListNumber';
 import commonStyles from '../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
-import { Button } from '../../atoms/Button';
 import { TikTokProfile } from '../SignUp/TikTokProfile';
-import AvatarMock from '../../../assets/common/images/avatar_mock.png';
 import { useMediaQuery } from 'react-responsive';
 import { EmojiButton } from '../../atoms/EmojiButton';
 import { useVerifyTikTokMutation } from '../../../types/graphql';
@@ -16,22 +14,15 @@ interface VerificationPopupProps {
   isVerified: boolean;
 }
 
-const CHECK_VERIFICATION_INTERVAL = 60000;
+const CHECK_VERIFICATION_INTERVAL = 10000;
 
 const useEnhancer = (isVerified: boolean) => {
-  // const [verifyTikTok] = useMutation<>(VERIFY_TIK_TOK, {
-  //   onCompleted: (data) => {},
-  //   onError: (error) => {
-  //     console.log(error.message);
-  //   },
-  // });
-
   const [verifyTikTok] = useVerifyTikTokMutation({});
 
   useEffect(() => {
     if (!isVerified) {
       const interval = setInterval(() => {
-        verifyTikTok();
+        // verifyTikTok();
       }, CHECK_VERIFICATION_INTERVAL);
       return () => clearInterval(interval);
     }
@@ -49,14 +40,15 @@ export const VerificationPopup = forwardRef<
     styles['description-list']
   );
 
+  useEnhancer(isVerified);
+
   return (
     <PopUp
-      isOpen={isVerified}
+      isOpen={!isVerified}
       isCross={false}
       closeOnDocumentClick={false}
       title={t('popup-notification.title')}
       size={isDesktop ? 'sm' : ''}
-      titlePosition={isDesktop ? 'center' : 'left'}
     >
       <div className={styles['verification-container']}>
         <ul className={styles['steps-wrapper']}>
@@ -74,14 +66,14 @@ export const VerificationPopup = forwardRef<
           </li>
         </ul>
         <div className={styles['blogger-wrapper']}>
-          <TikTokProfile setTikTokIsFound={() => console.log('')} />
+          <TikTokProfile />
         </div>
         <div className={styles['footer-popup']}>
           <EmojiButton />
         </div>
-        <Button preset={'light'} className={styles['help-btn']}>
+        <div className={styles['help-btn']}>
           {t('popup-notification.help-question')}
-        </Button>
+        </div>
       </div>
     </PopUp>
   );

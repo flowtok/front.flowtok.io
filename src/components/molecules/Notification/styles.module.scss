@@ -1,0 +1,98 @@
+@import "src/styles/mixins";
+
+.wrapper {
+  position: fixed;
+  top: 20px;
+  @include adaptive-value-tablet(top, 20);
+  right: 10px;
+  @include adaptive-value-tablet(right, 10);
+  height: auto;
+  padding: 20px 10px;
+  @include adaptive-value-tablet(padding-top, 20);
+  @include adaptive-value-tablet(padding-bottom, 20);
+  @include adaptive-value-tablet(padding-left, 10);
+  @include adaptive-value-tablet(padding-right, 10);
+  border-radius: 10px;
+  @include adaptive-value-tablet(border-radius, 10);
+  display: flex;
+  align-items: center;
+  z-index: 99999;
+  max-width: 300px;
+  @include adaptive-value-tablet(max-width, 300);
+
+  &.alert {
+    background: linear-gradient(225deg, #2246F3 0%, #7832F0 100%);
+    color: #FFFFFF;
+  }
+
+  &.error {
+    background: rgba(255, 59, 48, 0.9);
+    color: #FFFFFF;
+  }
+
+  &.success {
+    background: rgba(0, 212, 57, 0.8);
+    color: #FFFFFF;
+  }
+}
+
+.img {
+  display: block;
+  width: 20px;
+  @include adaptive-value-tablet(width, 20);
+  height: 20px;
+  @include adaptive-value-tablet(height, 20);
+  margin-right: 10px;
+  @include adaptive-value-tablet(margin-right, 10);
+}
+
+.message {
+  font-size: 16px;
+  @include adaptive-value-tablet(font-size, 14);
+}
+@media (min-width: 1024px) {
+  .wrapper {
+    top: 30px;
+    right: 20px;
+    max-width: 450px;
+    padding: 25px 20px;
+    border-radius: 15px;
+  }
+
+  .img {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+  }
+}
+@media (min-width: 1440px) {
+  .wrapper {
+    top: 50px;
+    right: 40px;
+    @include adaptive-value-large-desktop(top, 50);
+    @include adaptive-value-large-desktop(right, 40);
+    max-width: 650px;
+    @include adaptive-value-large-desktop(max-width, 650);
+    padding: 30px 25px;
+    @include adaptive-value-large-desktop(padding-top, 30);
+    @include adaptive-value-large-desktop(padding-bottom, 30);
+    @include adaptive-value-large-desktop(padding-left, 25);
+    @include adaptive-value-large-desktop(padding-right, 25);
+    border-radius: 20px;
+    @include adaptive-value-large-desktop(border-radius, 20);
+  }
+
+  .img {
+    width: 30px;
+    @include adaptive-value-large-desktop(width, 30);
+    height: 30px;
+    @include adaptive-value-large-desktop(height, 30);
+    margin-right: 25px;
+    @include adaptive-value-large-desktop(margin-right, 25);
+  }
+
+  .message {
+    font-size: 22px;
+    @include adaptive-value-large-desktop(font-size, 22);
+  }
+}

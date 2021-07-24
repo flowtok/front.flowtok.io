@@ -1,0 +1,33 @@
+@import "src/styles/mixins";
+
+.emoji {
+  width: 120px;
+  @include adaptive-value-tablet(width, 120);
+  @include adaptive-value-large-desktop(width, 120);
+  padding: 15px;
+  @include adaptive-value-tablet(padding, 15);
+  @include adaptive-value-large-desktop(padding, 15);
+  border-radius: 15px;
+  @include adaptive-value-tablet(border-radius, 15);
+  @include adaptive-value-large-desktop(border-radius, 15);
+  span {
+    width: 14.4px;
+    height: 14.4px;
+    background-size: 14.4px;
+    @include adaptive-value-tablet(width, 14.4);
+    @include adaptive-value-large-desktop(width, 14.4);
+    @include adaptive-value-tablet(height, 14.4);
+    @include adaptive-value-large-desktop(height, 14.4);
+    @include adaptive-value-tablet(background-size, 14.4);
+    @include adaptive-value-large-desktop(background-size, 14.4);
+  }
+}
+.slider {
+  width: 100%;
+}
+.slide {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
