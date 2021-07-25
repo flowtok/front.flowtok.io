@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import './styles.css';
 import styles from './styles.module.scss';
 import emoji from '../../../configs/emoji';
@@ -7,6 +7,8 @@ import { useAnimationClass } from '../../../hooks/useAnimationClass';
 import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
 import { notificationVar } from '../../../api/local-state';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperClass } from 'swiper';
+import { useNewCodeTikTokMutation } from '../../../types/graphql';
 
 type EmojiButtonPropsT = any;
 
@@ -16,7 +18,7 @@ export const EmojiButton: FC<EmojiButtonPropsT> = ({}) => {
   const animateButton = useAnimationClass(targetButton, 'bubbles', 750);
   const [copy] = useCopyToClipboard(1000);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const emojiFromBase = localStorage.getItem('emoji');
     if (emojiFromBase) {
       const emojis = emoji.replace_unified(emojiFromBase);
@@ -36,8 +38,25 @@ export const EmojiButton: FC<EmojiButtonPropsT> = ({}) => {
     }
   };
 
+  const [fetchNewCode, { loading }] = useNewCodeTikTokMutation({
+    onCompleted: (data) => {
+      if (data.newCodeTikTok) {
+        const emojis = emoji.replace_unified(data.newCodeTikTok);
+        setHtmlEmoji(emojis);
+      }
+    },
+  });
+
+  const onSwipe = async (swiperCore: SwiperClass) => {
+    const { activeIndex, previousIndex, slidePrev } = swiperCore;
+    if (previousIndex < activeIndex) {
+      await fetchNewCode();
+      slidePrev.bind(swiperCore)();
+    }
+  };
+
   return (
-    <div className="emoji-list">
+    <div className={`emoji-list ${styles.wrapper}`}>
       <span
         className={`bubbly-button ${styles.emoji}`}
         id="emj"
@@ -50,10 +69,16 @@ export const EmojiButton: FC<EmojiButtonPropsT> = ({}) => {
           direction="horizontal"
           spaceBetween={15}
           centeredSlides={true}
+          onSlideChange={onSwipe}
+          // allowSlidePrev={false}
+          // loop={true}
+          effect={'cube'}
         >
-          <SwiperSlide className={styles.slide}>{parse(htmlEmoji)}</SwiperSlide>
           <SwiperSlide className={styles.slide}>
-            <div>hello</div>
+            {loading ? 'Loading...' : parse(htmlEmoji)}
+          </SwiperSlide>
+          <SwiperSlide className={styles.slide}>
+            {loading ? 'Loading...' : <div></div>}
           </SwiperSlide>
         </Swiper>
       </span>

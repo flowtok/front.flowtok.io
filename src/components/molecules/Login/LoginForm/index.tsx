@@ -8,7 +8,8 @@ type SignUpFormPropsT = any;
 export const LoginForm: FC<SignUpFormPropsT> = ({}) => {
   const loginHandler = (network: string) => {
     localStorage.setItem('registerType', network);
-    document.location.href = `${process.env.REACT_APP_API_URL}/oauth/${network}/blog/${process.env.REACT_APP_DOMAIN}`;
+    // document.location.href = `${process.env.REACT_APP_API_URL}/oauth/${network}/blog/${process.env.REACT_APP_DOMAIN}`;
+    document.location.href = `${process.env.REACT_APP_API_URL}/oauth/${network}/blog/${process.env.REACT_APP_MOBILE_DOMAIN}`;
     localStorage.setItem('registered', 'false');
   };
 

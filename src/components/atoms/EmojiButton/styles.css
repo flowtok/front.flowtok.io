@@ -43,15 +43,14 @@ span.emoji {
     font-family: Helvetica, Arial, sans-serif;
     display: inline-block;
     font-size: 1em;
-    padding: 1em 2em;
     -webkit-appearance: none;
     appearance: none;
     background-color: #5a5a5a;
     color: #fff;
-    border-radius: 4px;
     border: none;
     cursor: pointer;
     position: relative;
+    height: 100%;
     transition: transform ease-in .1s, box-shadow ease-in .25s;
     box-shadow: 0 2px 25px rgba(102, 102, 102, .5);
 }

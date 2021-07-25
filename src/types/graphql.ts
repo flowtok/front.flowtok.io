@@ -378,6 +378,13 @@ export type MeQuery = { __typename?: 'Query' } & {
   me?: Maybe<{ __typename?: 'User' } & UserDataFragment>;
 };
 
+export type NewCodeTikTokMutationVariables = Exact<{ [key: string]: never }>;
+
+export type NewCodeTikTokMutation = { __typename?: 'Mutation' } & Pick<
+  Mutation,
+  'newCodeTikTok'
+>;
+
 export type FindAccountTikTokMutationVariables = Exact<{
   account: Scalars['String'];
 }>;
@@ -594,6 +601,37 @@ export function useMeLazyQuery(
 export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
+export const NewCodeTikTokDocument = gql`
+  mutation newCodeTikTok {
+    newCodeTikTok
+  }
+`;
+export type NewCodeTikTokMutationFn = Apollo.MutationFunction<
+  NewCodeTikTokMutation,
+  NewCodeTikTokMutationVariables
+>;
+
+export function useNewCodeTikTokMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    NewCodeTikTokMutation,
+    NewCodeTikTokMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    NewCodeTikTokMutation,
+    NewCodeTikTokMutationVariables
+  >(NewCodeTikTokDocument, options);
+}
+
+export type NewCodeTikTokMutationHookResult = ReturnType<
+  typeof useNewCodeTikTokMutation
+>;
+export type NewCodeTikTokMutationResult = Apollo.MutationResult<NewCodeTikTokMutation>;
+export type NewCodeTikTokMutationOptions = Apollo.BaseMutationOptions<
+  NewCodeTikTokMutation,
+  NewCodeTikTokMutationVariables
+>;
 export const FindAccountTikTokDocument = gql`
   mutation findAccountTikTok($account: String!) {
     findAccountTikTok(account: $account) {

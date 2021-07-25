@@ -59,6 +59,7 @@ export const PopUp = forwardRef<HTMLDivElement, PropsWithChildren<PopUpProps>>(
       <Popup
         open={isOpen}
         nested={true}
+        lockScroll={true}
         closeOnDocumentClick={closeOnDocumentClick}
         onClose={close}
         {...{ overlayStyle, contentStyle }}

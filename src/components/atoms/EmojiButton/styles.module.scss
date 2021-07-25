@@ -1,33 +1,44 @@
 @import "src/styles/mixins";
 
+.wrapper {
+  width: 150px;
+  @include adaptive-value-tablet(width, 150);
+  @include adaptive-value-large-desktop(width, 170);
+  height: 50px;
+  @include adaptive-value-tablet(height, 50);
+  @include adaptive-value-large-desktop(height, 60);
+}
+
 .emoji {
-  width: 120px;
-  @include adaptive-value-tablet(width, 120);
-  @include adaptive-value-large-desktop(width, 120);
-  padding: 15px;
-  @include adaptive-value-tablet(padding, 15);
-  @include adaptive-value-large-desktop(padding, 15);
+  width: 100%;
+  padding: 12px;
+  @include adaptive-value-tablet(padding, 12);
+  @include adaptive-value-large-desktop(padding, 12);
   border-radius: 15px;
   @include adaptive-value-tablet(border-radius, 15);
   @include adaptive-value-large-desktop(border-radius, 15);
+  height: 100%;
+
   span {
-    width: 14.4px;
-    height: 14.4px;
-    background-size: 14.4px;
-    @include adaptive-value-tablet(width, 14.4);
-    @include adaptive-value-large-desktop(width, 14.4);
-    @include adaptive-value-tablet(height, 14.4);
-    @include adaptive-value-large-desktop(height, 14.4);
-    @include adaptive-value-tablet(background-size, 14.4);
-    @include adaptive-value-large-desktop(background-size, 14.4);
+    width: 16.4px;
+    height: 16.4px;
+    background-size: 16.4px;
+    @include adaptive-value-tablet(width, 16.4);
+    @include adaptive-value-large-desktop(width, 18.4);
+    @include adaptive-value-tablet(height, 16.4);
+    @include adaptive-value-large-desktop(height, 18.4);
+    @include adaptive-value-tablet(background-size, 16.4);
+    @include adaptive-value-large-desktop(background-size, 18.4);
   }
 }
+
 .slider {
   width: 100%;
 }
+
 .slide {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   align-items: center;
+  min-width: 100%;
 }

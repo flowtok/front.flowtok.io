@@ -22,7 +22,18 @@ export const useCopyToClipboard = (
   return [
     async (value: string) => {
       if (!isCopied) {
-        navigator.clipboard.writeText(value).then(() => setIsCopied(true));
+        if (navigator?.clipboard) {
+          navigator.clipboard.writeText(value).then(() => setIsCopied(true));
+        } else {
+          const area = document.createElement('textarea');
+
+          document.body.appendChild(area);
+          area.value = value;
+          area.select();
+          document.execCommand('copy');
+          document.body.removeChild(area);
+          setIsCopied(true);
+        }
       }
     },
     isCopied,
