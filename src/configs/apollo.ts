@@ -1,5 +1,5 @@
 import { ApolloClient, HttpLink, ApolloLink, concat } from '@apollo/client';
-import { cache } from '../api/cache';
+import { cache } from '../graphql/cache';
 
 const httpLink = new HttpLink({
   uri: process.env.REACT_APP_API_URL + '/webhook',

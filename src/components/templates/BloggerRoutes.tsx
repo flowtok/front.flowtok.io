@@ -60,7 +60,7 @@ const BloggerRoutes: FC<BloggerLayoutPropsT> = () => {
           <Redirect to={'/profile'} />
         </Route>
       </Switch>
-      <VerificationPopup isVerified={!!data?.me?.verifiedTikTok} />
+      {/*<VerificationPopup isVerified={!!data?.me?.verifiedTikTok} />*/}
     </>
   );
 };

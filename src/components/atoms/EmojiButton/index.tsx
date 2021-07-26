@@ -5,7 +5,7 @@ import emoji from '../../../configs/emoji';
 import parse from 'html-react-parser';
 import { useAnimationClass } from '../../../hooks/useAnimationClass';
 import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
-import { notificationVar } from '../../../api/local-state';
+import { notificationVar } from '../../../graphql/local-state';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperClass } from 'swiper';
 import { useNewCodeTikTokMutation } from '../../../types/graphql';

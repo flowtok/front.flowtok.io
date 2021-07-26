@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.scss';
 import {
   InProcessCard,
-  ReferalCard,
+  ReferralCard,
   StatsCard,
   TotalEarningsCard,
   WalletCard,
@@ -61,7 +61,7 @@ export default ({ me }: GetBloggerProfileDataQuery) => {
         </div>
         <div className={styles['bottom-papers']}>
           <StatsCard viewsMedian={'3'} payOffPerVideo={'4'} rating={3} />
-          <ReferalCard
+          <ReferralCard
             refUrl={refLink}
             refsCount={refCount}
             totalEarningsFromRefs={refEarning}

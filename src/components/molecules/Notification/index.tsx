@@ -4,7 +4,7 @@ import {
   NotificationT,
   NotificationTypeT,
   notificationVar,
-} from '../../../api/local-state';
+} from '../../../graphql/local-state';
 import tick from 'assets/notification/tick.svg';
 import cross from 'assets/notification/cross.svg';
 import alert from 'assets/notification/alert.svg';

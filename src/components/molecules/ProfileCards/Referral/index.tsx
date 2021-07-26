@@ -7,23 +7,22 @@ import commonStyles from '../styles.module.scss';
 import CopyIcon from 'assets/common/icons/copy.svg';
 import styles from './styles.module.scss';
 import { useMediaQuery } from 'react-responsive';
-import { useReactiveVar } from '@apollo/client';
 import { formatNumber } from '../../../../utils/FormatHelper';
 import { useCopyToClipboard } from '../../../../hooks/useCopyToClipboard';
 import { Maybe } from 'graphql/jsutils/Maybe';
 import { useMeQuery } from '../../../../types/graphql';
 
-export interface ReferalCardProps {
+export interface ReferralCardProps {
   refUrl: Maybe<string>;
   refsCount: Maybe<number>;
   totalEarningsFromRefs: Maybe<number>;
 }
 
-export const ReferalCard = ({
+export const ReferralCard = ({
   refUrl,
   refsCount,
   totalEarningsFromRefs,
-}: ReferalCardProps) => {
+}: ReferralCardProps) => {
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const { data } = useMeQuery();

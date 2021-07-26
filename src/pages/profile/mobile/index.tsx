@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import {
   InProcessCard,
-  ReferalCard,
+  ReferralCard,
   StatsCard,
   TotalEarningsCard,
   WalletCard,
@@ -58,7 +58,7 @@ export default ({ me }: GetBloggerProfileDataQuery) => {
           <InProcessCard inProcessAmount={heldMoney} />
           <TotalEarningsCard totalEarnings={10} />
           <StatsCard viewsMedian={'3'} payOffPerVideo={'4'} rating={3} />
-          <ReferalCard
+          <ReferralCard
             refUrl={refLink}
             refsCount={refCount}
             totalEarningsFromRefs={refEarning}

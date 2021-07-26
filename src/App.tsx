@@ -4,7 +4,7 @@ import {
   isRegisteredVar,
   notificationVar,
   tokenExistVar,
-} from './api/local-state';
+} from './graphql/local-state';
 import { Notification } from './components/molecules/Notification';
 
 const AuthLayout = React.lazy(
