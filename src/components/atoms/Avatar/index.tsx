@@ -1,22 +1,16 @@
 import styles from './styles.module.scss';
-import {
-  InitialAdaptiveValues,
-  useAdaptiveCssValue,
-} from '../../../hooks/useAdaptiveCssValue';
 
 export interface AvatarProps {
   image: string;
-  sizes: InitialAdaptiveValues;
+  size: number;
 }
 
-export const Avatar = ({ image, sizes }: AvatarProps) => {
-  const size = useAdaptiveCssValue(sizes);
-
+export const Avatar = ({ image, size }: AvatarProps) => {
   return (
     <img
       className={styles.img}
       src={image}
-      alt={''}
+      alt={'avatar'}
       style={{
         width: size,
         height: size,

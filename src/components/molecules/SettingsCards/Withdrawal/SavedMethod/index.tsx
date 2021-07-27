@@ -1,6 +1,5 @@
 import styles from './styles.module.scss';
 import { Checkbox } from '../../../../atoms/Checkbox';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 import deleteIcon from '../../../../../assets/common/icons/delete.svg';
@@ -40,7 +39,10 @@ export const SavedMethod = ({
     <div className={styles['method-container']}>
       <div className={style} onClick={() => selectAction()}>
         <div>
-          <Checkbox isChecked={isSelected} />
+          <Checkbox
+            inputProps={{ checked: isSelected }}
+            className={styles.checkbox}
+          />
           <p>{getTitleMethodByType(title)}</p>
         </div>
         <div>{'...'.concat(value.slice(-4))}</div>

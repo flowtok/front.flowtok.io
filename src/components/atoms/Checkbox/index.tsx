@@ -1,22 +1,33 @@
-import React, { FC, HTMLProps } from 'react';
+import React, { FC, forwardRef, HTMLProps } from 'react';
 import styles from './styles.module.scss';
 import CheckIcon from 'assets/common/icons/check.svg';
-type CheckBoxPropsT = {
-  isChecked: boolean;
-  onClickAction?: () => void;
-};
+import { generateUniqueID } from 'web-vitals/dist/lib/generateUniqueID';
 
-export const Checkbox: FC<CheckBoxPropsT & HTMLProps<HTMLInputElement>> = ({
-  isChecked,
-  onClickAction,
-}) => {
-  const style = isChecked ? styles[`checkbox_active`] : styles[`checkbox`];
-  return (
-    <div
-      className={style}
-      onClick={() => (onClickAction ? onClickAction() : null)}
-    >
-      <img src={CheckIcon} />
-    </div>
-  );
-};
+type CheckBoxPropsT = {
+  inputProps?: Omit<HTMLProps<HTMLInputElement>, 'id'>;
+} & Omit<HTMLProps<HTMLLabelElement>, 'htmlFor'>;
+
+export const Checkbox = forwardRef<HTMLInputElement, CheckBoxPropsT>(
+  ({ className, inputProps, ...rest }, ref) => {
+    const id = generateUniqueID();
+
+    return (
+      <>
+        <input
+          type="checkbox"
+          id={id}
+          {...inputProps}
+          className={`${styles.input} ${inputProps?.className}`}
+          ref={ref}
+        />
+        <label
+          htmlFor={id}
+          className={`${styles.label} ${className}`}
+          {...rest}
+        >
+          <img src={CheckIcon} alt="" className={styles.icon} />
+        </label>
+      </>
+    );
+  }
+);

@@ -254,8 +254,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="21.9571"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint1_linear"
@@ -265,8 +265,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="10.9571"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint2_linear"
@@ -276,8 +276,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="22.9525"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint3_linear"
@@ -287,8 +287,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="7.91512"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint4_linear"
@@ -298,8 +298,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="20.9151"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint5_linear"
@@ -309,8 +309,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="13.9525"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint6_linear"
@@ -320,8 +320,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="10.6429"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint7_linear"
@@ -331,8 +331,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="5.64289"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
             <linearGradient
               id="paint8_linear"
@@ -342,8 +342,8 @@ export const SettingsIcon: FC<SettingsIconPropsT> = ({
               y2="12.6429"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2E1C9C" />
-              <stop offset="1" stop-color="#7031E9" />
+              <stop stopColor="#2E1C9C" />
+              <stop offset="1" stopColor="#7031E9" />
             </linearGradient>
           </defs>
         </svg>

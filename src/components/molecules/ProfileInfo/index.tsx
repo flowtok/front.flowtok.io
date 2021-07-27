@@ -5,7 +5,10 @@ import check from '../../../assets/common/icons/check.svg';
 import { Maybe } from 'graphql/jsutils/Maybe';
 import { ProfileDataT } from '../SignUp/TikTokProfile';
 import { useTranslation } from 'react-i18next';
-import { InitialAdaptiveValues } from '../../../hooks/useAdaptiveCssValue';
+import {
+  InitialAdaptiveValues,
+  useAdaptiveCssValue,
+} from '../../../hooks/useAdaptiveCssValue';
 
 type TikTokProfileInfoPropsT = {
   profileData: Maybe<ProfileDataT>;
@@ -25,22 +28,18 @@ export const ProfileInfo: FC<TikTokProfileInfoPropsT> = ({
 }) => {
   const { t } = useTranslation();
   const { userImage, name, tagName } = { ...profileData };
+  const sizes = avatarSizes
+    ? avatarSizes
+    : {
+        mobile: 48,
+        desktop: 48,
+        largeDesktop: 52,
+      };
 
   return (
     <div className={`${styles['row']} ${styles[size]}`}>
       <div className={styles['left']}>
-        <Avatar
-          image={String(userImage)}
-          sizes={
-            avatarSizes
-              ? avatarSizes
-              : {
-                  mobile: 48,
-                  desktop: 48,
-                  largeDesktop: 52,
-                }
-          }
-        />
+        <Avatar image={String(userImage)} size={useAdaptiveCssValue(sizes)} />
         <div className={styles['column']}>
           <div className={styles['title-group']}>
             <span className={styles['title']}>{String(name)}</span>

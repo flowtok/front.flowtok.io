@@ -34,7 +34,7 @@
     display: flex;
     align-content: center;
 
-    & > div {
+    & > .checkbox {
       margin-right: 17px;
       @include adaptive-value-tablet(margin-right, 17);
       @include adaptive-value-large-desktop(margin-right, 17);

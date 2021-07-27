@@ -6,6 +6,7 @@ import { Avatar } from 'components/atoms/Avatar';
 import styles from './styles.module.scss';
 import logo from 'assets/common/icons/logo.svg';
 import chevronLeft from 'assets/common/icons/chevron_left.svg';
+import { useAdaptiveCssValue } from '../../../hooks/useAdaptiveCssValue';
 
 export interface HeaderProps {
   title?: string;
@@ -29,6 +30,9 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
     const history = useHistory();
 
     const goBack = () => history.goBack();
+    const sizes = {
+      mobile: 32,
+    };
 
     return (
       <div
@@ -48,12 +52,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
           {title && <p className={styles.title}>{title}</p>}
           <div className={styles['right-element']}>
             {avatar && (
-              <Avatar
-                image={avatar}
-                sizes={{
-                  mobile: 32,
-                }}
-              />
+              <Avatar image={avatar} size={useAdaptiveCssValue(sizes)} />
             )}
           </div>
         </div>

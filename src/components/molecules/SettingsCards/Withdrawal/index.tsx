@@ -16,7 +16,12 @@ export const WithdrawalCard = () => {
   const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
 
   /*will be deleted*/
-  const savedMethods: PaymentMethod[] = [];
+  const savedMethods: PaymentMethod[] = [
+    {
+      value: '12313123',
+      type: WalletType.Card,
+    },
+  ];
 
   const baseDescription = (
     <p className={commonStyles['description']}>

@@ -3,7 +3,6 @@ import {
   forwardRef,
   InputHTMLAttributes,
   useCallback,
-  useMemo,
 } from 'react';
 import InputMask from 'react-input-mask';
 import styles from './styles.module.scss';

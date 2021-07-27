@@ -1,15 +1,10 @@
 @import "src/styles/mixins";
 
-.checkbox {
-  @extend %checkbox;
-
-  &_active {
-    @extend %checkbox;
-    background: linear-gradient(225deg, #2545F3 0%, #6E35F1 100%);
-  }
+.input {
+  display: none;
 }
 
-%checkbox {
+.label {
   width: 18px;
   @include adaptive-value-large-desktop(width, 18);
   height: 18px;
@@ -19,4 +14,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.input:checked ~ .label {
+  background: linear-gradient(225deg, #2545F3 0%, #6E35F1 100%);
+  position: relative;
+  padding: 6px;
+
+  & > .icon {
+    position: absolute;
+    width: 8px;
+    @include adaptive-value-large-desktop(width, 8);
+    height: 6px;
+    @include adaptive-value-large-desktop(height, 6);
+  }
 }

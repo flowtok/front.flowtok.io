@@ -12,6 +12,7 @@ import { NetworkButton } from '../../../atoms/NetworkButton';
 import { GeneralSettings } from '../../../../types/types.temp';
 import { Maybe } from 'graphql/jsutils/Maybe';
 import { ProfileDataT } from '../../../molecules/SignUp/TikTokProfile';
+import { useAdaptiveCssValue } from '../../../../hooks/useAdaptiveCssValue';
 
 interface DesktopProps {
   generalSettings: GeneralSettings;
@@ -25,6 +26,9 @@ export const NavbarDesktop = forwardRef<
   const { pathname } = useLocation();
 
   const { userImage } = { ...profileData };
+  const sizes = {
+    desktop: 41,
+  };
 
   return (
     <div className={styles['wrapper']} ref={ref}>
@@ -32,12 +36,7 @@ export const NavbarDesktop = forwardRef<
       <div className={styles['sidebar-container']}>
         <div>
           <div className={styles['account']}>
-            <Avatar
-              image={userImage ?? ''}
-              sizes={{
-                desktop: 41,
-              }}
-            />
+            <Avatar image={userImage ?? ''} size={useAdaptiveCssValue(sizes)} />
           </div>
           <Divider />
           <div className={styles['nav']}>
