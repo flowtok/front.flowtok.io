@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import ProfileDesktop from './desktop/index';
 import ProfileMobile from './mobile/index';
 import { useGetBloggerProfileDataQuery } from '../../types/graphql';
-import { QueryHandler } from '../../components/templates/QueryHandler';
+import { QueryHandler } from '../../components/handlers/QueryHandler';
 
 export default () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });

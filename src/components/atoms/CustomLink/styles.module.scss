@@ -1,6 +1,6 @@
 @import "src/styles/mixins";
 
-.link {
+.link, .link:visited {
   color: #2B44F2;
   font-family: SF Pro Display, sans-serif;
   font-size: 17px;
@@ -12,8 +12,4 @@
   letter-spacing: -0.41px;
   @include adaptive-value-tablet(letter-spacing, -0.41);
   @include adaptive-value-large-desktop(letter-spacing, -0.41);
-
-  &:visited {
-    color: #2B44F2;
-  }
 }

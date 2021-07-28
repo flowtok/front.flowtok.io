@@ -39,7 +39,7 @@ export const Button = forwardRef<
   (
     {
       children,
-      className,
+      className = '',
       radius = 42,
       preset = 'gradient',
       size = 'm',

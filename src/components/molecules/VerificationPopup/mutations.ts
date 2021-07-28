@@ -5,3 +5,9 @@ const mutation = gql`
     newCodeTikTok
   }
 `;
+
+const VERIFY_TIK_TOK = gql`
+  mutation verifyTikTok {
+    verifyTikTok
+  }
+`;

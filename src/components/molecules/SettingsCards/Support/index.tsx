@@ -21,22 +21,18 @@ export const SupportCard = () => {
           <div className={styles['support-methods']}>
             <div className={styles['support-method']}>
               <p>{t('pages.settings.cards.withdrawal.support-methods.post')}</p>
-              <CustomLink
-                iSTargetBlank={true}
-                url="flowtokcom@gmail.com"
-                value="flowtokcom@gmail.com"
-              />
+              <CustomLink target={'_blank'} href="flowtokcom@gmail.com">
+                flowtokcom@gmail.com
+              </CustomLink>
             </div>
             <Divider />
             <div className={styles['support-method']}>
               <p>
                 {t('pages.settings.cards.withdrawal.support-methods.telegram')}
               </p>
-              <CustomLink
-                iSTargetBlank={true}
-                url="@flowtokcom"
-                value="@flowtokcom"
-              />
+              <CustomLink target={'_blank'} href="@flowtokcom">
+                @flowtokcom
+              </CustomLink>
             </div>
           </div>
         </div>

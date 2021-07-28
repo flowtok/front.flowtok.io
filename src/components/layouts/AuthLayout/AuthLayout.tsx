@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from 'react';
-import { QueryHandler } from '../QueryHandler';
+import { QueryHandler } from '../../handlers/QueryHandler';
 import { useMeQuery } from '../../../types/graphql';
 
-const BloggerRoutes = React.lazy(() => import('../BloggerRoutes'));
-const AdvertiserRoutes = React.lazy(() => import('../AdvertiserRoutes'));
+const BloggerRoutes = React.lazy(() => import('../BloggerLayout'));
+const AdvertiserRoutes = React.lazy(() => import('../AdvertiserLayout'));
 
 type AuthLayoutPropsT = any;
 

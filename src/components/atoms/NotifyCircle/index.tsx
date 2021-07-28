@@ -16,9 +16,14 @@ export interface ButtonProps
 export const NotifyCircle = forwardRef<
   HTMLButtonElement,
   PropsWithChildren<ButtonProps>
->(({ children, className, value, style = {}, ...rest }, ref) => {
+>(({ children, value, style = {}, className = '', ...rest }, ref) => {
   return (
-    <span ref={ref} {...rest} className={styles['notification']} style={style}>
+    <span
+      ref={ref}
+      {...rest}
+      className={`${styles['notification']} ${className}`}
+      style={style}
+    >
       <span>{value}</span>
       {children}
     </span>

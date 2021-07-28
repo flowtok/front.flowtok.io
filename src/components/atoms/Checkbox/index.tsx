@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, HTMLProps } from 'react';
+import React, { forwardRef, HTMLProps } from 'react';
 import styles from './styles.module.scss';
 import CheckIcon from 'assets/common/icons/check.svg';
 import { generateUniqueID } from 'web-vitals/dist/lib/generateUniqueID';

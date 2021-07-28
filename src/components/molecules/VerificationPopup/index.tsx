@@ -1,4 +1,10 @@
-import { forwardRef, PropsWithChildren, useEffect } from 'react';
+import React, {
+  forwardRef,
+  PropsWithChildren,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { PopUp } from '../PopUp';
 import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss';
@@ -7,16 +13,77 @@ import commonStyles from '../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
 import { TikTokProfile } from '../SignUp/TikTokProfile';
 import { useMediaQuery } from 'react-responsive';
-import { EmojiButton } from '../../atoms/EmojiButton';
-import { useVerifyTikTokMutation } from '../../../types/graphql';
+import { SwiperButton } from '../../atoms/EmojiButton';
+import {
+  useNewCodeTikTokMutation,
+  useVerifyTikTokMutation,
+} from '../../../types/graphql';
+import { useAnimationClass } from '../../../hooks/useAnimationClass';
+import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
+import emoji from '../../../configs/emoji';
+import { notificationVar } from '../../../graphql/local-state';
+import { Swiper as SwiperClass } from 'swiper';
+import parse from 'html-react-parser';
 
-interface VerificationPopupProps {
+type VerificationPopupPropsT = {
   isVerified: boolean;
-}
+};
 
 const CHECK_VERIFICATION_INTERVAL = 10000;
 
-const useEnhancer = (isVerified: boolean) => {
+const useSwipeEmojiButton = () => {
+  const [htmlEmoji, setHtmlEmoji] = useState<string>('');
+  const targetButton = useRef<HTMLSpanElement>(null);
+  const animateButton = useAnimationClass(targetButton, 'bubbles', 750);
+  const [copy] = useCopyToClipboard(1000);
+
+  useEffect(() => {
+    const emojiFromBase = localStorage.getItem('emoji');
+    if (emojiFromBase) {
+      const emojis = emoji.replace_unified(emojiFromBase);
+      setHtmlEmoji(emojis);
+    }
+  }, []);
+
+  const onClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    animateButton(e);
+    notificationVar({
+      type: 'success',
+      message: 'Смайлики скопированы!',
+    });
+    const emojiFromBase = localStorage.getItem('emoji');
+    if (emojiFromBase) {
+      copy(emojiFromBase);
+    }
+  };
+
+  const [fetchNewCode, { loading }] = useNewCodeTikTokMutation({
+    onCompleted: (data) => {
+      if (data.newCodeTikTok) {
+        const emojis = emoji.replace_unified(data.newCodeTikTok);
+        setHtmlEmoji(emojis);
+        localStorage.setItem('emoji', data.newCodeTikTok);
+      }
+    },
+  });
+
+  const onSwipe = async (swiperCore: SwiperClass) => {
+    const { activeIndex, previousIndex, slidePrev } = swiperCore;
+    if (previousIndex < activeIndex) {
+      await fetchNewCode();
+      slidePrev.bind(swiperCore)();
+    }
+  };
+  return {
+    onSwipe,
+    onClick,
+    loading,
+    emojis: parse(htmlEmoji),
+    ref: targetButton,
+  };
+};
+
+const useTikTokVerification = (isVerified: boolean) => {
   const [verifyTikTok] = useVerifyTikTokMutation({});
 
   useEffect(() => {
@@ -31,7 +98,7 @@ const useEnhancer = (isVerified: boolean) => {
 
 export const VerificationPopup = forwardRef<
   HTMLDivElement,
-  PropsWithChildren<VerificationPopupProps>
+  PropsWithChildren<VerificationPopupPropsT>
 >(({ isVerified }) => {
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
@@ -40,7 +107,8 @@ export const VerificationPopup = forwardRef<
     styles['description-list']
   );
 
-  useEnhancer(isVerified);
+  useTikTokVerification(isVerified);
+  const { loading, emojis, onSwipe, onClick, ref } = useSwipeEmojiButton();
 
   return (
     <PopUp
@@ -69,7 +137,14 @@ export const VerificationPopup = forwardRef<
           <TikTokProfile />
         </div>
         <div className={styles['footer-popup']}>
-          <EmojiButton />
+          <SwiperButton
+            onSwipe={onSwipe}
+            loading={loading}
+            onClick={onClick}
+            ref={ref}
+          >
+            {emojis}
+          </SwiperButton>
         </div>
         <div className={styles['help-btn']}>
           {t('popup-notification.help-question')}

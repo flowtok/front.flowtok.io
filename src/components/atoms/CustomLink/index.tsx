@@ -1,19 +1,22 @@
 import styles from './styles.module.scss';
+import {
+  AnchorHTMLAttributes,
+  DetailedHTMLProps,
+  PropsWithChildren,
+} from 'react';
 
 export type DividerDirectionUnionType = 'vertical' | 'horizontal';
 
-export interface LinkProps {
-  url: string;
-  value: string;
-  iSTargetBlank?: boolean;
-}
+type CustomLinkPropsT = PropsWithChildren<
+  DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
+>;
 
-export const CustomLink = ({ url, value, iSTargetBlank }: LinkProps) => (
-  <a
-    className={styles['link']}
-    href={url}
-    target={iSTargetBlank ? '_blank' : ''}
-  >
-    {value}
+export const CustomLink = ({
+  children,
+  className = '',
+  ...rest
+}: CustomLinkPropsT) => (
+  <a className={`${styles['link']} ${className}`} {...rest}>
+    {children}
   </a>
 );

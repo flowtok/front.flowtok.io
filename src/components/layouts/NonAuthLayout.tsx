@@ -4,7 +4,7 @@ import HomePage from '../../pages/home';
 import LoginPage from '../../pages/login';
 import SignUpPage from '../../pages/signup';
 import FailPage from '../../pages/fail';
-import { AuthHandler } from './AuthHandler';
+import { AuthHandler } from '../handlers/AuthHandler';
 
 type NonAuthLayoutPropsT = any;
 

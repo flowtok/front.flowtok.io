@@ -8,11 +8,11 @@ import {
 import { Notification } from './components/molecules/Notification';
 
 const AuthLayout = React.lazy(
-  () => import('./components/templates/AuthLayout/AuthLayout')
+  () => import('./components/layouts/AuthLayout/AuthLayout')
 );
 
 const NonAuthLayout = React.lazy(
-  () => import('./components/templates/NonAuthLayout')
+  () => import('./components/layouts/NonAuthLayout')
 );
 
 export const App = () => {

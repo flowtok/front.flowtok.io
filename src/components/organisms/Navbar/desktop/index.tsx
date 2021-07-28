@@ -29,7 +29,6 @@ export const NavbarDesktop = forwardRef<
   const sizes = {
     desktop: 41,
   };
-
   return (
     <div className={styles['wrapper']} ref={ref}>
       <img src={logo} className={styles['logo']} alt="" />

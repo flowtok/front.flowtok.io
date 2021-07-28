@@ -365,25 +365,22 @@ export type UserDataFragment = { __typename?: 'User' } & Pick<
     >;
   };
 
-export type VerifyTikTokMutationVariables = Exact<{ [key: string]: never }>;
-
-export type VerifyTikTokMutation = { __typename?: 'Mutation' } & Pick<
-  Mutation,
-  'verifyTikTok'
->;
-
 export type MeQueryVariables = Exact<{ [key: string]: never }>;
 
 export type MeQuery = { __typename?: 'Query' } & {
   me?: Maybe<{ __typename?: 'User' } & UserDataFragment>;
 };
 
-export type NewCodeTikTokMutationVariables = Exact<{ [key: string]: never }>;
+export type GetAuthLayoutDataQueryVariables = Exact<{ [key: string]: never }>;
 
-export type NewCodeTikTokMutation = { __typename?: 'Mutation' } & Pick<
-  Mutation,
-  'newCodeTikTok'
->;
+export type GetAuthLayoutDataQuery = { __typename?: 'Query' } & {
+  me?: Maybe<
+    { __typename?: 'User' } & Pick<
+      User,
+      'verifiedTikTok' | 'verifyTikTokCode' | 'typeUser'
+    >
+  >;
+};
 
 export type FindAccountTikTokMutationVariables = Exact<{
   account: Scalars['String'];
@@ -434,22 +431,25 @@ export type GetTikTokProfileDataQuery = { __typename?: 'Query' } & {
   >;
 };
 
+export type NewCodeTikTokMutationVariables = Exact<{ [key: string]: never }>;
+
+export type NewCodeTikTokMutation = { __typename?: 'Mutation' } & Pick<
+  Mutation,
+  'newCodeTikTok'
+>;
+
+export type VerifyTikTokMutationVariables = Exact<{ [key: string]: never }>;
+
+export type VerifyTikTokMutation = { __typename?: 'Mutation' } & Pick<
+  Mutation,
+  'verifyTikTok'
+>;
+
 export type GetNavbarDataQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetNavbarDataQuery = { __typename?: 'Query' } & {
   me?: Maybe<
     { __typename?: 'User' } & Pick<User, 'name' | 'tagName' | 'userImage'>
-  >;
-};
-
-export type GetAuthLayoutDataQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetAuthLayoutDataQuery = { __typename?: 'Query' } & {
-  me?: Maybe<
-    { __typename?: 'User' } & Pick<
-      User,
-      'verifiedTikTok' | 'verifyTikTokCode' | 'typeUser'
-    >
   >;
 };
 
@@ -544,37 +544,6 @@ export const UserDataFragmentDoc = gql`
     verifyTikTokCode
   }
 `;
-export const VerifyTikTokDocument = gql`
-  mutation verifyTikTok {
-    verifyTikTok
-  }
-`;
-export type VerifyTikTokMutationFn = Apollo.MutationFunction<
-  VerifyTikTokMutation,
-  VerifyTikTokMutationVariables
->;
-
-export function useVerifyTikTokMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    VerifyTikTokMutation,
-    VerifyTikTokMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    VerifyTikTokMutation,
-    VerifyTikTokMutationVariables
-  >(VerifyTikTokDocument, options);
-}
-
-export type VerifyTikTokMutationHookResult = ReturnType<
-  typeof useVerifyTikTokMutation
->;
-export type VerifyTikTokMutationResult = Apollo.MutationResult<VerifyTikTokMutation>;
-export type VerifyTikTokMutationOptions = Apollo.BaseMutationOptions<
-  VerifyTikTokMutation,
-  VerifyTikTokMutationVariables
->;
 export const MeDocument = gql`
   query me {
     me {
@@ -601,36 +570,51 @@ export function useMeLazyQuery(
 export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
-export const NewCodeTikTokDocument = gql`
-  mutation newCodeTikTok {
-    newCodeTikTok
+export const GetAuthLayoutDataDocument = gql`
+  query getAuthLayoutData {
+    me {
+      verifiedTikTok
+      verifyTikTokCode
+      typeUser
+    }
   }
 `;
-export type NewCodeTikTokMutationFn = Apollo.MutationFunction<
-  NewCodeTikTokMutation,
-  NewCodeTikTokMutationVariables
->;
 
-export function useNewCodeTikTokMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    NewCodeTikTokMutation,
-    NewCodeTikTokMutationVariables
+export function useGetAuthLayoutDataQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetAuthLayoutDataQuery,
+    GetAuthLayoutDataQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    NewCodeTikTokMutation,
-    NewCodeTikTokMutationVariables
-  >(NewCodeTikTokDocument, options);
+  return Apollo.useQuery<
+    GetAuthLayoutDataQuery,
+    GetAuthLayoutDataQueryVariables
+  >(GetAuthLayoutDataDocument, options);
 }
 
-export type NewCodeTikTokMutationHookResult = ReturnType<
-  typeof useNewCodeTikTokMutation
+export function useGetAuthLayoutDataLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetAuthLayoutDataQuery,
+    GetAuthLayoutDataQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetAuthLayoutDataQuery,
+    GetAuthLayoutDataQueryVariables
+  >(GetAuthLayoutDataDocument, options);
+}
+
+export type GetAuthLayoutDataQueryHookResult = ReturnType<
+  typeof useGetAuthLayoutDataQuery
 >;
-export type NewCodeTikTokMutationResult = Apollo.MutationResult<NewCodeTikTokMutation>;
-export type NewCodeTikTokMutationOptions = Apollo.BaseMutationOptions<
-  NewCodeTikTokMutation,
-  NewCodeTikTokMutationVariables
+export type GetAuthLayoutDataLazyQueryHookResult = ReturnType<
+  typeof useGetAuthLayoutDataLazyQuery
+>;
+export type GetAuthLayoutDataQueryResult = Apollo.QueryResult<
+  GetAuthLayoutDataQuery,
+  GetAuthLayoutDataQueryVariables
 >;
 export const FindAccountTikTokDocument = gql`
   mutation findAccountTikTok($account: String!) {
@@ -836,6 +820,68 @@ export type GetTikTokProfileDataQueryResult = Apollo.QueryResult<
   GetTikTokProfileDataQuery,
   GetTikTokProfileDataQueryVariables
 >;
+export const NewCodeTikTokDocument = gql`
+  mutation newCodeTikTok {
+    newCodeTikTok
+  }
+`;
+export type NewCodeTikTokMutationFn = Apollo.MutationFunction<
+  NewCodeTikTokMutation,
+  NewCodeTikTokMutationVariables
+>;
+
+export function useNewCodeTikTokMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    NewCodeTikTokMutation,
+    NewCodeTikTokMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    NewCodeTikTokMutation,
+    NewCodeTikTokMutationVariables
+  >(NewCodeTikTokDocument, options);
+}
+
+export type NewCodeTikTokMutationHookResult = ReturnType<
+  typeof useNewCodeTikTokMutation
+>;
+export type NewCodeTikTokMutationResult = Apollo.MutationResult<NewCodeTikTokMutation>;
+export type NewCodeTikTokMutationOptions = Apollo.BaseMutationOptions<
+  NewCodeTikTokMutation,
+  NewCodeTikTokMutationVariables
+>;
+export const VerifyTikTokDocument = gql`
+  mutation verifyTikTok {
+    verifyTikTok
+  }
+`;
+export type VerifyTikTokMutationFn = Apollo.MutationFunction<
+  VerifyTikTokMutation,
+  VerifyTikTokMutationVariables
+>;
+
+export function useVerifyTikTokMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    VerifyTikTokMutation,
+    VerifyTikTokMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    VerifyTikTokMutation,
+    VerifyTikTokMutationVariables
+  >(VerifyTikTokDocument, options);
+}
+
+export type VerifyTikTokMutationHookResult = ReturnType<
+  typeof useVerifyTikTokMutation
+>;
+export type VerifyTikTokMutationResult = Apollo.MutationResult<VerifyTikTokMutation>;
+export type VerifyTikTokMutationOptions = Apollo.BaseMutationOptions<
+  VerifyTikTokMutation,
+  VerifyTikTokMutationVariables
+>;
 export const GetNavbarDataDocument = gql`
   query getNavbarData {
     me {
@@ -881,52 +927,6 @@ export type GetNavbarDataLazyQueryHookResult = ReturnType<
 export type GetNavbarDataQueryResult = Apollo.QueryResult<
   GetNavbarDataQuery,
   GetNavbarDataQueryVariables
->;
-export const GetAuthLayoutDataDocument = gql`
-  query getAuthLayoutData {
-    me {
-      verifiedTikTok
-      verifyTikTokCode
-      typeUser
-    }
-  }
-`;
-
-export function useGetAuthLayoutDataQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetAuthLayoutDataQuery,
-    GetAuthLayoutDataQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    GetAuthLayoutDataQuery,
-    GetAuthLayoutDataQueryVariables
-  >(GetAuthLayoutDataDocument, options);
-}
-
-export function useGetAuthLayoutDataLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAuthLayoutDataQuery,
-    GetAuthLayoutDataQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    GetAuthLayoutDataQuery,
-    GetAuthLayoutDataQueryVariables
-  >(GetAuthLayoutDataDocument, options);
-}
-
-export type GetAuthLayoutDataQueryHookResult = ReturnType<
-  typeof useGetAuthLayoutDataQuery
->;
-export type GetAuthLayoutDataLazyQueryHookResult = ReturnType<
-  typeof useGetAuthLayoutDataLazyQuery
->;
-export type GetAuthLayoutDataQueryResult = Apollo.QueryResult<
-  GetAuthLayoutDataQuery,
-  GetAuthLayoutDataQueryVariables
 >;
 export const GetBloggerProfileDataDocument = gql`
   query getBloggerProfileData {

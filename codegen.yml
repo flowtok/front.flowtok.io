@@ -1,9 +1,8 @@
 overwrite: true
-schema: "./src/api/schema.graphql"
+schema: "./src/graphql/schema.graphql"
 documents:
-  - "./src/api/queries.ts"
-  - "./src/api/mutations.ts"
-  - "./src/api/fragments.ts"
+  - "./src/graphql/queries.ts"
+  - "./src/graphql/fragments.ts"
   - "./src/components/**/**/*.{ts,tsx}"
   - "./src/pages/**/*.{ts,tsx}"
   - "./src/pages/**/**/*.{ts,tsx}"

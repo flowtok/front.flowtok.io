@@ -1,6 +1,6 @@
 import React, { FC, HTMLProps } from 'react';
 import styles from './styles.module.scss';
-import { createIdGenerator } from '../../../utils/unique-id';
+import { generateUniqueID } from 'web-vitals/dist/lib/generateUniqueID';
 
 type SwitchPropsT = {
   label?: string;
@@ -10,7 +10,7 @@ export const Switch: FC<SwitchPropsT & HTMLProps<HTMLInputElement>> = ({
   label,
   ...rest
 }) => {
-  const switchId = createIdGenerator('switch')();
+  const switchId = generateUniqueID();
 
   return (
     <div className={styles['switch-wrapper']}>

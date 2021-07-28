@@ -2,13 +2,13 @@ import classNames from 'classnames';
 
 import styles from './styles.module.scss';
 
-export interface TabsProps {
+export type TabsPropsT = {
   list: string[];
   selected: number;
   onSelect: (index: number) => void;
-}
+};
 
-export const Tabs = ({ list, selected, onSelect }: TabsProps) => {
+export const Tabs = ({ list, selected, onSelect }: TabsPropsT) => {
   return (
     <div className={styles['tabs-wrapper']}>
       <div

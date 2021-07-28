@@ -4,7 +4,8 @@ import { useMediaQuery } from 'react-responsive';
 import { NavbarDesktop } from './desktop';
 import { NavbarDesktopLarge } from './desktopLarge';
 import { useGetNavbarDataQuery } from '../../../types/graphql';
-import { QueryHandler } from '../../templates/QueryHandler';
+import { QueryHandler } from '../../handlers/QueryHandler';
+import { ErrorHandler } from '../../handlers/ErrorHandler';
 
 type NavbarPropsT = any;
 
@@ -44,8 +45,10 @@ export const Navbar = forwardRef<HTMLDivElement, NavbarPropsT>(({}, ref) => {
   };
 
   return (
-    <QueryHandler loading={loading} error={error}>
-      {getNavbarComponent()}
-    </QueryHandler>
+    <ErrorHandler>
+      <QueryHandler loading={loading} error={error}>
+        {getNavbarComponent()}
+      </QueryHandler>
+    </ErrorHandler>
   );
 });
