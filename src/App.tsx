@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
 import { useReactiveVar } from '@apollo/client';
+import { Notification } from '@components/molecules/Notification';
 import {
   isRegisteredVar,
   notificationVar,
   tokenExistVar,
 } from './graphql/local-state';
-import { Notification } from './components/molecules/Notification';
 
 const AuthLayout = React.lazy(
   () => import('./components/layouts/AuthLayout/AuthLayout')

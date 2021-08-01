@@ -53,7 +53,7 @@
     "i18next": "^20.2.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.0",
-    "jest-circus": "26.6.0",
+    "jest-circus": "^27.0.6",
     "jest-resolve": "26.6.0",
     "jest-watch-typeahead": "0.6.1",
     "mini-css-extract-plugin": "0.11.3",
@@ -136,6 +136,7 @@
     "@graphql-codegen/typescript-operations": "1.18.0",
     "@graphql-codegen/typescript-react-apollo": "2.2.5",
     "@types/classnames": "^2.2.11",
+    "@types/enzyme": "^3.10.9",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
@@ -145,16 +146,24 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/redux": "^3.6.0",
     "@types/redux-thunk": "^2.1.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
+    "enzyme": "^3.11.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "2.2.1",
+    "react-test-renderer": "^17.0.2",
     "sass": "^1.32.8",
     "sass-loader": "10.1.1"
   },
   "jest": {
     "roots": [
-      "<rootDir>/src"
+      "<rootDir>/src/",
+      "<rootDir>"
+    ],
+    "modulePaths": [
+      "<rootDir>",
+      "<rootDir>/src/"
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -170,8 +179,12 @@
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
     "testEnvironment": "jsdom",
-    "testRunner": "F:\\git-projects\\front.flowtok.io\\node_modules\\jest-circus\\runner.js",
+    "testRunner": "<rootDir>\\node_modules\\jest-circus\\runner.js",
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
@@ -181,10 +194,11 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
       "^.+\\.module\\.(css|sass|scss)$"
     ],
-    "modulePaths": [],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "^@components(.*)$": "<rootDir>/src/components",
+      "^@(.*)$": "<rootDir>/src/"
     },
     "moduleFileExtensions": [
       "web.js",
