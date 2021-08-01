@@ -3,15 +3,15 @@ import { Divider } from 'components/atoms/Divider';
 import { Paper } from 'components/atoms/Paper';
 import { Input } from 'components/atoms/Input';
 import { Button } from 'components/atoms/Button';
-import commonStyles from '../styles.module.scss';
-import styles from './styles.module.scss';
 import { useForm } from 'react-hook-form';
+import { useMutation } from '@apollo/client';
 import { TikTokProfile } from '../../SignUp/TikTokProfile';
 import AvatarMock from '../../../../assets/common/images/avatar_mock.png';
-import { useMutation } from '@apollo/client';
+import commonStyles from '../styles.module.scss';
 import { User } from '../../../../types/graphql';
 import { MutationUpdateUserNameArgs } from '../../../../types/types.temp';
 import { UPDATE_NAME } from '../../../../types/types.temp';
+import styles from './styles.module.scss';
 
 export interface AccountCardProps {
   username: string;

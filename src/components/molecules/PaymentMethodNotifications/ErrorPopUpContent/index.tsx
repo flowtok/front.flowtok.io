@@ -1,7 +1,7 @@
-import styles from '../styles.module.scss';
 import ErrorIcon from 'assets/common/icons/error.svg';
-import commonStyles from '../../SettingsCards/styles.module.scss';
 import { useTranslation } from 'react-i18next';
+import styles from '../styles.module.scss';
+import commonStyles from '../../SettingsCards/styles.module.scss';
 import { Button } from '../../../atoms/Button';
 
 interface ErrorPopUpProps {

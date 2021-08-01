@@ -1,5 +1,5 @@
-import styles from '../styles.module.scss';
 import Success from 'assets/common/icons/success.svg';
+import styles from '../styles.module.scss';
 import commonStyles from '../../SettingsCards/styles.module.scss';
 
 export interface DonePopUpContentProps {

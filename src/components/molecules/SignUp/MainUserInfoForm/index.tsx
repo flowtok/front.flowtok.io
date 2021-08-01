@@ -1,19 +1,19 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
-import styles from './styles.module.scss';
-import { Input } from '../../../atoms/Input';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import { Button } from '../../../atoms/Button';
 import Select from 'react-select';
 import chroma from 'chroma-js';
+import { gql } from '@apollo/client';
+import { Option } from 'react-select/src/filters';
 import {
   useFinishJoinMutation,
   useGetSocialMediaDataQuery,
 } from '../../../../types/graphql';
-import { gql } from '@apollo/client';
-import { options } from './options';
-import { Option } from 'react-select/src/filters';
+import { Button } from '../../../atoms/Button';
+import { Input } from '../../../atoms/Input';
 import { isRegisteredVar } from '../../../../graphql/local-state';
+import { options } from './options';
+import styles from './styles.module.scss';
 
 type SelectErrorT = {
   message: string;

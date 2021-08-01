@@ -1,9 +1,9 @@
-import styles from './styles.module.scss';
 import {
   AnchorHTMLAttributes,
   DetailedHTMLProps,
   PropsWithChildren,
 } from 'react';
+import styles from './styles.module.scss';
 
 export type DividerDirectionUnionType = 'vertical' | 'horizontal';
 

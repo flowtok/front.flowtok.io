@@ -80,6 +80,14 @@ const hasJsxRuntime = (() => {
   }
 })();
 
+// my own aliases
+const myAliases = {
+  '@pages': path.resolve(paths.appSrc, './pages'),
+  '@components': path.resolve(paths.appSrc, './components'),
+  '@utils': path.resolve(paths.appSrc, './utils'),
+  '@': paths.appSrc,
+};
+
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function (webpackEnv) {
@@ -338,6 +346,7 @@ module.exports = function (webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
+        ...myAliases,
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

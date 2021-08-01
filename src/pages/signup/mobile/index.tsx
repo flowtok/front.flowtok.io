@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { PageTemplate } from 'components/templates/Page';
-import styles from './styles.module.scss';
+import React from 'react';
 import {
   NetworkButton,
   NetworkT,
@@ -9,8 +9,8 @@ import { Divider } from '../../../components/atoms/Divider';
 import { TikTokProfile } from '../../../components/molecules/SignUp/TikTokProfile';
 import { MainUserInfoForm } from '../../../components/molecules/SignUp/MainUserInfoForm';
 import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNotifications';
-import React from 'react';
 import { SignUpPropsT } from '../desktop';
+import styles from './styles.module.scss';
 
 export default ({
   registerType,

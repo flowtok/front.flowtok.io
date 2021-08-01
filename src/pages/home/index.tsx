@@ -4,8 +4,8 @@ import { Button } from 'components/atoms/Button';
 import { HomeInteractive } from 'components/molecules/HomeInteractive';
 import { PageTemplate } from 'components/templates/Page';
 
-import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
+import styles from './styles.module.scss';
 
 export default () => {
   const { t } = useTranslation();

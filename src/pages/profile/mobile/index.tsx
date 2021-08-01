@@ -8,11 +8,11 @@ import {
   WalletCard,
 } from 'components/molecules/ProfileCards';
 import { PageTemplate } from 'components/templates/Page';
-import styles from './styles.module.scss';
 import React, { useMemo } from 'react';
 import { computeAdaptiveValue } from '../../../utils/mixins';
 import { useWindowResize } from '../../../hooks/useWindowResize';
 import { GetBloggerProfileDataQuery } from '../../../types/graphql';
+import styles from './styles.module.scss';
 
 export default ({ me }: GetBloggerProfileDataQuery) => {
   const { t } = useTranslation();

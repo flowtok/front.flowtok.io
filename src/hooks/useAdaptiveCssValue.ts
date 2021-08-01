@@ -1,4 +1,3 @@
-import { useWindowResize } from './useWindowResize';
 import { useState } from 'react';
 import {
   computeLargeDesktopAdaptiveValue,
@@ -7,6 +6,7 @@ import {
   MIN_LARGE_DESKTOP_CONTAINER,
   MIN_TABLET_CONTAINER,
 } from '../utils/mixins';
+import { useWindowResize } from './useWindowResize';
 
 export type InitialAdaptiveValues = {
   mobile?: number;

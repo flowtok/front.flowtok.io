@@ -1,11 +1,11 @@
 import React, { forwardRef, PropsWithChildren } from 'react';
-import { PopUp } from '../PopUp';
-import styles from './styles.module.scss';
-import { Input } from '../../atoms/Input';
-import { Button } from '../../atoms/Button';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { Input } from '../../atoms/Input';
+import { Button } from '../../atoms/Button';
+import { PopUp } from '../PopUp';
 import { WalletType } from '../../../types/types.temp';
+import styles from './styles.module.scss';
 
 type FormDataT = {
   value: string;

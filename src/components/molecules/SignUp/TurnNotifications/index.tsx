@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
-import styles from './styles.module.scss';
-import { Switch } from '../../../atoms/Switch';
 import { useTranslation } from 'react-i18next';
+import { Switch } from '../../../atoms/Switch';
+import styles from './styles.module.scss';
 
 type TurnNotificationsPropsT = {
   bonusLabel?: string;

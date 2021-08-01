@@ -1,5 +1,5 @@
-import { Maybe, Scalars } from './graphql';
 import { gql } from '@apollo/client';
+import { Maybe, Scalars } from './graphql';
 
 type PayOutInput = any;
 type UserNameInput = any;

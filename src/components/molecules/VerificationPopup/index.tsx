@@ -5,14 +5,14 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { PopUp } from '../PopUp';
 import { useTranslation } from 'react-i18next';
-import styles from './styles.module.scss';
+import classNames from 'classnames';
+import { useMediaQuery } from 'react-responsive';
+import { Swiper as SwiperClass } from 'swiper';
+import parse from 'html-react-parser';
 import { ListNumber } from '../../atoms/ListNumber';
 import commonStyles from '../SettingsCards/styles.module.scss';
-import classNames from 'classnames';
 import { TikTokProfile } from '../SignUp/TikTokProfile';
-import { useMediaQuery } from 'react-responsive';
 import { SwiperButton } from '../../atoms/EmojiButton';
 import {
   useNewCodeTikTokMutation,
@@ -22,8 +22,8 @@ import { useAnimationClass } from '../../../hooks/useAnimationClass';
 import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
 import emoji from '../../../configs/emoji';
 import { notificationVar } from '../../../graphql/local-state';
-import { Swiper as SwiperClass } from 'swiper';
-import parse from 'html-react-parser';
+import { PopUp } from '../PopUp';
+import styles from './styles.module.scss';
 
 type VerificationPopupPropsT = {
   isVerified: boolean;

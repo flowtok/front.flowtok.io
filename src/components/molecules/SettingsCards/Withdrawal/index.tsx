@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 import { Paper } from '../../../atoms/Paper';
 import commonStyles from '../styles.module.scss';
 import { Divider } from '../../../atoms/Divider';
-import styles from './styles.module.scss';
-import { MethodsBtnGroup } from './MethodsBtnGroup';
-import { useState } from 'react';
-import { SavedMethod } from './SavedMethod';
 import { AddWithdrawalPopUp } from '../../AddWithdrawalPopUp';
 import { PaymentMethod, WalletType } from '../../../../types/types.temp';
+import styles from './styles.module.scss';
+import { MethodsBtnGroup } from './MethodsBtnGroup';
+import { SavedMethod } from './SavedMethod';
 
 export const WithdrawalCard = () => {
   const { t } = useTranslation();

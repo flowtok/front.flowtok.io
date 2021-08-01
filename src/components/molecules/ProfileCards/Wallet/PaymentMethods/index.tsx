@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from '../WithdrawalPopUp/styles.module.scss';
 import commonStyles from '../../styles.module.scss';
 import { SavedMethod } from '../../../SettingsCards/Withdrawal/SavedMethod';
 import { MethodsBtnGroup } from '../../../SettingsCards/Withdrawal/MethodsBtnGroup';
-import { useTranslation } from 'react-i18next';
 import { PaymentMethod, WalletType } from '../../../../../types/types.temp';
 
 type PaymentMethodsPropsT = {

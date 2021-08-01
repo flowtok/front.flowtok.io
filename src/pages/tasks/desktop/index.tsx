@@ -4,12 +4,12 @@ import { Swiper as SwiperClass } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Tabs } from 'components/atoms/Tabs';
-import styles from './styles.module.scss';
 import 'swiper/swiper.scss';
 import { EmptyTasks } from '../../../components/molecules/TaskCard/EmptyTasks';
 import { TaskT } from '../index';
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
 import { TaskCard } from '../../../components/molecules/TaskCard';
+import styles from './styles.module.scss';
 
 interface TasksPageProps {
   tasks: TaskT[];

@@ -1,6 +1,6 @@
 import React, { FC, HTMLProps } from 'react';
-import styles from './styles.module.scss';
 import { generateUniqueID } from 'web-vitals/dist/lib/generateUniqueID';
+import styles from './styles.module.scss';
 
 type SwitchPropsT = {
   label?: string;

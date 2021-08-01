@@ -6,10 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Tabs } from 'components/atoms/Tabs';
 import { TaskCard } from 'components/molecules/TaskCard';
 import { PageTemplate } from 'components/templates/Page';
-import styles from './styles.module.scss';
 import 'swiper/swiper.scss';
 import { EmptyTasks } from '../../../components/molecules/TaskCard/EmptyTasks';
 import { TaskT } from '../index';
+import styles from './styles.module.scss';
 
 interface TasksPageProps {
   tasks: TaskT[];

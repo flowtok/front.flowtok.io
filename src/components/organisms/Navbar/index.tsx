@@ -1,11 +1,11 @@
-import React, { forwardRef } from 'react';
-import { NavbarMobile } from './mobile';
+import { forwardRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { NavbarDesktop } from './desktop';
-import { NavbarDesktopLarge } from './desktopLarge';
-import { useGetNavbarDataQuery } from '../../../types/graphql';
-import { QueryHandler } from '../../handlers/QueryHandler';
+import { useGetNavbarDataQuery } from '@/types/graphql';
+import { QueryHandler } from '@components/handlers/QueryHandler';
 import { ErrorHandler } from '../../handlers/ErrorHandler';
+import { NavbarDesktopLarge } from './desktopLarge';
+import { NavbarDesktop } from './desktop';
+import { NavbarMobile } from './mobile';
 
 type NavbarPropsT = any;
 

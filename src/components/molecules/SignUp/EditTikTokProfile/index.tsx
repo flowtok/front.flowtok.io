@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import styles from './styles.module.scss';
-import { Input } from '../../../atoms/Input';
-import { Button } from '../../../atoms/Button';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { Input } from '../../../atoms/Input';
+import { Button } from '../../../atoms/Button';
 import {
   FindAccountTikTokMutation,
   useFindAccountTikTokMutation,
 } from '../../../../types/graphql';
+import styles from './styles.module.scss';
 
 export type TikTokProfileData = Omit<FindAccountTikTokMutation, '__typename'>;
 

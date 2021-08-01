@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './styles.module.scss';
 import videoMp4 from '../../../assets/login/videos/login_video.mp4';
 import videoOgv from '../../../assets/login/videos/login_video.ogv';
 import videoWebm from '../../../assets/login/videos/login_video.webm';
 import { LoginForm } from '../../../components/molecules/Login/LoginForm';
+import styles from './styles.module.scss';
 
 export default () => {
   return (

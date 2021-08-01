@@ -1,23 +1,22 @@
-import { useTranslation } from 'react-i18next';
-
-import { Paper } from 'components/atoms/Paper';
-import { Button } from 'components/atoms/Button';
-import ClockIcon from 'assets/common/icons/clock.svg';
-import commonStyles from '../styles.module.scss';
-import styles from './styles.module.scss';
 import { useState } from 'react';
-import { HistoryPopUp } from './HistoryPopUp';
-import { WithdrawalPopUp } from './WithdrawalPopUp';
+import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
-import { HistoryPayment } from '../../../../types/graphql';
-import { PopUp } from '../../PopUp';
+import { Button } from '@components/atoms/Button';
+import { Paper } from '@components/atoms/Paper';
+import { formatMoney } from '@utils/FormatHelper';
+import ClockIcon from 'assets/common/icons/clock.svg';
+import { Maybe } from 'graphql/jsutils/Maybe';
+import { HistoryPayment } from '@/types/graphql';
+import { Title } from '../../../atoms/Title/Title';
 import {
   DonePopUpContent,
   ErrorPopUpContent,
 } from '../../PaymentMethodNotifications';
-import { formatMoney } from '../../../../utils/FormatHelper';
-import { Maybe } from 'graphql/jsutils/Maybe';
-import { Title } from '../../../atoms/Title/Title';
+import { PopUp } from '../../PopUp';
+import commonStyles from '../styles.module.scss';
+import { HistoryPopUp } from './HistoryPopUp';
+import styles from './styles.module.scss';
+import { WithdrawalPopUp } from './WithdrawalPopUp';
 
 export interface WalletCardProps {
   balance: Maybe<number>;

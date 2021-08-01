@@ -1,8 +1,8 @@
-import styles from './styles.module.scss';
-import { Checkbox } from '../../../../atoms/Checkbox';
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
+import { Checkbox } from '../../../../atoms/Checkbox';
 import deleteIcon from '../../../../../assets/common/icons/delete.svg';
+import styles from './styles.module.scss';
 
 export interface MethodsBtnGroupProps {
   value: string;

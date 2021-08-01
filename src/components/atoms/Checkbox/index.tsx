@@ -1,7 +1,7 @@
 import React, { forwardRef, HTMLProps } from 'react';
-import styles from './styles.module.scss';
 import CheckIcon from 'assets/common/icons/check.svg';
 import { generateUniqueID } from 'web-vitals/dist/lib/generateUniqueID';
+import styles from './styles.module.scss';
 
 type CheckBoxPropsT = {
   inputProps?: Omit<HTMLProps<HTMLInputElement>, 'id'>;

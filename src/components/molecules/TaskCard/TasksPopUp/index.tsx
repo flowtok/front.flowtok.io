@@ -1,7 +1,7 @@
 import { forwardRef, PropsWithChildren } from 'react';
-import styles from './styles.module.scss';
-import { PopUp } from '../../PopUp';
 import { useTranslation } from 'react-i18next';
+import { PopUp } from '../../PopUp';
+import styles from './styles.module.scss';
 
 export enum TasksPopUpTypes {
   thatIsDone = 'thatDone',

@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import styles from './styles.module.scss';
 import cn from 'classnames';
+import { useMediaQuery } from 'react-responsive';
 import logo from '../../../assets/common/icons/logo_desktop.svg';
 import logoMini from '../../../assets/common/icons/logo.svg';
-import { useMediaQuery } from 'react-responsive';
+import styles from './styles.module.scss';
 
 type SignUpTemplatePropsT = {
   video: {

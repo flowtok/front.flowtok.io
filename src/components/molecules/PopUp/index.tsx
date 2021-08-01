@@ -1,10 +1,10 @@
 import Popup from 'reactjs-popup';
 import { CSSProperties, forwardRef, PropsWithChildren } from 'react';
-import { Paper } from '../../atoms/Paper';
 import CloseIcon from 'assets/common/icons/close.svg';
-import styles from './styles.module.scss';
-import commonStyles from '../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
+import { Paper } from '../../atoms/Paper';
+import commonStyles from '../SettingsCards/styles.module.scss';
+import styles from './styles.module.scss';
 
 type textPosition = 'left' | 'right' | 'center';
 

@@ -1,8 +1,8 @@
-import styles from './styles.module.scss';
-import commonStyles from '../../../SettingsCards/styles.module.scss';
 import classNames from 'classnames';
+import commonStyles from '../../../SettingsCards/styles.module.scss';
 import { HistoryItemType, HistoryPayment } from '../../../../../types/graphql';
 import { formatDate } from '../../../../../utils/FormatHelper';
+import styles from './styles.module.scss';
 
 export interface HistoryItemProps {
   item: HistoryPayment;

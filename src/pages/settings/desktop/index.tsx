@@ -4,8 +4,8 @@ import {
   SupportCard,
   WithdrawalCard,
 } from 'components/molecules/SettingsCards';
-import styles from './styles.module.scss';
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
+import styles from './styles.module.scss';
 
 export default () => {
   return (

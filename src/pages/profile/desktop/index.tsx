@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.scss';
+import { useTranslation } from 'react-i18next';
 import {
   InProcessCard,
   ReferralCard,
@@ -10,11 +10,11 @@ import {
 import { HistoryItemComponent } from '../../../components/molecules/ProfileCards/Wallet/HistoryItem';
 import { Divider } from '../../../components/atoms/Divider';
 import { Paper } from '../../../components/atoms/Paper';
-import { useTranslation } from 'react-i18next';
 import commonStyles from '../../../components/molecules/SettingsCards/styles.module.scss';
 import { PageTemplateDesktop } from '../../../components/templates/PageDesktop';
 import { GetBloggerProfileDataQuery } from '../../../types/graphql';
 import { EmptyHistory } from '../../../components/molecules/ProfileCards/Wallet/EmptyHistory';
+import styles from './styles.module.scss';
 
 export default ({ me }: GetBloggerProfileDataQuery) => {
   const { t } = useTranslation();

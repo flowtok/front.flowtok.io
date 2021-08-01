@@ -5,17 +5,16 @@ import React, {
   useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Divider } from '../../../../atoms/Divider';
-import { PopUp } from '../../../PopUp';
-import styles from './styles.module.scss';
-import commonStyles from '../../styles.module.scss';
-import { Button } from '../../../../atoms/Button';
-import { Input } from '../../../../atoms/Input';
-import { AddWithdrawalPopUp } from '../../../AddWithdrawalPopUp';
 import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 import { useLazyQuery, useMutation } from '@apollo/client';
+import commonStyles from '../../styles.module.scss';
+import { Button } from '../../../../atoms/Button';
+import { Input } from '../../../../atoms/Input';
+import { AddWithdrawalPopUp } from '../../../AddWithdrawalPopUp';
+import { PopUp } from '../../../PopUp';
+import { Divider } from '../../../../atoms/Divider';
 import {
   MutationPayOutArgs,
   PaymentMethod,
@@ -25,6 +24,7 @@ import { ADD_WALLET, PAY_OUT } from '../../../../../types/types.temp';
 import { PaymentMethods } from '../PaymentMethods';
 import { WALLETS } from '../../../../../types/types.temp';
 import { trimMoney } from '../../../../../utils/string';
+import styles from './styles.module.scss';
 
 type FormDataT = {
   value: number;

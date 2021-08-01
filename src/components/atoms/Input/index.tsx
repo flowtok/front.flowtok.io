@@ -5,9 +5,9 @@ import {
   useCallback,
 } from 'react';
 import InputMask from 'react-input-mask';
-import styles from './styles.module.scss';
 import classNames from 'classnames';
 import { FieldError, UseFormRegister } from 'react-hook-form';
+import styles from './styles.module.scss';
 
 export type InputProps = {
   error?: FieldError;

@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import styles from './styles.module.scss';
+import { Maybe } from 'graphql/jsutils/Maybe';
+import { useTranslation } from 'react-i18next';
 import { Avatar } from '../../atoms/Avatar';
 import check from '../../../assets/common/icons/check.svg';
-import { Maybe } from 'graphql/jsutils/Maybe';
 import { ProfileDataT } from '../SignUp/TikTokProfile';
-import { useTranslation } from 'react-i18next';
 import {
   InitialAdaptiveValues,
   useAdaptiveCssValue,
 } from '../../../hooks/useAdaptiveCssValue';
+import styles from './styles.module.scss';
 
 type TikTokProfileInfoPropsT = {
   profileData: Maybe<ProfileDataT>;

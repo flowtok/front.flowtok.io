@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { Paper } from '../../../atoms/Paper';
 import commonStyles from '../styles.module.scss';
 import { Divider } from '../../../atoms/Divider';
-import styles from './styles.module.scss';
 import { CustomLink } from '../../../atoms/CustomLink';
+import styles from './styles.module.scss';
 
 export const SupportCard = () => {
   const { t } = useTranslation();

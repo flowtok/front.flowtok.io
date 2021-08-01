@@ -3,10 +3,10 @@ import { useHistory } from 'react-router';
 import classNames from 'classnames';
 
 import { Avatar } from 'components/atoms/Avatar';
-import styles from './styles.module.scss';
 import logo from 'assets/common/icons/logo.svg';
 import chevronLeft from 'assets/common/icons/chevron_left.svg';
 import { useAdaptiveCssValue } from '../../../hooks/useAdaptiveCssValue';
+import styles from './styles.module.scss';
 
 export interface HeaderProps {
   title?: string;

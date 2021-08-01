@@ -1,6 +1,6 @@
-import styles from './styles.module.scss';
 import EmptyHistoryIcon from 'assets/common/icons/empty-history.svg';
 import { useTranslation } from 'react-i18next';
+import styles from './styles.module.scss';
 
 export const EmptyHistory = () => {
   const { t } = useTranslation();

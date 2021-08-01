@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import { Paper } from 'components/atoms/Paper';
 import { Divider } from 'components/atoms/Divider';
 import commonStyles from '../styles.module.scss';
-import styles from './styles.module.scss';
 import { formatNumber } from '../../../../utils/FormatHelper';
+import styles from './styles.module.scss';
 
 export interface StatsCardProps {
   viewsMedian: string;

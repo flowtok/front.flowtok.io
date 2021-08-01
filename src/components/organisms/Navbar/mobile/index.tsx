@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import styles from './styles.module.scss';
+import { useTranslation } from 'react-i18next';
 import { ProfileIcon } from '../Icons/ProfileIcon';
 import { TasksIcon } from '../Icons/TasksIcon';
 import { SettingsIcon } from '../Icons/SettingsIcon';
-import { useTranslation } from 'react-i18next';
+import styles from './styles.module.scss';
 
 export const NavbarMobile = forwardRef<HTMLDivElement>(({}, ref) => {
   const { t } = useTranslation();

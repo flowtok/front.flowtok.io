@@ -1,8 +1,8 @@
 import React, { forwardRef, PropsWithChildren } from 'react';
 import './styles.css';
-import styles from './styles.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperClass } from 'swiper';
+import styles from './styles.module.scss';
 
 type SwiperButtonPropsT = {
   onClick: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import styles from './styles.module.scss';
-import { NetworkButton } from '../../../atoms/NetworkButton';
 import { useTranslation } from 'react-i18next';
+import { NetworkButton } from '../../../atoms/NetworkButton';
+import styles from './styles.module.scss';
 
 type SignUpFormPropsT = any;
 

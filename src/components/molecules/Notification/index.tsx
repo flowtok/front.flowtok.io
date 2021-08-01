@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
-import styles from './styles.module.scss';
+import tick from 'assets/notification/tick.svg';
+import cross from 'assets/notification/cross.svg';
+import alert from 'assets/notification/alert.svg';
 import {
   NotificationT,
   NotificationTypeT,
   notificationVar,
 } from '../../../graphql/local-state';
-import tick from 'assets/notification/tick.svg';
-import cross from 'assets/notification/cross.svg';
-import alert from 'assets/notification/alert.svg';
+import styles from './styles.module.scss';
 import 'animate.css';
 
 type NotificationPropsT = {

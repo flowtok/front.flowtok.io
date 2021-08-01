@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.scss';
+import { useTranslation } from 'react-i18next';
 import { AuthenticationTemplate } from '../../../components/templates/AuthenticationTemplate';
 import videoMp4 from '../../../assets/login/videos/login_video.mp4';
 import videoOgv from '../../../assets/login/videos/login_video.ogv';
@@ -11,7 +11,7 @@ import {
 import { TikTokProfile } from '../../../components/molecules/SignUp/TikTokProfile';
 import { MainUserInfoForm } from '../../../components/molecules/SignUp/MainUserInfoForm';
 import { TurnNotifications } from '../../../components/molecules/SignUp/TurnNotifications';
-import { useTranslation } from 'react-i18next';
+import styles from './styles.module.scss';
 
 export type SignUpPropsT = {
   registerType: string | null;

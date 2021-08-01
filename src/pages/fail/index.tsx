@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './styles.module.scss';
 import { useUrlSearchParams } from '../../hooks/useUrlSearchParams';
 import failImage from '../../assets/fail/fail.svg';
+import styles from './styles.module.scss';
 
 export default () => {
   const params = useUrlSearchParams();

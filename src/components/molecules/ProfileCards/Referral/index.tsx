@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Paper } from 'components/atoms/Paper';
 import { Button } from 'components/atoms/Button';
 import { Divider } from 'components/atoms/Divider';
-import commonStyles from '../styles.module.scss';
 import CopyIcon from 'assets/common/icons/copy.svg';
-import styles from './styles.module.scss';
 import { useMediaQuery } from 'react-responsive';
+import { Maybe } from 'graphql/jsutils/Maybe';
 import { formatNumber } from '../../../../utils/FormatHelper';
 import { useCopyToClipboard } from '../../../../hooks/useCopyToClipboard';
-import { Maybe } from 'graphql/jsutils/Maybe';
+import commonStyles from '../styles.module.scss';
 import { useMeQuery } from '../../../../types/graphql';
+import styles from './styles.module.scss';
 
 export interface ReferralCardProps {
   refUrl: Maybe<string>;
