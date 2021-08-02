@@ -19,6 +19,7 @@ export const App = () => {
   const tokenExist = useReactiveVar(tokenExistVar);
   const isRegistered = useReactiveVar(isRegisteredVar);
   const notification = useReactiveVar(notificationVar);
+
   return (
     <div style={{ position: 'relative' }}>
       <Suspense fallback={<div>Loading...</div>}>

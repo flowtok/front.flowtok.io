@@ -85,7 +85,10 @@ const myAliases = {
   '@pages': path.resolve(paths.appSrc, './pages'),
   '@components': path.resolve(paths.appSrc, './components'),
   '@utils': path.resolve(paths.appSrc, './utils'),
-  '@': paths.appSrc,
+  '@hooks': path.resolve(paths.appSrc, './hooks'),
+  '@assets': path.resolve(paths.appSrc, './assets'),
+  '@graphql': path.resolve(paths.appSrc, './graphql'),
+  '@root': paths.appSrc,
 };
 
 // This is the production and development configuration.

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useGetNavbarDataQuery } from '@/types/graphql';
+import { useGetNavbarDataQuery } from '@root/types/graphql';
 import { QueryHandler } from '@components/handlers/QueryHandler';
 import { ErrorHandler } from '../../handlers/ErrorHandler';
 import { NavbarDesktopLarge } from './desktopLarge';

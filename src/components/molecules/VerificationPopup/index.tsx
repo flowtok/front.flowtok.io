@@ -10,18 +10,18 @@ import classNames from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 import { Swiper as SwiperClass } from 'swiper';
 import parse from 'html-react-parser';
-import { ListNumber } from '../../atoms/ListNumber';
-import commonStyles from '../SettingsCards/styles.module.scss';
-import { TikTokProfile } from '../SignUp/TikTokProfile';
-import { SwiperButton } from '../../atoms/EmojiButton';
 import {
   useNewCodeTikTokMutation,
   useVerifyTikTokMutation,
-} from '../../../types/graphql';
-import { useAnimationClass } from '../../../hooks/useAnimationClass';
-import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
+} from '@root/types/graphql';
+import { useAnimationClass } from '@hooks/useAnimationClass';
+import { useCopyToClipboard } from '@hooks/useCopyToClipboard';
+import { notificationVar } from '@graphql/local-state';
+import { ListNumber } from '../../atoms/ListNumber';
+import commonStyles from '../SettingsCards/styles.module.scss';
+import { TikTokProfile } from '../SignUp/TikTokProfile';
+import { SwiperButton } from '../../atoms/SwiperButton';
 import emoji from '../../../configs/emoji';
-import { notificationVar } from '../../../graphql/local-state';
 import { PopUp } from '../PopUp';
 import styles from './styles.module.scss';
 

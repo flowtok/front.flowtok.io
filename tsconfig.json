@@ -21,7 +21,7 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "@pages": [
+      "@pages/*": [
         "./pages/*"
       ],
       "@components/*": [
@@ -30,7 +30,16 @@
       "@utils/*": [
         "./utils/*"
       ],
-      "@/*": [
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@graphql/*": [
+        "./graphql/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@root/*": [
         "./*"
       ]
     }
@@ -39,6 +48,7 @@
     "src/"
   ],
   "exclude": [
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "jest.config.js"
   ]
 }

@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useReactiveVar } from '@apollo/client';
 import { useTranslation } from 'react-i18next';
-import { useUrlSearchParams } from '../../hooks/useUrlSearchParams';
-import { isRegisteredVar, tokenExistVar } from '../../graphql/local-state';
+import { useUrlSearchParams } from '@hooks/useUrlSearchParams';
+import { isRegisteredVar, tokenExistVar } from '@graphql/local-state';
 
 type OAuthHandlerPropsT = any;
 

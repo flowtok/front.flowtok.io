@@ -6,7 +6,7 @@ import { Paper } from '@components/atoms/Paper';
 import { formatMoney } from '@utils/FormatHelper';
 import ClockIcon from 'assets/common/icons/clock.svg';
 import { Maybe } from 'graphql/jsutils/Maybe';
-import { HistoryPayment } from '@/types/graphql';
+import { HistoryPayment } from '@root/types/graphql';
 import { Title } from '../../../atoms/Title/Title';
 import {
   DonePopUpContent,

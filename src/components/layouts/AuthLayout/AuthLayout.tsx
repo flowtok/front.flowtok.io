@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { useMeQuery } from '@/types/graphql';
+import { useMeQuery } from '@root/types/graphql';
 import { QueryHandler } from '../../handlers/QueryHandler';
 
 const BloggerRoutes = React.lazy(() => import('../BloggerLayout'));

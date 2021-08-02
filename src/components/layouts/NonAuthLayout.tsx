@@ -10,6 +10,7 @@ type NonAuthLayoutPropsT = any;
 
 const NonAuthLayout: FC<NonAuthLayoutPropsT> = ({}) => {
   const token = localStorage.getItem('token');
+
   return (
     <Switch>
       <Route path="/login">

@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { App } from './App';
 
 it('renders without crashing', () => {
-  shallow(<App />);
+  mount(<App />);
 });

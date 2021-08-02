@@ -6,10 +6,10 @@ import { Divider } from 'components/atoms/Divider';
 import CopyIcon from 'assets/common/icons/copy.svg';
 import { useMediaQuery } from 'react-responsive';
 import { Maybe } from 'graphql/jsutils/Maybe';
-import { formatNumber } from '../../../../utils/FormatHelper';
-import { useCopyToClipboard } from '../../../../hooks/useCopyToClipboard';
+import { formatNumber } from '@utils/FormatHelper';
+import { useCopyToClipboard } from '@hooks/useCopyToClipboard';
+import { useMeQuery } from '@root/types/graphql';
 import commonStyles from '../styles.module.scss';
-import { useMeQuery } from '../../../../types/graphql';
 import styles from './styles.module.scss';
 
 export interface ReferralCardProps {

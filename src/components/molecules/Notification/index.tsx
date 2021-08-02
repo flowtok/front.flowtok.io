@@ -6,7 +6,7 @@ import {
   NotificationT,
   NotificationTypeT,
   notificationVar,
-} from '@/graphql/local-state';
+} from '@graphql/local-state';
 import styles from './styles.module.scss';
 import 'animate.css';
 

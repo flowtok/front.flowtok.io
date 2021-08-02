@@ -2,3 +2,6 @@
 /config
 
 /src/react-app-env.d.ts
+
+/jest.config.js
+/adaptivescript.js

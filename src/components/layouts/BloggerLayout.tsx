@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import ProfilePage from '../../pages/profile';
-import TasksPage from '../../pages/tasks';
-import SettingsPage from '../../pages/settings';
-import HomePage from '../../pages/home';
-import { useMeQuery } from '../../types/graphql';
+import ProfilePage from '@pages/profile';
+import TasksPage from '@pages/tasks';
+import SettingsPage from '@pages/settings';
+import HomePage from '@pages/home';
+import { useMeQuery } from '@root/types/graphql';
 
 const BloggerLayout: FC = () => {
   const { data } = useMeQuery();

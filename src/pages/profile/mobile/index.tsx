@@ -9,9 +9,9 @@ import {
 } from 'components/molecules/ProfileCards';
 import { PageTemplate } from 'components/templates/Page';
 import React, { useMemo } from 'react';
-import { computeAdaptiveValue } from '../../../utils/mixins';
-import { useWindowResize } from '../../../hooks/useWindowResize';
-import { GetBloggerProfileDataQuery } from '../../../types/graphql';
+import { computeAdaptiveValue } from '@utils/mixins';
+import { useWindowResize } from '@hooks/useWindowResize';
+import { GetBloggerProfileDataQuery } from '@root/types/graphql';
 import styles from './styles.module.scss';
 
 export default ({ me }: GetBloggerProfileDataQuery) => {
