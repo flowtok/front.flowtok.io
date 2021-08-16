@@ -5,7 +5,7 @@ import {
   MAX_TABLET_CONTAINER,
   MIN_LARGE_DESKTOP_CONTAINER,
   MIN_TABLET_CONTAINER,
-} from '../utils/mixins';
+} from '@utils/mixins/mixins';
 import { useWindowResize } from './useWindowResize';
 
 export type InitialAdaptiveValues = {

@@ -8,15 +8,16 @@ type SwiperButtonPropsT = {
   onClick: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   onSwipe: (swiperCore: SwiperClass) => void;
   loading: boolean;
+  animationClassName?: string;
 };
 
-export const SwiperButton = forwardRef<
+const SwiperButton = forwardRef<
   HTMLSpanElement,
-  PropsWithChildren<SwiperButtonPropsT>
->(({ onClick, onSwipe, loading, children }, ref) => (
+  PropsWithChildren<SwiperButtonPropsT & React.HTMLProps<HTMLSpanElement>>
+>(({ onClick, onSwipe, loading, children, animationClassName }, ref) => (
   <div className={`emoji-list ${styles.wrapper}`}>
     <span
-      className={`bubbly-button ${styles.emoji}`}
+      className={`bubbly-button ${styles.emoji} ${animationClassName}`}
       id="emj"
       ref={ref}
       onClick={onClick}
@@ -39,3 +40,5 @@ export const SwiperButton = forwardRef<
     </span>
   </div>
 ));
+
+export default SwiperButton;

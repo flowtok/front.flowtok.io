@@ -2,13 +2,13 @@ import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { Maybe } from 'graphql/jsutils/Maybe';
-import { Button } from '../../../atoms/Button';
-import { ProfileInfo } from '../../ProfileInfo';
 import {
   useFindAccountTikTokMutation,
   useGetTikTokProfileDataQuery,
-} from '../../../../types/graphql';
-import { Input } from '../../../atoms/Input';
+} from '@root/types/graphql';
+import { Button } from '@components/atoms/Button';
+import { Input } from '@components/atoms/Input';
+import { ProfileInfo } from '../../ProfileInfo';
 import styles from './styles.module.scss';
 
 type TikTokProfilePropsT = {

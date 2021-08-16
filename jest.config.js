@@ -40,6 +40,9 @@ module.exports = {
   transformIgnorePatterns: [
     '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
     '^.+\\.module\\.(css|sass|scss)$',
+    '/node_modules/(?![web-vitals/dist/lib/generateUniqueID]).+\\.js$',
+    '/node_modules/(?![web-vitals/dist/lib/generateUniqueID]).+\\.ts$',
+    '/node_modules/(?![web-vitals/dist/lib/generateUniqueID]).+\\.tsx$',
   ],
   moduleNameMapper: {
     '^react-native$': 'react-native-web',

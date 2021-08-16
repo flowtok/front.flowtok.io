@@ -8,9 +8,9 @@ import React, {
   useState,
 } from 'react';
 
-import { Header, HeaderProps } from 'components/organisms/Header';
-import { Navbar } from 'components/organisms/Navbar';
-import { useWindowResize } from '../../hooks/useWindowResize';
+import { useWindowResize } from '@hooks/useWindowResize';
+import { Header, HeaderProps } from '@components/organisms/Header';
+import { Navbar } from '@components/organisms/Navbar';
 
 export interface ExtendedStyleProps {
   paddingTop?: number;

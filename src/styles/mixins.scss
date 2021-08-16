@@ -20,17 +20,24 @@
 
 $min-tablet-container: 600;
 $max-tablet-container: 1024;
+$design-tablet-container: 600;
 /**
 * Адаптирует свойства для планшета на основе дизайна мобилок.
 *
 * @param $property - название свойства, которое нужно адаптировать
 * @param $design-value - значение свойства из дизайна для ширины экрана до 600px (мобилка)
 */
+//@mixin adaptive-value-tablet($property, $design-value) {
+//  $max: $max-tablet-container / ($min-tablet-container / $design-value);
+//  $add-value: $max - $design-value;
+//  @media (min-width: #{$min-tablet-container + px}) and (max-width: #{$max-tablet-container - 1 + px}) {
+//    #{$property}: calc(#{$design-value + px} + #{$add-value} * ((100vw - #{$min-tablet-container + px}) / #{$max-tablet-container - $min-tablet-container}));
+//  }
+//}
 @mixin adaptive-value-tablet($property, $design-value) {
-  $max: $max-tablet-container / ($min-tablet-container / $design-value);
-  $add-value: $max - $design-value;
+  $ratio: $design-value / $design-tablet-container;
   @media (min-width: #{$min-tablet-container + px}) and (max-width: #{$max-tablet-container - 1 + px}) {
-    #{$property}: calc(#{$design-value + px} + #{$add-value} * ((100vw - #{$min-tablet-container + px}) / #{$max-tablet-container - $min-tablet-container}));
+    #{$property}: calc(100vw * #{$ratio});
   }
 }
 
@@ -42,7 +49,7 @@ $max-small-desktop-container: 1440;
 @mixin adaptive-value-small-desktop($property, $min) {
   $max: $max-small-desktop-container / ($min-small-desktop-container / $min);
   $add-value: $max - $min;
-  @media (min-width: #{$min-small-desktop-container + px}) and (max-width: #{$max-small-desktop-container - 1 + px}){
+  @media (min-width: #{$min-small-desktop-container + px}) and (max-width: #{$max-small-desktop-container - 1 + px}) {
     //#{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-small-desktop-container + px}) / #{$max-small-desktop-container - $min-small-desktop-container}));
   }
 }
@@ -55,10 +62,16 @@ $max-small-desktop-container: 1440;
 */
 $min-large-desktop-container: 1440;
 $design-large-desktop-container: 1920;
+//@mixin adaptive-value-large-desktop($property, $design-value) {
+//  $min: $min-large-desktop-container / ($design-large-desktop-container / $design-value);
+//  $add-value: $design-value - $min;
+//  @media (min-width: #{$min-large-desktop-container + px}) {
+//    #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-large-desktop-container + px}) / #{$design-large-desktop-container - $min-large-desktop-container}));
+//  }
+//}
 @mixin adaptive-value-large-desktop($property, $design-value) {
-  $min: $min-large-desktop-container / ($design-large-desktop-container / $design-value);
-  $add-value: $design-value - $min;
+  $ratio: $design-value / $design-large-desktop-container;
   @media (min-width: #{$min-large-desktop-container + px}) {
-    #{$property}: calc(#{$min + px} + #{$add-value} * ((100vw - #{$min-large-desktop-container + px}) / #{$design-large-desktop-container - $min-large-desktop-container}));
+    #{$property}: calc(100vw * #{$ratio});
   }
 }

@@ -5,6 +5,7 @@ import TasksPage from '@pages/tasks';
 import SettingsPage from '@pages/settings';
 import HomePage from '@pages/home';
 import { useMeQuery } from '@root/types/graphql';
+import { VerificationPopup } from '@components/molecules/VerificationPopup';
 
 const BloggerLayout: FC = () => {
   const { data } = useMeQuery();
@@ -28,7 +29,7 @@ const BloggerLayout: FC = () => {
           <Redirect to={'/profile'} />
         </Route>
       </Switch>
-      {/*<VerificationPopup isVerified={!!data?.me?.verifiedTikTok} />*/}
+      {/*{!data?.me?.verifiedTikTok && <VerificationPopup />}*/}
     </>
   );
 };

@@ -1,9 +1,9 @@
 import EmojiConvertor from 'emoji-js';
 
-const emoji = new EmojiConvertor();
-emoji.replace_mode = 'css';
-emoji.include_title = true;
-emoji.img_sets.apple.path =
+const Emoji = new EmojiConvertor();
+Emoji.replace_mode = 'css';
+Emoji.include_title = true;
+Emoji.img_sets.apple.path =
   'https://api.flowtok.online/emoji-data/img-apple-64/';
 
-export default emoji;
+export default Emoji;

@@ -5,3 +5,5 @@
 
 /jest.config.js
 /adaptivescript.js
+
+/generate-component/*.js

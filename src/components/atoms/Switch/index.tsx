@@ -1,5 +1,5 @@
 import React, { FC, HTMLProps } from 'react';
-import { generateUniqueID } from 'web-vitals/dist/lib/generateUniqueID';
+import generateUniqueId from 'uniqid';
 import styles from './styles.module.scss';
 
 type SwitchPropsT = {
@@ -10,7 +10,7 @@ export const Switch: FC<SwitchPropsT & HTMLProps<HTMLInputElement>> = ({
   label,
   ...rest
 }) => {
-  const switchId = generateUniqueID();
+  const switchId = generateUniqueId();
 
   return (
     <div className={styles['switch-wrapper']}>

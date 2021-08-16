@@ -1,6 +1,6 @@
 import React, { forwardRef, HTMLProps } from 'react';
 import CheckIcon from 'assets/common/icons/check.svg';
-import { generateUniqueID } from 'web-vitals/dist/lib/generateUniqueID';
+import generateUniqueId from 'uniqid';
 import styles from './styles.module.scss';
 
 type CheckBoxPropsT = {
@@ -9,7 +9,7 @@ type CheckBoxPropsT = {
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckBoxPropsT>(
   ({ className, inputProps, ...rest }, ref) => {
-    const id = generateUniqueID();
+    const id = generateUniqueId();
 
     return (
       <>

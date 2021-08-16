@@ -5,11 +5,9 @@ import {
   isRegisteredVar,
   notificationVar,
   tokenExistVar,
-} from './graphql/local-state';
+} from '@graphql/local-state';
 
-const AuthLayout = React.lazy(
-  () => import('./components/layouts/AuthLayout/AuthLayout')
-);
+const AuthLayout = React.lazy(() => import('@components/layouts/AuthLayout'));
 
 const NonAuthLayout = React.lazy(
   () => import('./components/layouts/NonAuthLayout')

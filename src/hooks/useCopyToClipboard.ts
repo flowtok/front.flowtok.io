@@ -1,20 +1,27 @@
 import { useLayoutEffect, useState } from 'react';
+import { Callback } from '@root/types/helpers';
 
-export type useCopyToClipboardReturnValueT = [
+export type UseCopyToClipboardReturnValue = [
   (value: string) => Promise<any>,
   boolean
 ];
 
-export const useCopyToClipboard = (
-  interval: number
-): useCopyToClipboardReturnValueT => {
+export type UseCopyToClipboardProps = {
+  freezeTime: number;
+  onCopy?: Callback;
+};
+
+export const useCopyToClipboard = ({
+  onCopy,
+  freezeTime,
+}: UseCopyToClipboardProps): UseCopyToClipboardReturnValue => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
   useLayoutEffect(() => {
     if (isCopied) {
       const timer = setTimeout(() => {
         setIsCopied(false);
-      }, interval);
+      }, freezeTime);
       return () => clearTimeout(timer);
     }
   }, [isCopied]);
@@ -33,6 +40,9 @@ export const useCopyToClipboard = (
           document.execCommand('copy');
           document.body.removeChild(area);
           setIsCopied(true);
+        }
+        if (onCopy) {
+          onCopy();
         }
       }
     },

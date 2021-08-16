@@ -27,7 +27,7 @@ export const ReferralCard = ({
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const { data } = useMeQuery();
   const user = data?.me;
-  const [copy, isCopied] = useCopyToClipboard(1000);
+  const [copy, isCopied] = useCopyToClipboard({ freezeTime: 1000 });
 
   let copyBtn = (
     <Button

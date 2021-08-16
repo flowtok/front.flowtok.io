@@ -14,43 +14,43 @@ import {
   useNewCodeTikTokMutation,
   useVerifyTikTokMutation,
 } from '@root/types/graphql';
-import { useAnimationClass } from '@hooks/useAnimationClass';
 import { useCopyToClipboard } from '@hooks/useCopyToClipboard';
 import { notificationVar } from '@graphql/local-state';
+import Emoji from '@root/configs/emoji';
+import { WithTempClass } from '@root/hocs/WithTempClass';
+import { EmptyObject } from '@root/types/helpers';
+import { useInterval } from '@hooks/useInterval';
 import { ListNumber } from '../../atoms/ListNumber';
 import commonStyles from '../SettingsCards/styles.module.scss';
 import { TikTokProfile } from '../SignUp/TikTokProfile';
-import { SwiperButton } from '../../atoms/SwiperButton';
-import emoji from '../../../configs/emoji';
+import SwiperButton from '../../atoms/SwiperButton';
 import { PopUp } from '../PopUp';
 import styles from './styles.module.scss';
 
-type VerificationPopupPropsT = {
-  isVerified: boolean;
-};
+export type VerificationPopupProps = EmptyObject;
 
 const CHECK_VERIFICATION_INTERVAL = 10000;
 
-const useSwipeEmojiButton = () => {
+export const useSwipeEmojiButton = () => {
+  const { t } = useTranslation();
   const [htmlEmoji, setHtmlEmoji] = useState<string>('');
   const targetButton = useRef<HTMLSpanElement>(null);
-  const animateButton = useAnimationClass(targetButton, 'bubbles', 750);
-  const [copy] = useCopyToClipboard(1000);
+  const notifyOnCopy = () =>
+    notificationVar({
+      type: 'success',
+      message: t('notifications.emojis-is-copied'),
+    });
+  const [copy] = useCopyToClipboard({ freezeTime: 1000, onCopy: notifyOnCopy });
 
   useEffect(() => {
     const emojiFromBase = localStorage.getItem('emoji');
     if (emojiFromBase) {
-      const emojis = emoji.replace_unified(emojiFromBase);
+      const emojis = Emoji.replace_unified(emojiFromBase);
       setHtmlEmoji(emojis);
     }
   }, []);
 
-  const onClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    animateButton(e);
-    notificationVar({
-      type: 'success',
-      message: 'Смайлики скопированы!',
-    });
+  const onClick = () => {
     const emojiFromBase = localStorage.getItem('emoji');
     if (emojiFromBase) {
       copy(emojiFromBase);
@@ -60,7 +60,7 @@ const useSwipeEmojiButton = () => {
   const [fetchNewCode, { loading }] = useNewCodeTikTokMutation({
     onCompleted: (data) => {
       if (data.newCodeTikTok) {
-        const emojis = emoji.replace_unified(data.newCodeTikTok);
+        const emojis = Emoji.replace_unified(data.newCodeTikTok);
         setHtmlEmoji(emojis);
         localStorage.setItem('emoji', data.newCodeTikTok);
       }
@@ -83,23 +83,18 @@ const useSwipeEmojiButton = () => {
   };
 };
 
-const useTikTokVerification = (isVerified: boolean) => {
+const useTikTokVerification = () => {
   const [verifyTikTok] = useVerifyTikTokMutation({});
 
-  useEffect(() => {
-    if (!isVerified) {
-      const interval = setInterval(() => {
-        // verifyTikTok();
-      }, CHECK_VERIFICATION_INTERVAL);
-      return () => clearInterval(interval);
-    }
-  }, []);
+  useInterval(() => {
+    // verifyTikTok();
+  }, CHECK_VERIFICATION_INTERVAL);
 };
 
 export const VerificationPopup = forwardRef<
   HTMLDivElement,
-  PropsWithChildren<VerificationPopupPropsT>
->(({ isVerified }) => {
+  PropsWithChildren<VerificationPopupProps>
+>(() => {
   const { t } = useTranslation();
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
   const finalClassName = classNames(
@@ -107,12 +102,13 @@ export const VerificationPopup = forwardRef<
     styles['description-list']
   );
 
-  useTikTokVerification(isVerified);
+  useTikTokVerification();
+
   const { loading, emojis, onSwipe, onClick, ref } = useSwipeEmojiButton();
 
   return (
     <PopUp
-      isOpen={!isVerified}
+      isOpen={true}
       isCross={false}
       closeOnDocumentClick={false}
       title={t('popup-notification.title')}
@@ -137,14 +133,23 @@ export const VerificationPopup = forwardRef<
           <TikTokProfile />
         </div>
         <div className={styles['footer-popup']}>
-          <SwiperButton
-            onSwipe={onSwipe}
-            loading={loading}
-            onClick={onClick}
-            ref={ref}
-          >
-            {emojis}
-          </SwiperButton>
+          <WithTempClass
+            trigger={'onClick'}
+            className={'bubbles'}
+            duration={750}
+            renderTarget={({ className }) => (
+              <SwiperButton
+                data-testid="swiper-button"
+                onSwipe={onSwipe}
+                loading={loading}
+                onClick={onClick}
+                animationClassName={className}
+                ref={ref}
+              >
+                {emojis}
+              </SwiperButton>
+            )}
+          />
         </div>
         <div className={styles['help-btn']}>
           {t('popup-notification.help-question')}

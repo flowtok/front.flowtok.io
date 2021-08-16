@@ -2,8 +2,8 @@ import React, { FC, useEffect } from 'react';
 import { useMeQuery } from '@root/types/graphql';
 import { QueryHandler } from '../../handlers/QueryHandler';
 
-const BloggerRoutes = React.lazy(() => import('../BloggerLayout'));
-const AdvertiserRoutes = React.lazy(() => import('../AdvertiserLayout'));
+const BloggerLayout = React.lazy(() => import('../BloggerLayout'));
+const AdvertiserLayout = React.lazy(() => import('../AdvertiserLayout'));
 
 type AuthLayoutPropsT = any;
 
@@ -18,7 +18,7 @@ const AuthLayout: FC<AuthLayoutPropsT> = ({}) => {
 
   return (
     <QueryHandler loading={loading} error={error}>
-      {data?.me?.typeUser === 0 ? <BloggerRoutes /> : <AdvertiserRoutes />}
+      {data?.me?.typeUser === 0 ? <BloggerLayout /> : <AdvertiserLayout />}
     </QueryHandler>
   );
 };

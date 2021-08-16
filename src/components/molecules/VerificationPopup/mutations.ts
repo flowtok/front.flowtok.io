@@ -1,12 +1,12 @@
 import { gql } from '@apollo/client';
 
-const mutation = gql`
+export const NEW_CODE_TIK_TOK = gql`
   mutation newCodeTikTok {
     newCodeTikTok
   }
 `;
 
-const VERIFY_TIK_TOK = gql`
+export const VERIFY_TIK_TOK = gql`
   mutation verifyTikTok {
     verifyTikTok
   }
